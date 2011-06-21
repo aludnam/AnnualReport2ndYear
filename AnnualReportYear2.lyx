@@ -1,0 +1,497 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 1cm
+\rightmargin 2cm
+\bottommargin 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+2nd year review
+\end_layout
+
+\begin_layout Paragraph
+Outline of the 2nd year review.
+ 
+\end_layout
+
+\begin_layout Standard
+(Underlined items have been already written or mentioned in the 1st year
+ review.)
+\end_layout
+
+\begin_layout Standard
+Suggest a general intro re localization microscopy, then work this year
+ focusses on
+\end_layout
+
+\begin_layout Standard
+* GaP + DCA, plus variational GaP implementation.
+\end_layout
+
+\begin_layout Standard
+AFAIR, the main point of this was to deal better with model comparison.
+\end_layout
+
+\begin_layout Standard
+* FREM.
+ Review of Ram et al 2006 and then the blinking question.
+\end_layout
+
+\begin_layout Standard
+* Results on determining optimal number of sources.
+\end_layout
+
+\begin_layout Standard
+* Real data isssue as in 4.3
+\end_layout
+
+\begin_layout Standard
+Then concl and future work directions.
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Localization microscopy
+\end_layout
+
+\begin_layout Standard
+Localisation microscopy (LM) provides a conceptually simple way to super-resolut
+ion microscopy as a single source can be localised with an uncertainity
+ much smaller then a classical Rayeigh's resolution criterion.
+ The Rayleigh's resolution criterion is a distance two sources must be separated
+ in order to be able to resolve them as two individual objects.
+ This is approximately 
+\begin_inset Formula $\lambda_{em}/2$
+\end_inset
+
+, where 
+\begin_inset Formula $\lambda_{em}$
+\end_inset
+
+ is an emmission wavelength of the source 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Abbe1873,Born1975principles"
+
+\end_inset
+
+.
+ However, the Rayleigh criterion neglects the stochastic nature of the photon-de
+tection process and does not take the total photon count (intensity of the
+ source) into account.
+ As shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thompson2002,Ram2006"
+
+\end_inset
+
+ the variance of a single source localisation is inversly proportional to
+ the number of photons we can collect from this source.
+ For sufficiently intense sources the localisation precision can significanlty
+ surpass the Rayleigh resolution limit 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gordon2004,Qu2004,Lidke2005,Ober2004"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+PALM, STORM
+\end_layout
+
+\begin_layout Standard
+In the real biological samples the sources are usually highly overlapping
+ and can't be individually localised.
+ PALM (Photo Activation Localization Mcroscopy) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hess2006"
+
+\end_inset
+
+ and STORM (STochastic Optical Resolution Microscopy) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bates2007"
+
+\end_inset
+
+ are separating the individual sources by activating only a small subset
+ of all sources.
+ If the activated subset is smal enought the individual sources are well
+ separated and they can be locaized.
+ This requires an active control of the sources activation.
+ It can be achieved either by using photo-activable (PA) fluorophores (PALM,
+ STORM) or by reversive photo - bleaching 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Baddeley2009"
+
+\end_inset
+
+.
+ Repetitition of this activation - localization cycles can provide high
+ resolution microscopy images of biological samples 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Shroff2008,Huang2008"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Quantum dots
+\end_layout
+
+\begin_layout Standard
+Quantum dots (QD) represent fluorophores that are an order of magnitude
+ brighter and several orders of magnitude more photo-bleaching resistant
+ compared to the organic dyes used in LM 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jaiswal2004,Michalet2005"
+
+\end_inset
+
+.
+ QDs also provide a wide absorbtion and a narrow excitation spectrum band.
+ All these properties makes them very attractive for the biological research.
+ Under a continuous excitation QDs exhibit a blinking behaviour (fluorescence
+ intermittancy).
+ They switch between “ON” episodes (
+\begin_inset Formula $1/\tau_{\mathrm{ON}}^{m}$
+\end_inset
+
+) of a rapid absorption-fluorescence cycling and “OFF” episodes (
+\begin_inset Formula $1/\tau_{\mathrm{OFF}}^{m}$
+\end_inset
+
+) where no light is emitted despite the continuous excitation.
+ Both ON-time and OFF-time probability densities follow an inverse power
+ law 
+\begin_inset Formula $P(\tau_{\mathrm{ON/OFF}})\propto1/\tau_{\mathrm{ON/OFF}}^{m}$
+\end_inset
+
+ however, the blinking process is not yet fully understood 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kuno2001,Stefani2009"
+
+\end_inset
+
+.
+ Despite all the advantages the QD provide, they are not suitable for the
+ standard LM methods (PALM/STORM) as the QD blinking behavior is difficult
+ to controle.
+ The overlapping sources can't be then separated and subsequently localized
+ individually.
+\end_layout
+
+\begin_layout Subsection
+Localization microscopy using Quantum Dots
+\end_layout
+
+\begin_layout Standard
+In 2005 there has been published a method exploiting the fluorescence intermitte
+ncy ('blinking') of quantum dots under continuous excitation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lidke2005"
+
+\end_inset
+
+.
+ A time series of the blinking quantum dots was recorded and analysed using
+ Independent Component Analysis (ICA).
+ FastICA algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hyvarinen2000"
+
+\end_inset
+
+ has been used.
+ As the blinking of the individual quantum dot is independent with respect
+ to blinking of other quantum dots individual emitters even with overlapping
+ PSFs can be separated.
+\end_layout
+
+\begin_layout Standard
+Localisation of two quantum dots separated down to 23 nm (corresponding
+ to 
+\begin_inset Formula $\lambda_{\mathrm{em}}/30$
+\end_inset
+
+) has been reported 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lidke2005"
+
+\end_inset
+
+.
+ Further exploration of the technique for more than two sources and for
+ different configuration of the experiment can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lidke2007"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A Bayesian approach to the blinking of the individual fluorophores has been
+ presented in poster in 2008 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harrington2008"
+
+\end_inset
+
+.
+ A localisation of several quantum dots within the diffracted limited volume
+ has been shown.
+ 
+\end_layout
+
+\begin_layout Standard
+A method using the quantum dots for measurement of sub-resolution distances
+ has been published in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lagerholm2006"
+
+\end_inset
+
+.
+ However, discrete ON-OFF blinking is required (only one source being ON
+ and others OFF) as opposed to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lidke2005,Harrington2008"
+
+\end_inset
+
+ where only fluctuation of the individual sources is required.
+\end_layout
+
+\begin_layout Standard
+Separation of individual emitters with overlapping PSFs from the statistical
+ analysis of the recording of their blinking behaviour can also significantly
+ speed the acquisition procedure (scaling inversely with the number of molecules
+ localised per bright spot 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Small2009"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+NMF (1st year report -August 2010)
+\bar default
+ + updates + connection to the Richardson - Lucy deconvolution (
+\bar under
+RLdecNotes - Sep 2010
+\bar default
+)
+\end_layout
+
+\begin_layout Itemize
+(?) Time series information (Molgedey & Schuster 1994)
+\end_layout
+
+\begin_layout Section
+Motivation of the project
+\end_layout
+
+\begin_layout Section
+GaP + DCA, variational GaP implementation
+\end_layout
+
+\begin_layout Standard
+NMF requires a prior knowledge about the number of components to be separated
+ (the rank of factorisation).
+ The standard NMF algorighm maxmizes the likelihood of the model.
+ Generally increasing the number of components increases the likelihood
+ as we can fit the data more accurately.
+ Ho
+\end_layout
+
+\begin_layout Itemize
+GaP + DCA
+\bar under
+ 
+\bar default
+(
+\bar under
+notes on DCA
+\bar default
+ - February 2011) - Gamma-Poisson model (Canny 2004 paper) and variational
+ approach discussion (Buntine & Jakulin 2006 paper).
+\end_layout
+
+\begin_layout Itemize
+model comparison (compare with BIC...)
+\end_layout
+
+\begin_layout Itemize
+Variational GaP algorithm implementation (Buntine & Jakulin).
+ 
+\end_layout
+
+\begin_layout Section
+FREM
+\end_layout
+
+\begin_layout Itemize
+Fundamental resolution limit (Ram 2006 paper - mentioned in the 
+\bar under
+Literature review - April 2010), 
+\bar default
+Cramer-Rao bound & Fisher information matrix.
+ 
+\end_layout
+
+\begin_layout Itemize
+Limits of the resolution for blinking sources.
+ Is there any advantage of blinking? Does it allow better separation then
+ the static sources? 
+\end_layout
+
+\begin_layout Itemize
+FREM.
+ Review of Ram et al 2006 and then the blinking question.
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Subsection
+Simulations
+\end_layout
+
+\begin_layout Itemize
+Determination of the number of sources - BIC, variational - likelihood lower
+ bound, correlations in residuals
+\end_layout
+
+\begin_layout Itemize
+Simulated sample with spatial structure.
+\end_layout
+
+\begin_layout Itemize
+(?) Time series 
+\end_layout
+
+\begin_layout Subsection
+Real Data
+\end_layout
+
+\begin_layout Itemize
+Out of focus PSFs
+\end_layout
+
+\begin_layout Itemize
+Real sample with structure & SNARE (? Colin & Rory)
+\end_layout
+
+\begin_layout Section
+Conclusion and future work
+\end_layout
+
+\begin_layout Standard
+Direction of the future work.
+ Experimental work.
+ Publications (?).
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "references/MachineLearning,references/Microscopy,references/QuantumDots"
+options "apalike"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
