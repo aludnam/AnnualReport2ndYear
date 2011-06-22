@@ -69,43 +69,52 @@
 \end_layout
 
 \begin_layout Paragraph
+\begin_inset Note Note
+status open
+
+\begin_layout Paragraph
 Outline of the 2nd year review.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 (Underlined items have been already written or mentioned in the 1st year
  review.)
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Suggest a general intro re localization microscopy, then work this year
  focusses on
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 * GaP + DCA, plus variational GaP implementation.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 AFAIR, the main point of this was to deal better with model comparison.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 * FREM.
  Review of Ram et al 2006 and then the blinking question.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 * Results on determining optimal number of sources.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 * Real data isssue as in 4.3
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Then concl and future work directions.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -185,8 +194,8 @@ key "Bates2007"
 
  are separating the individual sources by activating only a small subset
  of all sources.
- If the activated subset is smal enought the individual sources are well
- separated and they can be locaized.
+ If the activated subset is smal enought the individual fluorophores are
+ well spatially separated and can be locaized as individual sources.
  This requires an active control of the sources activation.
  It can be achieved either by using photo-activable (PA) fluorophores (PALM,
  STORM) or by reversive photo - bleaching 
@@ -206,6 +215,20 @@ key "Shroff2008,Huang2008"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Separation of individual emitters with overlapping PSFs from the statistical
+ analysis of the recording of their blinking behaviour can also significantly
+ speed the acquisition procedure (scaling inversely with the number of molecules
+ localised per bright spot 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Small2009"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -343,21 +366,7 @@ key "Lidke2005,Harrington2008"
 
 \end_inset
 
- where only fluctuation of the individual sources is required.
-\end_layout
-
-\begin_layout Standard
-Separation of individual emitters with overlapping PSFs from the statistical
- analysis of the recording of their blinking behaviour can also significantly
- speed the acquisition procedure (scaling inversely with the number of molecules
- localised per bright spot 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Small2009"
-
-\end_inset
-
-).
+ where only fluctuation of the individual sources is needed.
 \end_layout
 
 \begin_layout Itemize
@@ -380,18 +389,680 @@ RLdecNotes - Sep 2010
 Motivation of the project
 \end_layout
 
+\begin_layout Standard
+Non-negative matrix factorization (NMF) seems to be a very natural method
+ for dealing with the blinking QD data.
+ The expectation value of noisy spatio-temporal 
+\begin_inset Formula $N\times T$
+\end_inset
+
+ data matrix 
+\begin_inset Formula $D$
+\end_inset
+
+ (
+\begin_inset Formula $N$
+\end_inset
+
+ - total number of pixels, 
+\begin_inset Formula $T$
+\end_inset
+
+ - number of time slices) is assumed to be decomposed into the 
+\begin_inset Formula $N\times K$
+\end_inset
+
+ spatial component matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ (images of the individual sources) and the 
+\begin_inset Formula $K\times T$
+\end_inset
+
+ temporal component matrix 
+\begin_inset Formula $H$
+\end_inset
+
+ (intensities of the sources).
+ 
+\begin_inset Formula 
+\begin{equation}
+\mathbb{E}\left[D\right]=\mathbb{E}\left[d_{xt}\right]=\left(WH\right)_{xt}=\sum_{k=1}^{K}w_{xk}h_{kt}\label{eq:NMF model}
+\end{equation}
+
+\end_inset
+
+with non-negativity constraints 
+\begin_inset Formula $d_{xt},\, w_{xk}\ \text{and}\ h_{kt}\geq0$
+\end_inset
+
+.
+ The detailes of the model and the algorithm are described in the first
+ year review.
+\end_layout
+
 \begin_layout Section
 GaP + DCA, variational GaP implementation
 \end_layout
 
 \begin_layout Standard
-NMF requires a prior knowledge about the number of components to be separated
- (the rank of factorisation).
- The standard NMF algorighm maxmizes the likelihood of the model.
- Generally increasing the number of components increases the likelihood
- as we can fit the data more accurately.
- Ho
+A generative model underlying NMF is presented in following section.
+ A variational treatment of the problem can provide a way to estimate the
+ number of sources in the QD data.
+ 
 \end_layout
+
+\begin_layout Subsection
+Model comparison problem
+\end_layout
+
+\begin_layout Standard
+NMF requires a prior knowledge about the number of components to be separated
+ (estimation of 
+\begin_inset Formula $K$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NMF model"
+
+\end_inset
+
+ - rank of hte factorzation).
+ For noise-free data it is possible to estimate the number of sources by
+ analyxing principal components (PC), for example.
+ However, in the noisy case the rank estimation is difficult.
+\end_layout
+
+\begin_layout Standard
+The standard NMF algorithm maximizes the likelihood of the model Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+ under the assumption of the Poisson noise corrupted data.
+ The likelihood function increases with higher 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ The Bayesian Information Criterion (BIC) is a rough approximation of the
+ Bayesian treatment penalysing the complexity of the model.
+ By evaluating the model for different values of 
+\begin_inset Formula $K$
+\end_inset
+
+ we can compare the BIC score.
+ However, as shown in the first year review the BIC might be too crude approxima
+tion for the correct estimation of the data dimensionality.
+ 
+\end_layout
+
+\begin_layout Subsection
+Gamma Poisson (GaP) model
+\end_layout
+
+\begin_layout Standard
+Gamma-Poisson (GaP) model 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Canny2004"
+
+\end_inset
+
+ has been proposed as a probabilistic model for documents.
+ It represents a generative probabilistic model for NMF Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+.
+ The entries 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ (intensities of the sources) are treated as hidden variables generated
+ from a Gamma distribution
+\begin_inset Formula 
+\[
+p(h_{kt}|\alpha_{k},\beta_{k})=\frac{h_{kt}^{\alpha-1}\beta^{\alpha}\exp(-\beta h_{kt})}{\Gamma(\alpha)}
+\]
+
+\end_inset
+
+and the data 
+\begin_inset Formula $v_{xt}$
+\end_inset
+
+ modelled as a Poisson variable with mean 
+\begin_inset Formula $\sum_{k}w_{xk}h_{kt}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+p(d_{xt}|w_{xk},h_{kt})=\frac{\left(\sum_{k}w_{xk}h_{kt}\right)^{v_{xt}}\exp(-\sum_{k}w_{xk}h_{kt})}{v_{xt}!}\label{eq:GaP Poisson}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $w_{xk}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{k}$
+\end_inset
+
+ are the parameters of the model.
+ 
+\end_layout
+
+\begin_layout Standard
+The likelihood od the model is given by
+\begin_inset Formula 
+\begin{equation}
+p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(d_{xt}|W,H)\label{eq:GaP likelihood}
+\end{equation}
+
+\end_inset
+
+and the log-likelihood
+\begin_inset Formula 
+\[
+\log p(D,H|W,K,\theta)=\sum_{t=1}^{T}\left\{ \sum_{k=1}^{K}\log p(h_{kt}|\alpha_{k},\beta_{k})+\sum_{x=1}^{N}\log p(d_{xt}|W,H)\right\} 
+\]
+
+\end_inset
+
+The coupling of the 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP Poisson"
+
+\end_inset
+
+ prevents from integrating out the hidden variables 
+\begin_inset Formula $H$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP likelihood"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Blei2003"
+
+\end_inset
+
+.
+ This is problematic as in the expectation maximization (EM) algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bishop2006"
+
+\end_inset
+
+ it is necessary to evaluate the term 
+\begin_inset Formula $\mathbb{E}_{h_{kt}}\left[\log\sum_{k}w_{xk}h_{kt}\right]$
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+.
+ (In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Canny2004"
+
+\end_inset
+
+ a crude approximation is used 
+\begin_inset Formula $\mathbb{E}_{h_{kt}}\left[\log\sum_{k}w_{xk}h_{kt}\right]\approx\log\mathbb{E}_{h_{kt}}\left[\sum_{k}w_{xk}h_{kt}\right]$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Subsection
+Variational treatment of the GaP model
+\end_layout
+
+\begin_layout Standard
+Variational treatment of the problem is proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Buntine2006"
+
+\end_inset
+
+.
+ The detailed derivation is provided in Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Variational-approximation-for"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+A new latent 
+\begin_inset Formula $N\times K$
+\end_inset
+
+ matrix 
+\begin_inset Formula $V$
+\end_inset
+
+ (entries 
+\begin_inset Formula $v_{xk}$
+\end_inset
+
+) is introduced such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}\sum_{x=1}^{N}v_{xk}^{(t)} & =c_{k}^{(t)}\\
+\sum_{k=1}^{K}v_{xk}^{(t)} & =d_{xt}
+\end{alignedat}
+\]
+
+\end_inset
+
+where the discrete latent vector 
+\begin_inset Formula $c_{k}$
+\end_inset
+
+ gives the intensity of the 
+\begin_inset Formula $k$
+\end_inset
+
+th component.
+ The distribution of the undelying GaP model now becomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+h_{kt} & \sim\mathrm{Gamma}(h_{kt};\alpha_{k},\beta_{k})\\
+c_{k}^{(t)} & \sim\mathrm{Po}(c_{k}^{(t)};h_{kt})\\
+v_{x,k}^{(t)} & \sim\mathrm{Multinom}(v_{xk}^{(t)};w_{xk},c_{k}^{(t)})
+\end{alignat*}
+
+\end_inset
+
+and the likelihood of the GaP model with the latent matrix 
+\begin_inset Formula $V$
+\end_inset
+
+ is then 
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(V,H|\alpha,\beta,W,K) & =\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(v_{1k}^{(t)},v_{2k}^{(t)}...v_{N,k}^{(t)}|h_{kt},w_{xk})\\
+ & =\prod_{kt}\mathrm{Gamma}(h_{kt};\alpha_{k},\beta_{k})\prod_{x}\mathrm{Po}(c_{k}^{(t)};h_{kt})\times\mathrm{Multinom}(v_{xk}^{(t)};w_{xk},c_{k}^{(t)})
+\end{alignat*}
+
+\end_inset
+
+explicitly 
+\begin_inset Formula 
+\begin{equation}
+p(V,H|\alpha,\beta,W,K)=\prod_{kt}\frac{\beta_{k}^{\alpha_{k}}h_{kt}^{c_{k}^{(t)}+\alpha_{k}-1}\exp(-(\beta_{k}+1)h_{kt})}{\Gamma(\alpha_{k})}\prod_{x}\frac{w_{xk}^{v_{xk}^{(t)}}}{v_{xk}^{(t)}!}\label{eq:GaP likelihood with latent matrix V}
+\end{equation}
+
+\end_inset
+
+ 
+\begin_inset Formula $D$
+\end_inset
+
+ is derived from 
+\begin_inset Formula $V$
+\end_inset
+
+ (
+\begin_inset Formula $d_{xt}=\sum_{k}v_{xk}^{(t)}$
+\end_inset
+
+) so it is not represented.
+\end_layout
+
+\begin_layout Standard
+A factored posterior approximation is made for the latent variable to find
+ xpectations as part of an optimization step.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+p(V,H|\alpha,\beta,W,K)\approx q(V,H)=q_{V}(V)q_{H}(H)\label{eq:GaP factorised approximation}
+\end{equation}
+
+\end_inset
+
+where the optimal solution is given by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bishop2006"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+\log q_{H}^{*}(H) & =\mathbb{E}_{V\sim q_{V}}\left[\log p(V,H,D|W,\alpha,\beta)\right]+\mathrm{const}\\
+\log q_{V}^{*}(V) & =\mathbb{E}_{H\sim q_{H}}\left[\log p(V,H,D|W,\alpha,\beta)\right]+\mathrm{const}
+\end{alignat*}
+
+\end_inset
+
+The likelihood of the data is bounded by
+\begin_inset Formula 
+\[
+p(D|W,\alpha,\beta)\geq\mathcal{L}(q,W,\alpha,\beta)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}(q,W,\alpha,\beta)=\mathbb{E}_{V,H\sim q(V,H)}\left[\log p(H,V,D|W,\alpha,\beta,K)\right]+C\label{eq:GaP Lower bound}
+\end{equation}
+
+\end_inset
+
+is a variational lower bound 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bishop2006"
+
+\end_inset
+
+ and the 
+\begin_inset Formula $C$
+\end_inset
+
+ contanines the entropy terms of 
+\begin_inset Formula $q_{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $q_{V}$
+\end_inset
+
+ which are constant wrt 
+\begin_inset Formula $W$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The factorised form Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP factorised approximation"
+
+\end_inset
+
+ and the likelihood Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP likelihood with latent matrix V"
+
+\end_inset
+
+ suggest
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+q_{H}(H) & =\prod_{k}\mathrm{Gamma}(h_{kt};a_{k}^{(t)},b_{k})\\
+q_{V}(V) & =\prod_{xk}\mathrm{Mutlinom}(v_{xk}^{(t)};n_{xk}^{(t)},d_{x})
+\end{alignat*}
+
+\end_inset
+
+and the update rules for the parameters 
+\begin_inset Formula $n_{xk}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $b_{k}$
+\end_inset
+
+ can be derived (for details see Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Variational-Approximation"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{alignat}{1}
+n_{xk}^{(t)} & =\frac{1}{z_{x}}W_{xk}\exp(\psi_{0}(a_{k}^{(t)})-\log b_{k})\nonumber \\
+a_{k}^{(t)} & =\sum_{x=1}^{N}n_{xk}^{(t)}d_{xt}+\alpha_{k}\label{eq:GaP update rules}\\
+b_{k} & =1+\beta_{k}\nonumber 
+\end{alignat}
+
+\end_inset
+
+where 
+\begin_inset Formula $z_{x}$
+\end_inset
+
+ is the normalisation constant 
+\begin_inset Formula $z_{x}=\sum_{k}n_{xk}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\psi_{0}$
+\end_inset
+
+ is digamma function (logarithmic derivation of the gamma function).
+ 
+\end_layout
+
+\begin_layout Standard
+By maximizing the lowe bound Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP Lower bound"
+
+\end_inset
+
+ wrt 
+\begin_inset Formula $w_{xk}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+w_{xk}=\frac{\sum_{t}n_{xk}^{(t)}d_{xt}}{\lambda_{k}}\label{eq:GaP update W}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{k}=\sum_{x}w_{xk}$
+\end_inset
+
+ is the normalization constant.
+\end_layout
+
+\begin_layout Standard
+The variational lower bound on the log-likelihood Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP Lower bound"
+
+\end_inset
+
+ then becomes 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=\sum_{t}\left\{ \sum_{k}\mathbb{E}_{H}\left[\log h_{kt}\right](\alpha_{k}-a_{k}^{(t)})+\sum_{k}\log\frac{\Gamma(a_{k}^{(t)})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k}^{a_{k}^{(t)}}}+\sum_{x}d_{xt}\log z_{x}-\log\prod_{x}d_{xt}!\right\} \label{eq:GaP variational lower bound}
+\end{equation}
+
+\end_inset
+
+The variational approximation algorightm is then repeating until convergence:
+\end_layout
+
+\begin_layout Enumerate
+For each time slice 
+\begin_inset Formula $t$
+\end_inset
+
+ of the stack: updarte 
+\begin_inset Formula $n_{xk}^{(t)}$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{k}^{(t)}$
+\end_inset
+
+ according to Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP update rules"
+
+\end_inset
+
+.
+ (Variational E step)
+\end_layout
+
+\begin_layout Enumerate
+Update 
+\begin_inset Formula $W$
+\end_inset
+
+ according to the Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP update W"
+
+\end_inset
+
+.
+ (Variational M step.)
+\end_layout
+
+\begin_layout Enumerate
+Compute the variational lower bound Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP variational lower bound"
+
+\end_inset
+
+ and check for convergence.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
 \begin_layout Itemize
 GaP + DCA
@@ -402,7 +1073,7 @@ GaP + DCA
 \bar under
 notes on DCA
 \bar default
- - February 2011) - Gamma-Poisson model (Canny 2004 paper) and variational
+ - February 2011) - Gamma-Poisson (GaP) model (Canny 2004 paper) and variational
  approach discussion (Buntine & Jakulin 2006 paper).
 \end_layout
 
@@ -412,7 +1083,11 @@ model comparison (compare with BIC...)
 
 \begin_layout Itemize
 Variational GaP algorithm implementation (Buntine & Jakulin).
- 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -476,6 +1151,56 @@ Real sample with structure & SNARE (? Colin & Rory)
 Conclusion and future work
 \end_layout
 
+\begin_layout Subsection
+Time series
+\end_layout
+
+\begin_layout Standard
+Standard NMF does not require any prior knowledge about the matrices 
+\begin_inset Formula $W$
+\end_inset
+
+ or 
+\begin_inset Formula $H$
+\end_inset
+
+, apart from the non-negativity constraints.
+ We can use a permutation operator to the data for the indeces along the
+ time (
+\begin_inset Formula $\pi_{x}(x)$
+\end_inset
+
+) or the space (
+\begin_inset Formula $\pi_{t}(t)$
+\end_inset
+
+) dimension without changeig the permuted factorised matrices
+\begin_inset Formula 
+\[
+V_{\pi_{x}(x)\pi_{t}(t)}=\sum_{k=1}^{K}W_{\pi_{x}(x)k}H_{k\pi_{t}(t)}
+\]
+
+\end_inset
+
+However, there can be a rich information contained in the time-series nature
+ of the data.
+ The sources intensities matrix can be highly correlated along the time
+ dimension - the sources that are ON at one time are likely to be ON in
+ the following time instant.
+ 
+\end_layout
+
+\begin_layout Standard
+Molgedey Schuster 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Molgedey1994a"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Direction of the future work.
  Experimental work.
@@ -485,8 +1210,1230 @@ Direction of the future work.
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "references/MachineLearning,references/Microscopy,references/QuantumDots"
+bibfiles "references/MachineLearning,references/Microscopy,references/QuantumDots,references/Books"
 options "apalike"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Variational approximation for GaP model
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Variational-approximation-for"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is a derivation of the variational approximation of the GaP model 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Buntine2006"
+
+\end_inset
+
+.
+ From the main text there is a different notation: data 
+\begin_inset Formula $d\rightarrow w$
+\end_inset
+
+, hidden varibales (intenisties) 
+\begin_inset Formula $h\rightarrow l$
+\end_inset
+
+, parameters of the model (PSFs of the individual sources) 
+\begin_inset Formula $w\rightarrow\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Gamma-Poisson (GP) model 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Canny2004"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\mathbb{E}_{w\sim p(w|l,\theta)}\left[w_{j}\right]=\sum_{k=1}^{K}\theta_{jk}l_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ word count of 
+\begin_inset Formula $j$
+\end_inset
+
+th word in a document 
+\begin_inset Formula 
+\[
+w_{j}\sim\mathrm{Po}(w_{j};(\mathbf{\theta l})_{j})=\frac{(\mathbf{\theta l})_{j}^{w_{j}}\exp(-(\mathbf{\theta l})_{j})}{w_{h}!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $l_{k}$
+\end_inset
+
+ component scores (vector 
+\begin_inset Formula $\mathbf{l}$
+\end_inset
+
+) that indicate amount of the component in the document 
+\begin_inset Formula 
+\[
+l_{k}\sim\mathrm{Gamma}(l_{k};\alpha_{k},\beta_{k})=\frac{l_{k}^{\alpha_{k}-1}\beta_{k}^{\alpha_{k}}\exp(-\beta_{k}l_{k})}{\Gamma(\alpha_{k})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{\theta}$
+\end_inset
+
+ component loading matrix of size 
+\begin_inset Formula $J\times K$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\theta_{jk}$
+\end_inset
+
+ controls partition of the 
+\begin_inset Formula $k$
+\end_inset
+
+th component in the 
+\begin_inset Formula $j$
+\end_inset
+
+th word
+\end_layout
+
+\begin_layout Standard
+The log-likelihood of this model:
+\begin_inset Formula 
+\begin{alignat}{1}
+\log p(\mathbf{w},l|\mathbf{\theta,}\mathrm{GP,K}) & =\sum_{k=1}^{K}\left\{ \alpha_{k}\log(\beta_{k})+(\alpha_{k}-1)\log l_{k}-\beta_{k}l_{k}-\log\Gamma(\alpha_{k})+\sum_{j=1}^{J}\left[w_{j}\log(\mathbf{\theta l})_{j}-(\mathbf{\theta l})_{j}-\log w_{j}!\right]\right\} \label{eq:likelihood l}\\
+ & =\sum_{k=1}^{K}\textrm{log likelihood of}\ l_{k}+\sum_{j=1}^{J}\textrm{log likelihood of}\ w_{j}\ \textrm{given}\ \mathbf{l}\nonumber 
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Components assignment for words.
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Components-assignment-for"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Introducing a discrete latent vector 
+\begin_inset Formula $\mathbf{c}$
+\end_inset
+
+ whose total count is 
+\begin_inset Formula $\sum_{j}w_{j}$
+\end_inset
+
+.
+ The count 
+\begin_inset Formula $c_{k}$
+\end_inset
+
+ gives the count of words in the document appearing in the 
+\begin_inset Formula $k$
+\end_inset
+
+th component.
+ It is derived from a latent matrix 
+\begin_inset Formula $\mathbf{V}$
+\end_inset
+
+ of size 
+\begin_inset Formula $J\times K$
+\end_inset
+
+ (entries 
+\begin_inset Formula $v_{jk}$
+\end_inset
+
+).
+ 
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sum_{j=1}^{J}v_{jk} & =c_{k}\\
+\sum_{k=1}^{K}v_{jk} & =w_{j}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The distribution underlying the GP model now becomes 
+\begin_inset Formula 
+\begin{alignat*}{1}
+l_{k} & \sim\mathrm{Gamma}(l_{k};\alpha_{k},\beta_{k})\\
+c_{k} & \sim\mathrm{Po}(c_{k};l_{k})\\
+v_{j,k} & \sim\mathrm{Multinom}(v_{jk};\theta_{jk},c_{k})=c_{k}!\prod_{j}\frac{\theta_{jk}^{v_{jk}}}{v_{jk}!}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof:
+\end_layout
+
+\begin_layout Standard
+We have 
+\begin_inset Formula $p(c_{k}|l_{k})=\mathrm{Po}(c_{k};l_{k})$
+\end_inset
+
+ and 
+\begin_inset Formula $p(v_{jk}|c_{k})=\mathrm{Binom}(v_{jk};\theta_{jk},c_{k})=\binom{c_{k}}{v_{jk}}\theta_{jk}^{v_{jk}}(1-\theta_{jk})^{c_{k}-v_{jk}}$
+\end_inset
+
+ (probability of having 
+\begin_inset Formula $v_{jk}$
+\end_inset
+
+ counts in 
+\begin_inset Formula $c_{k}$
+\end_inset
+
+ counts).
+ Then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{2}
+p(v_{jk}|l_{k}) & =\sum_{c_{k}}p(v_{jk}|c_{k})p(c_{k}|l_{k})\\
+ & =\sum_{c_{k}=v_{jk}}^{\infty}\frac{c_{k}!}{v_{jk}!(c_{k}-v_{jk})!}\theta_{jk}^{v_{jk}}(1-\theta_{jk})^{c_{k}-v_{jk}}\times\frac{l_{k}^{c_{k}}\exp(-l_{k})}{c_{k}!}\\
+ & =\frac{\exp(-l_{k})\theta_{jk}^{v_{jk}}}{v_{jk}!}\sum_{c_{k}=v_{jk}}^{\infty}\frac{l_{k}^{c_{k}}(1-\theta_{jk})^{c_{k}-v_{jk}}}{(c_{k}-v_{jk})!} & |\alpha_{jk}=c_{k}-v_{jk}\\
+ & =\frac{\exp(-l_{k})(\theta_{jk}l_{k})^{v_{jk}}}{v_{jk}!}\sum_{\alpha_{jk}=0}^{\infty}\frac{(l_{k}-\theta_{jk}l_{k})^{\alpha_{jk}}}{(\alpha_{jk})!}\\
+ & =\frac{\exp(-l_{k})(\theta_{jk}l_{k})^{v_{jk}}}{v_{jk}!}\exp(l_{k}-\theta_{jk}l_{k})\\
+ & =\frac{(\theta_{jk}l_{k})^{v_{jk}}\exp(-\theta_{jk}l_{k})}{v_{jk}!}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and so 
+\begin_inset Formula $p(v_{jk}|l_{k})\sim\mathrm{Po}(v_{jk};\theta_{jk}l_{k})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now sum of two independent Poisson distributed variables 
+\begin_inset Formula $Z=X_{1}+X_{2}$
+\end_inset
+
+ (
+\begin_inset Formula $X_{i}\sim\mathrm{\mathrm{Po}}(x;\lambda_{i})$
+\end_inset
+
+)is Poisson distributed:
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(Z) & =\sum_{x_{1}=0}^{z}p(X_{1})p(Z-X_{1})\\
+ & =\sum_{x_{1}=0}^{z}\frac{\lambda_{1}^{x_{1}}e^{-\lambda_{1}}}{x_{1}!}\frac{\lambda_{2}^{z-x_{1}}e^{-\lambda_{2}}}{(z-x_{1})!}\\
+ & =\frac{e^{-(\lambda_{1}+\lambda_{2})}}{z!}\sum_{x_{1}=0}^{z}\frac{z!}{x_{1}!(z-x_{1})!}\lambda_{1}^{x_{1}}\lambda_{2}^{z-x_{1}}\\
+ & =\frac{(\lambda_{1}+\lambda_{2})^{z}e^{-(\lambda_{1}+\lambda_{2})}}{z!}
+\end{alignat*}
+
+\end_inset
+
+for more by induction.
+ 
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $w_{j}=\sum_{k=1}^{K}v_{jk}$
+\end_inset
+
+ is Poisson distributed:
+\begin_inset Formula 
+\[
+w_{j}\sim\mathrm{Po}(w_{j};\sum_{k=1}^{K}\theta_{jk}l_{k})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The joint distribution for 
+\begin_inset Formula $v_{jk}$
+\end_inset
+
+ (each is Poisson):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{2}
+p(v_{1,k},v_{2,k}...v_{J,k}|l_{k},\theta_{jk}) & =\prod_{j=1}^{J}\frac{(\theta_{jk}l_{k})^{v_{jk}}\exp(-\theta_{jk}l_{k})}{v_{jk}!}\\
+ & =e^{-l_{k}\sum_{j}\theta_{jk}}l_{k}^{\sum_{j}v_{jk}}\prod_{j}\frac{\theta{}^{v_{jk}}}{v_{jk}!} & |\sum_{j}\theta_{jk}=1,\sum_{j}v_{jk}=c_{k}\\
+ & =\frac{l_{k}^{c_{k}}e^{-l_{k}}}{c_{k}!}c_{k}!\prod_{j}\frac{\theta{}^{v_{jk}}}{v_{jk}!}\\
+ & =\mathrm{Po}(c_{k};l_{k})\times\mathrm{Multinom}(v_{jk};\theta_{jk},c_{k})
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The likelihood of GaP model with latent matrix 
+\begin_inset Formula $V$
+\end_inset
+
+ is then 
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(V,l|\alpha,\beta,\theta,K) & =\prod_{k}p(l_{k}|\alpha_{k},\beta_{k})\prod_{jk}p(v_{1k},v_{2k}...v_{J,k}|l_{k},\theta_{jk})\\
+ & =\prod_{k}\mathrm{Gamma}(l_{k};\alpha_{k},\beta_{k})\prod_{jk}\mathrm{Po}(c_{k};l_{k})\times\mathrm{Multinom}(v_{jk};\theta_{jk},c_{k})
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+explicitly:
+\begin_inset Formula 
+\begin{equation}
+p(V,l|\alpha,\beta,\theta,K)=\prod_{k}\frac{\beta_{k}^{\alpha_{k}}l_{k}^{c_{k}+\alpha_{k}-1}\exp(-(\beta_{k}+1)l_{k})}{\Gamma(\alpha_{k})}\prod_{jk}\frac{\theta_{jk}^{v_{jk}}}{v_{jk}!}\label{eq:likelihood V,l}
+\end{equation}
+
+\end_inset
+
+ and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline}
+\log p(V,l|\alpha,\beta,\theta,K)=\sum_{k}\left\{ (c_{k}+\alpha_{k}-1)\log l_{k}-(\beta_{k}+1)l_{k}+\alpha_{k}\log\beta_{k}-\log\Gamma(\alpha_{k})+\sum_{j}\left[v_{jk}\log\theta_{jk}-\log v_{jk}!\right]\right\} \label{eq:log-likelihood V,l}
+\end{multline}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ is derived from 
+\begin_inset Formula $V$
+\end_inset
+
+ so it is not represented.
+ 
+\end_layout
+
+\begin_layout Standard
+It is possible to integrate out 
+\begin_inset Formula $l$
+\end_inset
+
+ (not sure about discrete values...?):
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(V|\alpha,\beta,\theta,K) & =\int_{0}^{\infty}p(V,l|\alpha,\beta,\theta,K)dl\\
+ & =\prod_{jk}\frac{\theta_{jk}^{v_{jk}}}{v_{jk}!}\prod_{k}\frac{\beta_{k}}{\Gamma(\alpha_{k})}\int_{0}^{\infty}\left[l_{k}^{c_{k}+\alpha_{k}-1}\exp(-(\beta_{k}+1)l_{k})\right]dl_{k}
+\end{alignat*}
+
+\end_inset
+
+and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{2}
+\int_{0}^{\infty}\left[l_{k}^{c_{k}+\alpha_{k}-1}\exp(-(\beta_{k}+1)l_{k})\right]dl_{k} & =\int_{0}^{\infty}l_{k}^{z-1}\exp(-(\beta_{k}+1)l_{k})dl_{k} & |c_{k}+\alpha_{k}=z\\
+ & =\frac{1}{\left(\beta_{k}+1\right)^{z}}\int_{0}^{\infty}t^{z-1}\exp(-t)dt & |(\beta_{k}+1)l_{k}=t\\
+ & =\frac{1}{\left(\beta_{k}+1\right)^{z}}\Gamma(z)
+\end{alignat*}
+
+\end_inset
+
+so 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(V|\alpha,\beta,\theta,K)=\prod_{k}\frac{\beta_{k}}{\left(\beta_{k}+1\right)^{c_{k}+\alpha_{k}}}\frac{\Gamma(c_{k}+\alpha_{k})}{\Gamma(\alpha_{k})}\prod_{jk}\frac{\theta_{jk}^{v_{jk}}}{v_{jk}!}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+EM algorithm
+\end_layout
+
+\begin_layout Standard
+The term 
+\begin_inset Formula $l_{k}^{(c_{k}+\alpha_{k}-1)}=l_{k}^{(\sum_{j}v_{jk}+\alpha_{k}-1)}$
+\end_inset
+
+ in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:likelihood V,l"
+
+\end_inset
+
+ links together 
+\begin_inset Formula $l_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $V$
+\end_inset
+
+ and prevents simple evaluation of 
+\begin_inset Formula $\mathcal{Q}(\theta,\theta^{\mathrm{old}})=\mathbb{E}_{p(V,l|\theta^{\mathrm{old}})}\left[\log p(V,l|\theta,...)\right]$
+\end_inset
+
+ in the EM algorithm because of the term 
+\begin_inset Formula $\mathbb{E}_{p(V,l|\theta^{\mathrm{old}})}\left[v_{jk}\right]$
+\end_inset
+
+.
+ It comes from the Poisson term 
+\begin_inset Formula $\mathrm{Po}(c_{k};l_{k})$
+\end_inset
+
+ in 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\lang english
+
+\begin_inset Formula $p(V,l|\alpha,\beta,\theta,K)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the likelihood Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:likelihood l"
+
+\end_inset
+
+ is problematic the term 
+\begin_inset Formula $w_{k}\log\sum_{k}\theta_{jk}l_{k}$
+\end_inset
+
+.
+ (In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Canny2004"
+
+\end_inset
+
+ is the term 
+\begin_inset Formula $\mathbb{E}_{l}\left[\log\sum_{k}\theta_{jk}l_{k}\right]$
+\end_inset
+
+ approximated by 
+\begin_inset Formula $\log\mathbb{E}_{l}\left[\sum_{k}\theta_{jk}l_{k}\right]$
+\end_inset
+
+ which might be quite crude.)
+\end_layout
+
+\begin_layout Subsection
+Variational Approximation
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Variational-Approximation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Factorised approximate posterior distribution for latent variables:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(l,V|w,\alpha,\beta,\theta,K)\approx q(l,V)=q_{l}(l)q_{V}(V)
+\]
+
+\end_inset
+
+Optimal solution 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bishop2006"
+
+\end_inset
+
+ (p.466 Eq.
+ (10.9))
+\begin_inset Formula 
+\begin{alignat}{1}
+\log q_{l}^{*}(l) & =\mathbb{E}_{V\sim q_{V}}\left[\log p(V,l,w|\theta,\alpha,\beta)\right]+\mathrm{const}\label{eq:optimal q(l)}\\
+\log q_{V}^{*}(V) & =\mathbb{E}_{l\sim q_{l}}\left[\log p(V,l,w|\theta,\alpha,\beta)\right]+\mathrm{const}\label{eq:optimal q(V)}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The lower bound is given by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bishop2006"
+
+\end_inset
+
+ (p.465 Eq.
+ (10.3))
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}(q,\theta)=\sum_{z}q(Z)\log\frac{p(X,Z|\theta)}{q(Z)}=\sum_{z}q(Z)\log p(X,Z|\theta)+H(q_{l})+H(q_{V})
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{alignat*}{1}
+H(q_{l}) & =-\mathbb{E}_{l\sim q_{l}}\left[\log q_{l}\right]\\
+H(q_{V}) & =-\mathbb{E}_{V\sim q_{V}}\left[\log q_{V}\right]
+\end{alignat*}
+
+\end_inset
+
+ are the entropy terms.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\log p(w|\theta,\alpha,\beta,K)\geq\mathbb{E}_{l,V\sim q(l,V)}\left[\log p(l,V,w|\theta,\alpha,\beta,K)\right]+C\label{eq:lower bound}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The functional form of the complete likelihood suggests
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat}{1}
+q_{l}(l) & =\prod_{k}\mathrm{Gamma}(l_{l};\alpha_{k},\beta_{k})=\prod_{k}\frac{l_{k}^{a_{k}-1}b_{k}^{a_{k}}\exp(-b_{k}l_{k})}{\Gamma(a_{k})}\label{eq:q(l)}\\
+q_{V}(V) & =\prod_{jk}\mathrm{Mutlinom}(v_{jk};n_{jk},w_{j})=\prod_{jk}\frac{w_{j}!}{v_{jk}!}n_{jk}^{v_{jk}}\label{eq:q(V)}
+\end{alignat}
+
+\end_inset
+
+with 
+\begin_inset Formula $\sum_{k}n_{jk}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then from Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:optimal q(l)"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:q(l)"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:log-likelihood V,l"
+
+\end_inset
+
+ keeping terms dependent on 
+\begin_inset Formula $l$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(a_{k}-1)\log l_{k}-b_{k}l_{k}+\mathrm{const}=(\sum_{j}\mathbb{E}_{V}\left[v_{jk}\right]+\alpha_{k}-1)\log l_{k}-(\beta_{k}+1)l_{k}+\mathrm{const}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{k}=\sum_{j}v_{jk}$
+\end_inset
+
+.
+ Form Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:optimal q(V)"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:q(V)"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:log-likelihood V,l"
+
+\end_inset
+
+ keeping terms dependent on 
+\begin_inset Formula $V$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+v_{jk}\log n_{jk}-\log v_{jk}!+\mathrm{const}=v_{jk}\mathbb{E}_{l}\left[\log l_{k}\right]+v_{jk}\log\theta_{jk}-\log v_{jk}!+\mathrm{const}
+\]
+
+\end_inset
+
+so the rewrite rules for the parameters:
+\begin_inset Formula 
+\begin{alignat}{1}
+n_{jk} & =\frac{1}{z_{j}}\theta_{jk}\exp(\mathbb{E}_{l}\left[\log l_{k}\right])\nonumber \\
+a_{k} & =\sum_{j}n_{jk}w_{j}+\alpha_{k}\label{eq:rewrite rules}\\
+b_{k} & =1+\beta_{k}\nonumber 
+\end{alignat}
+
+\end_inset
+
+where 
+\begin_inset Formula $z_{j}$
+\end_inset
+
+ is the normalisation constant (
+\begin_inset Formula $\sum_{k}n_{jk}=1$
+\end_inset
+
+) so 
+\begin_inset Formula $z_{j}=\sum_{k}\theta_{jk}\exp(\mathbb{E}_{l}\left[\log l_{k}\right])$
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{j}\mathbb{E}_{V}\left[v_{jk}\right]=\sum_{j}n_{jk}w_{j}$
+\end_inset
+
+ (Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:q(V)"
+
+\end_inset
+
+).
+ 
+\begin_inset Formula $\mathbb{E}_{l\sim q_{l}}\left[\log l_{k}\right]=\psi_{0}(a_{k})-\log b_{k}$
+\end_inset
+
+ where 
+\begin_inset Formula $\psi_{0}$
+\end_inset
+
+ is digamma function (logarithmic derivation of the gamma function) and
+ so 
+\begin_inset Formula 
+\[
+n_{jk}=\frac{1}{z_{j}}\theta_{jk}\exp(\psi_{0}(a_{k})-\log b_{k})
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Now recompute model parameter 
+\begin_inset Formula $\mathbf{\theta}$
+\end_inset
+
+ by maximising lower bound Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lower bound"
+
+\end_inset
+
+ (with constraints 
+\begin_inset Formula $\sum_{j}\theta_{jk}=1$
+\end_inset
+
+).
+ Keeping only term dependent on 
+\begin_inset Formula $\theta_{jk}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathcal{L}(\theta) & =\sum_{j,k}\mathbb{E}_{q_{V}(V)}\left[v_{jk}\right]\log\theta_{jk}+\mathrm{const}\\
+ & =\sum_{j,k}n_{jk}w_{j}\log\theta_{jk}+\mathrm{const}
+\end{alignat*}
+
+\end_inset
+
+(from Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:q(V)"
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathbb{E}_{q_{V}(V)}\left[v_{jk}\right]=w_{j}n_{jk}$
+\end_inset
+
+) 
+\begin_inset Formula 
+\[
+0=\frac{\partial}{\partial\theta_{mn}}\left[\sum_{j,k}n_{jk}w_{j}\log\theta_{jk}+\lambda_{k}(1-\sum_{p}\theta_{pk})\right]
+\]
+
+\end_inset
+
+we get 
+\begin_inset Formula 
+\[
+\theta_{mn}=\frac{n_{mn}w_{m}}{\lambda_{n}}
+\]
+
+\end_inset
+
+and from normalisation constraints 
+\begin_inset Formula $\lambda_{n}=\sum_{m}n_{mn}w_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If we take likelihood function over all documents (
+\begin_inset Formula $i=1:L$
+\end_inset
+
+) each 
+\begin_inset Formula $w_{j}\rightarrow w_{j(i)}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{jk}\rightarrow n_{jk(i)}$
+\end_inset
+
+ then we get 
+\begin_inset Formula 
+\begin{equation}
+\theta_{mn}=\frac{\sum_{i}n_{mn(i)}w_{m(i)}}{\lambda_{n}}\label{eq:update theta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Buntine 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Buntine2006"
+
+\end_inset
+
+ even introduce prior on 
+\begin_inset Formula $\theta_{jk}\sim\mathrm{Dirichlet(\theta_{jk};\gamma,J)=C(\gamma_{j})\prod_{j=1}^{J}\theta_{jk}^{\gamma_{j}-1}}$
+\end_inset
+
+.
+ This is incorporated into the complete log-likelihood function 
+\begin_inset Formula $p(V,l,w,\theta|\alpha,\beta,K)$
+\end_inset
+
+ so that lower bound 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $\mathbb{E}_{l,V\sim q(l,V)}\left[\log p(l,V,w,\theta|\alpha,\beta,K)\right]$
+\end_inset
+
+ and terms dependent on 
+\begin_inset Formula $\theta$
+\end_inset
+
+:
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathcal{L}(\theta) & =\sum_{i,j,k}\mathbb{E}_{q_{V}(V)}\left[v_{jk(i)}\right]\log\theta_{jk}+(\gamma_{j}-1)\log\theta_{jk}+\mathrm{const}\\
+ & =(\sum_{i,j,k}n_{jk(i)}w_{j(i)}+\gamma_{j}-1)\log\theta_{jk}+\mathrm{const}
+\end{alignat*}
+
+\end_inset
+
+and by maximising with normalisation constraints:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\theta_{mn}\propto\sum_{i}n_{mn(i)}w_{m(i)}+\gamma_{j}\label{eq:update theta - prior}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The lower bound Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lower bound"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathcal{L}(\theta) & =\mathbb{E}_{l,V\sim q(l,V)}\left[\sum_{k}(c_{k}+\alpha_{k}-1)\log l_{k}-(\beta_{k}+1)l_{k}+\log\frac{\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})}+\sum_{j}\left[v_{jk}\log\theta_{jk}-\log v_{jk}!\right]\right]+C\\
+ & =\sum_{k}\mathbb{E}_{l}\left[\log l_{k}\right](\sum_{j}\mathbb{E}_{V}\left[v_{jk}\right]+\alpha_{k}-1)-(\beta_{k}+1)l_{k}+\log\frac{\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})}\\
+ & +\sum_{j}\left[\mathbb{E}_{V}\left[v_{jk}\right]\left(\log n_{jk}+\log z_{j}-\mathbb{E}_{l}\left[\log l_{k}\right]-\mathbb{E}_{V}\left[\log v_{jk}!\right]\right)\right]+C\\
+ & =\sum_{k}\mathbb{E}_{l}\left[\log l_{k}\right](\alpha_{k}-1)-(\beta_{k}+1)l_{k}+\log\frac{\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})}+\sum_{j}\left[\mathbb{E}_{V}\left[v_{jk}\right]\left(\log n_{jk}+\log z_{j}-\log v_{jk}!\right)\right]+C
+\end{alignat*}
+
+\end_inset
+
+where Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rewrite rules"
+
+\end_inset
+
+ for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ was used and 
+\begin_inset Formula $c_{k}=\sum_{j}v_{jk}$
+\end_inset
+
+ and where 
+\begin_inset Formula $C=H(q_{l})+H(q_{V})$
+\end_inset
+
+ from Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lower bound"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{alignat*}{1}
+H(q_{l}) & =-\sum_{k}\left\{ (a_{k}-1)\mathbb{E}_{l}\left[\log l_{k}\right]-b_{k}\mathbb{E}_{l}\left[l_{k}\right]-\log\frac{b_{k}^{a_{k}}}{\Gamma(a_{k})}\right\} \\
+H(q_{V}) & =-\sum_{jk}\left\{ -\mathbb{E}_{V}\left[\log v_{jk}!\right]+\mathbb{E}_{V}\left[v_{jk}\right]\log n_{jk}+\log w_{j}!\right\} 
+\end{alignat*}
+
+\end_inset
+
+Including these terms we get 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}=\sum_{k}\mathbb{E}_{l}\left[\log l_{k}\right](\alpha_{k}-a_{k})+\sum_{j}w_{j}\log z_{j}+\sum_{k}\log\frac{\Gamma(a_{k})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k}^{a_{k}}}-\log\prod_{j}w_{j}!\label{eq:lower bound final}
+\end{equation}
+
+\end_inset
+
+where Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rewrite rules"
+
+\end_inset
+
+ for 
+\begin_inset Formula $b_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{k}n_{jk}=1$
+\end_inset
+
+ was used.
+ 
+\end_layout
+
+\begin_layout Standard
+After initialisation the algorithm then repeats until convergence:
+\end_layout
+
+\begin_layout Enumerate
+For each document: update 
+\begin_inset Formula $n_{jk}$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+ according to Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rewrite rules"
+
+\end_inset
+
+ (variational E step).
+\end_layout
+
+\begin_layout Enumerate
+Update 
+\begin_inset Formula $\mathbf{\theta}$
+\end_inset
+
+ according to Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:update theta"
+
+\end_inset
+
+ or 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:update theta - prior"
+
+\end_inset
+
+ (variational M step).
+\end_layout
+
+\begin_layout Enumerate
+Compute lower bound on log-probability Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lower bound final"
+
+\end_inset
+
+ and check for convergence.
+\end_layout
+
+\begin_layout Section*
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Notes
+\end_layout
+
+\begin_layout Standard
+Image of the digamma function 
+\begin_inset Formula $\psi_{0}(x)$
+\end_inset
+
+ and its exponential 
+\begin_inset Formula $\exp(\psi_{0}(x))$
+\end_inset
+
+ (pretty much linear 
+\begin_inset Formula $\exp(\psi_{0}(x))\approx x$
+\end_inset
+
+ for 
+\begin_inset Formula $x>10$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../DCA_BuntineJakulin/images/psi.eps
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../DCA_BuntineJakulin/images/exppsi.eps
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Digamma function and its expontntial.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In my notation:
+\begin_inset Formula 
+\[
+\mathbb{E}_{v\sim p(v|w,h)}\left[v_{j}\right]=\sum_{k=1}^{K}w_{jk}h_{k}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $V_{ji}$
+\end_inset
+
+ is data matrix (
+\begin_inset Formula $J$
+\end_inset
+
+ pixels and 
+\begin_inset Formula $I$
+\end_inset
+
+ images), 
+\begin_inset Formula $w_{jk}$
+\end_inset
+
+ is loading matrix (PSFs) (
+\begin_inset Formula $J$
+\end_inset
+
+ pixels and 
+\begin_inset Formula $K$
+\end_inset
+
+ components) and 
+\begin_inset Formula $h_{ki}$
+\end_inset
+
+ are intensities of each component (
+\begin_inset Formula $K$
+\end_inset
+
+ components and 
+\begin_inset Formula $I$
+\end_inset
+
+ images).
+\end_layout
+
+\begin_layout Standard
+Rewrite rules:
+\begin_inset Formula 
+\begin{alignat*}{1}
+n_{jk(i)} & =\frac{1}{z_{j}}w_{jk}\exp(\psi_{0}(a_{k(i)})-\log b_{k(i)})\\
+a_{k(i)} & =\sum_{j}n_{jk(i)}v_{j(i)}+\alpha_{k}\\
+b_{k(i)} & =1+\beta_{k}
+\end{alignat*}
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+w_{jk}=\frac{\sum_{i}n_{jk(i)}v_{j(i)}}{\lambda_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The lower bound on the log-likelihood:
+\begin_inset Formula 
+\[
+\mathcal{L}_{(i)}=\sum_{k}\left(\psi_{0}(a_{k(i)})-\log b_{k(i)}\right)\left(\alpha_{k}-a_{k(i)}\right)+\sum_{j}v_{j(i)}\log z_{j(i)}+\sum_{k}\log\frac{\Gamma(a_{k(i)})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k(i)}^{a_{k(i)}}}-\log\prod_{j}v_{j(i)}!
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $z_{j(i)}=\sum_{k}w_{jk}\exp\left(\psi_{0}(a_{k(i)})-\log b_{k(i)}\right)$
+\end_inset
+
+ and total lower bound 
+\begin_inset Formula $\mathcal{L}=\sum_{i}\mathcal{L}_{(i)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../DCA_BuntineJakulin/images/GammaDistribution2.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gamma distribution for different set of parameters with mean 
+\begin_inset Formula $\alpha/\beta=700$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
