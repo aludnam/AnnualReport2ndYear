@@ -3,6 +3,27 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+%\setcounter{page}{0} 
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+%\date{}
+
+\hyphenation{the-o-re-ti-cal}
+\hyphenation{fluo-ro-pho-re}
+\hyphenation{Fluo-ro-pho-re}
+\hyphenation{fluo-res-cen-ce}
+\hyphenation{Fluo-res-cen-ce}
+\hyphenation{ma-the-ma-ti-cal}
+\hyphenation{Ma-the-ma-ti-cal}
+\hyphenation{in-ter-fero-met-er}
+\hyphenation{ex-pe-ri-ment}
+\hyphenation{pa-ra-me-ters}
+\hyphenation{se-pa-ra-ted}
+\hyphenation{exo-cy-to-sis}
+\hyphenation{in-ves-ti-ga-ted}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language british
@@ -69,47 +90,101 @@
 \end_layout
 
 \begin_layout Paragraph
+\begin_inset Note Note
+status open
+
+\begin_layout Paragraph
 Outline of the 2nd year review.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 (Underlined items have been already written or mentioned in the 1st year
  review.)
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Suggest a general intro re localization microscopy, then work this year
  focusses on
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 * GaP + DCA, plus variational GaP implementation.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 AFAIR, the main point of this was to deal better with model comparison.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 * FREM.
  Review of Ram et al 2006 and then the blinking question.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 * Results on determining optimal number of sources.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 * Real data isssue as in 4.3
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Then concl and future work directions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Outline & summary
+\end_layout
+
+\begin_layout Standard
+The second year review report sumarizes work on my PhD project I have done
+ since September 2010.
+ It contains a short introduction to the problematics (Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Model comparison"
+
+\end_inset
+
+) where the concept of the method is presented and put into context of the
+ recent research.
+ Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Appendix Variational-approximation-for"
+
+\end_inset
+
+ contains some theoretical work on the model selection problematics.
+\end_layout
+
+\begin_layout Standard
+The projec has been presented on the SFN 2010 conference in San Diego.
 \end_layout
 
 \begin_layout Section
 Introduction
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -360,24 +435,15 @@ key "Lidke2005,Harrington2008"
  where only fluctuation of the individual sources is needed.
 \end_layout
 
-\begin_layout Itemize
-
-\bar under
-NMF (1st year report -August 2010)
-\bar default
- + updates + connection to the Richardson - Lucy deconvolution (
-\bar under
-RLdecNotes - Sep 2010
-\bar default
-)
-\end_layout
-
-\begin_layout Itemize
-(?) Time series information (Molgedey & Schuster 1994)
-\end_layout
-
 \begin_layout Section
 Motivation of the project
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Motivation-of-the"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -429,23 +495,55 @@ with non-negativity constraints
 \end_inset
 
 .
- The detailes of the model and the algorithm are described in the first
- year review.
-\end_layout
-
-\begin_layout Section
-GaP + DCA, variational GaP implementation
-\end_layout
-
-\begin_layout Standard
-A generative model underlying NMF is presented in following section.
- A variational treatment of the problem can provide a way to estimate the
- number of sources in the QD data.
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Standard
+The NMF algoright shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lee2001"
+
+\end_inset
+
+ minimizes the Kullback–Leibler (KL) divergence between the data and the
+ model.
+ It can be shown that this is eqvivalent to the maximization log-likelihood
+ function of the model Eq
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+ under the assumtion of the Poisson noise (Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Appendix NMF-as-minimization"
+
+\end_inset
+
+).
+ The details of the the algorithm are described in the first year review.
+\end_layout
+
+\begin_layout Section
 Model comparison problem
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Model comparison"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -465,7 +563,7 @@ reference "eq:NMF model"
 
 \end_inset
 
- - rank of hte factorzation).
+ - rank of the factorzation).
  For noise-free data it is possible to estimate the number of sources by
  analyxing principal components (PC), for example.
  However, in the noisy case the rank estimation is difficult.
@@ -501,8 +599,68 @@ tion for the correct estimation of the data dimensionality.
  
 \end_layout
 
+\begin_layout Standard
+A generative model underlying NMF is presented in section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Gamma-Poisson-(GaP)"
+
+\end_inset
+
+.
+ A variational treatment of the problem (section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Variational-treatment-of"
+
+\end_inset
+
+) can provide a way to estimate the number of sources 
+\begin_inset Formula $K$
+\end_inset
+
+ in the QD data.
+ 
+\end_layout
+
+\begin_layout Standard
+A different approach to the model selection is shown in section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Analysis-of-the"
+
+\end_inset
+
+.
+ Analysis of the correlations in residuals (data-model) is used to estimate
+ the number of components 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
-Gamma Poisson (GaP) model
+Gamma Poisson (GaP) model 
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Gamma-Poisson-(GaP)"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -662,6 +820,13 @@ key "Canny2004"
 
 \begin_layout Subsection
 Variational treatment of the GaP model
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Variational-treatment-of"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -680,7 +845,7 @@ key "Buntine2006"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Variational-approximation-for"
+reference "sec:Appendix Variational-approximation-for"
 
 \end_inset
 
@@ -934,7 +1099,7 @@ where
 \end_layout
 
 \begin_layout Standard
-By maximizing the lowe bound Eq.
+By maximizing the lower bound Eq.
 \begin_inset space ~
 \end_inset
 
@@ -986,6 +1151,20 @@ reference "eq:GaP Lower bound"
 
 The variational approximation algorightm is then repeating until convergence:
 \end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
 
 \begin_layout Enumerate
 For each time slice 
@@ -1051,29 +1230,105 @@ reference "eq:GaP variational lower bound"
  
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Analysis of the residuals
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Analysis-of-the"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Different approach for estimating of the number of components 
+\begin_inset Formula $K$
+\end_inset
+
+ is to analyze the 
+\begin_inset Formula $N\times T$
+\end_inset
+
+ residual matrix 
+\begin_inset Formula $\bm{R}$
+\end_inset
+
+ (entries 
+\begin_inset Formula $r_{xt}$
+\end_inset
+
+) after the parameters of the model Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+ have been estimated for different values of 
+\begin_inset Formula $K$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r_{xt}=d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}
+\]
+
+\end_inset
+
+If we uderestimate the number of sources 
+\begin_inset Formula $K$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+ we can expect high values in in the 
+\begin_inset Formula $N\times N$
+\end_inset
+
+ correlation matrix 
+\begin_inset Formula 
+\[
+\bm{C}_{R}=\bm{RR}^{T}
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Itemize
-GaP + DCA
-\bar under
- 
-\bar default
-(
-\bar under
-notes on DCA
-\bar default
- - February 2011) - Gamma-Poisson (GaP) model (Canny 2004 paper) and variational
- approach discussion (Buntine & Jakulin 2006 paper).
-\end_layout
-
-\begin_layout Itemize
 model comparison (compare with BIC...)
-\end_layout
-
-\begin_layout Itemize
-Variational GaP algorithm implementation (Buntine & Jakulin).
 \end_layout
 
 \end_inset
@@ -1140,6 +1395,10 @@ Real sample with structure & SNARE (? Colin & Rory)
 
 \begin_layout Section
 Conclusion and future work
+\end_layout
+
+\begin_layout Subsection
+Comparison to the Richardson Lucy deconvolution
 \end_layout
 
 \begin_layout Subsection
@@ -1218,10 +1477,139 @@ options "apalike"
 
 \begin_layout Section
 \start_of_appendix
+NMF as a minimization of Kullback–Leibler divergence
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Appendix NMF-as-minimization"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A generelized Kullback-Liebler (KL) divergence between two (un normalized)
+ discrete variables 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ is defined
+\begin_inset Formula 
+\[
+KL(P\parallel Q)=\sum_{i}\left(Q_{i}\log\frac{Q_{i}}{P_{i}}-Q_{i}+P_{i}\right)
+\]
+
+\end_inset
+
+NMF algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lee2001"
+
+\end_inset
+
+ minimized the KL divergence between the data matrix 
+\begin_inset Formula $D$
+\end_inset
+
+ and the factorised model 
+\begin_inset Formula $WH$
+\end_inset
+
+ (Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{equation}
+\min_{W,H\geq0}KL(D\Vert WH)=\min_{W,H\geq0}-\sum_{xt}\left(d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}\right)+C\label{eq:Appendix KL(D|WH)}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $C$
+\end_inset
+
+ is a constant independont on 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Log-likelihood function of the model Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+ under an assumption of Poisson noise 
+\begin_inset Formula 
+\[
+\log p(D|W,H)=\sum_{x,t}\log\left(\frac{d_{xt}^{\sum_{k}w_{xk}h_{kt}}e^{-\sum_{k}w_{xk}h_{kt}}}{d_{xt}!}\right)=\sum_{xt}\left(d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}\right)+D
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $D$
+\end_inset
+
+ is a constant independent on 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Comparison with Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Appendix KL(D|WH)"
+
+\end_inset
+
+ shows that minimization of the KL divergence between data and teh model
+ is eqvialent to the maximization of the log-likelihood function of the
+ model with assumption of the Poisson noise.
+ 
+\end_layout
+
+\begin_layout Section
 Variational approximation for GaP model
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Variational-approximation-for"
+name "sec:Appendix Variational-approximation-for"
 
 \end_inset
 
