@@ -51,7 +51,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\float_placement h
+\float_placement !h
 \paperfontsize 12
 \spacing single
 \use_hyperref false
@@ -1489,11 +1489,11 @@ Different approach to the number of components
 \end_inset
 
  residual matrix 
-\begin_inset Formula $\bm{R}$
+\begin_inset Formula $\bm{S}$
 \end_inset
 
  (entries 
-\begin_inset Formula $r_{xt}$
+\begin_inset Formula $s_{xt}$
 \end_inset
 
 ).
@@ -1515,7 +1515,7 @@ reference "eq:NMF model"
  we compute a normalised residual matrix 
 \begin_inset Formula 
 \[
-r_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sum_{k=1}^{K}w_{xk}h_{kt}}
+s_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sum_{k=1}^{K}w_{xk}h_{kt}}
 \]
 
 \end_inset
@@ -1526,12 +1526,36 @@ Then the
 
  correlation matrix 
 \begin_inset Formula 
+\[
+\bm{C}_{S}=\bm{SS}^{T}
+\]
+
+\end_inset
+
+and the 
+\begin_inset Formula $N\times N$
+\end_inset
+
+ matrix of the correlation coefficients 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\bm{R}_{S}$
+\end_inset
+
+ with entries 
+\begin_inset Formula 
 \begin{equation}
-\bm{C}_{R}=\bm{RR}^{T}\label{eq:Correlation in residuals}
+r_{ij}=\frac{c_{ij}}{\sqrt{c_{ii}c_{jj}}}\label{eq:Correlation in residuals}
 \end{equation}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 Underestimation of the number of sources (
 \begin_inset Formula $K$
 \end_inset
@@ -1542,9 +1566,8 @@ Underestimation of the number of sources (
 \begin_inset Formula $K$
 \end_inset
 
- the correlations should be gradually decrease until we have sufficient
+ the correlations should be gradually decreasing until we have sufficient
  number of sources to explain the data and the residuals become uncorrelated.
- 
 \end_layout
 
 \begin_layout Standard
@@ -3049,8 +3072,8 @@ reference "fig:K estimation - Simulated-data"
 \end_layout
 
 \begin_layout Standard
-We analysed the correlation matrix 
-\begin_inset Formula $\bm{C}_{R}$
+We analysed the correlation-coeefficient matrix 
+\begin_inset Formula $\bm{R}_{S}$
 \end_inset
 
  for the residuals Eq
@@ -3065,7 +3088,7 @@ reference "eq:Correlation in residuals"
 \end_inset
 
  and plotted the maximum entries in 
-\begin_inset Formula $\bm{C}_{R}$
+\begin_inset Formula $\bm{R}_{S}$
 \end_inset
 
  in Fig.
@@ -5070,7 +5093,6 @@ reference "sub:Appendix: Time-distribution - Cheating"
 \uwave off
 \noun off
 \color none
-\lang english
 \begin_inset Formula 
 \begin{equation}
 I(\theta)=\sum_{i=1}^{4}p(\bm{\Lambda}_{i})\sum_{p=1}^{N}\frac{1}{\lambda_{p}(\theta,\bm{\Lambda}_{i})}\left(\frac{\partial\lambda_{p}(\theta,\bm{\Lambda}_{i})}{\partial\theta}\right)^{2}\label{eq:Fisher Information Blinking Cheating}
@@ -5090,7 +5112,6 @@ I(\theta)=\sum_{i=1}^{4}p(\bm{\Lambda}_{i})\sum_{p=1}^{N}\frac{1}{\lambda_{p}(\t
 \uwave default
 \noun default
 \color inherit
-\lang british
 which is the expectation value (with respect to the states 
 \begin_inset Formula $\bm{\Lambda}$
 \end_inset
@@ -5256,7 +5277,6 @@ reference "sub:Appendix Time-distribution-Integrating out"
 \uwave off
 \noun off
 \color none
-\lang english
 
 \begin_inset Formula $\text{var}(d)=\frac{1}{I_{11}}+\frac{1}{I_{22}}=2\left(\frac{1}{I_{11}^{\text{static}}-\epsilon}+\frac{1}{I_{22}^{\text{static}}-\epsilon}\right)>2\text{var}(d^{\text{static}})$
 \end_inset
@@ -5273,7 +5293,6 @@ reference "sub:Appendix Time-distribution-Integrating out"
 \uwave default
 \noun default
 \color inherit
-\lang british
  where 
 \begin_inset Formula $I^{\text{static}}$
 \end_inset
@@ -5813,20 +5832,28 @@ reference "fig:Out of focus QDs"
 \end_inset
 
 .
+ The PCA coefficients of the data are shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Out of focus QDs - PCA"
+
+\end_inset
+
+.
  
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -5843,8 +5870,6 @@ begin{centering}
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -5852,9 +5877,16 @@ status open
 
 
 \backslash
+begin{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 includegraphics[scale=
 \backslash
-sizeb]{
+sizec]{
 \backslash
 homepath 
 \backslash
@@ -5867,7 +5899,7 @@ qdotspath /S279/images/d1}
 \backslash
 includegraphics[scale=
 \backslash
-sizeb]{
+sizec]{
 \backslash
 homepath 
 \backslash
@@ -5880,7 +5912,7 @@ qdotspath /S279/images/d2}
 \backslash
 includegraphics[scale=
 \backslash
-sizeb]{
+sizec]{
 \backslash
 homepath 
 \backslash
@@ -5893,7 +5925,7 @@ qdotspath /S279/images/d3}
 \backslash
 includegraphics[scale=
 \backslash
-sizeb]{
+sizec]{
 \backslash
 homepath 
 \backslash
@@ -5904,6 +5936,13 @@ qdotspath /S279/images/d4}
 
 
 \backslash
+end{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 
 \backslash
 
@@ -5913,9 +5952,16 @@ qdotspath /S279/images/d4}
 
 
 \backslash
+begin{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 includegraphics[scale=
 \backslash
-sizeb]{
+sizec]{
 \backslash
 homepath 
 \backslash
@@ -5928,7 +5974,7 @@ qdotspath /S279/images/d5}
 \backslash
 includegraphics[scale=
 \backslash
-sizeb]{
+sizec]{
 \backslash
 homepath 
 \backslash
@@ -5941,7 +5987,7 @@ qdotspath /S279/images/d6}
 \backslash
 includegraphics[scale=
 \backslash
-sizeb]{
+sizec]{
 \backslash
 homepath 
 \backslash
@@ -5954,16 +6000,26 @@ qdotspath /S279/images/d7}
 \backslash
 includegraphics[scale=
 \backslash
-sizeb]{
+sizec]{
 \backslash
 homepath 
 \backslash
 qdotspath /S279/images/d8}
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset ERT
 status open
 
@@ -5974,18 +6030,12 @@ status open
 end{centering}
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -6010,6 +6060,91 @@ name "fig:Out of focus QDs"
 
 \end_inset
 
+We used a standard NMF algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lee2001"
+
+\end_inset
+
+ with different number of sources 
+\begin_inset Formula $K=\{7,\,8\,...\,19\}$
+\end_inset
+
+ and computed maximum correlation coefficient of the residuals 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Correlation in residuals"
+
+\end_inset
+
+.
+ The results are shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Out of focus QDs - Correlations"
+
+\end_inset
+
+.
+ Unlike the PCA (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Out of focus QDs - PCA"
+
+\end_inset
+
+) we can observe a 'kink' in for 
+\begin_inset Formula $K=13$
+\end_inset
+
+.
+ Increasing 
+\begin_inset Formula $K$
+\end_inset
+
+ does not lead to a further decrease of the correlations in residuals.
+ Separated individual PSF (
+\begin_inset Formula $W$
+\end_inset
+
+) for 
+\begin_inset Formula $K=13$
+\end_inset
+
+ are shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Out of focus QD - Separated-sources"
+
+\end_inset
+
+.
+ The separated individual PSFs correspond to QDs at different axial positions
+ (see Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Point-spread-function"
+
+\end_inset
+
+).
  
 \begin_inset Float figure
 wide false
@@ -6052,6 +6187,170 @@ status open
 
 
 \backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /S281/images/pca}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\lang english
+PCA
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Out of focus QDs - PCA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /S281/images/MaxCorrInResid_min}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\lang english
+Correlations
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Out of focus QDs - Correlations"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Estimation of K
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
 includegraphics[scale=1.38]{
 \backslash
 homepath 
@@ -6065,8 +6364,6 @@ qdotspath /S279/images/dpixcmean}
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -6087,8 +6384,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -6163,12 +6458,17 @@ qdotspath /S281/images/resw_col5}
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption
 
 \begin_layout Plain Layout
 Separated sources
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Out of focus QD - Separated-sources"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6182,8 +6482,6 @@ Separated sources
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -6222,8 +6520,6 @@ Left: mean intensity image correspond to a standard wide-field image.
 
 \end_inset
 
-
-\lang british
 
 \begin_inset Newpage clearpage
 \end_inset
@@ -6899,7 +7195,6 @@ reference "eq:likelihood V,l"
 \bar no
 \noun off
 \color none
-\lang english
 
 \begin_inset Formula $p(V,l|\alpha,\beta,\theta,K)$
 \end_inset
@@ -8710,7 +9005,6 @@ for four state model of two sources:
 \bar no
 \noun off
 \color none
-\lang english
 
 \begin_inset Formula $\lambda^{3}=+\Lambda_{1}q(x-c_{1})+\Lambda_{2}q(x-c_{2})$
 \end_inset
@@ -8728,7 +9022,6 @@ for four state model of two sources:
 \bar default
 \noun default
 \color inherit
-\lang british
  with uniform distribution over these states
 \begin_inset Formula 
 \[
@@ -8942,7 +9235,6 @@ For large
 \uwave off
 \noun off
 \color none
-\lang english
 
 \begin_inset Formula $\frac{\textrm{Po}(\textrm{\lambda}_{k}^{p})}{\textrm{Po}(\textrm{\lambda}_{k}^{p})+1}=1-\frac{1}{1+\textrm{Po}(\textrm{\lambda}_{k}^{p})}\approx1$
 \end_inset
@@ -8959,7 +9251,6 @@ For large
 \uwave default
 \noun default
 \color inherit
-\lang british
  
 \begin_inset Formula 
 \begin{equation}
