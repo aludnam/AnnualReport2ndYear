@@ -234,7 +234,7 @@ sizeh}{.15}
 \end_layout
 
 \begin_layout Title
-2nd year review
+Draft of the 2nd year review
 \end_layout
 
 \begin_layout Paragraph
@@ -252,7 +252,7 @@ Outline of the 2nd year review.
 \end_layout
 
 \begin_layout Plain Layout
-Suggest a general intro re localization microscopy, then work this year
+Suggest a general intro re localisation microscopy, then work this year
  focusses on
 \end_layout
 
@@ -291,7 +291,7 @@ Outline & summary
 \end_layout
 
 \begin_layout Standard
-The second year review report sumarizes work on my PhD project I have done
+The second year review report summarises work on my PhD project I have done
  since September 2010.
  It contains a short introduction to the problematics (Section
 \begin_inset space ~
@@ -321,7 +321,7 @@ reference "sec:Appendix Variational-approximation-for"
 \end_layout
 
 \begin_layout Standard
-The projec has been presented on the SFN 2010 conference in San Diego.
+The project has been presented on the SFN 2010 conference in San Diego.
 \end_layout
 
 \begin_layout Section
@@ -336,16 +336,14 @@ name "sec:Introduction"
 \end_layout
 
 \begin_layout Subsection
-Localization microscopy
+Localisation microscopy
 \end_layout
 
 \begin_layout Standard
 Localisation microscopy (LM) provides a conceptually simple way to super-resolut
-ion microscopy as a single source can be localised with an uncertainity
- much smaller then a classical Rayeigh's resolution criterion.
- The Rayleigh's resolution criterion is a distance two sources must be separated
- in order to be able to resolve them as two individual objects.
- This is approximately 
+ion microscopy as a single source can be localised with an uncertainty much
+ smaller then a classical Rayeigh's resolution criterion (approximately
+ 
 \begin_inset Formula $\lambda_{em}/2$
 \end_inset
 
@@ -353,14 +351,14 @@ ion microscopy as a single source can be localised with an uncertainity
 \begin_inset Formula $\lambda_{em}$
 \end_inset
 
- is an emmission wavelength of the source 
+ is an emission wavelength of the source 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Rayleigh1896,Born1975principles"
 
 \end_inset
 
-.
+).
  However, the Rayleigh criterion neglects the stochastic nature of the photon-de
 tection process and does not take the total photon count (intensity of the
  source) into account.
@@ -371,9 +369,9 @@ key "Thompson2002,Ram2006"
 
 \end_inset
 
- the variance of a single source localisation is inversly proportional to
- the number of photons we can collect from this source.
- For sufficiently intense sources the localisation precision can significanlty
+ the variance of a single source localisation is inversely proportional
+ to the number of photons we can collect from this source.
+ For sufficiently intense sources the localisation precision can significantly
  surpass the Rayleigh resolution limit 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -387,12 +385,19 @@ key "Gordon2004,Qu2004,Lidke2005,Ober2004"
 
 \begin_layout Subsection
 PALM, STORM
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:PALM,-STORM"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 In the real biological samples the sources are usually highly overlapping
  and can't be individually localised.
- PALM (Photo Activation Localization Mcroscopy) 
+ PALM (Photo Activation Localisation Microscopy) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hess2006"
@@ -408,8 +413,8 @@ key "Bates2007"
 
  are separating the individual sources by activating only a small subset
  of all sources.
- If the activated subset is smal enought the individual fluorophores are
- well spatially separated and can be locaized as individual sources.
+ If the activated subset is small enough the individual fluorophores are
+ well spatially separated and can be localised as individual sources.
  This requires an active control of the sources activation.
  It can be achieved either by using photo-activable (PA) fluorophores (PALM,
  STORM) or by reversive photo - bleaching 
@@ -420,8 +425,8 @@ key "Baddeley2009"
 \end_inset
 
 .
- Repetitition of this activation - localization cycles can provide high
- resolution microscopy images of biological samples 
+ Repetition of this activation - localisation cycles can provide high resolution
+ microscopy images of biological samples 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Shroff2008,Huang2008"
@@ -460,7 +465,7 @@ key "Jaiswal2004,Michalet2005"
 \end_inset
 
 .
- QDs also provide a wide absorbtion and a narrow excitation spectrum band.
+ QDs also provide a wide absorption and a narrow excitation spectrum band.
  All these properties makes them very attractive for the biological research.
  Under a continuous excitation QDs exhibit a blinking behaviour (fluorescence
  intermittancy).
@@ -486,15 +491,14 @@ key "Kuno2001,Stefani2009"
 \end_inset
 
 .
- Despite all the advantages the QD provide, they are not suitable for the
- standard LM methods (PALM/STORM) as the QD blinking behavior is difficult
- to controle.
- The overlapping sources can't be then separated and subsequently localized
- individually.
+ Despite all the advantages the QD can potentially provide, they are not
+ suitable for the standard LM methods (PALM/STORM).
+ The QD blinking behaviour is difficult to control and the overlapping sources
+ cannot be separated and localised individually.
 \end_layout
 
 \begin_layout Subsection
-Localization microscopy using Quantum Dots
+Localisation microscopy using Quantum Dots
 \end_layout
 
 \begin_layout Standard
@@ -595,7 +599,7 @@ name "sec:Motivation-of-the"
 \end_layout
 
 \begin_layout Standard
-Non-negative matrix factorization (NMF) seems to be a very natural method
+Non-negative matrix factorisation (NMF) seems to be a very natural method
  for dealing with the blinking QD data.
  The expectation value of noisy spatio-temporal 
 \begin_inset Formula $N\times T$
@@ -647,16 +651,16 @@ with non-negativity constraints
 \end_layout
 
 \begin_layout Standard
-The NMF algoright shown in 
+The NMF algorithm shown in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2001"
 
 \end_inset
 
- minimizes the Kullback–Leibler (KL) divergence between the data and the
+ minimises the Kullback–Leibler (KL) divergence between the data and the
  model.
- It can be shown that this is eqvivalent to the maximization log-likelihood
+ It can be shown that this is equivalent to the maximisation log-likelihood
  function of the model Eq
 \begin_inset space ~
 \end_inset
@@ -668,7 +672,7 @@ reference "eq:NMF model"
 
 \end_inset
 
- under the assumtion of the Poisson noise (Appendix
+ under the assumption of the Poisson noise (Appendix
 \begin_inset space ~
 \end_inset
 
@@ -711,14 +715,14 @@ reference "eq:NMF model"
 
 \end_inset
 
- - rank of the factorzation).
+ - rank of the factorisation).
  For noise-free data it is possible to estimate the number of sources by
- analyxing principal components (PC), for example.
+ analysing principal components (PC), for example.
  However, in the noisy case the rank estimation is difficult.
 \end_layout
 
 \begin_layout Standard
-The standard NMF algorithm maximizes the likelihood of the model Eq.
+The standard NMF algorithm maximises the likelihood of the model Eq.
 \begin_inset space ~
 \end_inset
 
@@ -736,7 +740,7 @@ reference "eq:NMF model"
 
 .
  The Bayesian Information Criterion (BIC) is a rough approximation of the
- Bayesian treatment penalysing the complexity of the model.
+ Bayesian treatment penalising the complexity of the model.
  By evaluating the model for different values of 
 \begin_inset Formula $K$
 \end_inset
@@ -878,7 +882,7 @@ where
 \end_layout
 
 \begin_layout Standard
-The likelihood od the model is given by
+The likelihood of the model is given by
 \begin_inset Formula 
 \begin{equation}
 p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(d_{xt}|W,H)\label{eq:GaP likelihood}
@@ -936,7 +940,7 @@ key "Blei2003"
 \end_inset
 
 .
- This is problematic as in the expectation maximization (EM) algorithm 
+ This is problematic as in the expectation maximisation (EM) algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bishop2006"
@@ -1036,7 +1040,7 @@ where the discrete latent vector
 \end_inset
 
 th component.
- The distribution of the undelying GaP model now becomes
+ The distribution of the underlying GaP model now becomes
 \end_layout
 
 \begin_layout Standard
@@ -1087,7 +1091,7 @@ p(V,H|\alpha,\beta,W,K)=\prod_{kt}\frac{\beta_{k}^{\alpha_{k}}h_{kt}^{c_{k}^{(t)
 
 \begin_layout Standard
 A factored posterior approximation is made for the latent variable to find
- xpectations as part of an optimization step.
+ expectations as part of an optimisation step.
  
 \end_layout
 
@@ -1127,7 +1131,18 @@ p(D|W,\alpha,\beta)\geq\mathcal{L}(q,W,\alpha,\beta)
 
 \end_inset
 
-where 
+where
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is the problematic integral ---> this expectation value...
+ => variational approximation....
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{equation}
 \mathcal{L}(q,W,\alpha,\beta)=\mathbb{E}_{V,H\sim q(V,H)}\left[\log p(H,V,D|W,\alpha,\beta,K)\right]+C\label{eq:GaP Lower bound}
@@ -1146,7 +1161,7 @@ key "Bishop2006"
 \begin_inset Formula $C$
 \end_inset
 
- contanines the entropy terms of 
+ contains the entropy terms of 
 \begin_inset Formula $q_{H}$
 \end_inset
 
@@ -1247,7 +1262,7 @@ where
 \end_layout
 
 \begin_layout Standard
-By maximizing the lower bound Eq.
+By maximising the lower bound Eq.
 \begin_inset space ~
 \end_inset
 
@@ -1274,7 +1289,7 @@ where
 \begin_inset Formula $\lambda_{k}=\sum_{x}w_{xk}$
 \end_inset
 
- is the normalization constant.
+ is the normalisation constant.
 \end_layout
 
 \begin_layout Standard
@@ -1297,29 +1312,26 @@ reference "eq:GaP Lower bound"
 
 \end_inset
 
-The variational approximation algorightm is then repeating until convergence:
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
 status open
+
+\begin_layout Plain Layout
+Repeat until convergence:
+\end_layout
 
 \begin_layout Enumerate
 For each time slice 
 \begin_inset Formula $t$
 \end_inset
 
- of the stack: updarte 
+ of the stack: update 
 \begin_inset Formula $n_{xk}^{(t)}$
 \end_inset
 
@@ -1378,6 +1390,18 @@ reference "eq:GaP variational lower bound"
  
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Algorithm for the variational approximation updates.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 These updates have been implemented in MATLAB.
@@ -1385,7 +1409,7 @@ These updates have been implemented in MATLAB.
 \end_layout
 
 \begin_layout Standard
-GaP model treats the intenities 
+GaP model treats the intensities 
 \begin_inset Formula $h_{kt}$
 \end_inset
 
@@ -1401,13 +1425,24 @@ reference "eq:GaP Lower bound"
 
 \end_inset
 
- bounds the approximate of the likelihood of the GaP model integrated ove
+ bounds the approximate of the likelihood of the GaP model integrated over
  the hidden variables 
 \begin_inset Formula $h_{kt}$
 \end_inset
 
+ Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP factorised approximation"
+
+\end_inset
+
 .
-  It then naturally penalises the complexity of the model (occam factor
+  It then naturally penalises the complexity of the model (Occam’s razor
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1449,7 +1484,7 @@ Different approach to the number of components
 \begin_inset Formula $K$
 \end_inset
 
- estimation is to analyze the 
+ estimation is to analyse the 
 \begin_inset Formula $N\times T$
 \end_inset
 
@@ -1462,7 +1497,7 @@ Different approach to the number of components
 \end_inset
 
 ).
- After optimizing the parameters of the model Eq.
+ After optimising the parameters of the model Eq.
 \begin_inset space ~
 \end_inset
 
@@ -1477,7 +1512,7 @@ reference "eq:NMF model"
 \begin_inset Formula $K$
 \end_inset
 
- we compute a normalized residual matrix 
+ we compute a normalised residual matrix 
 \begin_inset Formula 
 \[
 r_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sum_{k=1}^{K}w_{xk}h_{kt}}
@@ -1497,7 +1532,7 @@ Then the
 
 \end_inset
 
-Uderestimation of the number of sources (
+Underestimation of the number of sources (
 \begin_inset Formula $K$
 \end_inset
 
@@ -1547,7 +1582,7 @@ In the following section simulated data of 10 sources randomly spatially
 \end_layout
 
 \begin_layout Standard
-Data were simulated accoring to a model Eq.
+Data were simulated according to a model Eq.
 \begin_inset space ~
 \end_inset
 
@@ -1576,7 +1611,7 @@ reference "tab:Parameters-of-the-simulation"
 \begin_inset Formula $K_{true}=10$
 \end_inset
 
- spatial coordianates 
+ spatial coordinates 
 \begin_inset Formula $[x_{k},\, y_{k}]$
 \end_inset
 
@@ -1592,8 +1627,8 @@ reference "tab:Parameters-of-the-simulation"
 \begin_inset Formula $y$
 \end_inset
 
- cooridnates generated from a uniform distribution subject to a spatial
- constraint to a ciruclar area).
+ coordinates generated from a uniform distribution subject to a spatial
+ constraint to a circular area).
  
 \begin_inset Formula $\delta$
 \end_inset
@@ -1602,7 +1637,7 @@ reference "tab:Parameters-of-the-simulation"
 \end_layout
 
 \begin_layout Enumerate
-In focus PSF was cenetered at each generated coordinate (
+In focus PSF was centred at each generated coordinate (
 \begin_inset Formula $W$
 \end_inset
 
@@ -1637,7 +1672,7 @@ Intensities of the individual sources over time
 \begin_inset Formula $k$
 \end_inset
 
-th surce.
+th source.
 \end_layout
 
 \begin_layout Enumerate
@@ -1689,7 +1724,7 @@ reference "fig:K estimation - Simulated-data"
 \begin_inset Formula $\frac{1}{T}\sum_{t}d_{xt}$
 \end_inset
 
- - time sequence of QDs averaged over time) is shown in as gray scale image.
+ - time sequence of QDs averaged over time) is shown in as grey scale image.
  
 \end_layout
 
@@ -1788,7 +1823,10 @@ Number of time slices in the sequence
 \begin_inset Text
 
 \begin_layout Plain Layout
-10
+\begin_inset Formula $10$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1797,7 +1835,7 @@ Number of time slices in the sequence
 \begin_inset Text
 
 \begin_layout Plain Layout
-Number of sources in the simulatd data
+Number of sources in the simulated data
 \end_layout
 
 \end_inset
@@ -1832,7 +1870,7 @@ Number of sources in the simulatd data
 \begin_inset Text
 
 \begin_layout Plain Layout
-Uniform bacground added to each time slice
+Uniform background added to each time slice
 \end_layout
 
 \end_inset
@@ -1937,7 +1975,7 @@ Emission wavelength
 \begin_inset Text
 
 \begin_layout Plain Layout
-Numerical apperture of the objective
+Numerical aperture of the objective
 \end_layout
 
 \end_inset
@@ -1948,7 +1986,7 @@ Numerical apperture of the objective
 \begin_inset Text
 
 \begin_layout Plain Layout
-pixelsize
+pixel-size
 \end_layout
 
 \end_inset
@@ -2008,7 +2046,7 @@ Size of a pixel in the sample plane
 \begin_inset Text
 
 \begin_layout Plain Layout
-Radius of the region containig the sources (
+Radius of the region containing the sources (
 \begin_inset Formula $\delta=0.61\frac{\lambda_{em}}{NA}$
 \end_inset
 
@@ -2801,8 +2839,8 @@ end{centering}
 \begin_layout Plain Layout
 Simulated data (10 sources) with different densities.
  Sources in all three figures have the same geometrical configuration but
- different relative distancees between the centers so that they are contained
- in the cirular area with radius 
+ different relative distances between the centres so that they are contained
+ in the circular area with radius 
 \begin_inset Formula $2.5\delta$
 \end_inset
 
@@ -2836,7 +2874,7 @@ reference "fig:simulations 1 delta "
 \end_inset
 
 ).
- Mean intensity over time is shown as a gray scale image.
+ Mean intensity over time is shown as a grey scale image.
  The true positions of the sources are shown as blue circles, estimated
  positions as red crosses.
  Green circle indicates a circular area with radius 
@@ -2942,7 +2980,7 @@ to estimate the non-negative matrices
 \begin_inset Formula $H$
 \end_inset
 
- (their intenisties) of the model Eq.
+ (their intensities) of the model Eq.
 \begin_inset space ~
 \end_inset
 
@@ -2983,11 +3021,11 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 \end_inset
 
 d-f).
- We observe an increase of hte likelihood function with increasing 
+ We observe an increase of the likelihood function with increasing 
 \begin_inset Formula $K$
 \end_inset
 
- which is not surprising as there is no penalysation for the model complexity.
+ which is not surprising as there is no penalisation for the model complexity.
  The estimated position of the separated sources (
 \begin_inset Formula $W$
 \end_inset
@@ -3026,7 +3064,7 @@ reference "eq:Correlation in residuals"
 
 \end_inset
 
- and plotted the maximum entreis in 
+ and plotted the maximum entries in 
 \begin_inset Formula $\bm{C}_{R}$
 \end_inset
 
@@ -3047,7 +3085,7 @@ g-i.
 \end_inset
 
  for the first two datasets.
- For the densiest data the correlations drop at about 
+ For the densest data the correlations drop at about 
 \begin_inset Formula $K=8$
 \end_inset
 
@@ -3077,7 +3115,7 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
 
-j-l there si shown a variational lower bound 
+j-l there is shown a variational lower bound 
 \begin_inset Formula $\mathcal{L}(K)$
 \end_inset
 
@@ -3143,7 +3181,7 @@ j) however, for the more dense data
 
  as the data can be sufficiently explained with less complicated model (less
  sources are explaining data equally well).
- Its probably worth ephesizing that GaP model does not make any assumption
+ Its probably worth emphasising that GaP model does not make any assumption
  about the time structure of the hidden variables 
 \begin_inset Formula $h_{kt}$
 \end_inset
@@ -3905,7 +3943,7 @@ Number of components
 \begin_inset Formula $K$
 \end_inset
 
- estimation for sources contained in the cirular area with radius 
+ estimation for sources contained in the circular area with radius 
 \begin_inset Formula $2.5\delta$
 \end_inset
 
@@ -4306,16 +4344,23 @@ end{centering}
 \end_layout
 
 \begin_layout Section
-FREM
+Theoretical limits of the LM
 \end_layout
 
 \begin_layout Standard
 Results from the variational approximation naturally bring a question about
- actual limts of the LM metod.
- How close the sources can be in order to be possible to resolve them.
- The Rayleigh's resolution criterion neglects the stochastic nature of the
- photon-detection process and does not take the total photon count (intensity
- of the source) into account.
+ actual limits of the LM method.
+ How close the sources can be in order to be possible to resolve them with
+ the LM method? What are the limiting factors? The Rayleigh's resolution
+ criterion 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rayleigh1896,Born1975principles"
+
+\end_inset
+
+ neglects the stochastic nature of the photon-detection process and does
+ not take the total photon count (intensity of the source) into account.
  As shown in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4323,9 +4368,9 @@ key "Thompson2002,Ram2006"
 
 \end_inset
 
- the variance of a single source localisation is inversly proportional to
- the number of photons we can collect from this source.
- For sufficiently intense sources the localisation precision can significanlty
+ the variance of a single source localisation is inversely proportional
+ to the number of photons we can collect from this source.
+ For sufficiently intense sources the localisation precision can significantly
  surpass the Rayleigh resolution limit 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4337,7 +4382,1234 @@ key "Gordon2004,Qu2004,Lidke2005,Ober2004"
  
 \end_layout
 
+\begin_layout Subsection
+Cramer Rao bound
+\end_layout
+
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+some notes on cramer rao lower bound
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Fundamental resolution measure (FREM)
+\end_layout
+
+\begin_layout Standard
+For PALM/STORM (section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:PALM,-STORM"
+
+\end_inset
+
+) the spatial resolution limit is determined by the localisation precision
+ for an individual source.
+ Cramér–Rao bound 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rao1945"
+
+\end_inset
+
+ for the position estimation of a single source detected by a CCD camera
+ is derived in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ram2006b"
+
+\end_inset
+
+.
+ The variance of the position estimator is shown to be proportional to 
+\begin_inset Formula $\frac{1}{\Lambda}$
+\end_inset
+
+ where 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ is the intensity of the source.
+\end_layout
+
+\begin_layout Standard
+A fundamental resolution measure for two sources separated by a distance
+ 
+\begin_inset Formula $d$
+\end_inset
+
+ is shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ram2006"
+
+\end_inset
+
+ as an alternative to the Rayleigh's resolution criterion considering the
+ photon statistic on the detector (CCD camera).
+ The Fisher information is shown to be 
+\begin_inset Formula 
+\begin{equation}
+I(d)=\frac{1}{4}\sum_{n=1}^{N}\frac{\left(\Lambda_{1}\int_{C_{n}}\partial_{x}q(x-\frac{d}{2})dx-\Lambda_{2}\int_{C_{n}}\partial_{x}q(x+\frac{d}{2})dx\right)^{2}}{\Lambda_{1}\int_{C_{n}}q(x-\frac{d}{2})dx+\Lambda_{2}\int_{C_{n}}q(x+\frac{d}{2})dx}\label{eq:Ram FREM}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Lambda_{i}$
+\end_inset
+
+ is the intensity of the 
+\begin_inset Formula $i$
+\end_inset
+
+th source, 
+\begin_inset Formula $q(x)$
+\end_inset
+
+ is a response function of a source and 
+\begin_inset Formula $C_{n}$
+\end_inset
+
+ is an area of the 
+\begin_inset Formula $n$
+\end_inset
+
+th pixel.
+ A short summary is shown in Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix Two-sources-separated"
+
+\end_inset
+
+.
+ There are certain issues with this formula.
+ Form the limit 
+\begin_inset Formula $d\rightarrow0$
+\end_inset
+
+ the Fisher information 
+\begin_inset Formula $I(d)\rightarrow0$
+\end_inset
+
+ (so the variance 
+\begin_inset Formula $\text{var}(d)\rightarrow\infty$
+\end_inset
+
+) for situation when 
+\begin_inset Formula $\Lambda_{1}=\Lambda_{2}$
+\end_inset
+
+.
+ However, the variance remains finite (
+\begin_inset Formula $I(d)\neq0$
+\end_inset
+
+) when 
+\begin_inset Formula $\Lambda_{1}\neq\Lambda_{2}$
+\end_inset
+
+ (see discussion in Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix Two-sources-separated"
+
+\end_inset
+
+).
+ The formula also gives 
+\begin_inset Formula $I(d)\neq0$
+\end_inset
+
+ even for the situation when one of the sources is not present (
+\begin_inset Formula $\Lambda_{i}=0$
+\end_inset
+
+).
+ This problem stems from the fact that the response function of the sources
+ are located at 
+\begin_inset Formula $\pm\frac{d}{2}$
+\end_inset
+
+ which implicitly assumes the knowledge of the origin location.
+ Only one source is then needs to determined the distance 
+\begin_inset Formula $\frac{d}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+An alternative derivation of the FREM
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:An-alternative-derivation-FREM"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We derived an alternative FREM formula for two sources (Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix An-alternative-way-Fisher-info"
+
+\end_inset
+
+).
+ We assume two sources located at position 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{2}$
+\end_inset
+
+.
+ Then the response function (we assume here the identical response functions
+ for both sources) are 
+\begin_inset Formula $f_{1}=q(x-c_{1})$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{2}=q(x-c_{2})$
+\end_inset
+
+.
+ The distance between the two sources is 
+\begin_inset Formula $d=c_{1}-c_{2}$
+\end_inset
+
+ and the variance of 
+\begin_inset Formula $d$
+\end_inset
+
+ is given by 
+\begin_inset Formula 
+\[
+\textrm{var}(d)=Q_{11}+Q_{22}-2Q_{12}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\bm{Q}$
+\end_inset
+
+ is a covariance matrix 
+\begin_inset Formula $\bm{Q}=\bm{I}^{-1}(\theta)$
+\end_inset
+
+ and 
+\begin_inset Formula $\bm{I}(\theta)$
+\end_inset
+
+ is the (symmetric) Fisher information matrix
+\begin_inset Formula 
+\begin{equation}
+I_{ij}(\bm{\theta})=-\mathbb{E}\left[\frac{\partial^{2}\mathcal{L}}{\partial\theta_{i}\partial\theta_{j}}\right]=\mathbb{E}\left[\frac{\partial\mathcal{L}}{\partial\theta_{i}}\frac{\partial\mathcal{L}}{\partial\theta_{j}}\right]\label{eq:Fisher information general}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{L}(\theta)=\log p(x|\theta)$
+\end_inset
+
+ is a log-likelihood function.
+ For a Poisson distributed pixel counts (this assumes that data are corrupted
+ with Poisson noise only) 
+\begin_inset Formula 
+\[
+p(n_{p}|\theta_{p})=\text{Po}(n_{p};\lambda_{p})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{p}$
+\end_inset
+
+ is the mean value of the 
+\begin_inset Formula $p$
+\end_inset
+
+th pixel:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\lambda_{p}=\int_{C_{p}}\lambda dx=\int_{C_{p}}\Lambda_{1}f_{1}(x)+\Lambda_{2}f_{2}(x)dx\label{eq:Mean value of hte Poisson process}
+\end{equation}
+
+\end_inset
+
+The log-likelihood function for 
+\begin_inset Formula $N$
+\end_inset
+
+ pixels
+\begin_inset Formula 
+\begin{equation}
+\log p(n|\theta)=\sum_{p=1}^{N}p(n_{p}|\lambda_{p})\label{eq:FREM likekihood Poisson}
+\end{equation}
+
+\end_inset
+
+and the Fisher information matrix becomes (Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub: Appendix Fisher-Information-Poisson"
+
+\end_inset
+
+) 
+\begin_inset Formula 
+\[
+I_{ij}(\theta)=\sum_{p=1}^{N}\frac{1}{\lambda_{p}}\frac{\partial\lambda_{p}}{\partial\theta_{i}}\frac{\partial\lambda_{p}}{\partial\theta_{j}}
+\]
+
+\end_inset
+
+The covariance matrix 
+\begin_inset Formula $\bm{Q}$
+\end_inset
+
+ is then 
+\begin_inset Formula 
+\[
+\bm{Q}=\bm{I}^{-1}(\theta)=\frac{1}{I_{11}I_{12}-I_{12}^{2}}\left(\begin{array}{cc}
+I_{22} & -I_{12}\\
+-I_{12} & I_{11}
+\end{array}\right)
+\]
+
+\end_inset
+
+and the variance of 
+\begin_inset Formula $d=c_{1}-c_{2}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\textrm{var}(d)=(1,-1)^{T}\cdot\bm{Q}\cdot(1,-1)=\frac{I_{11}+I_{22}+2I_{12}}{I_{11}I_{12}-I_{12}^{2}}\label{eq:variance d alternative}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a symmetrical PSF 
+\begin_inset Formula $q(x-d)=q(x+d)$
+\end_inset
+
+ we showed (Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub: Appendix Fisher-Information-Poisson"
+
+\end_inset
+
+) the entries of the Fisher information matrix
+\begin_inset Formula 
+\begin{alignat}{2}
+I_{ii} & =\sum_{n=1}^{N}\frac{\left(\Lambda_{i}q'_{n}\right)^{2}}{\Lambda_{i}q_{n}+\Lambda_{j}q_{n}(d)}\nonumber \\
+I_{ij} & =\sum_{n=1}^{N}\frac{\Lambda_{i}\Lambda_{j}q'_{n}q'_{n}(d)}{\Lambda_{i}q_{n}+\Lambda_{j}q_{n}(d)} & \text{ for \ensuremath{i\neq j}}\label{eq:Fisher Information Static}
+\end{alignat}
+
+\end_inset
+
+where 
+\begin_inset Formula $q_{n}(d)=\int_{C_{n}}q(x-d)dx$
+\end_inset
+
+ (
+\begin_inset Formula $q_{n}(0)=q_{n})$
+\end_inset
+
+ and 
+\begin_inset Formula $q_{n}'(d)=\int_{C_{n}}\frac{\partial q(x-d)}{\partial x}dx$
+\end_inset
+
+ (
+\begin_inset Formula $q'_{n}(0)=q'_{n})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0col%
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sized]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Log-likelihood surface
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Log-likelihood-surface"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+As shown in Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix An-alternative-way-Fisher-info"
+
+\end_inset
+
+ variance defined in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:variance d alternative"
+
+\end_inset
+
+ have very reasonable behaviour in the limits: the limit 
+\begin_inset Formula $d\rightarrow0$
+\end_inset
+
+ gives the variance 
+\begin_inset Formula $\text{var}(d)\rightarrow\infty$
+\end_inset
+
+ for any value 
+\begin_inset Formula $\Lambda_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\Lambda_{j}$
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The log-likelihood Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:FREM likekihood Poisson"
+
+\end_inset
+
+ as a function of 
+\begin_inset Formula $(c_{1},\, c_{2})$
+\end_inset
+
+ is shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Log-likelihood-surface"
+
+\end_inset
+
+.
+ The surface creats a flat crest along the line 
+\begin_inset Formula $c_{1}=c_{2}$
+\end_inset
+
+ The curviture of 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is zero along this direction which yields zero Fisher information
+\end_layout
+
+\end_inset
+
+.
+ The variance is also infinite if one of the sources is zero 
+\begin_inset Formula $\Lambda_{i}=0$
+\end_inset
+
+ as it does not make any assumption about the symmetry with respect to the
+ origin (
+\begin_inset Formula $d=c_{1}-c_{2}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+For sources well separated 
+\begin_inset Formula $d\rightarrow\infty$
+\end_inset
+
+ the off-diagonal elements of the Fisher information matrix vanishes (
+\begin_inset Formula $I_{ij}=0\text{ for }i\neq j$
+\end_inset
+
+) and the variance becomes 
+\begin_inset Formula $\text{var}(d)=\text{var}(c_{1})+\text{var}(c_{2})$
+\end_inset
+
+ (sum of the variances for localisation of individual sources).
+\end_layout
+
+\begin_layout Subsection
+FREM for blinking sources
+\end_layout
+
+\begin_layout Standard
+One of the fundamental questions is whether the fluorescence intermittancy
+ (QD blinking) allows for higher resolution compared to the situation when
+ the sources remains static over time.
+ To address this question we assume a simple model of Poisson distributed
+ data with mean values 
+\begin_inset Formula $\lambda_{n}$
+\end_inset
+
+ shown in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Mean value of hte Poisson process"
+
+\end_inset
+
+.
+ We assume the intensity vector of the two sources 
+\begin_inset Formula $\bm{\Lambda}=(\Lambda_{1},\Lambda_{2})$
+\end_inset
+
+ to be a random variable distributed over four distinctive states 
+\begin_inset Formula $\left\{ \bm{\Lambda}^{1}=(\Lambda_{1},0),\,\bm{\Lambda}^{2}=(0,\Lambda_{2}),\,\bm{\Lambda}^{3}=(\Lambda_{1},\Lambda_{2}),\,\bm{\Lambda}^{4}=(0,0)\right\} $
+\end_inset
+
+.
+ This simulates a simple blinking model of two QDs.
+ 
+\end_layout
+
+\begin_layout Standard
+If we knew what state is the 
+\begin_inset Formula $\bm{\Lambda}$
+\end_inset
+
+ in we would write the likelihood function as 
+\begin_inset Formula 
+\[
+l(\theta)=p(n,\bm{\Lambda}|\theta)=\prod_{p=1}^{N}\prod_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})
+\]
+
+\end_inset
+
+and the Fisher information matrix would become (Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix: Time-distribution - Cheating"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula 
+\begin{equation}
+I(\theta)=\sum_{i=1}^{4}p(\bm{\Lambda}_{i})\sum_{p=1}^{N}\frac{1}{\lambda_{p}(\theta,\bm{\Lambda}_{i})}\left(\frac{\partial\lambda_{p}(\theta,\bm{\Lambda}_{i})}{\partial\theta}\right)^{2}\label{eq:Fisher Information Blinking Cheating}
+\end{equation}
+
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang british
+which is the expectation value (with respect to the states 
+\begin_inset Formula $\bm{\Lambda}$
+\end_inset
+
+) of the Fisher information matrix Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Information Static"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+However, we assume we do not know what state is the variable 
+\begin_inset Formula $\bm{\Lambda}$
+\end_inset
+
+ in and so we have to integrate the 
+\begin_inset Formula $\bm{\Lambda}$
+\end_inset
+
+ out.
+ The likelihood function is then 
+\begin_inset Formula 
+\begin{equation}
+l(\theta)=\prod_{p=1}^{N}p(n_{p}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p},\bm{\Lambda}^{i}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})\label{eq:FREM likelihood Lanbda integrated out}
+\end{equation}
+
+\end_inset
+
+This complicates the evaluation of the Fisher information matrix Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher information general"
+
+\end_inset
+
+ because of the summation within the logarithm in the log-likelihood 
+\begin_inset Formula 
+\[
+\mathcal{L}(\theta)=\log l(\theta)=\sum_{p}\log\sum_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})
+\]
+
+\end_inset
+
+In Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix Time-distribution-Integrating out"
+
+\end_inset
+
+ we show that the Fisher information matrix for 
+\begin_inset Formula $p(\bm{\Lambda}^{i})=\frac{1}{4}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat}{1}
+I_{rs}(\theta) & =\sum_{p=1}^{N}\mathbb{E}_{p}\left[\frac{\left(\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{p}^{i})}{\partial c_{r}}\right)\left(\sum_{l=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{p}^{l})}{\partial c_{s}}\right)}{\left(\sum_{j=1}^{4}\textrm{Po}(\lambda_{p}^{j})\right)^{2}}\right]\label{eq:Fisher Information Blinking Integrating Out}
+\end{alignat}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{p}^{i}=\lambda_{p}(\bm{\Lambda}^{i})$
+\end_inset
+
+ is the mean intensity in the 
+\begin_inset Formula $p$
+\end_inset
+
+th pixel when 
+\begin_inset Formula $\bm{\Lambda}$
+\end_inset
+
+ is in the state 
+\begin_inset Formula $\bm{\Lambda}^{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbb{E}_{p}\left[.\right]$
+\end_inset
+
+ represents the expectation value with respect to 
+\begin_inset Formula $p(n_{p}|\theta)$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:FREM likelihood Lanbda integrated out"
+
+\end_inset
+
+.
+ Expressing the derivatives and the expectation value gives
+\begin_inset Formula 
+\[
+I_{rs}(\theta)=\frac{1}{2}\sum_{p=1}^{N}\left(\frac{\partial\lambda_{p}^{r}}{\partial c_{r}}\right)\left(\frac{\partial\lambda_{p}^{s}}{\partial c_{s}}\right)\sum_{n_{p}\geq0}\left[\frac{\left(\sum_{i=\{r,3\}}\mathrm{Po}(n_{p};\lambda_{p}^{i})\frac{(n_{p}-\lambda_{p}^{i})}{\lambda_{p}^{i}}\right)\left(\sum_{i=\{s,3\}}\mathrm{Po}(n_{p};\lambda_{p}^{i})\frac{(n_{p}-\lambda_{p}^{i})}{\lambda_{p}^{i}}\right)}{\sum_{j=1}^{4}\textrm{Po}(n_{p};\lambda_{p}^{j})}\right]
+\]
+
+\end_inset
+
+In Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix Time-distribution-Integrating out"
+
+\end_inset
+
+ we show that the limit 
+\begin_inset Formula $d\rightarrow0$
+\end_inset
+
+ gives 
+\begin_inset Formula $\text{var}(d)\rightarrow\infty$
+\end_inset
+
+ and the limit 
+\begin_inset Formula $d\rightarrow\infty$
+\end_inset
+
+ gives 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+
+\begin_inset Formula $\text{var}(d)=\frac{1}{I_{11}}+\frac{1}{I_{22}}=2\left(\frac{1}{I_{11}^{\text{static}}-\epsilon}+\frac{1}{I_{22}^{\text{static}}-\epsilon}\right)>2\text{var}(d^{\text{static}})$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang british
+ where 
+\begin_inset Formula $I^{\text{static}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\text{var}^{\text{static}}(d)$
+\end_inset
+
+ is the Fisher information matrix and the variance, respectively, of the
+ static case (section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:An-alternative-derivation-FREM"
+
+\end_inset
+
+).
+ The factor 2 in the expression for the variance comes from the fact that
+ the total number of photons in this model is the factor of two smaller
+ then in the static case.
+\end_layout
+
+\begin_layout Subsection
+Simulations
+\end_layout
+
+\begin_layout Standard
+We made a numerical computation of the 
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+ for two sources with equal intensity 
+\begin_inset Formula $\Lambda_{1}=\Lambda_{2}=\Lambda$
+\end_inset
+
+.
+ The parameters of teh simulatd sources are shown in Tab.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parameters-of-the-simulation"
+
+\end_inset
+
+.
+ We kept the total intensity (total photon count) equal for both static
+ and the blinking case.
+ 
+\end_layout
+
+\begin_layout Standard
+In the static case Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:variance d alternative"
+
+\end_inset
+
+ the variance 
+\begin_inset Formula $\text{var}(d)\propto\frac{1}{\Lambda}$
+\end_inset
+
+ as each entry of the Fisher information matrix 
+\begin_inset Formula $I_{pq}\propto\Lambda$
+\end_inset
+
+ (Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Information Static"
+
+\end_inset
+
+).
+ The intensity of the sources 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ is only a linear scaling factor.
+ In the blinking case Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Information Blinking Integrating Out"
+
+\end_inset
+
+ the dependency on 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ is complicated as the expectation in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Information Blinking Integrating Out"
+
+\end_inset
+
+ cannot be easily evaluated.
+ The results for different values of 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ are shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison Fisher-informaton and variance"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/ComarisonStaticVsBlinking_FisherInfo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Fisher Information matrix
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Fisher-Information-matrix"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/ComarisonStaticVsBlinking_var}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:variance d"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Left: Fisher informaton matrix entries.
+ Solid lined show diagonal entries, broken line show the off-diagonal elements.
+ Right: variance of the distance estimation.
+ Black lines show the results for the static case Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Information Static"
+
+\end_inset
+
+.
+ Color lines show the blinking situation Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Information Blinking Integrating Out"
+
+\end_inset
+
+ for different intensities 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ of the sources.
+ The values must be scaled by a factor 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ shown in the legend.
+ The vertical broken line indicates the Rayleigh resolution limit.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparison Fisher-informaton and variance"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -4346,7 +5618,7 @@ key "Gordon2004,Qu2004,Lidke2005,Ober2004"
 status open
 
 \begin_layout Plain Layout
-make simulation when most of hte time is one on and the other off - not
+make simulation when most of the time is one on and the other off - not
  equal probabilities over the four states
 \end_layout
 
@@ -4355,57 +5627,613 @@ make simulation when most of hte time is one on and the other off - not
 
 \end_layout
 
-\begin_layout Itemize
-Fundamental resolution limit (Ram 2006 paper - mentioned in the 
-\bar under
-Literature review - April 2010), 
-\bar default
-Cramer-Rao bound & Fisher information matrix.
+\begin_layout Subsection
+Conclusions
+\end_layout
+
+\begin_layout Standard
+The alternative derivation of the FREM provides correction to the formula
+ published in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ram2006a"
+
+\end_inset
+
+.
+ Results presented in the Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison Fisher-informaton and variance"
+
+\end_inset
+
+ suggest that the intensity blinking of the sources can increase the localisatio
+n precision for the situations when the sources are very close.
+ However, for well separated sources (
+\begin_inset Formula $d\rightarrow\infty$
+\end_inset
+
+ limit) the static situation provide upper bound for the eintries of the
+ Fisher information matrix of blinking model (Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:variance d static vs blinking"
+
+\end_inset
+
+) In this configuration the static situation allows for more precise localisatio
+n.
+ The intersection points of the curves for static and blinking model depends
+ on the intensity of the sources (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:variance d"
+
+\end_inset
+
+).
  
 \end_layout
 
-\begin_layout Itemize
-Limits of the resolution for blinking sources.
- Is there any advantage of blinking? Does it allow better separation then
- the static sources? 
+\begin_layout Standard
+The results here, however, are computed for the model with no background.
+ More investigation will be needed to explore the effect of the background.
+ 
 \end_layout
 
-\begin_layout Itemize
-FREM.
- Review of Ram et al 2006 and then the blinking question.
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
+Out of focus PSF
+\end_layout
+
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement O
+overhang 0in
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/ondrejmandula/DTC/annualreport/images/PSF/psf_profiles_invitrogen.jpg
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Point spread function for different focal planes.
+ www.invitrogen.com
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Point-spread-function"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The point spread function (PSF) is a rather complicated 3D object.
+ A scan along the axial direction throug a PSF of an optical microcope (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Point-spread-function"
+
+\end_inset
+
+) shows characteristic ringings for out-of-focus PSF.
+ In a real biological sample PSF from different focal planes can overlap.
+ As the NMF does not make any assumption about the PSFs of the individual
+ sources (parameter matrix 
+\begin_inset Formula $W$
+\end_inset
+
+), it is possible to separate ovelapping QDs located in different axial
+ positions.
+ This can be possible used for the 3D localisation of the sources.
+ Moreover the PSF of the individual sources can differ due to the aberrations
+ caused by imperfections of the microcope or by inhomogenities of the refractive
+ index in the sample.
+ However, the PSF of each source must remain constant during the data acquisitio
+n.
+ 
+\end_layout
+
+\begin_layout Subsection
 Results
 \end_layout
 
-\begin_layout Subsection
-Simulations
+\begin_layout Standard
+We recorded a sample of the QDs deposited on a cover slip.
+ Slight variations in the focal plane occures between individual QDs which
+ provides differrent PSF for individual sources.
+ We acquired 
+\begin_inset Formula $10^{3}$
+\end_inset
+
+ images with 
+\begin_inset Formula $100\,\text{ms}$
+\end_inset
+
+ exposure time (the total acquisition time is about 2
+\begin_inset space ~
+\end_inset
+
+mins).
+ Several images from the time stack are shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Out of focus QDs"
+
+\end_inset
+
+.
+ 
 \end_layout
 
-\begin_layout Itemize
-Determination of the number of sources - BIC, variational - likelihood lower
- bound, correlations in residuals
+\begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
 \end_layout
 
-\begin_layout Itemize
-Simulated sample with spatial structure.
+\end_inset
+
+
 \end_layout
 
-\begin_layout Itemize
-(?) Time series 
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/d1}
 \end_layout
 
-\begin_layout Subsection
-Real Data
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/d2}
 \end_layout
 
-\begin_layout Itemize
-Out of focus PSFs
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/d3}
 \end_layout
 
-\begin_layout Itemize
-Real sample with structure & SNARE (? Colin & Rory)
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/d4} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/d5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/d6}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/d7}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/d8}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Eight images (out of 
+\begin_inset Formula $10^{3}$
+\end_inset
+
+) of the blinking QD time series.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Out of focus QDs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=1.38]{
+\backslash
+homepath 
+\backslash
+qdotspath /S279/images/dpixcmean}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mean intensity image
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S281/images/resw_col1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S281/images/resw_col2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S281/images/resw_col3}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S281/images/resw_col4}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeb]{
+\backslash
+homepath 
+\backslash
+qdotspath /S281/images/resw_col5}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Separated sources
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Left: mean intensity image correspond to a standard wide-field image.
+ Right: separated individual sources for 
+\begin_inset Formula $K=13$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\lang british
+
+\begin_inset Newpage clearpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -4430,7 +6258,7 @@ Standard NMF does not require any prior knowledge about the matrices
 \end_inset
 
 , apart from the non-negativity constraints.
- We can use a permutation operator to the data for the indeces along the
+ We can use a permutation operator to the data for the indices along the
  time (
 \begin_inset Formula $\pi_{x}(x)$
 \end_inset
@@ -4439,7 +6267,7 @@ Standard NMF does not require any prior knowledge about the matrices
 \begin_inset Formula $\pi_{t}(t)$
 \end_inset
 
-) dimension without changeig the permuted factorised matrices
+) dimension without changing the permuted factorised matrices
 \begin_inset Formula 
 \[
 V_{\pi_{x}(x)\pi_{t}(t)}=\sum_{k=1}^{K}W_{\pi_{x}(x)k}H_{k\pi_{t}(t)}
@@ -4473,6 +6301,13 @@ Direction of the future work.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "references/MachineLearning,references/Microscopy,references/QuantumDots,references/Books"
@@ -4484,7 +6319,7 @@ options "apalike"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset Newpage clearpage
 \end_inset
 
 
@@ -4492,7 +6327,7 @@ options "apalike"
 
 \begin_layout Section
 \start_of_appendix
-NMF as a minimization of Kullback–Leibler divergence
+NMF as a minimisation of Kullback–Leibler divergence
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Appendix NMF-as-minimization"
@@ -4503,7 +6338,7 @@ name "sec:Appendix NMF-as-minimization"
 \end_layout
 
 \begin_layout Standard
-A generelized Kullback-Liebler (KL) divergence between two (un normalized)
+A generalised Kullback-Liebler (KL) divergence between two (un normalised)
  discrete variables 
 \begin_inset Formula $P_{i}$
 \end_inset
@@ -4527,7 +6362,7 @@ key "Lee2001"
 
 \end_inset
 
- minimized the KL divergence between the data matrix 
+ minimised the KL divergence between the data matrix 
 \begin_inset Formula $D$
 \end_inset
 
@@ -4558,7 +6393,7 @@ where
 \begin_inset Formula $C$
 \end_inset
 
- is a constant independont on 
+ is a constant independent on 
 \begin_inset Formula $W$
 \end_inset
 
@@ -4614,8 +6449,8 @@ reference "eq:Appendix KL(D|WH)"
 
 \end_inset
 
- shows that minimization of the KL divergence between data and teh model
- is eqvialent to the maximization of the log-likelihood function of the
+ shows that minimisation of the KL divergence between data and the model
+ is equivalent to the maximisation of the log-likelihood function of the
  model with assumption of the Poisson noise.
  
 \end_layout
@@ -4644,7 +6479,7 @@ key "Buntine2006"
 \begin_inset Formula $d\rightarrow w$
 \end_inset
 
-, hidden varibales (intenisties) 
+, hidden variables (intensities) 
 \begin_inset Formula $h\rightarrow l$
 \end_inset
 
@@ -5832,6 +7667,1416 @@ Gamma distribution for different set of parameters with mean
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Resolution limit for the blinking QDs
+\end_layout
+
+\begin_layout Subsection
+Poisson random variable
+\end_layout
+
+\begin_layout Standard
+This is derivation of the fisher information for Poisson distributed variable
+ 
+\begin_inset Formula $X$
+\end_inset
+
+ with mean 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X\sim\textrm{Po}(n,\lambda)=p(n|\theta)=\frac{\lambda^{n}e^{-\lambda}}{n!}
+\]
+
+\end_inset
+
+Likelihood of the Poisson distributed variable with detection 
+\begin_inset Formula $n_{k}$
+\end_inset
+
+ in K pixels: 
+\begin_inset Formula 
+\begin{equation}
+l(\theta)=\prod_{k=1}^{K}l_{k}=\prod_{k=1}^{K}\frac{\lambda_{k}^{n_{k}}e^{-\lambda_{k}}}{n_{k}!}\label{eq:Likelihood of Poisson}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $l_{k}(\theta)=p(n_{k}|\theta)$
+\end_inset
+
+ to emphasise the dependency on the parameter 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Log-Likelihood:
+\begin_inset Formula 
+\[
+\mathcal{L}=\sum_{k}\left(n_{k}\log\lambda_{k}-\lambda_{k}-\log n_{k}!\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Fisher Information for a Poisson variable
+\begin_inset CommandInset label
+LatexCommand label
+name "sub: Appendix Fisher-Information-Poisson"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fisher information:
+\begin_inset Formula 
+\begin{equation}
+I(\theta)=-\mathbb{E}\left[\frac{\partial^{2}\mathcal{L}}{\partial\theta^{2}}\right]=\mathbb{E}\left[\left(\frac{\partial\mathcal{L}}{\partial\theta}\right)^{2}\right]=\mathbb{E}\left[\left(\sum_{k}\frac{\partial\log(l_{k})}{\partial\theta}\right)^{2}\right]=\mathbb{E}\left[\left(\sum_{k}\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}\right)^{2}\right]\label{eq:Fisher Info Definition}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta) & =\mathbb{E}\left[\left(\sum_{k}\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}\right)\left(\sum_{m}\frac{1}{l_{m}}\frac{\partial l_{m}}{\partial\theta}\right)\right]\\
+ & =\mathbb{E}\left[\sum_{k}\frac{1}{l_{k}^{2}}\left(\frac{\partial l_{k}}{\partial\theta}\right)^{2}\right]+\mathbb{E}\left[\sum_{k}\sum_{m\neq k}\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}\frac{1}{l_{m}}\frac{\partial l_{m}}{\partial\theta}\right]
+\end{alignat*}
+
+\end_inset
+
+as 
+\begin_inset Formula $n_{k}$
+\end_inset
+
+ are iid then the second term can be expressed as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left[\sum_{k}\sum_{m\neq k}\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}\frac{1}{l_{m}}\frac{\partial l_{m}}{\partial\theta}\right] & =\sum_{k}\sum_{m\neq k}\mathbb{E}_{k}\left[\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}\right]\mathbb{E}_{m}\left[\frac{1}{l_{m}}\frac{\partial l_{m}}{\partial\theta}\right]
+\end{align*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\mathbb{E}_{k}\left[f(n_{k})\right]=\sum_{n_{k}\geq0}p(n_{k}|\theta)f(n_{k})
+\]
+
+\end_inset
+
+But 
+\begin_inset Formula 
+\[
+\mathbb{E}_{k}\left[\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}\right]=\sum_{n_{k}}l_{k}\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}=\sum_{n_{k}}\frac{\partial l_{k}}{\partial\theta}=\frac{\partial\sum_{n_{k}}l_{k}}{\partial\theta}=0
+\]
+
+\end_inset
+
+as 
+\begin_inset Formula $\sum_{n_{k}}l_{k}=\sum_{n_{k}}p(n_{k}|\theta)=1$
+\end_inset
+
+.
+ The Fisher Information can then be expressed 
+\begin_inset Formula 
+\begin{align*}
+I(\theta) & =\mathbb{E}\left[\sum_{k}\frac{1}{l_{k}^{2}}\left(\frac{\partial l_{k}}{\partial\theta}\right)^{2}\right]\\
+ & =\sum_{k=1}^{k}\sum_{n_{k}\geq0}l_{k}\frac{1}{l_{k}^{2}}\left(\frac{\partial l_{k}}{\partial\theta}\right)^{2}\\
+ & =\sum_{k=1}^{k}\sum_{n_{k}\geq0}\frac{1}{l_{k}}\left(\frac{\partial l_{k}}{\partial\theta}\right)^{2}
+\end{align*}
+
+\end_inset
+
+Derivatives of likelihood Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Likelihood of Poisson"
+
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\frac{\partial l_{k}}{\partial\theta}=\frac{l_{k}(n_{k}-\lambda_{k})}{\lambda_{k}}\frac{\partial\lambda_{k}}{\partial\theta}
+\]
+
+\end_inset
+
+And we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+I(\theta) & =\sum_{k=1}^{k}\sum_{n_{k}\geq0}\frac{l_{k}(n_{k}-\lambda_{k})^{2}}{\lambda_{k}^{2}}\left(\frac{\partial\lambda_{k}}{\partial\theta}\right)^{2}\\
+ & =\sum_{k=1}^{k}\frac{1}{\lambda_{k}^{2}}\left(\frac{\partial\lambda_{k}}{\partial\theta}\right)^{2}\mathbb{E}_{k}\left[(n_{k}-\lambda_{k})^{2}\right]
+\end{align*}
+
+\end_inset
+
+for Poisson 
+\begin_inset Formula $\mathrm{var}(n)=\mathrm{mean}(n)=\lambda$
+\end_inset
+
+ gives 
+\begin_inset Formula 
+\[
+\mathbb{E}_{k}\left[(n_{k}-\lambda_{k})^{2}\right]=\textrm{var}(n_{k})=\lambda_{k}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\begin{equation}
+I(\theta)=\sum_{k=1}^{K}\frac{1}{\lambda_{k}}\left(\frac{\partial\lambda_{k}}{\partial\theta}\right)^{2}\label{eq:Fisher Info for Poisson}
+\end{equation}
+
+\end_inset
+
+This is the pixelised version (detection of the photons in K detectors -
+ CCD camera and 
+\begin_inset Formula $\lambda_{k}=\int_{C_{k}}\lambda(x)dx$
+\end_inset
+
+ where 
+\begin_inset Formula $C_{k}$
+\end_inset
+
+ is an area of the pixels of the detector).
+ 
+\end_layout
+
+\begin_layout Standard
+Non pixelised version 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ram2006"
+
+\end_inset
+
+s
+\begin_inset Formula 
+\[
+I(\theta)=\int\frac{1}{\lambda(x)}\left(\frac{\partial\lambda(x)}{\partial\theta}\right)^{2}dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Two sources separated by a distance 
+\begin_inset Formula $d$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Appendix Two-sources-separated"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These are comment on Fisher Information estimation as described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ram2006"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For two sources separated by a distance 
+\begin_inset Formula $d$
+\end_inset
+
+ we have a mean value of the intensity:
+\begin_inset Formula 
+\[
+\lambda=\Lambda_{1}f_{1}+\Lambda_{2}f_{2}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Lambda_{i}$
+\end_inset
+
+ is the response function and intensity, respectively, of the source 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ For translationally invariant PSF and in-focus sources: 
+\begin_inset Formula $f_{1}=q(x-\frac{d}{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{2}=q(x+\frac{d}{2})$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\lambda(d)=\Lambda_{1}q(x-\frac{d}{2})+\Lambda_{2}q(x+\frac{d}{2})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $q$
+\end_inset
+
+ is the PSF of the sources.
+ For pixelised version (integral over pixel area 
+\begin_inset Formula $C_{k}$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\lambda_{k}(d)=\Lambda_{1}\int_{C_{k}}q(x-\frac{d}{2})dx+\Lambda_{2}\int_{C_{k}}q(x+\frac{d}{2})dx
+\]
+
+\end_inset
+
+so we get (as described in
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Ram2006"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{equation}
+I(d)=\frac{1}{4}\sum_{k=1}^{K}\frac{\left(\Lambda_{1}\int_{C_{k}}\partial_{x}q(x-\frac{d}{2})dx-\Lambda_{2}\int_{C_{k}}\partial_{x}q(x+\frac{d}{2})dx\right)^{2}}{\Lambda_{1}\int_{C_{k}}q(x-\frac{d}{2})dx+\Lambda_{2}\int_{C_{k}}q(x+\frac{d}{2})dx}\label{eq:Fisher Info Pixelised - Ram}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph*
+Limit 
+\begin_inset Formula $d=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\Lambda_{1}=\Lambda_{2}$
+\end_inset
+
+ then 
+\begin_inset Formula $I(d=0)=0$
+\end_inset
+
+ which means 
+\begin_inset Formula $\textrm{var}(d=0)\rightarrow\infty$
+\end_inset
+
+.
+ (This does not hold for 
+\begin_inset Formula $\Lambda_{1}\neq\Lambda_{2}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Subparagraph*
+Limit 
+\begin_inset Formula $d\rightarrow\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When sources are far apart then the mixing term in nominator in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Info Pixelised - Ram"
+
+\end_inset
+
+ 
+\begin_inset Formula $\Lambda_{1}\Lambda_{2}\partial_{x}q(x-\frac{d}{2})\partial q(d+\frac{d}{2})=0$
+\end_inset
+
+ as the 
+\begin_inset Formula $\partial_{x}q(x-\frac{d}{2})$
+\end_inset
+
+ (
+\begin_inset Formula $q(x-\frac{d}{2})$
+\end_inset
+
+) and 
+\begin_inset Formula $\partial_{x}q(x+\frac{d}{2})$
+\end_inset
+
+ (
+\begin_inset Formula $q(x+\frac{d}{2})$
+\end_inset
+
+ ) do not have any overlap.
+ The 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Info Pixelised - Ram"
+
+\end_inset
+
+ then decomposes into two individual terms (sum of Fisher Information for
+ localisation of individual sources.) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(d) & =\frac{1}{4}\sum_{k=1}^{K}\left[\frac{\left(\Lambda_{1}\int_{C_{k}}\partial_{x}q(x-\frac{d}{2})dx\right)^{2}}{\Lambda_{1}\int_{C_{k}}q(x-\frac{d}{2})dx}+\frac{\left(\Lambda_{2}\int_{C_{k}}\partial_{x}q(x+\frac{d}{2})dx\right)^{2}}{\Lambda_{2}\int_{C_{k}}q(x+\frac{d}{2})dx}\right]\\
+ & =\frac{1}{4}\sum_{k=1}^{K}\frac{\left(\int_{C_{k}}\partial_{x}q(x)dx\right)^{2}}{\int_{C_{k}}q(x)dx}\left[\Lambda_{1}+\Lambda_{2}\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+Limit 
+\begin_inset Formula $\Lambda_{i}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\Lambda_{1}=0$
+\end_inset
+
+ or 
+\begin_inset Formula $\Lambda_{2}=0$
+\end_inset
+
+ 
+\begin_inset Formula $I(d)\neq0$
+\end_inset
+
+.
+ So the variance is finite even if one of the sources is not present.
+\end_layout
+
+\begin_layout Subsection
+An alternative way to derive Fisher information for two sources separated
+ by 
+\begin_inset Formula $d$
+\end_inset
+
+:
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Appendix An-alternative-way-Fisher-info"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is a suggestion how to fix the problems with limits for Fisher Information
+ derived above.
+ This gives infinite variance when one of the sources is no present.
+ Also fix weird behaviour of the 
+\begin_inset Formula $I(d)$
+\end_inset
+
+ for 
+\begin_inset Formula $d=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For two sources 
+\begin_inset Formula $f_{1}=q(x-c_{1})$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{2}=q(x-c_{2})$
+\end_inset
+
+ we have 
+\begin_inset Formula $\lambda=\Lambda_{1}f_{1}+\Lambda_{2}f_{2}$
+\end_inset
+
+.
+ The distance between the two sources is 
+\begin_inset Formula $d=c_{1}-c_{2}$
+\end_inset
+
+.
+ This is a linear combination 
+\begin_inset Formula $\bm{a}^{T}\cdot\bm{c}$
+\end_inset
+
+ of the variable 
+\begin_inset Formula $\bm{c}=(c_{1},c_{2})$
+\end_inset
+
+ where 
+\begin_inset Formula $\bm{a}=(1,-1)$
+\end_inset
+
+.
+ The variance of 
+\begin_inset Formula $d$
+\end_inset
+
+ is given by 
+\begin_inset Formula 
+\[
+\textrm{var}(d)=\textrm{var}(\bm{a}^{T}\cdot\bm{c})=\bm{a}^{T}\cdot\bm{Q}\cdot\bm{a}=Q_{11}+Q_{22}-2Q_{12}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\bm{Q}$
+\end_inset
+
+ is a covariance matrix 
+\begin_inset Formula $\bm{Q}=\bm{I}^{-1}(\theta)$
+\end_inset
+
+ and 
+\begin_inset Formula $\bm{I}(\theta)$
+\end_inset
+
+ is the Fisher information matrix (symmetric 
+\begin_inset Formula $I_{12}=I_{21}$
+\end_inset
+
+) 
+\begin_inset Formula 
+\[
+\bm{I}(\theta)=\left(\begin{array}{cc}
+I_{11} & I_{12}\\
+I_{12} & I_{22}
+\end{array}\right)
+\]
+
+\end_inset
+
+given by generalisation of Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Info for Poisson"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+I_{ij}(\theta)=\sum_{k=1}^{K}\frac{1}{\lambda_{k}}\frac{\partial\lambda_{k}}{\partial\theta_{i}}\frac{\partial\lambda_{k}}{\partial\theta_{j}}
+\]
+
+\end_inset
+
+The covariance matrix 
+\begin_inset Formula $\bm{Q}$
+\end_inset
+
+ is then 
+\begin_inset Formula 
+\[
+\bm{Q}=\bm{I}^{-1}(\theta)=\frac{1}{I_{11}I_{12}-I_{12}^{2}}\left(\begin{array}{cc}
+I_{22} & -I_{12}\\
+-I_{12} & I_{11}
+\end{array}\right)
+\]
+
+\end_inset
+
+and the variance of 
+\begin_inset Formula $d=c_{1}-c_{2}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\textrm{var}(d)=(1,-1)^{T}\cdot\bm{Q}\cdot(1,-1)=\frac{I_{11}+I_{22}+2I_{12}}{I_{11}I_{12}-I_{12}^{2}}\label{eq:variance alternative}
+\end{equation}
+
+\end_inset
+
+The individual terms of the Fisher Information matrix 
+\begin_inset Formula 
+\[
+I_{11}=\sum_{k=1}^{K}\frac{1}{\lambda_{k}}\left(\frac{\partial\lambda_{k}}{\partial c_{1}}\right)^{2}=\sum_{k=1}^{K}\frac{\left(\Lambda_{1}q'_{k}(c_{1})\right)^{2}}{\Lambda_{1}q_{k}(c_{1})+\Lambda_{2}q_{k}(c_{2})}
+\]
+
+\end_inset
+
+where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{2}
+q_{k}(c) & =\int_{C_{k}}q(x-c)dx & ,\ (q_{k}(0)=q_{k})\\
+q'_{k}(c) & =\int_{C_{k}}\frac{\partial q(x-c)}{\partial x}dx & ,\ (q'_{k}(0)=q'_{k})
+\end{alignat*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+ If this keeps translational invariance (non-pixelised version does as 
+\begin_inset Formula $\int_{\mathbb{R}}g(x+c)dx=\int_{\mathbb{R}}g(x)dx$
+\end_inset
+
+) then 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{11}=\sum_{k=1}^{K}\frac{\left(\Lambda_{1}q'_{k}\right)^{2}}{\Lambda_{1}q_{k}+\Lambda_{2}q_{k}(-d)}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $d=c_{1}-c_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+I_{22}=\sum_{k=1}^{K}\frac{\left(\Lambda_{2}q'_{k}\right)^{2}}{\Lambda_{2}q_{k}+\Lambda_{1}q_{k}(d)}
+\]
+
+\end_inset
+
+For symmetrical PSF 
+\begin_inset Formula $q(x-d)=q(x+d)$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\begin{equation}
+I_{ii}=\sum_{k=1}^{K}\frac{\left(\Lambda_{i}q'_{k}\right)^{2}}{\Lambda_{i}q_{k}+\Lambda_{j}q_{k}(d)}\label{eq:Fisher Information alternative - Individual}
+\end{equation}
+
+\end_inset
+
+And the cross term (
+\begin_inset Formula $i\neq j$
+\end_inset
+
+) 
+\begin_inset Formula 
+\[
+I_{ij}=\sum_{k=1}^{K}\frac{\Lambda_{i}\Lambda_{j}q'_{k}q'_{k}(d)}{\Lambda_{i}q_{k}+\Lambda_{j}q_{k}(d)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+Limit 
+\begin_inset Formula $d\rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $d=0$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{alignat*}{1}
+I_{ii} & =\frac{\Lambda_{i}^{2}}{\Lambda_{i}+\Lambda_{j}}S(0)\\
+I_{ij} & =\frac{\Lambda_{i}\Lambda_{j}}{\Lambda_{i}+\Lambda_{j}}S(0)
+\end{alignat*}
+
+\end_inset
+
+where 
+\begin_inset Formula $S(d)=\sum_{k=1}^{K}\frac{\left(q'_{k}\right)^{2}}{q_{k}+q_{k}(d)}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Numerator 
+\begin_inset Formula $p$
+\end_inset
+
+ in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:variance alternative"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+p=I_{11}+I_{22}+2I_{12}=\frac{S(0)}{\Lambda_{1}+\Lambda_{2}}(\Lambda_{1}^{2}+\Lambda_{2}^{2}+2\Lambda_{1}\Lambda_{2})=\frac{S(0)}{\Lambda_{1}+\Lambda_{2}}(\Lambda_{1}+\Lambda_{2})^{2}
+\]
+
+\end_inset
+
+ is non-zero for any 
+\begin_inset Formula $\Lambda_{1},\,\Lambda_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The denominator in Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:variance alternative"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+r=\det\left[\bm{I}(\theta)\right]=I_{11}I_{22}-I_{12}^{2}=\frac{S^{2}(0)}{\left(\Lambda_{1}+\Lambda_{2}\right)^{2}}\left(\Lambda_{1}^{2}\Lambda_{2}^{2}-(\Lambda_{1}\Lambda_{2})^{2}\right) & \equiv & 0\ \text{for any }\Lambda_{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\bm{I}(\theta)$
+\end_inset
+
+ is therefore a singular matrix for 
+\begin_inset Formula $d=0$
+\end_inset
+
+ and inversion 
+\begin_inset Formula $\bm{I}^{-1}(\theta)$
+\end_inset
+
+ does not exist.
+ 
+\end_layout
+
+\begin_layout Standard
+However, for the limit 
+\begin_inset Formula $d\rightarrow0$
+\end_inset
+
+ and 
+\begin_inset Formula $p\neq0,\, r\rightarrow0$
+\end_inset
+
+ and 
+\begin_inset Formula $\textrm{var}(d\rightarrow0)=\frac{p}{r}\rightarrow\infty$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subparagraph*
+Limit 
+\begin_inset Formula $d\rightarrow\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The cross term 
+\begin_inset Formula $I_{ij}=0,\: i\neq j$
+\end_inset
+
+ and we get f
+\begin_inset Formula 
+\[
+\textrm{var}(d)=\frac{1}{I_{11}}+\frac{1}{I_{22}}
+\]
+
+\end_inset
+
+and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{ii}=\sum_{k=1}^{K}\frac{\left(\Lambda_{i}q_{k}'\right)^{2}}{\Lambda_{i}q_{k}+\Lambda_{j}q_{k}(d)}=\Lambda_{i}\sum_{k=1}^{K}\frac{\left(q_{k}'\right)^{2}}{q_{k}}=2\Lambda_{i}S(0)
+\]
+
+\end_inset
+
+as the PSF 
+\begin_inset Formula $q(x)$
+\end_inset
+
+ (and also 
+\begin_inset Formula $q'(x)$
+\end_inset
+
+) have a finite support, if 
+\begin_inset Formula $d$
+\end_inset
+
+ is big, 
+\begin_inset Formula $q(x-d)$
+\end_inset
+
+ is outside the support of the 
+\begin_inset Formula $q'(x)$
+\end_inset
+
+.
+ They have no overlap so it doesn't have any effect in the denominator.
+\end_layout
+
+\begin_layout Standard
+For non-pixelised version, 
+\begin_inset Formula $\Lambda_{1}=\Lambda_{2}=\Lambda$
+\end_inset
+
+ and for Gaussian approximation of the PSF (
+\begin_inset Formula $q(x-a)\propto\exp\left(-\frac{(x-a)^{2}}{2\sigma^{2}}\right)$
+\end_inset
+
+ (with 
+\begin_inset Formula $\sigma=\frac{\sqrt{2}}{2\pi}\frac{\lambda}{NA}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang2007"
+
+\end_inset
+
+) we have 
+\begin_inset Formula $q'(x)=\frac{1}{\sigma^{2}}xq(x)$
+\end_inset
+
+ and and for 
+\begin_inset Formula $\Lambda_{1}=\Lambda_{2}=\Lambda$
+\end_inset
+
+ and for Gaussian approximation of the PSF 
+\begin_inset Formula $S(0)=\frac{1}{2\sigma^{2}}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(d\rightarrow\infty) & =\frac{\Lambda}{\sigma^{2}}\\
+\textrm{var}(d\rightarrow\infty) & =\frac{\sigma^{2}}{\Lambda}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+Limit 
+\begin_inset Formula $\Lambda_{i}=0,\ \Lambda_{j}\neq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then 
+\begin_inset Formula $I_{ii}\equiv0$
+\end_inset
+
+ and 
+\begin_inset Formula $I_{ij}\equiv0$
+\end_inset
+
+ and so 
+\begin_inset Formula $\det(\bm{I}(\theta))\equiv0$
+\end_inset
+
+, and matrix is singular.
+ In the limit 
+\begin_inset Formula $\Lambda_{i}\rightarrow0$
+\end_inset
+
+ the variance 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:variance alternative"
+
+\end_inset
+
+ 
+\begin_inset Formula $\textrm{var}(d)\rightarrow\infty$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Time distribution of the intensities (blinking)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Appendix: Time-distribution - Cheating"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For likelihood dependent on parameter 
+\begin_inset Formula $\Lambda_{t}$
+\end_inset
+
+ (T different time slices)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+l_{T}(d,\Lambda)=\prod_{k=1}^{K}\prod_{t=1}^{T}p(n_{k}|d,\Lambda_{t})p(\Lambda_{t})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}_{T}(d,\Lambda)=\sum_{k=1}^{K}\sum_{t=1}^{T}\left[\log\left(l_{k}(d,\Lambda_{t})\right)+\log\left(p(\Lambda_{t})\right)\right]
+\]
+
+\end_inset
+
+as 
+\begin_inset Formula $p(\Lambda)$
+\end_inset
+
+ is not dependent on 
+\begin_inset Formula $d$
+\end_inset
+
+ then
+\begin_inset Formula 
+\[
+\frac{\partial^{2}\mathcal{L}_{T}(d,\Lambda)}{\partial d^{2}}=\sum_{t=1}^{T}\frac{\partial^{2}\mathcal{L}(d,\Lambda_{t})}{\partial d^{2}}
+\]
+
+\end_inset
+
+but in the expectation equation Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Info Definition"
+
+\end_inset
+
+ the time dependence appears as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+I_{T}(\theta) & =-\mathbb{E}_{T}\left[\sum_{t=1}^{T}\frac{\partial^{2}\mathcal{L}(d,\Lambda_{t})}{\partial d^{2}}\right]=\sum_{t=1}^{T}-\mathbb{E}_{T}\left[\frac{\partial^{2}\mathcal{L}(d,\Lambda_{t})}{\partial d^{2}}\right]=\sum_{t=1}^{T}\mathbb{E}_{T}\left[\left(\frac{\partial\mathcal{L}(d,\Lambda_{t})}{\partial d}\right)^{2}\right]\\
+ & =\sum_{t=1}^{T}\int_{\Lambda_{t}}p(\Lambda_{t})I(\theta)d\Lambda_{t}=\sum_{t,k}\int_{\Lambda_{t}}p(\Lambda_{t})\frac{1}{\lambda_{k}(\Lambda_{t})}\left(\frac{\partial\lambda_{k}(\Lambda_{t})}{\partial d}\right)^{2}d\Lambda_{t}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Time distribution of the intensities - integrating out 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Appendix Time-distribution-Integrating out"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+l_{k}(d)=\int_{\Lambda}l_{k}(d,\Lambda)d\Lambda=\int_{\Lambda}p(n_{k}|d,\Lambda)p(\Lambda)d\Lambda
+\]
+
+\end_inset
+
+for four state model of two sources: 
+\begin_inset Formula $\left\{ (\Lambda_{1},0),(0,\Lambda_{2}),(\Lambda_{1},\Lambda_{2}),(0,0)\right\} $
+\end_inset
+
+: 
+\begin_inset Formula $\lambda^{1}=\Lambda_{1}q(x-c_{1})$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda^{2}=\Lambda_{2}q(x-c_{2})$
+\end_inset
+
+, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+\lang english
+
+\begin_inset Formula $\lambda^{3}=+\Lambda_{1}q(x-c_{1})+\Lambda_{2}q(x-c_{2})$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda^{4}=0$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+\lang british
+ with uniform distribution over these states
+\begin_inset Formula 
+\[
+l_{k}(\theta)=\frac{1}{4}\sum_{i=1}^{4}\mathrm{Po}(\lambda_{k}^{i})
+\]
+
+\end_inset
+
+derivatives 
+\begin_inset Formula 
+\[
+\frac{\partial l_{k}}{\partial c_{p}}=\frac{1}{4}\sum_{i}\frac{\partial\mathrm{Po}(\lambda_{k}^{i})}{\partial c_{p}}=\frac{1}{4}\sum_{i}\left(\mathrm{Po}(\lambda_{k}^{i})\frac{(n_{k}-\lambda_{k}^{i})}{\lambda_{k}^{i}}\frac{\partial\lambda_{k}^{i}}{\partial c_{p}}\right)
+\]
+
+\end_inset
+
+The Fisher information matrix diagonal entries:
+\begin_inset Formula 
+\begin{alignat}{1}
+I_{pp}(\theta) & =\mathbb{E}\left[\left(\sum_{k=1}^{N}\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial c_{p}}\right)^{2}\right]\nonumber \\
+ & =\mathbb{E}\left[\left\{ \sum_{k=1}^{N}\left(\frac{1}{\sum_{j=1}^{4}\textrm{Po}(\lambda_{k}^{j})}\frac{\partial\sum_{i=1}^{4}\textrm{Po}(\textrm{\lambda}_{k}^{i})}{\partial c_{p}}\right)\right\} \left\{ \sum_{l=1}^{N}\left(\frac{1}{\sum_{j=1}^{4}\textrm{Po}(\lambda_{l}^{j})}\frac{\partial\sum_{i=1}^{4}\textrm{Po}(\textrm{\lambda}_{l}^{i})}{\partial c_{p}}\right)\right\} \right]\nonumber \\
+ & =\sum_{k=1}^{N}\mathbb{E}_{k}\left[\frac{\left(\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{k}^{i})}{\partial c_{p}}\right)^{2}}{\left(\sum_{j=1}^{4}\textrm{Po}(\lambda_{k}^{j})\right)^{2}}\right]\label{eq:Fisher Info Integrated Out - diagonal entries}
+\end{alignat}
+
+\end_inset
+
+as the cross terms (
+\begin_inset Formula $k,\, l$
+\end_inset
+
+) in the sum (2nd row) are zeros: 
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[\left(\frac{\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{k}^{i})}{\partial c_{p}}}{\sum_{j=1}^{4}\textrm{Po}(\lambda_{k}^{j})}\right)\left(\frac{\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{l}^{i})}{\partial c_{p}}}{\sum_{j=1}^{4}\textrm{Po}(\lambda_{l}^{j})}\right)\right] & =\mathbb{E}_{k}\left[\frac{\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{k}^{i})}{\partial c_{p}}}{\sum_{j=1}^{4}\textrm{Po}(\lambda_{k}^{j})}\right]\mathbb{E}_{l}\left[\frac{\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{l}^{i})}{\partial c_{p}}}{\sum_{j=1}^{4}\textrm{Po}(\lambda_{l}^{j})}\right]\\
+ & =\sum_{i=1}^{4}\frac{\partial}{\partial c_{p}}\left(\sum_{n_{k}\geq0}\textrm{Po}(\textrm{\lambda}_{k}^{i})\right)\sum_{i=1}^{4}\frac{\partial}{\partial c_{p}}\left(\sum_{n_{k}\geq0}\textrm{Po}(\textrm{\lambda}_{l}^{i})\right)\\
+ & =0
+\end{alignat*}
+
+\end_inset
+
+Expressing the derivatives and the expectation from Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Info Integrated Out - diagonal entries"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{alignat*}{1}
+I_{pp}(\theta) & =\sum_{k=1}^{N}\mathbb{E}_{k}\left[\left\{ \frac{\sum_{i=1}^{4}\left(\mathrm{Po}(n_{k};\lambda_{k}^{i})\frac{(n_{k}-\lambda_{k}^{i})}{\lambda_{k}^{i}}\frac{\partial\lambda_{k}^{i}}{\partial c_{p}}\right)}{\sum_{j=1}^{4}\textrm{Po}(n_{k};\lambda_{k}^{j})}\right\} ^{2}\right]\\
+ & =\frac{1}{4}\sum_{k=1}^{N}\sum_{n_{k}\geq0}\frac{\left\{ \sum_{i=1}^{4}\left(\mathrm{Po}(n_{k};\lambda_{k}^{i})\frac{(n_{k}-\lambda_{k}^{i})}{\lambda_{k}^{i}}\frac{\partial\lambda_{k}^{i}}{\partial c_{p}}\right)\right\} ^{2}}{\sum_{j=1}^{4}\textrm{Po}(n_{k};\lambda_{k}^{j})}
+\end{alignat*}
+
+\end_inset
+
+For the four states model we have 
+\begin_inset Formula $\lambda^{3}(c_{1},c_{2})=\lambda^{1}(c_{1})+\lambda^{2}(c_{2})$
+\end_inset
+
+ and so 
+\begin_inset Formula $\frac{\partial\lambda^{3}}{\partial c_{p}}=\frac{\partial\lambda^{p}}{\partial c_{p}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\partial\lambda^{j}}{\partial c_{p}}=0,\, i\neq j$
+\end_inset
+
+ for 
+\begin_inset Formula $p=\{1,2\},\: j=\{1,2,4\};$
+\end_inset
+
+ so 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+I_{pp}(\theta) & =\sum_{k=1}^{N}\left(\frac{\partial\lambda_{k}^{p}}{\partial c_{p}}\right)^{2}\mathbb{E}_{k}\left[\left\{ \frac{\sum_{i=\{p,3\}}\left(\mathrm{Po}(n_{k};\lambda_{k}^{i})\frac{(n_{k}-\lambda_{k}^{i})}{\lambda_{k}^{i}}\right)}{\sum_{j=1}^{4}\textrm{Po}(n_{k};\lambda_{k}^{j})}\right\} ^{2}\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Fisher information matrix off-diagonal entries:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat}{1}
+I_{pq}(\theta) & =\sum_{k=1}^{N}\mathbb{E}_{k}\left[\frac{\left(\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{k}^{i})}{\partial c_{p}}\right)\left(\sum_{l=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{k}^{l})}{\partial c_{q}}\right)}{\left(\sum_{j=1}^{4}\textrm{Po}(\lambda_{k}^{j})\right)^{2}}\right]\nonumber \\
+ & =\sum_{k=1}^{N}\left(\frac{\partial\lambda_{k}^{p}}{\partial c_{p}}\right)\left(\frac{\partial\lambda_{k}^{q}}{\partial c_{q}}\right)\mathbb{E}_{k}\left[\frac{\left(\sum_{i=\{p,3\}}\mathrm{Po}(n_{k};\lambda_{k}^{i})\frac{(n_{k}-\lambda_{k}^{i})}{\lambda_{k}^{i}}\right)\left(\sum_{i=\{q,3\}}\mathrm{Po}(n_{k};\lambda_{k}^{i})\frac{(n_{k}-\lambda_{k}^{i})}{\lambda_{k}^{i}}\right)}{\left(\sum_{j=1}^{4}\textrm{Po}(n_{k};\lambda_{k}^{j})\right)^{2}}\right]\label{eq:Fisher Info Integrated Out-off diagonal entries}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Limit 
+\begin_inset Formula $d\rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $c^{1}=c^{2}$
+\end_inset
+
+ then 
+\begin_inset Formula $\lambda^{1}=\lambda^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\partial\text{Po}(\lambda^{1})}{\partial c^{1}}=\frac{\partial\text{Po}(\lambda^{2})}{\partial c^{2}}$
+\end_inset
+
+.
+ Then all entries in 
+\begin_inset Formula $I_{pq}$
+\end_inset
+
+ are equal and the matrix is singular.
+ For the limit 
+\begin_inset Formula $d\rightarrow0$
+\end_inset
+
+ the determianat 
+\begin_inset Formula $\det(\bm{I})\rightarrow0$
+\end_inset
+
+ and the variance 
+\begin_inset Formula $\text{var}(d)\rightarrow\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Limit 
+\begin_inset Formula $d\rightarrow\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sources are far apart and 
+\begin_inset Formula $\lambda^{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ don not have a common overlap.
+ For 
+\begin_inset Formula $k'$
+\end_inset
+
+ where 
+\begin_inset Formula $\lambda_{k'}^{1}>0,\,\lambda_{k'}^{2}\equiv0$
+\end_inset
+
+ and 
+\begin_inset Formula $\text{Po}(n_{k'},\lambda_{k'}^{3})=\text{Po}(n_{k'},\lambda_{k'}^{1})+\text{Po}(n_{k'},\lambda_{k'}^{2}=0)=\text{Po}(n_{k'},\lambda_{k'}^{1})+1$
+\end_inset
+
+.
+ Also 
+\begin_inset Formula $\frac{\partial\lambda^{p}}{\partial c_{q}}=0,\: p\neq q$
+\end_inset
+
+.
+ From Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Info Integrated Out - diagonal entries"
+
+\end_inset
+
+ the diagonal elemets 
+\begin_inset Formula 
+\begin{alignat*}{1}
+I_{pp} & =\sum_{k=1}^{N}\mathbb{E}_{k}\left[\frac{\left(2\frac{\partial\textrm{Po}(\textrm{\lambda}_{k}^{p})}{\partial c_{p}}\right)^{2}}{\left(2\textrm{Po}(\lambda_{k}^{p})+2\textrm{Po}(\lambda_{k}^{q})\right)^{2}}\right]\\
+ & =\sum_{k=1}^{N}\mathbb{E}_{k}\left[\frac{\left(\textrm{Po}(\textrm{\lambda}_{k}^{p})\frac{\left(n_{k}-\lambda_{k}^{p}\right)^{2}}{\lambda_{k}^{p}}\frac{\partial\lambda_{k}^{p}}{\partial c_{p}}\right)^{2}}{\left(\textrm{Po}(\lambda_{k}^{p})+1\right)^{2}}\right]\\
+ & =\sum_{k=1}^{N}\left(\frac{1}{\lambda_{k}^{p}}\frac{\partial\textrm{\lambda}_{k}^{p}}{\partial c_{p}}\right)^{2}\mathbb{E}_{k}\left[\left(n_{k}-\lambda_{k}^{p}\right)^{2}\left(\frac{\textrm{Po}(\textrm{\lambda}_{k}^{p})}{\textrm{Po}(\textrm{\lambda}_{k}^{p})+1}\right)^{2}\right]
+\end{alignat*}
+
+\end_inset
+
+For large 
+\begin_inset Formula $\lambda_{k}^{p}$
+\end_inset
+
+ the second term in the expectation is approximately one: 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+
+\begin_inset Formula $\frac{\textrm{Po}(\textrm{\lambda}_{k}^{p})}{\textrm{Po}(\textrm{\lambda}_{k}^{p})+1}=1-\frac{1}{1+\textrm{Po}(\textrm{\lambda}_{k}^{p})}\approx1$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang british
+ 
+\begin_inset Formula 
+\begin{equation}
+I_{pp}\approx\frac{1}{2}\sum_{k=1}^{N}\frac{1}{\lambda_{k}^{p}}\left(\frac{\partial\textrm{\lambda}_{k}^{p}}{\partial c_{p}}\right)^{2}\label{eq: int out - approximation d to infty}
+\end{equation}
+
+\end_inset
+
+which is the Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Info for Poisson"
+
+\end_inset
+
+ (up to the factor 2).
+ As the the term is upper bounded by one: 
+\begin_inset Formula $\frac{\textrm{Po}(\textrm{\lambda}_{k}^{p})}{\textrm{Po}(\textrm{\lambda}_{k}^{p})+1}=1-\frac{1}{1+\textrm{Po}(\textrm{\lambda}_{k}^{p})}<1$
+\end_inset
+
+ the terms 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $I_{pp}$
+\end_inset
+
+ will be slightly smaller then the approximaton 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: int out - approximation d to infty"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+I_{pp}=\frac{1}{2}\sum_{k=1}^{N}\frac{1}{\lambda_{k}^{p}}\left(\frac{\partial\textrm{\lambda}_{k}^{p}}{\partial c_{p}}\right)^{2}-\epsilon\label{eq:int out d to infty}
+\end{equation}
+
+\end_inset
+
+and teh 
+\end_layout
+
+\begin_layout Standard
+The off-diagonal entries: 
+\begin_inset Formula 
+\[
+I_{pq}=0
+\]
+
+\end_inset
+
+as 
+\begin_inset Formula 
+\[
+\frac{\partial\text{Po}(\lambda^{p})}{\partial c_{p}}\frac{\partial\text{Po}(\lambda^{q})}{\partial c_{q}}=0
+\]
+
+\end_inset
+
+ because 
+\begin_inset Formula $\lambda^{p}(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda^{q}(x)$
+\end_inset
+
+ do not have a common support.
+ Therefore
+\begin_inset Formula 
+\begin{alignat}{1}
+\text{var}(d) & =\frac{1}{I_{11}}+\frac{1}{I_{22}}\nonumber \\
+ & =2\left(\frac{1}{I_{11}^{\text{static}}-\epsilon}+\frac{1}{I_{22}^{\text{static}}-\epsilon}\right)\nonumber \\
+ & >2\text{var}(d^{\text{static}})\label{eq:variance d static vs blinking}
+\end{alignat}
+
+\end_inset
+
+where 
+\begin_inset Formula $I^{\text{static}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\text{var}^{\text{static}}$
+\end_inset
+
+ corresopnd to the Fisher information matrix Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Info for Poisson"
+
+\end_inset
+
+ and the variance Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:variance alternative"
+
+\end_inset
+
+ of the static case.
+ The factor of 2 stems from the fact that the total number of photons is
+ double in the static case compared to the blinking model.
+ 
 \end_layout
 
 \end_body
