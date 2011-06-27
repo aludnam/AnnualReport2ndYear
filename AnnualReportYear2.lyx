@@ -272,7 +272,7 @@ AFAIR, the main point of this was to deal better with model comparison.
 \end_layout
 
 \begin_layout Plain Layout
-* Real data isssue as in 4.3
+* Real data issue as in 4.3
 \end_layout
 
 \begin_layout Plain Layout
@@ -291,7 +291,20 @@ Outline & summary
 \begin_layout Standard
 The second year review report summarises work on my PhD project I have done
  since September 2010.
- It contains a short introduction to the problematics (Section
+ Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Introduction"
+
+\end_inset
+
+ gives a short introduction to localisation microscopy methods and is put
+ into context of the recent research.
+ Section
 \begin_inset space ~
 \end_inset
 
@@ -302,8 +315,19 @@ reference "sec:Model comparison"
 
 \end_inset
 
-) where the concept of the method is presented and put into context of the
- recent research.
+ refers to the problem of the model selection.
+ Theoretical limits of the localisation microscopy are discussed in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Theoretical-limits-of teh LM"
+
+\end_inset
+
+.
  Section
 \begin_inset space ~
 \end_inset
@@ -311,15 +335,13 @@ reference "sec:Model comparison"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Appendix Variational-approximation-for"
+reference "sec:Out-of-focus PSF"
 
 \end_inset
 
- contains some theoretical work on the model selection problematics.
-\end_layout
-
-\begin_layout Standard
-The project has been presented on the SFN 2010 conference in San Diego.
+ demonstrates ability of the NMF algorithm to separate sources with different
+ PSFs.
+ 
 \end_layout
 
 \begin_layout Section
@@ -334,7 +356,7 @@ name "sec:Introduction"
 \end_layout
 
 \begin_layout Subsection
-Localisation microscopy
+Localisation microscopy 
 \end_layout
 
 \begin_layout Standard
@@ -357,9 +379,9 @@ key "Rayleigh1896,Born1975principles"
 \end_inset
 
 ).
- However, the Rayleigh criterion neglects the stochastic nature of the photon-de
-tection process and does not take the total photon count (intensity of the
- source) into account.
+ The Rayleigh's criterion neglects the stochastic nature of the photon-detection
+ process and does not take the total photon count (intensity of the source)
+ into account.
  As shown in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -393,8 +415,9 @@ name "sub:PALM,-STORM"
 \end_layout
 
 \begin_layout Standard
-In the real biological samples the sources are usually highly overlapping
- and can't be individually localised.
+In the real biological samples the sources are usually dense and highly
+ overlapping.
+ This prevents them from the individual localisation.
  PALM (Photo Activation Localisation Microscopy) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -409,11 +432,12 @@ key "Bates2007"
 
 \end_inset
 
- are separating the individual sources by activating only a small subset
- of all sources.
+ separate the individual emitters by activating only a small subset of them
+ at a time.
  If the activated subset is small enough the individual fluorophores are
- well spatially separated and can be localised as individual sources.
- This requires an active control of the sources activation.
+ well spatially dispersed and the individual sources can be identified and
+ localised.
+ This requires a control of the sources activation/excitation.
  It can be achieved either by using photo-activable (PA) fluorophores (PALM,
  STORM) or by reversive photo - bleaching 
 \begin_inset CommandInset citation
@@ -423,8 +447,8 @@ key "Baddeley2009"
 \end_inset
 
 .
- Repetition of this activation - localisation cycles can provide high resolution
- microscopy images of biological samples 
+ Repetition of this activation - localisation cycles can provide super-resolutio
+n images of biological samples 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Shroff2008,Huang2008"
@@ -434,28 +458,14 @@ key "Shroff2008,Huang2008"
 .
 \end_layout
 
-\begin_layout Standard
-Separation of individual emitters with overlapping PSFs from the statistical
- analysis of the recording of their blinking behaviour can also significantly
- speed the acquisition procedure (scaling inversely with the number of molecules
- localised per bright spot 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Small2009"
-
-\end_inset
-
-).
-\end_layout
-
 \begin_layout Subsection
 Quantum dots
 \end_layout
 
 \begin_layout Standard
-Quantum dots (QD) represent fluorophores that are an order of magnitude
- brighter and several orders of magnitude more photo-bleaching resistant
- compared to the organic dyes used in LM 
+Quantum dots (QD) represent an order of magnitude brighter and several orders
+ of magnitude more photo-bleaching resistant fluorophores compared to the
+ organic dyes used in LM 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Jaiswal2004,Michalet2005"
@@ -463,10 +473,15 @@ key "Jaiswal2004,Michalet2005"
 \end_inset
 
 .
- QDs also provide a wide absorption and a narrow excitation spectrum band.
- All these properties makes them very attractive for the biological research.
- Under a continuous excitation QDs exhibit a blinking behaviour (fluorescence
- intermittancy).
+ QDs also provide a wide absorption and a narrow excitation spectrum which
+ is very convenient for multicolour imaging.
+ All these properties make QD very attractive for the biological research.
+ 
+\end_layout
+
+\begin_layout Standard
+Under a continuous excitation QDs exhibit a blinking behaviour (fluorescence
+ intermittency).
  They switch between “ON” episodes (
 \begin_inset Formula $1/\tau_{\mathrm{ON}}^{m}$
 \end_inset
@@ -481,7 +496,7 @@ key "Jaiswal2004,Michalet2005"
 \begin_inset Formula $P(\tau_{\mathrm{ON/OFF}})\propto1/\tau_{\mathrm{ON/OFF}}^{m}$
 \end_inset
 
- however, the blinking process is not yet fully understood 
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kuno2001,Stefani2009"
@@ -489,7 +504,12 @@ key "Kuno2001,Stefani2009"
 \end_inset
 
 .
- Despite all the advantages the QD can potentially provide, they are not
+ However, the blinking process is not yet fully understood .
+ 
+\end_layout
+
+\begin_layout Standard
+Despite all the advantages the QD can potentially provide, they are not
  suitable for the standard LM methods (PALM/STORM).
  The QD blinking behaviour is difficult to control and the overlapping sources
  cannot be separated and localised individually.
@@ -501,7 +521,7 @@ Localisation microscopy using Quantum Dots
 
 \begin_layout Standard
 In 2005 there has been published a method exploiting the fluorescence intermitte
-ncy ('blinking') of quantum dots under continuous excitation 
+ncy ('blinking') of QDs under continuous excitation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lidke2005"
@@ -509,23 +529,16 @@ key "Lidke2005"
 \end_inset
 
 .
- A time series of the blinking quantum dots was recorded and analysed using
- Independent Component Analysis (ICA).
- FastICA algorithm 
+ A time series of the blinking QDs was recorded and analysed using Independent
+ Component Analysis (ICA) (FastICA algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hyvarinen2000"
 
 \end_inset
 
- has been used.
- As the blinking of the individual quantum dot is independent with respect
- to blinking of other quantum dots individual emitters even with overlapping
- PSFs can be separated.
-\end_layout
-
-\begin_layout Standard
-Localisation of two quantum dots separated down to 23 nm (corresponding
+ has been used).
+ Localisation of two quantum dots separated down to 23 nm (corresponding
  to 
 \begin_inset Formula $\lambda_{\mathrm{em}}/30$
 \end_inset
@@ -550,8 +563,8 @@ key "Lidke2007"
 \end_layout
 
 \begin_layout Standard
-A Bayesian approach to the blinking of the individual fluorophores has been
- presented in poster in 2008 
+A Bayesian approach to the blinking QD data has been presented in poster
+ in 2008 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Harrington2008"
@@ -559,14 +572,17 @@ key "Harrington2008"
 \end_inset
 
 .
- A localisation of several quantum dots within the diffracted limited volume
- has been shown.
+ A model consisting of PSFs with known shape (all sources are assumed to
+ have PSF of the same form) and individual intensities (normally distributed)
+ was fitted to the data.
+ Localisation of several QDs within the diffracted limited volume has been
+ shown.
  
 \end_layout
 
 \begin_layout Standard
-A method using the quantum dots for measurement of sub-resolution distances
- has been published in 
+A method using QDs for measurement of sub-resolution distances has been
+ published in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lagerholm2006"
@@ -597,8 +613,8 @@ name "sec:Motivation-of-the"
 \end_layout
 
 \begin_layout Standard
-Non-negative matrix factorisation (NMF) seems to be a very natural method
- for dealing with the blinking QD data.
+Non-negative matrix factorisation (NMF) seems to be a very natural model
+ for describing the blinking QD data.
  The expectation value of noisy spatio-temporal 
 \begin_inset Formula $N\times T$
 \end_inset
@@ -751,7 +767,7 @@ key "Lucy1974"
 
  published an iterative deconvolution technique for astronomical images
  with known PSF.
- They used Bayes theorem as a 'hint' for an iterative update of 
+ They used Bayes theorem as a `hint' for an iterative update of 
 \begin_inset Formula $W$
 \end_inset
 
@@ -775,7 +791,7 @@ key "Lee2001"
 \end_inset
 
  represent different objects then in the NMF model.
- In the RL decnovolution one PSF is assumed for all sources.
+ In the RL deconvolution one PSF is shared by all sources.
  In the NMF each source has its own PSF (columns of 
 \begin_inset Formula $W$
 \end_inset
@@ -793,14 +809,15 @@ key "Holmes:92"
 \end_inset
 
  derived the RL updates based on maximum likelihood estimation of the model
- with Poisson noise using expectation-maximisation algorithm.
+ with Poisson noise using the expectation-maximisation algorithm.
  He also proposed an update for 
 \begin_inset Formula $H$
 \end_inset
 
  so that the method can be used as a blind deconvolution algorithm (PSF
  is not known).
- These two updates for 
+ They are sometimes referred to as a `blind RL algorithm'.
+ The updates for 
 \begin_inset Formula $W$
 \end_inset
 
@@ -808,9 +825,8 @@ key "Holmes:92"
 \begin_inset Formula $H$
 \end_inset
 
- are identical to the two Lee and Seung NMF updates (KL divergence as an
- objective function).
- They are sometimes referred to as a `blind RL algorithm'.
+ are technically identical to the Lee and Seung NMF updates (KL divergence
+ as an objective function).
  Modified updates imposing radial symmetry constraints on PSF were also
  proposed.
  
@@ -845,7 +861,7 @@ key "Joshi:93"
 
  is used as a regularisation term.
  This biases the solution towards the `smooth' images and avoids speckle
- artifacts in the reconstructions that are sometimes experienced in deconvolutio
+ artefacts in the reconstructions that are sometimes experienced in deconvolutio
 n methods.
  
 \end_layout
@@ -883,8 +899,8 @@ key "Fish:95"
 
 \begin_layout Standard
 \align block
-There is a comparison of the performance of the RL and rectified versions
- and some other deconvolution techniques 
+The comparison of the rectified RL versions and some other deconvolution
+ techniques has been shown in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kempen1997BA,Verveer1999"
@@ -892,7 +908,7 @@ key "Kempen1997BA,Verveer1999"
 \end_inset
 
 .
- RL usually performs very well for noisy images.
+ RL usually performs well for noisy images.
 \end_layout
 
 \begin_layout Standard
@@ -915,7 +931,7 @@ name "sec:Model comparison"
 
 \begin_layout Standard
 NMF requires a prior knowledge about the number of components to be separated
- (estimation of 
+ (
 \begin_inset Formula $K$
 \end_inset
 
@@ -933,7 +949,11 @@ reference "eq:NMF model"
  - rank of the factorisation).
  For noise-free data it is possible to estimate the number of sources by
  analysing principal components (PC), for example.
- However, in the noisy case the rank estimation is difficult.
+ However, in the noisy case the estimation of 
+\begin_inset Formula $K$
+\end_inset
+
+ is difficult.
 \end_layout
 
 \begin_layout Standard
@@ -948,12 +968,23 @@ reference "eq:NMF model"
 
 \end_inset
 
- under the assumption of the Poisson noise corrupted data.
+ under the assumption of the Poisson noise corrupted data (Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Appendix NMF-as-minimization"
+
+\end_inset
+
+).
  The likelihood function increases with higher 
 \begin_inset Formula $K$
 \end_inset
 
-.
+ as the more flexible model fits the data better.
  The Bayesian Information Criterion (BIC) is a rough approximation of the
  Bayesian treatment penalising the complexity of the model.
  By evaluating the model for different values of 
@@ -979,7 +1010,7 @@ reference "sub:Gamma-Poisson-(GaP)"
 \end_inset
 
 .
- A variational treatment of the problem (section
+ A variational approximation for the Bayesian treatment of the problem (section
 \begin_inset space ~
 \end_inset
 
@@ -990,7 +1021,7 @@ reference "sub:Variational-treatment-of"
 
 \end_inset
 
-) can provide a way to estimate the number of sources 
+) can provide estimation of 
 \begin_inset Formula $K$
 \end_inset
 
@@ -1014,6 +1045,23 @@ reference "sub:Analysis-of-the"
  Analysis of the correlations in residuals (data-model) is used to estimate
  the number of components 
 \begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+These two different approaches have been applied to the simulated data with
+ different densities of the sources.
+ The results are shown in section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Model selection Results"
+
 \end_inset
 
 .
@@ -1097,10 +1145,10 @@ where
 \end_layout
 
 \begin_layout Standard
-The likelihood of the model is given by
+The likelihood function of this model is given by
 \begin_inset Formula 
 \begin{equation}
-p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(d_{xt}|W,H)\label{eq:GaP likelihood}
+p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(d_{xt}|w_{xk},h_{kt})\label{eq:GaP likelihood}
 \end{equation}
 
 \end_inset
@@ -1108,12 +1156,12 @@ p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\p
 and the log-likelihood
 \begin_inset Formula 
 \[
-\log p(D,H|W,K,\theta)=\sum_{t=1}^{T}\left\{ \sum_{k=1}^{K}\log p(h_{kt}|\alpha_{k},\beta_{k})+\sum_{x=1}^{N}\log p(d_{xt}|W,H)\right\} 
+\log p(D,H|W,K,\theta)=\sum_{t=1}^{T}\left\{ \sum_{k=1}^{K}\log p(h_{kt}|\alpha_{k},\beta_{k})+\sum_{x=1}^{N}\log p(d_{xt}|w_{xk},h_{kt})\right\} 
 \]
 
 \end_inset
 
-The coupling of the 
+The coupling between 
 \begin_inset Formula $W$
 \end_inset
 
@@ -1340,9 +1388,9 @@ key "Bishop2006"
 
 The likelihood of the data is bounded by
 \begin_inset Formula 
-\[
-p(D|W,\alpha,\beta)\geq\mathcal{L}(q,W,\alpha,\beta)
-\]
+\begin{equation}
+p(D|W,\alpha,\beta)\geq\mathcal{L}(q,W,\alpha,\beta)\label{eq:GaP likelihood of the data}
+\end{equation}
 
 \end_inset
 
@@ -1372,7 +1420,7 @@ key "Bishop2006"
 
 \end_inset
 
- and the 
+ and the constant 
 \begin_inset Formula $C$
 \end_inset
 
@@ -1477,7 +1525,7 @@ where
 \end_layout
 
 \begin_layout Standard
-By maximising the lower bound Eq.
+Maximising the lower bound Eq.
 \begin_inset space ~
 \end_inset
 
@@ -1488,11 +1536,11 @@ reference "eq:GaP Lower bound"
 
 \end_inset
 
- wrt 
+ with respect to 
 \begin_inset Formula $w_{xk}$
 \end_inset
 
-
+ gives
 \begin_inset Formula 
 \begin{equation}
 w_{xk}=\frac{\sum_{t}n_{xk}^{(t)}d_{xt}}{\lambda_{k}}\label{eq:GaP update W}
@@ -1531,6 +1579,18 @@ reference "eq:GaP Lower bound"
 \end_layout
 
 \begin_layout Standard
+The algorithm is summarised in Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Algorithm-variational approximation"
+
+\end_inset
+
+ and has been implemented in MATLAB.
 \begin_inset Float algorithm
 placement H
 wide false
@@ -1609,8 +1669,10 @@ reference "eq:GaP variational lower bound"
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Algorithm for the variational approximation updates.
-\end_layout
+Variational approximation updates.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Algorithm-variational approximation"
 
 \end_inset
 
@@ -1619,8 +1681,12 @@ Algorithm for the variational approximation updates.
 
 \end_inset
 
-These updates have been implemented in MATLAB.
- 
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1629,7 +1695,7 @@ GaP model treats the intensities
 \end_inset
 
  as hidden variables.
- The Variational lower bound Eq.
+ The variational lower bound Eq.
 \begin_inset space ~
 \end_inset
 
@@ -1640,25 +1706,24 @@ reference "eq:GaP Lower bound"
 
 \end_inset
 
- bounds the approximate of the likelihood of the GaP model integrated over
- the hidden variables 
-\begin_inset Formula $h_{kt}$
-\end_inset
-
- Eq.
+ bounds the approximation of the data likelihood Eq.
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:GaP factorised approximation"
+reference "eq:GaP likelihood of the data"
 
 \end_inset
 
-.
-  It then naturally penalises the complexity of the model (Occam’s razor
- 
+ with hidden variables 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ integrated out.
+  It therefore naturally penalises the complexity of the model (Occam’s
+ razor 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MacKay2003"
@@ -1723,11 +1788,11 @@ reference "eq:NMF model"
 
 \end_inset
 
- for different number of 
+ for different values of 
 \begin_inset Formula $K$
 \end_inset
 
- we compute a normalised residual matrix 
+, we compute a normalised residual matrix 
 \begin_inset Formula 
 \[
 s_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sum_{k=1}^{K}w_{xk}h_{kt}}
@@ -1775,13 +1840,13 @@ Underestimation of the number of sources (
 \begin_inset Formula $K$
 \end_inset
 
- too small) will lead to correlations between some pixels the model will
- try to explain the multiple sources by one object.
+ too small) will lead to correlations between some pixels as the model will
+ try to explain multiple sources by one object.
  By increasing 
 \begin_inset Formula $K$
 \end_inset
 
- the correlations should be gradually decreasing until we have sufficient
+ the correlations should are expected to decrease until we reach a sufficient
  number of sources to explain the data and the residuals become uncorrelated.
 \end_layout
 
@@ -1800,13 +1865,20 @@ model comparison (compare with BIC...)
 
 \begin_layout Subsection
 Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Model selection Results"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 In the following section simulated data of 10 sources randomly spatially
  distributed are shown.
  Evaluation of the model with a classic NMF algorithm and the variational
- approximation is shown.
+ approximation is presented.
  
 \begin_inset Formula $K$
 \end_inset
@@ -1816,153 +1888,6 @@ In the following section simulated data of 10 sources randomly spatially
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-Data were simulated according to a model Eq.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:NMF model"
-
-\end_inset
-
- with parameter set to values shown in Table
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Parameters-of-the-simulation"
-
-\end_inset
-
-: 
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $K_{true}=10$
-\end_inset
-
- spatial coordinates 
-\begin_inset Formula $[x_{k},\, y_{k}]$
-\end_inset
-
- confined to a circular region of with a radius 
-\begin_inset Formula $\delta$
-\end_inset
-
- were generated (
-\begin_inset Formula $x$
-\end_inset
-
- and 
-\begin_inset Formula $y$
-\end_inset
-
- coordinates generated from a uniform distribution subject to a spatial
- constraint to a circular area).
- 
-\begin_inset Formula $\delta$
-\end_inset
-
- was equal to the Rayleigh's resolution limit.
-\end_layout
-
-\begin_layout Enumerate
-In focus PSF was centred at each generated coordinate (
-\begin_inset Formula $W$
-\end_inset
-
- in Eq.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:NMF model"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Enumerate
-Intensities of the individual sources over time 
-\begin_inset Formula $h_{kt}$
-\end_inset
-
- were generated from a uniform distribution in a region 
-\begin_inset Formula $h_{kt}=\{0,\,1,\,2\ ...\ I_{max}\}$
-\end_inset
-
- where 
-\begin_inset Formula $I_{max}$
-\end_inset
-
- is the maximum intensity of the 
-\begin_inset Formula $k$
-\end_inset
-
-th source.
-\end_layout
-
-\begin_layout Enumerate
-A homogeneous background of 
-\begin_inset Formula $b$
-\end_inset
-
- was added to each frame of the time sequence
-\end_layout
-
-\begin_layout Enumerate
-Poisson noise was added to this data
-\end_layout
-
-\begin_layout Standard
-Data with lower density of the sources were simulated in a same way.
- However the relative distance between sources locations 
-\begin_inset Formula $[x_{k},\, y_{k}]$
-\end_inset
-
- (generated in the step 1) were enlarged 
-\begin_inset Formula $1.5\times$
-\end_inset
-
- and 
-\begin_inset Formula $2.5\times$
-\end_inset
-
-.
- This way the geometrical configuration of the sources remains the same
- for all data sets.
- The locations of the sources are shown as blue circles in Fig.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:K estimation - Simulated-data"
-
-\end_inset
-
- the circle with the radius 
-\begin_inset Formula $\delta$
-\end_inset
-
- is shown in green.
- The mean intensity image (
-\begin_inset Formula $\frac{1}{T}\sum_{t}d_{xt}$
-\end_inset
-
- - time sequence of QDs averaged over time) is shown in as grey scale image.
  
 \end_layout
 
@@ -2323,6 +2248,158 @@ name "tab:Parameters-of-the-simulation"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Data were simulated according to the model Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+ with parameter set to the values shown in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parameters-of-the-simulation"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K_{true}=10$
+\end_inset
+
+ spatial coordinates 
+\begin_inset Formula $[x_{k},\, y_{k}]$
+\end_inset
+
+ confined to a circular region of with a radius 
+\begin_inset Formula $\delta$
+\end_inset
+
+ were generated (
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ coordinates generated from a uniform distribution subject to a spatial
+ constraint to the circular area).
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+ was equal to the Rayleigh's resolution limit (
+\begin_inset Formula $\delta=0.61\frac{\lambda_{em}}{NA}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+In focus PSF was centred at each coordinate 
+\begin_inset Formula $[x_{k},\, y_{k}]$
+\end_inset
+
+ (
+\begin_inset Formula $W$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Intensities of the individual sources over time 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ were generated from a uniform distribution over an interval 
+\begin_inset Formula $[0,\ ...\ I_{max}]$
+\end_inset
+
+ where 
+\begin_inset Formula $I_{max}$
+\end_inset
+
+ is the maximum intensity of the sources.
+\end_layout
+
+\begin_layout Enumerate
+A homogeneous background of 
+\begin_inset Formula $b$
+\end_inset
+
+ was added to each frame of the time sequence.
+\end_layout
+
+\begin_layout Enumerate
+Intensity in each pixel was corrupted with Poisson noise.
+\end_layout
+
+\begin_layout Standard
+Data with lower density of the sources were simulated in the same way.
+ However, the relative distances between the locations 
+\begin_inset Formula $[x_{k},\, y_{k}]$
+\end_inset
+
+ of the individual sources (generated in step 1) were enlarged 
+\begin_inset Formula $1.5\times$
+\end_inset
+
+ and 
+\begin_inset Formula $2.5\times$
+\end_inset
+
+.
+ This way the geometrical configuration of the sources remains unchanged
+ for all data sets.
+ The locations of the sources are shown as blue circles in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - Simulated-data"
+
+\end_inset
+
+.
+ A circle with a radius 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is shown in green.
+ The mean intensity image (
+\begin_inset Formula $\frac{1}{T}\sum_{t}d_{xt}$
+\end_inset
+
+ - time sequence of QDs averaged over time) is shown in as grey scale image.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3077,8 +3154,8 @@ end{centering}
 \begin_layout Plain Layout
 Simulated data (10 sources) with different densities.
  Sources in all three figures have the same geometrical configuration but
- different relative distances between the centres so that they are contained
- in the circular area with radius 
+ different relative distances between the centres.
+ All the sources are contained in a circular area with a radius 
 \begin_inset Formula $2.5\delta$
 \end_inset
 
@@ -3115,7 +3192,7 @@ reference "fig:simulations 1 delta "
  Mean intensity over time is shown as a grey scale image.
  The true positions of the sources are shown as blue circles, estimated
  positions as red crosses.
- Green circle indicates a circular area with radius 
+ The green circle indicates an area with a radius 
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -3147,7 +3224,8 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
 
-a-c where the first 20 PC eigenvalues are plotted.
+a-c.
+ The first 20 PC eigenvalues are plotted.
  For the the dataset 
 \begin_inset Formula $2.5\delta$
 \end_inset
@@ -3163,17 +3241,17 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
 
-a) we observe a distinct 'kink' and for 
+a) we observe a distinct `kink' and for 
 \begin_inset Formula $k>10$
 \end_inset
 
  the PC values are negligible.
- For this dataset it is easy to estimate the 
+ For this dataset we can easily estimate 
 \begin_inset Formula $K$
 \end_inset
 
- from this simple analysis.
- However when the density of the points becomes higher the 'kink' is much
+.
+ However when the density of the sources becomes higher the `kink' is much
  less pronounced (Fig.
 \begin_inset space ~
 \end_inset
@@ -3185,16 +3263,16 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
 
-b-c) and the estimation of the 
+b-c) and the estimation of 
 \begin_inset Formula $K$
 \end_inset
 
- from the PCA becomes difficult.
+ from the PCA analysis becomes impossible.
  
 \end_layout
 
 \begin_layout Standard
-We used NMF updates 
+We used the standard NMF updates 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2001"
@@ -3230,11 +3308,11 @@ reference "eq:NMF model"
 \end_inset
 
 .
- The 
+ The `
 \begin_inset Formula $./$
 \end_inset
 
- operation in refers to element-wise division.
+' operation refers to an element-wise division.
  Different values of 
 \begin_inset Formula $K=\{4,5,\,...\,18\}$
 \end_inset
@@ -3263,7 +3341,7 @@ d-f).
 \begin_inset Formula $K$
 \end_inset
 
- which is not surprising as there is no penalisation for the model complexity.
+.
  The estimated position of the separated sources (
 \begin_inset Formula $W$
 \end_inset
@@ -3283,11 +3361,11 @@ reference "fig:K estimation - Simulated-data"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
-We analysed the correlation-coeefficient matrix 
+We analysed the correlation-coefficient matrix 
 \begin_inset Formula $\bm{R}_{S}$
 \end_inset
 
@@ -3312,7 +3390,7 @@ reference "eq:Correlation in residuals"
 
 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
@@ -3323,7 +3401,18 @@ g-i.
 \end_inset
 
  for the first two datasets.
- For the densest data the correlations drop at about 
+ For the densest data Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulations 1 delta "
+
+\end_inset
+
+ the correlations drop at about 
 \begin_inset Formula $K=8$
 \end_inset
 
@@ -3353,7 +3442,7 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
 
-j-l there is shown a variational lower bound 
+j-l there is shown the variational lower bound 
 \begin_inset Formula $\mathcal{L}(K)$
 \end_inset
 
@@ -3361,7 +3450,7 @@ j-l there is shown a variational lower bound
 \begin_inset Formula $K$
 \end_inset
 
- according to section
+ (section
 \begin_inset space ~
 \end_inset
 
@@ -3372,7 +3461,7 @@ reference "sub:Variational-treatment-of"
 
 \end_inset
 
-.
+).
  For the easy (sparse) data set Fig.
 \begin_inset space ~
 \end_inset
@@ -3412,14 +3501,16 @@ j) however, for the more dense data
 \end_inset
 
 .
- This suggest that for dense data sets there is not enough evidence in the
- data for the correct estimation of the 
-\begin_inset Formula $K$
+ This suggest that there is not enough evidence in the data for 
+\begin_inset Formula $K=K_{true}$
 \end_inset
 
- as the data can be sufficiently explained with less complicated model (less
- sources are explaining data equally well).
- Its probably worth emphasising that GaP model does not make any assumption
+ as the data can be sufficiently explained with less complicated model 
+\begin_inset Formula $K<K_{true}$
+\end_inset
+
+.
+ It is probably worth emphasising that GaP model does not make any assumption
  about the time structure of the hidden variables 
 \begin_inset Formula $h_{kt}$
 \end_inset
@@ -3439,6 +3530,7 @@ j) however, for the more dense data
 
 
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -4583,45 +4675,32 @@ end{centering}
 
 \begin_layout Section
 Theoretical limits of the LM
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Theoretical-limits-of teh LM"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Results from the variational approximation naturally bring a question about
  actual limits of the LM method.
  How close the sources can be in order to be possible to resolve them with
- the LM method? What are the limiting factors? The Rayleigh's resolution
- criterion 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rayleigh1896,Born1975principles"
-
-\end_inset
-
- neglects the stochastic nature of the photon-detection process and does
- not take the total photon count (intensity of the source) into account.
- As shown in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Thompson2002,Ram2006"
-
-\end_inset
-
- the variance of a single source localisation is inversely proportional
- to the number of photons we can collect from this source.
- For sufficiently intense sources the localisation precision can significantly
- surpass the Rayleigh resolution limit 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Gordon2004,Qu2004,Lidke2005,Ober2004"
-
-\end_inset
-
-.
+ the LM method? What are the limiting factors? Does the fluorescence intermitten
+cy (blinking) allow for higher resolution? We tried to address these question
+ by examining the Cramér–Rao lower bound for the variance of the estimator
+ on distance between two sources.
  
 \end_layout
 
 \begin_layout Subsection
 Cramer Rao bound
+\end_layout
+
+\begin_layout Standard
+add few notes about CR bound
 \end_layout
 
 \begin_layout Standard
@@ -4666,12 +4745,12 @@ key "Rao1945"
  is derived in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Ram2006b"
+key "Ram2006,Ram2006b"
 
 \end_inset
 
 .
- The variance of the position estimator is shown to be proportional to 
+ The variance is shown to be proportional to 
 \begin_inset Formula $\frac{1}{\Lambda}$
 \end_inset
 
@@ -4683,21 +4762,14 @@ key "Ram2006b"
 \end_layout
 
 \begin_layout Standard
-A fundamental resolution measure for two sources separated by a distance
+A fundamental resolution measure (FREM) for two sources separated by a distance
  
 \begin_inset Formula $d$
 \end_inset
 
- is shown in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ram2006"
-
-\end_inset
-
- as an alternative to the Rayleigh's resolution criterion considering the
- photon statistic on the detector (CCD camera).
- The Fisher information is shown to be 
+ is shown as an alternative to the Rayleigh's resolution criterion considering
+ the photon statistic on the detector (CCD camera).
+ The Fisher information is derived 
 \begin_inset Formula 
 \begin{equation}
 I(d)=\frac{1}{4}\sum_{n=1}^{N}\frac{\left(\Lambda_{1}\int_{C_{n}}\partial_{x}q(x-\frac{d}{2})dx-\Lambda_{2}\int_{C_{n}}\partial_{x}q(x+\frac{d}{2})dx\right)^{2}}{\Lambda_{1}\int_{C_{n}}q(x-\frac{d}{2})dx+\Lambda_{2}\int_{C_{n}}q(x+\frac{d}{2})dx}\label{eq:Ram FREM}
@@ -4726,7 +4798,19 @@ th source,
 \end_inset
 
 th pixel.
- A short summary is shown in Appendix
+ The variance of the estimator on 
+\begin_inset Formula $d$
+\end_inset
+
+ is then 
+\begin_inset Formula 
+\[
+\text{var}(d)=I^{-1}(d)
+\]
+
+\end_inset
+
+A short summary is shown in Appendix
 \begin_inset space ~
 \end_inset
 
@@ -4738,16 +4822,16 @@ reference "sub:Appendix Two-sources-separated"
 \end_inset
 
 .
- There are certain issues with this formula.
- Form the limit 
+ There are certain problems with this formula, though.
+ The limit 
 \begin_inset Formula $d\rightarrow0$
 \end_inset
 
- the Fisher information 
+ gives the Fisher information 
 \begin_inset Formula $I(d)\rightarrow0$
 \end_inset
 
- (so the variance 
+ (
 \begin_inset Formula $\text{var}(d)\rightarrow\infty$
 \end_inset
 
@@ -4785,13 +4869,13 @@ reference "sub:Appendix Two-sources-separated"
 \end_inset
 
 ).
- This problem stems from the fact that the response function of the sources
- are located at 
+ This stems from the fact that the response function of the sources are
+ assumed to be located at 
 \begin_inset Formula $\pm\frac{d}{2}$
 \end_inset
 
  which implicitly assumes the knowledge of the origin location.
- Only one source is then needs to determined the distance 
+ Only one source is then needed to determined the distance 
 \begin_inset Formula $\frac{d}{2}$
 \end_inset
 
@@ -4810,7 +4894,8 @@ name "sub:An-alternative-derivation-FREM"
 \end_layout
 
 \begin_layout Standard
-We derived an alternative FREM formula for two sources (Appendix
+We derived an alternative FREM formula for two sources situation (details
+ in Appendix
 \begin_inset space ~
 \end_inset
 
@@ -4822,7 +4907,7 @@ reference "sub:Appendix An-alternative-way-Fisher-info"
 \end_inset
 
 ).
- We assume two sources located at position 
+ We assume two sources located at positions 
 \begin_inset Formula $c_{1}$
 \end_inset
 
@@ -4831,7 +4916,10 @@ reference "sub:Appendix An-alternative-way-Fisher-info"
 \end_inset
 
 .
- Then the response function (we assume here the identical response functions
+ The response functions (we assume here the identical PSF 
+\begin_inset Formula $q(x)$
+\end_inset
+
  for both sources) are 
 \begin_inset Formula $f_{1}=q(x-c_{1})$
 \end_inset
@@ -4869,7 +4957,7 @@ reference "sub:Appendix An-alternative-way-Fisher-info"
 \begin_inset Formula $\bm{I}(\theta)$
 \end_inset
 
- is the (symmetric) Fisher information matrix
+ is a (symmetric) Fisher information matrix
 \begin_inset Formula 
 \begin{equation}
 I_{ij}(\bm{\theta})=-\mathbb{E}\left[\frac{\partial^{2}\mathcal{L}}{\partial\theta_{i}\partial\theta_{j}}\right]=\mathbb{E}\left[\frac{\partial\mathcal{L}}{\partial\theta_{i}}\frac{\partial\mathcal{L}}{\partial\theta_{j}}\right]\label{eq:Fisher information general}
@@ -5142,7 +5230,7 @@ reference "eq:variance d alternative"
 \begin_inset Formula $d\rightarrow0$
 \end_inset
 
- gives the variance 
+ gives 
 \begin_inset Formula $\text{var}(d)\rightarrow\infty$
 \end_inset
 
@@ -5187,11 +5275,11 @@ reference "fig:Log-likelihood-surface"
 \end_inset
 
 .
- The surface creats a flat crest along the line 
+ The surface creates a flat crest along the line 
 \begin_inset Formula $c_{1}=c_{2}$
 \end_inset
 
- The curviture of 
+ The curvature of 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
@@ -5200,8 +5288,7 @@ reference "fig:Log-likelihood-surface"
 
 \end_inset
 
-.
- The variance is also infinite if one of the sources is zero 
+The variance is also infinite if one of the sources is zero 
 \begin_inset Formula $\Lambda_{i}=0$
 \end_inset
 
@@ -5219,7 +5306,7 @@ For sources well separated
 \begin_inset Formula $d\rightarrow\infty$
 \end_inset
 
- the off-diagonal elements of the Fisher information matrix vanishes (
+ the off-diagonal elements of the Fisher information matrix vanish (
 \begin_inset Formula $I_{ij}=0\text{ for }i\neq j$
 \end_inset
 
@@ -5235,7 +5322,7 @@ FREM for blinking sources
 \end_layout
 
 \begin_layout Standard
-One of the fundamental questions is whether the fluorescence intermittancy
+One of the fundamental questions is whether the fluorescence intermittency
  (QD blinking) allows for higher resolution compared to the situation when
  the sources remains static over time.
  To address this question we assume a simple model of Poisson distributed
@@ -5260,20 +5347,19 @@ reference "eq:Mean value of hte Poisson process"
 \end_inset
 
  to be a random variable distributed over four distinctive states 
-\begin_inset Formula $\left\{ \bm{\Lambda}^{1}=(\Lambda_{1},0),\,\bm{\Lambda}^{2}=(0,\Lambda_{2}),\,\bm{\Lambda}^{3}=(\Lambda_{1},\Lambda_{2}),\,\bm{\Lambda}^{4}=(0,0)\right\} $
+\begin_inset Formula 
+\[
+\left\{ \bm{\Lambda}^{1}=(\Lambda_{1},0),\,\bm{\Lambda}^{2}=(0,\Lambda_{2}),\,\bm{\Lambda}^{3}=(\Lambda_{1},\Lambda_{2}),\,\bm{\Lambda}^{4}=(0,0)\right\} 
+\]
+
 \end_inset
 
-.
- This simulates a simple blinking model of two QDs.
- 
-\end_layout
-
-\begin_layout Standard
-If we knew what state is the 
+This simulates a simple blinking model of two QDs.
+ If the state of 
 \begin_inset Formula $\bm{\Lambda}$
 \end_inset
 
- in we would write the likelihood function as 
+ were known we would write the likelihood function as 
 \begin_inset Formula 
 \[
 l(\theta)=p(n,\bm{\Lambda}|\theta)=\prod_{p=1}^{N}\prod_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})
@@ -5347,16 +5433,21 @@ reference "eq:Fisher Information Static"
 \end_layout
 
 \begin_layout Standard
-However, we assume we do not know what state is the variable 
+However, we assume that the variable 
 \begin_inset Formula $\bm{\Lambda}$
 \end_inset
 
- in and so we have to integrate the 
+ is fully described by the probability 
+\begin_inset Formula $p(\bm{\Lambda})$
+\end_inset
+
+ over the states.
+ The exact state in each situation is unknown.
+ Therefore we have to integrate over 
 \begin_inset Formula $\bm{\Lambda}$
 \end_inset
 
- out.
- The likelihood function is then 
+ and the likelihood function is then 
 \begin_inset Formula 
 \begin{equation}
 l(\theta)=\prod_{p=1}^{N}p(n_{p}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p},\bm{\Lambda}^{i}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})\label{eq:FREM likelihood Lanbda integrated out}
@@ -5429,7 +5520,8 @@ th pixel when
 \begin_inset Formula $\bm{\Lambda}^{i}$
 \end_inset
 
- and 
+.
+ 
 \begin_inset Formula $\mathbb{E}_{p}\left[.\right]$
 \end_inset
 
@@ -5443,7 +5535,7 @@ th pixel when
 
 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:FREM likelihood Lanbda integrated out"
 
 \end_inset
@@ -5548,7 +5640,7 @@ We made a numerical computation of the
 \end_inset
 
 .
- The parameters of teh simulatd sources are shown in Tab.
+ The parameters of the simulated sources are shown in Tab.
 \begin_inset space ~
 \end_inset
 
@@ -5790,7 +5882,7 @@ end{centering}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Left: Fisher informaton matrix entries.
+Left: Fisher information matrix entries.
  Solid lined show diagonal entries, broken line show the off-diagonal elements.
  Right: variance of the distance estimation.
  Black lines show the results for the static case Eq.
@@ -5805,7 +5897,7 @@ reference "eq:Fisher Information Static"
 \end_inset
 
 .
- Color lines show the blinking situation Eq.
+ Colour lines show the blinking situation Eq.
 \begin_inset space ~
 \end_inset
 
@@ -5892,7 +5984,7 @@ n precision for the situations when the sources are very close.
 \begin_inset Formula $d\rightarrow\infty$
 \end_inset
 
- limit) the static situation provide upper bound for the eintries of the
+ limit) the static situation provide upper bound for the entries of the
  Fisher information matrix of blinking model (Eq.
 \begin_inset space ~
 \end_inset
@@ -5904,8 +5996,8 @@ reference "eq:variance d static vs blinking"
 
 \end_inset
 
-) In this configuration the static situation allows for more precise localisatio
-n.
+).
+ In this configuration the static situation allows for more precise localisation.
  The intersection points of the curves for static and blinking model depends
  on the intensity of the sources (Fig.
 \begin_inset space ~
@@ -5937,6 +6029,13 @@ The results here, however, are computed for the model with no background.
 
 \begin_layout Section
 Out of focus PSF
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Out-of-focus PSF"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5985,7 +6084,8 @@ name "fig:Point-spread-function"
 
 \begin_layout Standard
 The point spread function (PSF) is a rather complicated 3D object.
- A scan along the axial direction throug a PSF of an optical microcope (Fig.
+ A scan along the axial direction through a PSF of an optical microscope
+ (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -5996,19 +6096,19 @@ reference "fig:Point-spread-function"
 
 \end_inset
 
-) shows characteristic ringings for out-of-focus PSF.
+) shows the characteristic ringings for out-of-focus PSF.
  In a real biological sample PSF from different focal planes can overlap.
  As the NMF does not make any assumption about the PSFs of the individual
  sources (parameter matrix 
 \begin_inset Formula $W$
 \end_inset
 
-), it is possible to separate ovelapping QDs located in different axial
+), it is possible to separate overlapping QDs located in different axial
  positions.
  This can be possible used for the 3D localisation of the sources.
  Moreover the PSF of the individual sources can differ due to the aberrations
- caused by imperfections of the microcope or by inhomogenities of the refractive
- index in the sample.
+ caused by imperfections of the microscope or by inhomogenities of the refractiv
+e index in the sample.
  However, the PSF of each source must remain constant during the data acquisitio
 n.
  
@@ -6020,9 +6120,13 @@ Results
 
 \begin_layout Standard
 We recorded a sample of the QDs deposited on a cover slip.
- Slight variations in the focal plane occures between individual QDs which
- provides differrent PSF for individual sources.
- We acquired 
+ Slight variations in the focal plane occurs between the individual QDs
+ which results in different PSFs for each source.
+ 
+\end_layout
+
+\begin_layout Standard
+We acquired 
 \begin_inset Formula $10^{3}$
 \end_inset
 
@@ -6286,7 +6390,11 @@ key "Lee2001"
 \begin_inset Formula $K=\{7,\,8\,...\,19\}$
 \end_inset
 
- and computed maximum correlation coefficient of the residuals 
+ and computed the maximum correlation coefficient of the residuals Eq.
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Correlation in residuals"
@@ -6317,7 +6425,7 @@ reference "fig:Out of focus QDs - PCA"
 
 \end_inset
 
-) we can observe a 'kink' in for 
+) we can observe a `kink' for 
 \begin_inset Formula $K=13$
 \end_inset
 
@@ -6748,7 +6856,8 @@ reference "fig:Out of focus QD - Separated-sources"
 \begin_inset Formula $K$
 \end_inset
 
- (number of sources in data) remains a difficult task.
+ (number of sources in data) remains a difficult task for realistic data
+ sets.
  The variational lower bound (section
 \begin_inset space ~
 \end_inset
@@ -6760,7 +6869,7 @@ reference "sub:Variational-treatment-of"
 
 \end_inset
 
-) provides correct estimates only for relatively easy data-sets (Fig.
+) provides correct estimates only for relatively easy data (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -6776,7 +6885,7 @@ reference "fig:simulations 2.5 delta "
 \begin_inset Formula $K$
 \end_inset
 
- is severly underestimared for the data with higher densities of the sources
+ is severely underestimated for the data with higher densities of the sources
  (Fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6789,7 +6898,7 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 \begin_inset Formula $K$
 \end_inset
 
- were achieved by analysis of the correlaions in the residuals (Fig.
+ were achieved by analysis of the correlations in the residuals (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -6801,14 +6910,14 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 \end_inset
 
 ).
- The use of information about the time structure of the data would cerainly
+ The use of information about the time structure of the data would certainly
  help in this task.
  
 \end_layout
 
 \begin_layout Standard
-Blinking behavior of the sources has been theoretically demostrated to allow
- for higher localisaton precision (Fig.
+Blinking behaviour of the sources has been theoretically demonstrated to
+ allow for higher localisation precision (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -6820,8 +6929,8 @@ reference "fig:variance d"
 \end_inset
 
 ) especially for brighter sources.
- Further analysis is required to exmaine the effect of the background in
- the data to provide more realistic description of hte resolution limit.
+ Further analysis is required to examine the effect of the background in
+ the data to provide more realistic description of the resolution limit.
  
 \end_layout
 
@@ -6830,7 +6939,14 @@ Time series
 \end_layout
 
 \begin_layout Standard
-?
+comments on 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Molgedey1994a"
+
+\end_inset
+
+ ?
 \end_layout
 
 \begin_layout Standard
@@ -6892,6 +7008,13 @@ Direction of the future work.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Future work and direction of the project
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage clearpage
 \end_inset
 
@@ -9328,7 +9451,7 @@ reference "eq:Fisher Info Integrated Out - diagonal entries"
 
 \end_inset
 
- the diagonal elemets 
+ the diagonal elements 
 \begin_inset Formula 
 \begin{alignat*}{1}
 I_{pp} & =\sum_{k=1}^{N}\mathbb{E}_{k}\left[\frac{\left(2\frac{\partial\textrm{Po}(\textrm{\lambda}_{k}^{p})}{\partial c_{p}}\right)^{2}}{\left(2\textrm{Po}(\lambda_{k}^{p})+2\textrm{Po}(\lambda_{k}^{q})\right)^{2}}\right]\\
@@ -9398,7 +9521,7 @@ reference "eq:Fisher Info for Poisson"
 \begin_inset Formula $I_{pp}$
 \end_inset
 
- will be slightly smaller then the approximaton 
+ will be slightly smaller then the approximation 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq: int out - approximation d to infty"
@@ -9413,7 +9536,7 @@ I_{pp}=\frac{1}{2}\sum_{k=1}^{N}\frac{1}{\lambda_{k}^{p}}\left(\frac{\partial\te
 
 \end_inset
 
-and teh 
+and the 
 \end_layout
 
 \begin_layout Standard
@@ -9460,7 +9583,7 @@ where
 \begin_inset Formula $\text{var}^{\text{static}}$
 \end_inset
 
- corresopnd to the Fisher information matrix Eq.
+ correspond to the Fisher information matrix Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Info for Poisson"
