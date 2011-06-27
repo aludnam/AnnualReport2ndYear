@@ -93,8 +93,6 @@
 \begin_body
 
 \begin_layout Standard
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -286,7 +284,7 @@ Then concl and future work directions.
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Paragraph
 Outline & summary
 \end_layout
 
@@ -587,8 +585,8 @@ key "Lidke2005,Harrington2008"
  where only fluctuation of the individual sources is needed.
 \end_layout
 
-\begin_layout Section
-Motivation of the project
+\begin_layout Subsection
+Non-negative matrix factorisation
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Motivation-of-the"
@@ -685,6 +683,223 @@ reference "sec:Appendix NMF-as-minimization"
 
 ).
  The details of the the algorithm are described in the first year review.
+\end_layout
+
+\begin_layout Subsection
+Comparison NMF to the Richardson Lucy deconvolution
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is from DecovolutionNotes.lyx file.
+\end_layout
+
+\end_inset
+
+An observed `blurred' (diffraction limited) image 
+\begin_inset Formula $I$
+\end_inset
+
+ (
+\begin_inset Formula $N\times1$
+\end_inset
+
+ vector) can expressed as a (discretised) convolution 
+\begin_inset Formula 
+\[
+I_{x}=\sum_{j=1}^{N}W_{j}H_{x-j}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $W$
+\end_inset
+
+ (
+\begin_inset Formula $N\times1$
+\end_inset
+
+) is the original (unblurred) object which represents locations and intensities
+ of fluorescent sources.
+ 
+\begin_inset Formula $H$
+\end_inset
+
+ (
+\begin_inset Formula $N\times1$
+\end_inset
+
+) is an image of point spread function (PSF) centred in the middle of the
+ image Richardson 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Richardson1972"
+
+\end_inset
+
+ and Lucy 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lucy1974"
+
+\end_inset
+
+ published an iterative deconvolution technique for astronomical images
+ with known PSF.
+ They used Bayes theorem as a 'hint' for an iterative update of 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ This update is usually referred to as Richardson-Lucy (RL) deconvolution
+ algorithm and is identical to the Lee-Seung NMF update with generalised
+ KL-divergence objective function 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Lee2001"
+
+\end_inset
+
+.
+ However, the matrices 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+ represent different objects then in the NMF model.
+ In the RL decnovolution one PSF is assumed for all sources.
+ In the NMF each source has its own PSF (columns of 
+\begin_inset Formula $W$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\align block
+Holmes 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Holmes:92"
+
+\end_inset
+
+ derived the RL updates based on maximum likelihood estimation of the model
+ with Poisson noise using expectation-maximisation algorithm.
+ He also proposed an update for 
+\begin_inset Formula $H$
+\end_inset
+
+ so that the method can be used as a blind deconvolution algorithm (PSF
+ is not known).
+ These two updates for 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+ are identical to the two Lee and Seung NMF updates (KL divergence as an
+ objective function).
+ They are sometimes referred to as a `blind RL algorithm'.
+ Modified updates imposing radial symmetry constraints on PSF were also
+ proposed.
+ 
+\end_layout
+
+\begin_layout Standard
+\align block
+There exist several modified updates derived using EM algorithm which impose
+ some constraints on 
+\begin_inset Formula $W$
+\end_inset
+
+ or 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Joshi:93"
+
+\end_inset
+
+ gives updates where Good's roughness measure (
+\begin_inset Formula $\int\frac{\left|\nabla f(x)\right|^{2}}{f(x)}dx$
+\end_inset
+
+) on the original image 
+\begin_inset Formula $W$
+\end_inset
+
+ is used as a regularisation term.
+ This biases the solution towards the `smooth' images and avoids speckle
+ artifacts in the reconstructions that are sometimes experienced in deconvolutio
+n methods.
+ 
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Fish:95"
+
+\end_inset
+
+ use RL `blind' algorithm (updates on both 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+) but after some number of iterations they fit some approximation of the
+ PSF to the estimated 
+\begin_inset Formula $H$
+\end_inset
+
+ and uses this fit as a new 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ He claims that in noisy images this `semi-blind' deconvolution can perform
+ better than the one with known PSF.
+ 
+\end_layout
+
+\begin_layout Standard
+\align block
+There is a comparison of the performance of the RL and rectified versions
+ and some other deconvolution techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kempen1997BA,Verveer1999"
+
+\end_inset
+
+.
+ RL usually performs very well for noisy images.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -6060,7 +6275,7 @@ name "fig:Out of focus QDs"
 
 \end_inset
 
-We used a standard NMF algorithm 
+We used the standard NMF algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2001"
@@ -6132,6 +6347,19 @@ reference "fig:Out of focus QD - Separated-sources"
 \end_inset
 
 .
+ The separated individual PSFs correspond to QDs at different axial positions
+ (see Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Point-spread-function"
+
+\end_inset
+
+).
  
 \begin_inset Float figure
 wide false
@@ -6139,8 +6367,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -6157,16 +6383,12 @@ begin{centering}
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -6187,13 +6409,9 @@ qdotspath /S281/images/pca}
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption
 
 \begin_layout Plain Layout
-
-\lang english
 PCA
 \begin_inset CommandInset label
 LatexCommand label
@@ -6238,13 +6456,9 @@ qdotspath /S281/images/MaxCorrInResid_min}
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption
 
 \begin_layout Plain Layout
-
-\lang english
 Correlations
 \begin_inset CommandInset label
 LatexCommand label
@@ -6270,8 +6484,6 @@ name "fig:Out of focus QDs - Correlations"
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset ERT
 status open
 
@@ -6515,11 +6727,102 @@ Left: mean intensity image correspond to a standard wide-field image.
 \end_layout
 
 \begin_layout Section
-Conclusion and future work
+Conclusion and Future work 
 \end_layout
 
-\begin_layout Subsection
-Comparison to the Richardson Lucy deconvolution
+\begin_layout Standard
+We demonstrated the capability of NMF to separate individual highly overlapping
+ sources with different PSFs (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Out of focus QD - Separated-sources"
+
+\end_inset
+
+).
+ The estimation of 
+\begin_inset Formula $K$
+\end_inset
+
+ (number of sources in data) remains a difficult task.
+ The variational lower bound (section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Variational-treatment-of"
+
+\end_inset
+
+) provides correct estimates only for relatively easy data-sets (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulations 2.5 delta "
+
+\end_inset
+
+).
+ 
+\begin_inset Formula $K$
+\end_inset
+
+ is severly underestimared for the data with higher densities of the sources
+ (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+).
+ The most accurate estimation of 
+\begin_inset Formula $K$
+\end_inset
+
+ were achieved by analysis of the correlaions in the residuals (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+).
+ The use of information about the time structure of the data would cerainly
+ help in this task.
+ 
+\end_layout
+
+\begin_layout Standard
+Blinking behavior of the sources has been theoretically demostrated to allow
+ for higher localisaton precision (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:variance d"
+
+\end_inset
+
+) especially for brighter sources.
+ Further analysis is required to exmaine the effect of the background in
+ the data to provide more realistic description of hte resolution limit.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -6527,6 +6830,14 @@ Time series
 \end_layout
 
 \begin_layout Standard
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Standard NMF does not require any prior knowledge about the matrices 
 \begin_inset Formula $W$
 \end_inset
@@ -6561,7 +6872,7 @@ However, there can be a rich information contained in the time-series nature
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Molgedey Schuster 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -6572,13 +6883,15 @@ key "Molgedey1994a"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Direction of the future work.
  Experimental work.
  Publications (?).
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
 \begin_inset Newpage clearpage
 \end_inset
 
@@ -6588,7 +6901,7 @@ Direction of the future work.
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "references/MachineLearning,references/Microscopy,references/QuantumDots,references/Books"
+bibfiles "references/MachineLearning,references/Microscopy,references/QuantumDots,references/Books,references/Deconvolution"
 options "apalike"
 
 \end_inset
@@ -6745,6 +7058,15 @@ name "sec:Appendix Variational-approximation-for"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is a copy of the DCA_BuntineJakulin.lyx document.
+\end_layout
+
+\end_inset
+
 This is a derivation of the variational approximation of the GaP model 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -7743,209 +8065,6 @@ reference "eq:lower bound final"
  and check for convergence.
 \end_layout
 
-\begin_layout Section*
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Notes
-\end_layout
-
-\begin_layout Standard
-Image of the digamma function 
-\begin_inset Formula $\psi_{0}(x)$
-\end_inset
-
- and its exponential 
-\begin_inset Formula $\exp(\psi_{0}(x))$
-\end_inset
-
- (pretty much linear 
-\begin_inset Formula $\exp(\psi_{0}(x))\approx x$
-\end_inset
-
- for 
-\begin_inset Formula $x>10$
-\end_inset
-
-).
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../DCA_BuntineJakulin/images/psi.eps
-	scale 40
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename ../DCA_BuntineJakulin/images/exppsi.eps
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Digamma function and its expontntial.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In my notation:
-\begin_inset Formula 
-\[
-\mathbb{E}_{v\sim p(v|w,h)}\left[v_{j}\right]=\sum_{k=1}^{K}w_{jk}h_{k}
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $V_{ji}$
-\end_inset
-
- is data matrix (
-\begin_inset Formula $J$
-\end_inset
-
- pixels and 
-\begin_inset Formula $I$
-\end_inset
-
- images), 
-\begin_inset Formula $w_{jk}$
-\end_inset
-
- is loading matrix (PSFs) (
-\begin_inset Formula $J$
-\end_inset
-
- pixels and 
-\begin_inset Formula $K$
-\end_inset
-
- components) and 
-\begin_inset Formula $h_{ki}$
-\end_inset
-
- are intensities of each component (
-\begin_inset Formula $K$
-\end_inset
-
- components and 
-\begin_inset Formula $I$
-\end_inset
-
- images).
-\end_layout
-
-\begin_layout Standard
-Rewrite rules:
-\begin_inset Formula 
-\begin{alignat*}{1}
-n_{jk(i)} & =\frac{1}{z_{j}}w_{jk}\exp(\psi_{0}(a_{k(i)})-\log b_{k(i)})\\
-a_{k(i)} & =\sum_{j}n_{jk(i)}v_{j(i)}+\alpha_{k}\\
-b_{k(i)} & =1+\beta_{k}
-\end{alignat*}
-
-\end_inset
-
-and 
-\begin_inset Formula 
-\[
-w_{jk}=\frac{\sum_{i}n_{jk(i)}v_{j(i)}}{\lambda_{j}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The lower bound on the log-likelihood:
-\begin_inset Formula 
-\[
-\mathcal{L}_{(i)}=\sum_{k}\left(\psi_{0}(a_{k(i)})-\log b_{k(i)}\right)\left(\alpha_{k}-a_{k(i)}\right)+\sum_{j}v_{j(i)}\log z_{j(i)}+\sum_{k}\log\frac{\Gamma(a_{k(i)})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k(i)}^{a_{k(i)}}}-\log\prod_{j}v_{j(i)}!
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $z_{j(i)}=\sum_{k}w_{jk}\exp\left(\psi_{0}(a_{k(i)})-\log b_{k(i)}\right)$
-\end_inset
-
- and total lower bound 
-\begin_inset Formula $\mathcal{L}=\sum_{i}\mathcal{L}_{(i)}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../DCA_BuntineJakulin/images/GammaDistribution2.eps
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Gamma distribution for different set of parameters with mean 
-\begin_inset Formula $\alpha/\beta=700$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \begin_inset Newpage clearpage
 \end_inset
@@ -7955,6 +8074,19 @@ Gamma distribution for different set of parameters with mean
 
 \begin_layout Section
 Resolution limit for the blinking QDs
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is a copy of the FREMnotes.16.lyx document.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
