@@ -948,10 +948,6 @@ NMF requires a prior knowledge about the number of components to be separated
 \end_inset
 
  in Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -970,10 +966,6 @@ reference "eq:NMF model"
 
 \begin_layout Standard
 The standard NMF algorithm maximises the likelihood of the model Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -1100,10 +1092,6 @@ key "Canny2004"
 
  has been proposed as a probabilistic model for documents.
  It represents a generative probabilistic model for NMF Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -1182,10 +1170,6 @@ The coupling between
 \end_inset
 
  in Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP Poisson"
@@ -1197,10 +1181,6 @@ reference "eq:GaP Poisson"
 \end_inset
 
  in Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP likelihood"
@@ -1453,10 +1433,6 @@ key "Bishop2006"
 
 \begin_layout Standard
 The factorised form Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP factorised approximation"
@@ -1464,10 +1440,6 @@ reference "eq:GaP factorised approximation"
 \end_inset
 
  and the likelihood Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP likelihood with latent matrix V"
@@ -1538,10 +1510,6 @@ where
 
 \begin_layout Standard
 Maximising the lower bound Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP Lower bound"
@@ -1569,10 +1537,6 @@ where
 
 \begin_layout Standard
 The variational lower bound on the log-likelihood Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP Lower bound"
@@ -1627,10 +1591,6 @@ For each time slice
 \end_inset
 
  according to Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP update rules"
@@ -1647,10 +1607,6 @@ Update
 \end_inset
 
  according to the Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP update W"
@@ -1663,10 +1619,6 @@ reference "eq:GaP update W"
 
 \begin_layout Enumerate
 Compute the variational lower bound Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP variational lower bound"
@@ -1708,10 +1660,6 @@ GaP model treats the intensities
 
  as hidden variables.
  The variational lower bound Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP Lower bound"
@@ -1719,10 +1667,6 @@ reference "eq:GaP Lower bound"
 \end_inset
 
  bounds the approximation of the data likelihood Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP likelihood of the data"
@@ -1790,10 +1734,6 @@ Different approach to the number of components
 
 ).
  After optimising the parameters of the model Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -2264,10 +2204,6 @@ name "tab:Parameters-of-the-simulation"
 
 \begin_layout Standard
 Data were simulated according to the model Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -2331,10 +2267,6 @@ In focus PSF was centred at each coordinate
 \end_inset
 
  in Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -3309,10 +3241,6 @@ to estimate the non-negative matrices
 \end_inset
 
  (their intensities) of the model Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -4993,20 +4921,61 @@ Cramer Rao bound
 \end_layout
 
 \begin_layout Standard
-add few notes about CR bound
-\end_layout
+If 
+\begin_inset Formula $\mathcal{L}(\theta)=\log p(x|\theta)$
+\end_inset
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
+ is a log-likelihood fucniton for data 
+\begin_inset Formula $X$
+\end_inset
 
-\begin_layout Plain Layout
-some notes on cramer rao lower bound
-\end_layout
+, then a covariance matrix 
+\begin_inset Formula $\bm{Q}$
+\end_inset
+
+ of an unbiased estimator of 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ is bounded by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rao1945,Cover1991"
 
 \end_inset
 
+ 
+\begin_inset Formula 
+\begin{equation}
+\bm{Q}\geq\bm{I}^{-1}(\theta)\label{eq:Covariance vs Fisher information}
+\end{equation}
 
+\end_inset
+
+where 
+\begin_inset Formula $\bm{I}(\bm{\theta})$
+\end_inset
+
+ is the Fisher information matrix 
+\begin_inset Formula 
+\begin{equation}
+I_{ij}(\bm{\theta})=-\mathbb{E}\left[\frac{\partial^{2}\mathcal{L}}{\partial\theta_{i}\partial\theta_{j}}\right]=\mathbb{E}\left[\frac{\partial\mathcal{L}}{\partial\theta_{i}}\frac{\partial\mathcal{L}}{\partial\theta_{j}}\right]\label{eq:Fisher information general}
+\end{equation}
+
+\end_inset
+
+The inequality Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Covariance vs Fisher information"
+
+\end_inset
+
+ is in the sense that 
+\begin_inset Formula $\bm{Q}-\bm{I}^{-1}(\theta)$
+\end_inset
+
+ is a non-negative definite matrix.
 \end_layout
 
 \begin_layout Subsection
@@ -5027,15 +4996,8 @@ reference "sub:PALM,-STORM"
 
 ) the spatial resolution limit is determined by the localisation precision
  for an individual source.
- Cramér–Rao bound 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rao1945"
-
-\end_inset
-
- for the position estimation of a single source detected by a CCD camera
- is derived in 
+ Cramér–Rao bound lower for the position estimation of a single source detected
+ by a CCD camera is derived in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ram2006,Ram2006b"
@@ -5044,7 +5006,7 @@ key "Ram2006,Ram2006b"
 
 .
  The variance is shown to be proportional to 
-\begin_inset Formula $\frac{1}{\Lambda}$
+\begin_inset Formula $1/\Lambda$
 \end_inset
 
  where 
@@ -5238,7 +5200,7 @@ reference "sub:Appendix An-alternative-way-Fisher-info"
 
 \end_inset
 
- where 
+where 
 \begin_inset Formula $\bm{Q}$
 \end_inset
 
@@ -5250,20 +5212,19 @@ reference "sub:Appendix An-alternative-way-Fisher-info"
 \begin_inset Formula $\bm{I}(\theta)$
 \end_inset
 
- is a (symmetric) Fisher information matrix
-\begin_inset Formula 
-\begin{equation}
-I_{ij}(\bm{\theta})=-\mathbb{E}\left[\frac{\partial^{2}\mathcal{L}}{\partial\theta_{i}\partial\theta_{j}}\right]=\mathbb{E}\left[\frac{\partial\mathcal{L}}{\partial\theta_{i}}\frac{\partial\mathcal{L}}{\partial\theta_{j}}\right]\label{eq:Fisher information general}
-\end{equation}
+ is a (symmetric) Fisher information matrix Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher information general"
 
 \end_inset
 
-where 
-\begin_inset Formula $\mathcal{L}(\theta)=\log p(x|\theta)$
-\end_inset
+.
+ 
+\end_layout
 
- is a log-likelihood function.
- For a Poisson distributed pixel counts (this assumes that data are corrupted
+\begin_layout Standard
+For a Poisson distributed pixel counts (this assumes that data are corrupted
  with Poisson noise only) 
 \begin_inset Formula 
 \[
@@ -5372,7 +5333,7 @@ reference "sub: Appendix Fisher-Information-Poisson"
 \begin_inset Formula 
 \begin{alignat}{2}
 I_{ii} & =\sum_{n=1}^{N}\frac{\left(\Lambda_{i}q'_{n}\right)^{2}}{\Lambda_{i}q_{n}+\Lambda_{j}q_{n}(d)}\nonumber \\
-I_{ij} & =\sum_{n=1}^{N}\frac{\Lambda_{i}\Lambda_{j}q'_{n}q'_{n}(d)}{\Lambda_{i}q_{n}+\Lambda_{j}q_{n}(d)} & \text{ for \ensuremath{i\neq j}}\label{eq:Fisher Information Static}
+I_{ij} & =\sum_{n=1}^{N}\frac{\Lambda_{i}\Lambda_{j}q'_{n}(0)q'_{n}(d)}{\Lambda_{i}q_{n}+\Lambda_{j}q_{n}(d)} & \text{ for \ensuremath{i\neq j}}\label{eq:Fisher Information Static}
 \end{alignat}
 
 \end_inset
@@ -5509,10 +5470,6 @@ reference "sub:Appendix An-alternative-way-Fisher-info"
 \end_inset
 
  variance defined in Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:variance d alternative"
@@ -5542,10 +5499,6 @@ status open
 
 \begin_layout Plain Layout
 The log-likelihood Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:FREM likekihood Poisson"
@@ -5624,10 +5577,6 @@ One of the fundamental questions is whether the fluorescence intermittency
 \end_inset
 
  shown in Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:Mean value of hte Poisson process"
@@ -5711,10 +5660,6 @@ which is the expectation value (with respect to the states
 \end_inset
 
 ) of the Fisher information matrix Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Static"
@@ -5749,10 +5694,6 @@ l(\theta)=\prod_{p=1}^{N}p(n_{p}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p},\b
 \end_inset
 
 This complicates the evaluation of the Fisher information matrix Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher information general"
@@ -5823,10 +5764,6 @@ th pixel when
 \end_inset
 
  in Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:FREM likelihood Lanbda integrated out"
@@ -5952,10 +5889,6 @@ reference "tab:Parameters-of-the-simulation"
 
 \begin_layout Standard
 In the static case Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:variance d alternative"
@@ -5971,10 +5904,6 @@ reference "eq:variance d alternative"
 \end_inset
 
  (Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Static"
@@ -5988,10 +5917,6 @@ reference "eq:Fisher Information Static"
 
  is only a linear scaling factor.
  In the blinking case Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Blinking Integrating Out"
@@ -6003,10 +5928,6 @@ reference "eq:Fisher Information Blinking Integrating Out"
 \end_inset
 
  is complicated as the expectation in Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Blinking Integrating Out"
@@ -6179,10 +6100,6 @@ Left: Fisher information matrix entries.
  Solid lined show diagonal entries, broken line show the off-diagonal elements.
  Right: variance of the distance estimation.
  Black lines show the results for the static case Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Static"
@@ -6191,10 +6108,6 @@ reference "eq:Fisher Information Static"
 
 .
  Colour lines show the blinking situation Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Blinking Integrating Out"
@@ -6279,10 +6192,6 @@ n precision for the situations when the sources are very close.
 
  limit) the static situation provide upper bound for the entries of the
  Fisher information matrix of blinking model (Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:variance d static vs blinking"
@@ -6684,10 +6593,6 @@ key "Lee2001"
 \end_inset
 
  and computed the maximum correlation coefficient of the residuals Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Correlation in residuals"
@@ -7390,10 +7295,6 @@ key "Lee2001"
 \end_inset
 
  (Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -7426,10 +7327,6 @@ where
 
 \begin_layout Standard
 Log-likelihood function of the model Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:NMF model"
@@ -7458,10 +7355,6 @@ where
 
 .
  Comparison with Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Appendix KL(D|WH)"
@@ -9896,10 +9789,6 @@ reference "eq:Fisher Info for Poisson"
 \end_inset
 
  and the variance Eq.
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:variance alternative"
