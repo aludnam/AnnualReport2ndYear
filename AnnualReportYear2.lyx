@@ -4,10 +4,13 @@
 \begin_header
 \textclass article
 \begin_preamble
-\usepackage{ccaption}
-\captionnamefont{\bfseries}
-\captiontitlefont{\small\sffamily\it}
-\makeatletter
+%\usepackage{ccaption}
+%\captionnamefont{\bfseries}
+%\captiontitlefont{\small\sffamily\it}
+%\makeatletter
+
+% This makes caption of floats small
+\usepackage[font=small,labelfont=bf]{caption}
 
 
 %\setcounter{page}{0} 
@@ -278,6 +281,15 @@ AFAIR, the main point of this was to deal better with model comparison.
 \begin_layout Plain Layout
 Then concl and future work directions.
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
 
 \end_inset
 
@@ -941,7 +953,7 @@ NMF requires a prior knowledge about the number of components to be separated
 
 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:NMF model"
 
 \end_inset
@@ -1795,7 +1807,7 @@ reference "eq:NMF model"
 , we compute a normalised residual matrix 
 \begin_inset Formula 
 \[
-s_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sum_{k=1}^{K}w_{xk}h_{kt}}
+s_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sqrt{\sum_{k=1}^{K}w_{xk}h_{kt}}}
 \]
 
 \end_inset
@@ -3384,7 +3396,11 @@ reference "eq:Correlation in residuals"
 \begin_inset Formula $\bm{R}_{S}$
 \end_inset
 
- in Fig.
+ (
+\begin_inset Formula $\max_{ij}(r_{ij})$
+\end_inset
+
+) in Fig.
 \begin_inset space ~
 \end_inset
 
@@ -4664,6 +4680,283 @@ end{centering}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the results presented above it seems that the analysis of the residual
+ correlations gives the most precise 
+\begin_inset Formula $K$
+\end_inset
+
+ estimation for high densities of sources.
+ In order to investigate what is the `resolution' of this 
+\begin_inset Formula $K$
+\end_inset
+
+ estimation we simulated datasets consisitng of 
+\begin_inset Formula $K_{true}=2$
+\end_inset
+
+ and 
+\begin_inset Formula $K_{true}=5$
+\end_inset
+
+.
+ The sources were distributed uniformly on a circle with diameter 
+\begin_inset Formula $d$
+\end_inset
+
+.
+ Each data set was simulated 
+\begin_inset Formula $10$
+\end_inset
+
+ times as a different draws from a Poisson distribution (with identical
+ parameters).
+ Each dataset was evaluated with NMF for 
+\begin_inset Formula $K=\{K_{true}-1,\, K_{true},\, K_{true}+1\}$
+\end_inset
+
+.
+ The maximum correlations coefficients in residuals 
+\begin_inset Formula $\max_{ij}(r_{ij})$
+\end_inset
+
+ has been recorded.
+ The mean (and standard deviation) and the minimum values over 
+\begin_inset Formula $10$
+\end_inset
+
+ evaluation of the datasets for simulations with different 
+\begin_inset Formula $d$
+\end_inset
+
+ are shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Correlations-in-residuals."
+
+\end_inset
+
+.
+ The maximum residual correlations of the true model (the one used for the
+ generation of the data) are plotted as a baseline for comparison.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /S182corcoef/S182corecoef_D_N2_CorrelationOnDistance_NMF_nc1-2-3_nm_d_
+true}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{true}=2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /S183corcoef/S183corecoef_D_N5_CorrelationOnDistance_NMF_nc4-5-6_pos_n
+m_d_true}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $K_{true}=5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Maximum residual correlations.
+ The mean (and standard deviation) and the minimum values of 10 evaluations
+ of the datasets are shown.
+ The maximum residual correlations of the true model (the one used for the
+ generation of the data) are shown as black dotted line.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Correlations-in-residuals."
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The correlations in residuals are much higher when 
+\begin_inset Formula $K<K_{true}$
+\end_inset
+
+.
+ Once 
+\begin_inset Formula $K=K_{true}$
+\end_inset
+
+ the correlations drop significantly to a baseline level.
+ Furher increase 
+\begin_inset Formula $K>K_{true}$
+\end_inset
+
+ does not results in lower correlations.
+ This can be observed only if the distance 
+\begin_inset Formula $d$
+\end_inset
+
+ exceeds a certain `resolution' limit 
+\begin_inset Formula $d_{l}$
+\end_inset
+
+.
+ From the Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Correlations-in-residuals."
+
+\end_inset
+
+ we can estimate 
+\begin_inset Formula $d_{l}\approx40\,\text{nm}$
+\end_inset
+
+ (
+\begin_inset Formula $\lambda_{em}/16$
+\end_inset
+
+) for two sources and 
+\begin_inset Formula $d_{l}\approx150\,\text{nm}$
+\end_inset
+
+ for five sources.
 \end_layout
 
 \begin_layout Standard
@@ -6910,6 +7203,18 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 \end_inset
 
 ).
+ The `resolution' of this method for two and five sources is shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Correlations-in-residuals."
+
+\end_inset
+
+.
  The use of information about the time structure of the data would certainly
  help in this task.
  
@@ -7025,7 +7330,7 @@ Future work and direction of the project
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "references/MachineLearning,references/Microscopy,references/QuantumDots,references/Books,references/Deconvolution"
-options "apalike"
+options "bibtotoc,apalike"
 
 \end_inset
 
@@ -7308,7 +7613,7 @@ The log-likelihood of this model:
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Components assignment for words.
 \begin_inset CommandInset label
 LatexCommand label
@@ -7581,7 +7886,7 @@ p(V|\alpha,\beta,\theta,K)=\prod_{k}\frac{\beta_{k}}{\left(\beta_{k}+1\right)^{c
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 EM algorithm
 \end_layout
 
@@ -7665,7 +7970,7 @@ key "Canny2004"
  which might be quite crude.)
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Variational Approximation
 \begin_inset CommandInset label
 LatexCommand label
@@ -8212,7 +8517,7 @@ This is a copy of the FREMnotes.16.lyx document.
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Poisson random variable
 \end_layout
 
@@ -8272,7 +8577,7 @@ Log-Likelihood:
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Fisher Information for a Poisson variable
 \begin_inset CommandInset label
 LatexCommand label
@@ -8436,7 +8741,7 @@ I(\theta)=\int\frac{1}{\lambda(x)}\left(\frac{\partial\lambda(x)}{\partial\theta
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Two sources separated by a distance 
 \begin_inset Formula $d$
 \end_inset
@@ -8654,7 +8959,7 @@ If
  So the variance is finite even if one of the sources is not present.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 An alternative way to derive Fisher information for two sources separated
  by 
 \begin_inset Formula $d$
@@ -9127,7 +9432,7 @@ reference "eq:variance alternative"
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Time distribution of the intensities (blinking)
 \begin_inset CommandInset label
 LatexCommand label
@@ -9203,7 +9508,7 @@ I_{T}(\theta) & =-\mathbb{E}_{T}\left[\sum_{t=1}^{T}\frac{\partial^{2}\mathcal{L
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Time distribution of the intensities - integrating out 
 \begin_inset Formula $\Lambda$
 \end_inset
