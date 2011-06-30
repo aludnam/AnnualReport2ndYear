@@ -8627,13 +8627,6 @@ I(\theta)=\int\frac{1}{\lambda(x)}\left(\frac{\partial\lambda(x)}{\partial\theta
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection*
 Two sources separated by a distance 
 \begin_inset Formula $d$
@@ -9014,13 +9007,6 @@ where
 q_{k}(c) & =\int_{C_{k}}q(x-c)dx & ,\ (q_{k}(0)=q_{k})\\
 q'_{k}(c) & =\int_{C_{k}}\frac{\partial q(x-c)}{\partial x}dx & ,\ (q'_{k}(0)=q'_{k})
 \end{alignat*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\]
 
 \end_inset
 
@@ -9623,7 +9609,7 @@ Sources are far apart and
 \begin_inset Formula $\lambda^{2}$
 \end_inset
 
- don not have a common overlap.
+ do not have a common overlap.
  For 
 \begin_inset Formula $k'$
 \end_inset
@@ -9719,7 +9705,7 @@ reference "eq:Fisher Info for Poisson"
 \begin_inset Formula $I_{pp}$
 \end_inset
 
- will be slightly smaller then the approximation 
+ will be slightly smaller then the approximation Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq: int out - approximation d to infty"
@@ -9734,7 +9720,7 @@ I_{pp}=\frac{1}{2}\sum_{k=1}^{N}\frac{1}{\lambda_{k}^{p}}\left(\frac{\partial\te
 
 \end_inset
 
-and the 
+
 \end_layout
 
 \begin_layout Standard
@@ -9754,7 +9740,7 @@ as
 
 \end_inset
 
- because 
+because 
 \begin_inset Formula $\lambda^{p}(x)$
 \end_inset
 
@@ -9763,7 +9749,11 @@ as
 \end_inset
 
  do not have a common support.
- Therefore
+ and the 
+\end_layout
+
+\begin_layout Standard
+Therefore
 \begin_inset Formula 
 \begin{alignat}{1}
 \text{var}(d) & =\frac{1}{I_{11}}+\frac{1}{I_{22}}\nonumber \\
