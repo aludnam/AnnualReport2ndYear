@@ -19,6 +19,10 @@
 \numberwithin{table}{section}
 %\date{}
 
+%change if the citation brackets:
+%\bibpunct{[}{]}{;}{a}{}{,} 
+%\bibpunct{[}{]}{,}{a}{}{;}
+
 \hyphenation{the-o-re-ti-cal}
 \hyphenation{fluo-ro-pho-re}
 \hyphenation{Fluo-ro-pho-re}
@@ -32,6 +36,7 @@
 \hyphenation{se-pa-ra-ted}
 \hyphenation{exo-cy-to-sis}
 \hyphenation{in-ves-ti-ga-ted}
+\hyphenation{Har-ring-ton-at-all}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -391,7 +396,7 @@ key "Rayleigh1896,Born1975principles"
 \end_inset
 
 ).
- The Rayleigh's criterion neglects the stochastic nature of the photon-detection
+ The Rayleigh criterion neglects the stochastic nature of the photon-detection
  process and does not take the total photon count (intensity of the source)
  into account.
  As shown in 
@@ -428,8 +433,7 @@ name "sub:PALM,-STORM"
 
 \begin_layout Standard
 In the real biological samples the sources are usually dense and highly
- overlapping.
- This prevents them from the individual localisation.
+ overlapping making the localisation of the individual sources very difficult.
  PALM (Photo Activation Localisation Microscopy) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -475,7 +479,7 @@ Quantum dots
 \end_layout
 
 \begin_layout Standard
-Quantum dots (QD) represent an order of magnitude brighter and several orders
+Quantum dots (QD) are an order of magnitude brighter and several orders
  of magnitude more photo-bleaching resistant fluorophores compared to the
  organic dyes used in LM 
 \begin_inset CommandInset citation
@@ -487,7 +491,7 @@ key "Jaiswal2004,Michalet2005"
 .
  QDs also provide a wide absorption and a narrow excitation spectrum which
  is very convenient for multicolour imaging.
- All these properties make QD very attractive for the biological research.
+ All these properties make QD very attractive for biological research.
  
 \end_layout
 
@@ -542,14 +546,14 @@ key "Lidke2005"
 
 .
  A time series of the blinking QDs was recorded and analysed using Independent
- Component Analysis (ICA) (FastICA algorithm 
+ Component Analysis (ICA); FastICA algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Hyvarinen2000"
 
 \end_inset
 
- has been used).
+ has been used.
  Localisation of two quantum dots separated down to 23 nm (corresponding
  to 
 \begin_inset Formula $\lambda_{\mathrm{em}}/30$
@@ -632,7 +636,7 @@ Non-negative matrix factorisation (NMF) seems to be a very natural model
 \end_inset
 
  data matrix 
-\begin_inset Formula $D$
+\begin_inset Formula $\bm{D}$
 \end_inset
 
  (
@@ -648,7 +652,7 @@ Non-negative matrix factorisation (NMF) seems to be a very natural model
 \end_inset
 
  spatial component matrix 
-\begin_inset Formula $W$
+\begin_inset Formula $\bm{W}$
 \end_inset
 
  (images of the individual sources) and the 
@@ -656,14 +660,14 @@ Non-negative matrix factorisation (NMF) seems to be a very natural model
 \end_inset
 
  temporal component matrix 
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{H}$
 \end_inset
 
  (intensities of the sources).
  
 \begin_inset Formula 
 \begin{equation}
-\mathbb{E}\left[D\right]=\mathbb{E}\left[d_{xt}\right]=\left(WH\right)_{xt}=\sum_{k=1}^{K}w_{xk}h_{kt}\label{eq:NMF model}
+\mathbb{E}\left[\bm{D}\right]=\mathbb{E}\left[d_{xt}\right]=\left(\bm{WH}\right)_{xt}=\sum_{k=1}^{K}w_{xk}h_{kt},\label{eq:NMF model}
 \end{equation}
 
 \end_inset
@@ -729,7 +733,7 @@ This is from DecovolutionNotes.lyx file.
 \end_inset
 
 An observed `blurred' (diffraction limited) image 
-\begin_inset Formula $I$
+\begin_inset Formula $\bm{i}$
 \end_inset
 
  (
@@ -739,13 +743,13 @@ An observed `blurred' (diffraction limited) image
  vector) can expressed as a (discretised) convolution 
 \begin_inset Formula 
 \[
-I_{x}=\sum_{j=1}^{N}W_{j}H_{x-j}
+i_{x}=\sum_{j=1}^{N}o_{j}w_{x-j},
 \]
 
 \end_inset
 
-
-\begin_inset Formula $W$
+where 
+\begin_inset Formula $\bm{o}$
 \end_inset
 
  (
@@ -755,7 +759,7 @@ I_{x}=\sum_{j=1}^{N}W_{j}H_{x-j}
 ) is the original (unblurred) object which represents locations and intensities
  of fluorescent sources.
  
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{w}$
 \end_inset
 
  (
@@ -780,7 +784,7 @@ key "Lucy1974"
  published an iterative deconvolution technique for astronomical images
  with known PSF.
  They used Bayes theorem as a `hint' for an iterative update of 
-\begin_inset Formula $W$
+\begin_inset Formula $\bm{o}$
 \end_inset
 
 .
@@ -794,18 +798,30 @@ key "Lee2001"
 \end_inset
 
 .
- However, the matrices 
-\begin_inset Formula $W$
+ However, 
+\begin_inset Formula $\bm{o}$
 \end_inset
 
  and 
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{w}$
 \end_inset
 
- represent different objects then in the NMF model.
- In the RL deconvolution one PSF is shared by all sources.
+ represent different objects then the matrices 
+\begin_inset Formula $\bm{W}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bm{H}$
+\end_inset
+
+ in the NMF model.
+ In the RL deconvolution one PSF 
+\begin_inset Formula $\bm{w}$
+\end_inset
+
+ is shared by all sources.
  In the NMF each source has its own PSF (columns of 
-\begin_inset Formula $W$
+\begin_inset Formula $\bm{W}$
 \end_inset
 
 ).
@@ -823,18 +839,18 @@ key "Holmes:92"
  derived the RL updates based on maximum likelihood estimation of the model
  with Poisson noise using the expectation-maximisation algorithm.
  He also proposed an update for 
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{w}$
 \end_inset
 
  so that the method can be used as a blind deconvolution algorithm (PSF
  is not known).
  They are sometimes referred to as a `blind RL algorithm'.
  The updates for 
-\begin_inset Formula $W$
+\begin_inset Formula $\bm{o}$
 \end_inset
 
  and 
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{w}$
 \end_inset
 
  are technically identical to the Lee and Seung NMF updates (KL divergence
@@ -848,11 +864,11 @@ key "Holmes:92"
 \align block
 There exist several modified updates derived using EM algorithm which impose
  some constraints on 
-\begin_inset Formula $W$
+\begin_inset Formula $\bm{o}$
 \end_inset
 
  or 
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{w}$
 \end_inset
 
 .
@@ -868,7 +884,7 @@ key "Joshi:93"
 \end_inset
 
 ) on the original image 
-\begin_inset Formula $W$
+\begin_inset Formula $\bm{o}$
 \end_inset
 
  is used as a regularisation term.
@@ -887,31 +903,31 @@ key "Fish:95"
 \end_inset
 
  use RL `blind' algorithm (updates on both 
-\begin_inset Formula $W$
+\begin_inset Formula $\bm{o}$
 \end_inset
 
  and 
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{w}$
 \end_inset
 
 ) but after some number of iterations they fit some approximation of the
  PSF to the estimated 
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{w}$
 \end_inset
 
  and uses this fit as a new 
-\begin_inset Formula $H$
+\begin_inset Formula $\bm{w}$
 \end_inset
 
 .
- He claims that in noisy images this `semi-blind' deconvolution can perform
+ They claim that in noisy images this `semi-blind' deconvolution can perform
  better than the one with known PSF.
  
 \end_layout
 
 \begin_layout Standard
 \align block
-The comparison of the rectified RL versions and some other deconvolution
+The comparison of the regularised RL versions and some other deconvolution
  techniques has been shown in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1107,7 +1123,7 @@ reference "eq:NMF model"
  from a Gamma distribution
 \begin_inset Formula 
 \[
-p(h_{kt}|\alpha_{k},\beta_{k})=\frac{h_{kt}^{\alpha-1}\beta^{\alpha}\exp(-\beta h_{kt})}{\Gamma(\alpha)}
+p(h_{kt}|\alpha_{k},\beta_{k})=\frac{h_{kt}^{\alpha-1}\beta^{\alpha}\exp(-\beta h_{kt})}{\Gamma(\alpha)},
 \]
 
 \end_inset
@@ -1123,7 +1139,7 @@ and the data
  
 \begin_inset Formula 
 \begin{equation}
-p(d_{xt}|w_{xk},h_{kt})=\frac{\left(\sum_{k}w_{xk}h_{kt}\right)^{d_{xt}}\exp(-\sum_{k}w_{xk}h_{kt})}{d_{xt}!}\label{eq:GaP Poisson}
+p(d_{xt}|w_{xk},h_{kt})=\frac{\left(\sum_{k}w_{xk}h_{kt}\right)^{d_{xt}}\exp(-\sum_{k}w_{xk}h_{kt})}{d_{xt}!},\label{eq:GaP Poisson}
 \end{equation}
 
 \end_inset
@@ -1148,7 +1164,7 @@ where
 The likelihood function of this model is given by
 \begin_inset Formula 
 \begin{equation}
-p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(d_{xt}|w_{xk},h_{kt})\label{eq:GaP likelihood}
+p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(d_{xt}|w_{xk},h_{kt}),\label{eq:GaP likelihood}
 \end{equation}
 
 \end_inset
@@ -1156,7 +1172,7 @@ p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\p
 and the log-likelihood
 \begin_inset Formula 
 \[
-\log p(D,H|W,K,\theta)=\sum_{t=1}^{T}\left\{ \sum_{k=1}^{K}\log p(h_{kt}|\alpha_{k},\beta_{k})+\sum_{x=1}^{N}\log p(d_{xt}|w_{xk},h_{kt})\right\} 
+\log p(D,H|W,K,\theta)=\sum_{t=1}^{T}\left\{ \sum_{k=1}^{K}\log p(h_{kt}|\alpha_{k},\beta_{k})+\sum_{x=1}^{N}\log p(d_{xt}|w_{xk},h_{kt})\right\} .
 \]
 
 \end_inset
@@ -1282,6 +1298,7 @@ A new latent
 \begin{alignedat}{1}\sum_{x=1}^{N}v_{xk}^{(t)} & =c_{k}^{(t)}\\
 \sum_{k=1}^{K}v_{xk}^{(t)} & =d_{xt}
 \end{alignedat}
+,
 \]
 
 \end_inset
@@ -1294,7 +1311,19 @@ where the discrete latent vector
 \begin_inset Formula $k$
 \end_inset
 
-th component.
+th component in the 
+\begin_inset Formula $(t)$
+\end_inset
+
+th time slice and 
+\begin_inset Formula $d_{xt}$
+\end_inset
+
+ are the entries of the data matrix 
+\begin_inset Formula $D$
+\end_inset
+
+.
  The distribution of the underlying GaP model now becomes
 \end_layout
 
@@ -1324,7 +1353,7 @@ p(V,H|\alpha,\beta,W,K) & =\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\be
 explicitly 
 \begin_inset Formula 
 \begin{equation}
-p(V,H|\alpha,\beta,W,K)=\prod_{kt}\frac{\beta_{k}^{\alpha_{k}}h_{kt}^{c_{k}^{(t)}+\alpha_{k}-1}\exp(-(\beta_{k}+1)h_{kt})}{\Gamma(\alpha_{k})}\prod_{x}\frac{w_{xk}^{v_{xk}^{(t)}}}{v_{xk}^{(t)}!}\label{eq:GaP likelihood with latent matrix V}
+p(V,H|\alpha,\beta,W,K)=\prod_{kt}\frac{\beta_{k}^{\alpha_{k}}h_{kt}^{c_{k}^{(t)}+\alpha_{k}-1}\exp(-(\beta_{k}+1)h_{kt})}{\Gamma(\alpha_{k})}\prod_{x}\frac{w_{xk}^{v_{xk}^{(t)}}}{v_{xk}^{(t)}!}.\label{eq:GaP likelihood with latent matrix V}
 \end{equation}
 
 \end_inset
@@ -1341,7 +1370,7 @@ p(V,H|\alpha,\beta,W,K)=\prod_{kt}\frac{\beta_{k}^{\alpha_{k}}h_{kt}^{c_{k}^{(t)
 \begin_inset Formula $d_{xt}=\sum_{k}v_{xk}^{(t)}$
 \end_inset
 
-) so it is not represented.
+) so it is not expicly represented.
 \end_layout
 
 \begin_layout Standard
@@ -1353,7 +1382,7 @@ A factored posterior approximation is made for the latent variable to find
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-p(V,H|\alpha,\beta,W,K)\approx q(V,H)=q_{V}(V)q_{H}(H)\label{eq:GaP factorised approximation}
+p(V,H|\alpha,\beta,W,K)\approx q(V,H)=q_{V}(V)q_{H}(H),\label{eq:GaP factorised approximation}
 \end{equation}
 
 \end_inset
@@ -1381,7 +1410,7 @@ key "Bishop2006"
 The likelihood of the data is bounded by
 \begin_inset Formula 
 \begin{equation}
-p(D|W,\alpha,\beta)\geq\mathcal{L}(q,W,\alpha,\beta)\label{eq:GaP likelihood of the data}
+p(D|W,\alpha,\beta)\geq\mathcal{L}(q,W,\alpha,\beta),\label{eq:GaP likelihood of the data}
 \end{equation}
 
 \end_inset
@@ -1410,6 +1439,10 @@ is a variational lower bound
 LatexCommand cite
 key "Bishop2006"
 
+\end_inset
+
+ on 
+\begin_inset Formula $\log p(D|W,\alpha,\beta,K)$
 \end_inset
 
  and the constant 
@@ -1499,8 +1532,7 @@ where
 \begin_inset Formula $z_{x}=\sum_{k}n_{xk}$
 \end_inset
 
-.
- 
+ and 
 \begin_inset Formula $\psi_{0}$
 \end_inset
 
@@ -1523,7 +1555,7 @@ reference "eq:GaP Lower bound"
  gives
 \begin_inset Formula 
 \begin{equation}
-w_{xk}=\frac{\sum_{t}n_{xk}^{(t)}d_{xt}}{\lambda_{k}}\label{eq:GaP update W}
+w_{xk}=\frac{\sum_{t}n_{xk}^{(t)}d_{xt}}{\lambda_{k}},\label{eq:GaP update W}
 \end{equation}
 
 \end_inset
@@ -1546,7 +1578,7 @@ reference "eq:GaP Lower bound"
  then becomes 
 \begin_inset Formula 
 \begin{equation}
-\mathcal{L}=\sum_{t}\left\{ \sum_{k}\mathbb{E}_{H}\left[\log h_{kt}\right](\alpha_{k}-a_{k}^{(t)})+\sum_{k}\log\frac{\Gamma(a_{k}^{(t)})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k}^{a_{k}^{(t)}}}+\sum_{x}d_{xt}\log z_{x}-\log\prod_{x}d_{xt}!\right\} \label{eq:GaP variational lower bound}
+\mathcal{L}=\sum_{t}\left\{ \sum_{k}\mathbb{E}_{H}\left[\log h_{kt}\right](\alpha_{k}-a_{k}^{(t)})+\sum_{k}\log\frac{\Gamma(a_{k}^{(t)})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k}^{a_{k}^{(t)}}}+\sum_{x}d_{xt}\log z_{x}-\log\prod_{x}d_{xt}!\right\} .\label{eq:GaP variational lower bound}
 \end{equation}
 
 \end_inset
@@ -1658,7 +1690,7 @@ GaP model treats the intensities
 \begin_inset Formula $h_{kt}$
 \end_inset
 
- as hidden variables.
+ as latent variables.
  The variational lower bound Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1673,7 +1705,7 @@ reference "eq:GaP likelihood of the data"
 
 \end_inset
 
- with hidden variables 
+ with latent variables 
 \begin_inset Formula $h_{kt}$
 \end_inset
 
@@ -1716,11 +1748,11 @@ name "sub:Analysis-of-the"
 \end_layout
 
 \begin_layout Standard
-Different approach to the number of components 
+A different approach to estimating the number of components 
 \begin_inset Formula $K$
 \end_inset
 
- estimation is to analyse the 
+ is to analyse the 
 \begin_inset Formula $N\times T$
 \end_inset
 
@@ -1747,19 +1779,29 @@ reference "eq:NMF model"
 , we compute a normalised residual matrix 
 \begin_inset Formula 
 \[
-s_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sqrt{\sum_{k=1}^{K}w_{xk}h_{kt}}}
+s_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sqrt{\sum_{k=1}^{K}w_{xk}h_{kt}}}.
 \]
 
 \end_inset
 
-Then the 
+The normalisation 
+\begin_inset Formula $\left(\sum_{k=1}^{K}w_{xk}h_{kt}\right)^{-1/2}$
+\end_inset
+
+ is applied in order to standardise the residuals of Poisson distributed
+ data (
+\begin_inset Formula $\text{var}(x)=\text{mean}(x)$
+\end_inset
+
+).
+ We can then compute the 
 \begin_inset Formula $N\times N$
 \end_inset
 
  correlation matrix 
 \begin_inset Formula 
 \[
-\bm{C}_{S}=\bm{SS}^{T}
+\bm{C}_{S}=\bm{SS}^{T},
 \]
 
 \end_inset
@@ -1779,7 +1821,7 @@ and the
  with entries 
 \begin_inset Formula 
 \begin{equation}
-r_{ij}=\frac{c_{ij}}{\sqrt{c_{ii}c_{jj}}}\label{eq:Correlation in residuals}
+r_{ij}=\frac{c_{ij}}{\sqrt{c_{ii}c_{jj}}}.\label{eq:Correlation in residuals}
 \end{equation}
 
 \end_inset
@@ -1828,7 +1870,7 @@ name "sub:Model selection Results"
 
 \begin_layout Standard
 In the following section simulated data of 10 sources randomly spatially
- distributed are shown.
+ distributed are considered.
  Evaluation of the model with a classic NMF algorithm and the variational
  approximation is presented.
  
@@ -2250,7 +2292,7 @@ reference "tab:Parameters-of-the-simulation"
 \begin_inset Formula $\delta$
 \end_inset
 
- was equal to the Rayleigh's resolution limit (
+ was equal to the Rayleigh resolution limit (
 \begin_inset Formula $\delta=0.61\frac{\lambda_{em}}{NA}$
 \end_inset
 
@@ -2258,7 +2300,7 @@ reference "tab:Parameters-of-the-simulation"
 \end_layout
 
 \begin_layout Enumerate
-In focus PSF was centred at each coordinate 
+An in focus PSF was centred at each coordinate 
 \begin_inset Formula $[x_{k},\, y_{k}]$
 \end_inset
 
@@ -3215,6 +3257,10 @@ b-c) and the estimation of
  
 \end_layout
 
+\begin_layout Subsubsection*
+NMF updates
+\end_layout
+
 \begin_layout Standard
 We used the standard NMF updates 
 \begin_inset CommandInset citation
@@ -3253,7 +3299,74 @@ reference "eq:NMF model"
 \end_inset
 
 ' operation refers to an element-wise division.
- Different values of 
+ The matrix elements 
+\begin_inset Formula $w_{xk}$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ were initialised at random from uniform ditrribution The colums of the
+ matrix 
+\begin_inset Formula $W$
+\end_inset
+
+ were normalised such that 
+\begin_inset Formula $\sum_{x}w_{xk}=1$
+\end_inset
+
+ and the columns of the matrix 
+\begin_inset Formula $H$
+\end_inset
+
+ were normalised such that 
+\begin_inset Formula $\sum_{x,k}w_{xk}h_{kt}=\sum_{k}h_{kt}=\sum_{x}d_{xt}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+One component was added as a homegeneous, static background: 
+\begin_inset Formula $w_{x(K+1)}=\frac{1}{N}$
+\end_inset
+
+, 
+\begin_inset Formula $h_{(K+1)t}=b$
+\end_inset
+
+, where the background value 
+\begin_inset Formula $b$
+\end_inset
+
+ was estimated from the data averaged over time 
+\begin_inset Formula $\frac{1}{T}\sum_{t}d_{xt}$
+\end_inset
+
+.
+ This component was not updated over the iterations.
+ 
+\end_layout
+
+\begin_layout Standard
+We run each NMF evaluation with five times - after each run convergence
+ we restartd the values of 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ while keeping 
+\begin_inset Formula $w_{xk}$
+\end_inset
+
+.
+ This heurestic procedure helps to reach better local minimum (discussed
+ in the first year report.)
+\end_layout
+
+\begin_layout Standard
+Different values of 
 \begin_inset Formula $K=\{4,5,\,...\,18\}$
 \end_inset
 
@@ -3309,7 +3422,7 @@ We analysed the correlation-coefficient matrix
 \begin_inset Formula $\bm{R}_{S}$
 \end_inset
 
- for the residuals Eq
+ of the residuals Eq
 \begin_inset space ~
 \end_inset
 
@@ -3374,6 +3487,103 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 i).
 \end_layout
 
+\begin_layout Subsubsection*
+Variational updates
+\end_layout
+
+\begin_layout Standard
+Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Algorithm-variational approximation"
+
+\end_inset
+
+ was used for evaluation of data for different 
+\begin_inset Formula $K$
+\end_inset
+
+ as above.
+ We used an uniform initialisation of 
+\begin_inset Formula $a_{k}^{(t)}=\frac{1}{K}\left(\sum_{k}\alpha_{k}+\sum_{x}d_{xt}\right)$
+\end_inset
+
+ from Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP update rules"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula $n_{jk}^{(t)}$
+\end_inset
+
+ was initialised as a uniform random and normalised 
+\begin_inset Formula $\sum_{k}n_{jk}=1$
+\end_inset
+
+.
+ The parameters of the prior Gamma distribution were set to value 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\alpha_{k}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{k}=2/I_{max}$
+\end_inset
+
+.
+ This creates a rather flat expenential ditsribution over postitive values
+ of 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ with mean 
+\begin_inset Formula $\alpha/\beta=I_{max}/2$
+\end_inset
+
+ with 
+\begin_inset Formula $I_{max}$
+\end_inset
+
+ from the Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "tab:Parameters-of-the-simulation"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Similar to the NMF updates, one component as a static homogeneous background
+ (
+\begin_inset Formula $a_{K+1}$
+\end_inset
+
+, 
+\begin_inset Formula $w_{(K+1),x}$
+\end_inset
+
+) has been added and not updated.
+ 
+\end_layout
+
 \begin_layout Standard
 In Fig.
 \begin_inset space ~
@@ -3436,7 +3646,7 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
 
-j) however, for the more dense data 
+j), however, for the more dense data 
 \begin_inset Formula $\mathcal{L}(K)$
 \end_inset
 
@@ -3445,7 +3655,7 @@ j) however, for the more dense data
 \end_inset
 
 .
- This suggest that there is not enough evidence in the data for 
+ This suggests that there is not enough evidence in the data for 
 \begin_inset Formula $K=K_{true}$
 \end_inset
 
@@ -3454,13 +3664,17 @@ j) however, for the more dense data
 \end_inset
 
 .
- It is probably worth emphasising that GaP model does not make any assumption
- about the time structure of the hidden variables 
+ 
+\end_layout
+
+\begin_layout Standard
+It is probably worth emphasising that GaP model does not make any assumptions
+ about the time structure of the latent variables 
 \begin_inset Formula $h_{kt}$
 \end_inset
 
 .
- This information can provide a crucial evidence for the correct estimation
+ This information might provide crucial evidence for the correct estimation
  of 
 \begin_inset Formula $K$
 \end_inset
@@ -4947,7 +5161,7 @@ key "Rao1945,Cover1991"
  
 \begin_inset Formula 
 \begin{equation}
-\bm{Q}\geq\bm{I}^{-1}(\theta)\label{eq:Covariance vs Fisher information}
+\bm{Q}\geq\bm{I}^{-1}(\theta),\label{eq:Covariance vs Fisher information}
 \end{equation}
 
 \end_inset
@@ -4959,7 +5173,7 @@ where
  is the Fisher information matrix 
 \begin_inset Formula 
 \begin{equation}
-I_{ij}(\bm{\theta})=-\mathbb{E}\left[\frac{\partial^{2}\mathcal{L}}{\partial\theta_{i}\partial\theta_{j}}\right]=\mathbb{E}\left[\frac{\partial\mathcal{L}}{\partial\theta_{i}}\frac{\partial\mathcal{L}}{\partial\theta_{j}}\right]\label{eq:Fisher information general}
+I_{ij}(\bm{\theta})=-\mathbb{E}\left[\frac{\partial^{2}\mathcal{L}}{\partial\theta_{i}\partial\theta_{j}}\right]=\mathbb{E}\left[\frac{\partial\mathcal{L}}{\partial\theta_{i}}\frac{\partial\mathcal{L}}{\partial\theta_{j}}\right].\label{eq:Fisher information general}
 \end{equation}
 
 \end_inset
@@ -4996,8 +5210,8 @@ reference "sub:PALM,-STORM"
 
 ) the spatial resolution limit is determined by the localisation precision
  for an individual source.
- Cramér–Rao bound lower for the position estimation of a single source detected
- by a CCD camera is derived in 
+ The Cramér–Rao bound lower for the position estimation of a single source
+ detected by a CCD camera is derived in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ram2006,Ram2006b"
@@ -5022,12 +5236,12 @@ A fundamental resolution measure (FREM) for two sources separated by a distance
 \begin_inset Formula $d$
 \end_inset
 
- is shown as an alternative to the Rayleigh's resolution criterion considering
- the photon statistic on the detector (CCD camera).
- The Fisher information is derived 
+ is shown as an alternative to the Rayleigh resolution criterion considering
+ the photon statistics on the detector (CCD camera).
+ The Fisher information is derived as 
 \begin_inset Formula 
 \begin{equation}
-I(d)=\frac{1}{4}\sum_{n=1}^{N}\frac{\left(\Lambda_{1}\int_{C_{n}}\partial_{x}q(x-\frac{d}{2})dx-\Lambda_{2}\int_{C_{n}}\partial_{x}q(x+\frac{d}{2})dx\right)^{2}}{\Lambda_{1}\int_{C_{n}}q(x-\frac{d}{2})dx+\Lambda_{2}\int_{C_{n}}q(x+\frac{d}{2})dx}\label{eq:Ram FREM}
+I(d)=\frac{1}{4}\sum_{n=1}^{N}\frac{\left(\Lambda_{1}\int_{C_{n}}\partial_{x}q(x-\frac{d}{2})dx-\Lambda_{2}\int_{C_{n}}\partial_{x}q(x+\frac{d}{2})dx\right)^{2}}{\Lambda_{1}\int_{C_{n}}q(x-\frac{d}{2})dx+\Lambda_{2}\int_{C_{n}}q(x+\frac{d}{2})dx},\label{eq:Ram FREM}
 \end{equation}
 
 \end_inset
@@ -5044,7 +5258,11 @@ th source,
 \begin_inset Formula $q(x)$
 \end_inset
 
- is a response function of a source and 
+ is a response function of a source (
+\begin_inset Formula $\int q(x)dx=1$
+\end_inset
+
+) and 
 \begin_inset Formula $C_{n}$
 \end_inset
 
@@ -5060,7 +5278,7 @@ th pixel.
  is then 
 \begin_inset Formula 
 \[
-\text{var}(d)=I^{-1}(d)
+\text{var}(d)=I^{-1}(d).
 \]
 
 \end_inset
@@ -5171,7 +5389,7 @@ reference "sub:Appendix An-alternative-way-Fisher-info"
 \end_inset
 
 .
- The response functions (we assume here the identical PSF 
+ The response functions (we assume an identical PSF 
 \begin_inset Formula $q(x)$
 \end_inset
 
@@ -5195,7 +5413,7 @@ reference "sub:Appendix An-alternative-way-Fisher-info"
  is given by 
 \begin_inset Formula 
 \[
-\textrm{var}(d)=Q_{11}+Q_{22}-2Q_{12}
+\textrm{var}(d)=Q_{11}+Q_{22}-2Q_{12},
 \]
 
 \end_inset
@@ -5204,7 +5422,7 @@ where
 \begin_inset Formula $\bm{Q}$
 \end_inset
 
- is a covariance matrix 
+ is the covariance matrix 
 \begin_inset Formula $\bm{Q}=\bm{I}^{-1}(\theta)$
 \end_inset
 
@@ -5228,7 +5446,7 @@ For a Poisson distributed pixel counts (this assumes that data are corrupted
  with Poisson noise only) 
 \begin_inset Formula 
 \[
-p(n_{p}|\theta_{p})=\text{Po}(n_{p};\lambda_{p})
+p(n_{p}|\theta_{p})=\text{Po}(n_{p};\lambda_{p}),
 \]
 
 \end_inset
@@ -5247,7 +5465,7 @@ th pixel:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\lambda_{p}=\int_{C_{p}}\lambda dx=\int_{C_{p}}\Lambda_{1}f_{1}(x)+\Lambda_{2}f_{2}(x)dx\label{eq:Mean value of hte Poisson process}
+\lambda_{p}=\int_{C_{p}}\lambda(x)dx=\int_{C_{p}}\Lambda_{1}f_{1}(x)+\Lambda_{2}f_{2}(x)dx.\label{eq:Mean value of hte Poisson process}
 \end{equation}
 
 \end_inset
@@ -5259,7 +5477,7 @@ The log-likelihood function for
  pixels
 \begin_inset Formula 
 \begin{equation}
-\log p(n|\theta)=\sum_{p=1}^{N}p(n_{p}|\lambda_{p})\label{eq:FREM likekihood Poisson}
+\log p(n|\theta)=\sum_{p=1}^{N}\text{Po}(n_{p};\lambda_{p}),\label{eq:FREM likekihood Poisson}
 \end{equation}
 
 \end_inset
@@ -5278,7 +5496,7 @@ reference "sub: Appendix Fisher-Information-Poisson"
 ) 
 \begin_inset Formula 
 \[
-I_{ij}(\theta)=\sum_{p=1}^{N}\frac{1}{\lambda_{p}}\frac{\partial\lambda_{p}}{\partial\theta_{i}}\frac{\partial\lambda_{p}}{\partial\theta_{j}}
+I_{ij}(\theta)=\sum_{p=1}^{N}\frac{1}{\lambda_{p}}\frac{\partial\lambda_{p}}{\partial\theta_{i}}\frac{\partial\lambda_{p}}{\partial\theta_{j}}.
 \]
 
 \end_inset
@@ -5293,7 +5511,7 @@ The covariance matrix
 \bm{Q}=\bm{I}^{-1}(\theta)=\frac{1}{I_{11}I_{12}-I_{12}^{2}}\left(\begin{array}{cc}
 I_{22} & -I_{12}\\
 -I_{12} & I_{11}
-\end{array}\right)
+\end{array}\right),
 \]
 
 \end_inset
@@ -5305,7 +5523,7 @@ and the variance of
  
 \begin_inset Formula 
 \begin{equation}
-\textrm{var}(d)=(1,-1)^{T}\cdot\bm{Q}\cdot(1,-1)=\frac{I_{11}+I_{22}+2I_{12}}{I_{11}I_{12}-I_{12}^{2}}\label{eq:variance d alternative}
+\textrm{var}(d)=(1,-1)^{T}\cdot\bm{Q}\cdot(1,-1)=\frac{I_{11}+I_{22}+2I_{12}}{I_{11}I_{12}-I_{12}^{2}}.\label{eq:variance d alternative}
 \end{equation}
 
 \end_inset
@@ -5318,7 +5536,7 @@ For a symmetrical PSF
 \begin_inset Formula $q(x-d)=q(x+d)$
 \end_inset
 
- we showed (Appendix
+ we show (Appendix
 \begin_inset space ~
 \end_inset
 
@@ -5329,11 +5547,11 @@ reference "sub: Appendix Fisher-Information-Poisson"
 
 \end_inset
 
-) the entries of the Fisher information matrix
+) that the entries of the Fisher information matrix
 \begin_inset Formula 
 \begin{alignat}{2}
 I_{ii} & =\sum_{n=1}^{N}\frac{\left(\Lambda_{i}q'_{n}\right)^{2}}{\Lambda_{i}q_{n}+\Lambda_{j}q_{n}(d)}\nonumber \\
-I_{ij} & =\sum_{n=1}^{N}\frac{\Lambda_{i}\Lambda_{j}q'_{n}(0)q'_{n}(d)}{\Lambda_{i}q_{n}+\Lambda_{j}q_{n}(d)} & \text{ for \ensuremath{i\neq j}}\label{eq:Fisher Information Static}
+I_{ij} & =\sum_{n=1}^{N}\frac{\Lambda_{i}\Lambda_{j}q'_{n}(0)q'_{n}(d)}{\Lambda_{i}q_{n}+\Lambda_{j}q_{n}(d)} & \text{ for \ensuremath{i\neq j}},\label{eq:Fisher Information Static}
 \end{alignat}
 
 \end_inset
@@ -5538,7 +5756,7 @@ The variance is also infinite if one of the sources is zero
 \begin_inset Formula $\Lambda_{i}=0$
 \end_inset
 
- as it does not make any assumption about the symmetry with respect to the
+ as we do not make any assumption about the symmetry with respect to the
  origin (
 \begin_inset Formula $d=c_{1}-c_{2}$
 \end_inset
@@ -5548,7 +5766,7 @@ The variance is also infinite if one of the sources is zero
 \end_layout
 
 \begin_layout Standard
-For sources well separated 
+For sources which are well separated 
 \begin_inset Formula $d\rightarrow\infty$
 \end_inset
 
@@ -5591,7 +5809,7 @@ reference "eq:Mean value of hte Poisson process"
  to be a random variable distributed over four distinctive states 
 \begin_inset Formula 
 \[
-\left\{ \bm{\Lambda}^{1}=(\Lambda_{1},0),\,\bm{\Lambda}^{2}=(0,\Lambda_{2}),\,\bm{\Lambda}^{3}=(\Lambda_{1},\Lambda_{2}),\,\bm{\Lambda}^{4}=(0,0)\right\} 
+\left\{ \bm{\Lambda}^{1}=(\Lambda_{1},0),\,\bm{\Lambda}^{2}=(0,\Lambda_{2}),\,\bm{\Lambda}^{3}=(\Lambda_{1},\Lambda_{2}),\,\bm{\Lambda}^{4}=(0,0)\right\} .
 \]
 
 \end_inset
@@ -5604,12 +5822,12 @@ This simulates a simple blinking model of two QDs.
  were known we would write the likelihood function as 
 \begin_inset Formula 
 \[
-l(\theta)=p(n,\bm{\Lambda}|\theta)=\prod_{p=1}^{N}\prod_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})
+l(\theta)=p(n,\bm{\Lambda}|\theta)=\prod_{p=1}^{N}p(n_{p}|\theta,\bm{\Lambda})p(\bm{\Lambda}),
 \]
 
 \end_inset
 
-and the Fisher information matrix would become (Appendix
+and the expected Fisher information matrix would become (Appendix
 \begin_inset space ~
 \end_inset
 
@@ -5638,7 +5856,7 @@ reference "sub:Appendix: Time-distribution - Cheating"
 \color none
 \begin_inset Formula 
 \begin{equation}
-I(\theta)=\sum_{i=1}^{4}p(\bm{\Lambda}_{i})\sum_{p=1}^{N}\frac{1}{\lambda_{p}(\theta,\bm{\Lambda}_{i})}\left(\frac{\partial\lambda_{p}(\theta,\bm{\Lambda}_{i})}{\partial\theta}\right)^{2}\label{eq:Fisher Information Blinking Cheating}
+I(\theta)=\sum_{i=1}^{4}p(\bm{\Lambda}^{i})\sum_{p=1}^{N}\frac{1}{\lambda_{p}(\theta,\bm{\Lambda}^{i})}\left(\frac{\partial\lambda_{p}(\theta,\bm{\Lambda}^{i})}{\partial\theta}\right)^{2},\label{eq:Fisher Information Blinking Cheating}
 \end{equation}
 
 \end_inset
@@ -5688,7 +5906,7 @@ However, we assume that the variable
  and the likelihood function is then 
 \begin_inset Formula 
 \begin{equation}
-l(\theta)=\prod_{p=1}^{N}p(n_{p}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p},\bm{\Lambda}^{i}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})\label{eq:FREM likelihood Lanbda integrated out}
+l(\theta)=\prod_{p=1}^{N}p(n_{p}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p},\bm{\Lambda}^{i}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i}).\label{eq:FREM likelihood Lanbda integrated out}
 \end{equation}
 
 \end_inset
@@ -5703,7 +5921,7 @@ reference "eq:Fisher information general"
  because of the summation within the logarithm in the log-likelihood 
 \begin_inset Formula 
 \[
-\mathcal{L}(\theta)=\log l(\theta)=\sum_{p}\log\sum_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})
+\mathcal{L}(\theta)=\log l(\theta)=\sum_{p}\log\sum_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i}).
 \]
 
 \end_inset
@@ -5727,13 +5945,13 @@ reference "sub:Appendix Time-distribution-Integrating out"
 \begin_inset Formula $i$
 \end_inset
 
-
+ is given by
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{alignat}{1}
-I_{rs}(\theta) & =\sum_{p=1}^{N}\mathbb{E}_{p}\left[\frac{\left(\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{p}^{i})}{\partial c_{r}}\right)\left(\sum_{l=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{p}^{l})}{\partial c_{s}}\right)}{\left(\sum_{j=1}^{4}\textrm{Po}(\lambda_{p}^{j})\right)^{2}}\right]\label{eq:Fisher Information Blinking Integrating Out}
+I_{rs}(\theta) & =\sum_{p=1}^{N}\mathbb{E}_{p}\left[\frac{\left(\sum_{i=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{p}^{i})}{\partial c_{r}}\right)\left(\sum_{l=1}^{4}\frac{\partial\textrm{Po}(\textrm{\lambda}_{p}^{l})}{\partial c_{s}}\right)}{\left(\sum_{j=1}^{4}\textrm{Po}(\lambda_{p}^{j})\right)^{2}}\right],\label{eq:Fisher Information Blinking Integrating Out}
 \end{alignat}
 
 \end_inset
@@ -5774,7 +5992,7 @@ reference "eq:FREM likelihood Lanbda integrated out"
  Expressing the derivatives and the expectation value gives
 \begin_inset Formula 
 \[
-I_{rs}(\theta)=\frac{1}{2}\sum_{p=1}^{N}\left(\frac{\partial\lambda_{p}^{r}}{\partial c_{r}}\right)\left(\frac{\partial\lambda_{p}^{s}}{\partial c_{s}}\right)\sum_{n_{p}\geq0}\left[\frac{\left(\sum_{i=\{r,3\}}\mathrm{Po}(n_{p};\lambda_{p}^{i})\frac{(n_{p}-\lambda_{p}^{i})}{\lambda_{p}^{i}}\right)\left(\sum_{i=\{s,3\}}\mathrm{Po}(n_{p};\lambda_{p}^{i})\frac{(n_{p}-\lambda_{p}^{i})}{\lambda_{p}^{i}}\right)}{\sum_{j=1}^{4}\textrm{Po}(n_{p};\lambda_{p}^{j})}\right]
+I_{rs}(\theta)=\frac{1}{2}\sum_{p=1}^{N}\left(\frac{\partial\lambda_{p}^{r}}{\partial c_{r}}\right)\left(\frac{\partial\lambda_{p}^{s}}{\partial c_{s}}\right)\sum_{n_{p}\geq0}\left[\frac{\left(\sum_{i=\{r,3\}}\mathrm{Po}(n_{p};\lambda_{p}^{i})\frac{(n_{p}-\lambda_{p}^{i})}{\lambda_{p}^{i}}\right)\left(\sum_{i=\{s,3\}}\mathrm{Po}(n_{p};\lambda_{p}^{i})\frac{(n_{p}-\lambda_{p}^{i})}{\lambda_{p}^{i}}\right)}{\sum_{j=1}^{4}\textrm{Po}(n_{p};\lambda_{p}^{j})}\right].
 \]
 
 \end_inset
@@ -6097,9 +6315,9 @@ end{centering}
 
 \begin_layout Plain Layout
 Left: Fisher information matrix entries.
- Solid lined show diagonal entries, broken line show the off-diagonal elements.
+ Solid lines show diagonal entries, broken lines show the off-diagonal elements.
  Right: variance of the distance estimation.
- Black lines show the results for the static case Eq.
+ The black line show the results for the static case Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Static"
@@ -6107,7 +6325,7 @@ reference "eq:Fisher Information Static"
 \end_inset
 
 .
- Colour lines show the blinking situation Eq.
+ Coloured lines show the blinking situation Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Blinking Integrating Out"
@@ -6164,7 +6382,7 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-The alternative derivation of the FREM provides correction to the formula
+The alternative derivation of the FREM provides a correction to the formula
  published in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -6264,7 +6482,7 @@ status open
 
 \begin_layout Plain Layout
 Point spread function for different focal planes.
- www.invitrogen.com
+ Source: www.invitrogen.com
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Point-spread-function"
@@ -7400,7 +7618,7 @@ key "Buntine2006"
 \begin_inset Formula $d\rightarrow w$
 \end_inset
 
-, hidden variables (intensities) 
+, latent variables (intensities) 
 \begin_inset Formula $h\rightarrow l$
 \end_inset
 
@@ -9609,7 +9827,7 @@ Sources are far apart and
 \begin_inset Formula $\lambda^{2}$
 \end_inset
 
- don not have a common overlap.
+ do not have a common overlap.
  For 
 \begin_inset Formula $k'$
 \end_inset
