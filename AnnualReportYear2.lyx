@@ -1410,7 +1410,7 @@ key "Bishop2006"
 The likelihood of the data is bounded by
 \begin_inset Formula 
 \begin{equation}
-p(D|W,\alpha,\beta)\geq\mathcal{L}(q,W,\alpha,\beta),\label{eq:GaP likelihood of the data}
+p(D|W,\alpha,\beta,K)\geq\mathcal{L}(q,W,\alpha,\beta),\label{eq:GaP likelihood of the data}
 \end{equation}
 
 \end_inset
@@ -1691,14 +1691,22 @@ GaP model treats the intensities
 \end_inset
 
  as latent variables.
- The variational lower bound Eq.
+ The variational lower bound 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP Lower bound"
 
 \end_inset
 
- bounds the approximation of the data likelihood Eq.
+ bounds the approximation of the data log-likelihood 
+\begin_inset Formula $p(D|K)$
+\end_inset
+
+ Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:GaP likelihood of the data"
@@ -1709,31 +1717,94 @@ reference "eq:GaP likelihood of the data"
 \begin_inset Formula $h_{kt}$
 \end_inset
 
- integrated out.
-  It therefore naturally penalises the complexity of the model (Occam’s
- razor 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MacKay2003"
-
+ integrated out and parameters 
+\begin_inset Formula $\alpha,\:\beta$
 \end_inset
 
-) and can then be used for estimation of the 
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+ ommited for clarity.
+ We can consider several models with different number of components 
 \begin_inset Formula $K$
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status open
+ If we assign equal prior probabilites 
+\begin_inset Formula $p(K)$
+\end_inset
 
-\begin_layout Plain Layout
-Needs some revision!!!
-\end_layout
+ to each of the model, we can interprete the lower bound 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ as an approximation to the posterior model probability 
+\begin_inset Formula $p(K|D)$
+\end_inset
+
+ as 
+\begin_inset Formula $p(K|D)\propto p(D|K)p(K)$
+\end_inset
+
+.
+ Then pick the model with 
+\begin_inset Formula $K$
+\end_inset
+
+ giving the highest 
+\begin_inset Formula $p(K|D)$
+\end_inset
+
+.
+ Thus the variational lower bound computed for different values of 
+\begin_inset Formula $K$
+\end_inset
+
+ can be used for the 
+\begin_inset Formula $K$
+\end_inset
+
+ selection 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bishop2006"
 
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+page 489
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This should be contrasted with the maximul-likelihood approach (such as
+ NMF) where 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ (and 
+\begin_inset Formula $w_{xk}$
+\end_inset
+
+) are treated as parameters of the model and the likelihood of the model
+ is maximized with respect to these parameters.
+ The more complex models with higher 
+\begin_inset Formula $K$
+\end_inset
+
+ will always yield lower residual error and thus will be assign higher likelihoo
+d.
+ The ML methods favaour severly overfitted models.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -3567,7 +3638,12 @@ reference "tab:Parameters-of-the-simulation"
 \end_inset
 
 .
- 
+ Each dataset was evaluated three times with different random initialisation
+ of 
+\begin_inset Formula $n_{jk}^{(t)}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
