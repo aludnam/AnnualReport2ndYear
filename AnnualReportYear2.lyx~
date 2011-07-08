@@ -1956,6 +1956,10 @@ In the following section simulated data of 10 sources randomly spatially
  
 \end_layout
 
+\begin_layout Subsubsection*
+Simulations
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float table
 wide false
@@ -2345,20 +2349,19 @@ reference "tab:Parameters-of-the-simulation"
 \begin_inset Formula $[x_{k},\, y_{k}]$
 \end_inset
 
- confined to a circular region of with a radius 
+ confined to a circular region with radii 
 \begin_inset Formula $\delta$
 \end_inset
 
- were generated (
-\begin_inset Formula $x$
+, 
+\begin_inset Formula $1.5\delta$
 \end_inset
 
  and 
-\begin_inset Formula $y$
+\begin_inset Formula $2\delta$
 \end_inset
 
- coordinates generated from a uniform distribution subject to a spatial
- constraint to the circular area).
+ were generated.
  
 \begin_inset Formula $\delta$
 \end_inset
@@ -2368,6 +2371,18 @@ reference "tab:Parameters-of-the-simulation"
 \end_inset
 
 ).
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ coordinates were drawn from a uniform distribution subject to spatial constrain
+t to the circular area.
+ This represent three datasets with different densities of the sources.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -2418,23 +2433,9 @@ Intensity in each pixel was corrupted with Poisson noise.
 \end_layout
 
 \begin_layout Standard
-Data with lower density of the sources were simulated in the same way.
- However, the relative distances between the locations 
-\begin_inset Formula $[x_{k},\, y_{k}]$
-\end_inset
-
- of the individual sources (generated in step 1) were enlarged 
-\begin_inset Formula $1.5\times$
-\end_inset
-
- and 
-\begin_inset Formula $2.5\times$
-\end_inset
-
-.
- This way the geometrical configuration of the sources remains unchanged
- for all data sets.
- The locations of the sources are shown as blue circles in Fig.
+Each dataset with different sources densities was simulated seven-times
+ with different geometrical configurations of the sources.
+ An example of one simulation for each density is shown in Fig.
 \begin_inset space ~
 \end_inset
 
@@ -2916,7 +2917,7 @@ status open
 \backslash
 newcommand{
 \backslash
-ima}{$2.5
+ima}{$2
 \backslash
 delta$} 
 \end_layout
@@ -3023,7 +3024,7 @@ sizeb]{
 \backslash
 homepath 
 \backslash
-qdotspath /S275/images/reslocalized_nc11}
+qdotspath /S300/images/reslocalized_nc11_sc20}
 \end_layout
 
 \end_inset
@@ -3050,7 +3051,7 @@ ima
 
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:simulations 2.5 delta "
+name "fig:simulations 2.0 delta "
 
 \end_inset
 
@@ -3084,7 +3085,7 @@ sizeb]{
 \backslash
 homepath 
 \backslash
-qdotspath /S277/images/reslocalized_nc11}
+qdotspath /S300/images/reslocalized_nc11_sc15}
 \end_layout
 
 \end_inset
@@ -3145,7 +3146,7 @@ sizeb]{
 \backslash
 homepath 
 \backslash
-qdotspath /S273/images/reslocalized_nc11}
+qdotspath /S300/images/reslocalized_nc11_sc10}
 \end_layout
 
 \end_inset
@@ -3209,43 +3210,53 @@ end{centering}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Simulated data (10 sources) with different densities.
- Sources in all three figures have the same geometrical configuration but
- different relative distances between the centres.
- All the sources are contained in a circular area with a radius 
-\begin_inset Formula $2.5\delta$
-\end_inset
+Example of the simulated data (10 sources) with different densities.The sources
+ are contained in a circular area with a radius 
+\begin_inset ERT
+status open
 
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:simulations 2.5 delta "
+\begin_layout Plain Layout
 
-\end_inset
 
-), 
-\begin_inset Formula $1.5\delta$
-\end_inset
-
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:simulations 1.5 delta "
+\backslash
+ima 
+\backslash
+ 
+\end_layout
 
 \end_inset
 
-) and 
-\begin_inset Formula $\delta$
+ (left), 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imb 
+\backslash
+ 
+\end_layout
+
 \end_inset
 
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:simulations 1 delta "
+ (middle) and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imc 
+\backslash
+ 
+\end_layout
 
 \end_inset
 
-).
+ (right).
  Mean intensity over time is shown as a grey scale image.
  The true positions of the sources are shown as blue circles, estimated
  positions as red crosses.
@@ -3282,9 +3293,20 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 \end_inset
 
 a-c.
- The first 20 PC eigenvalues are plotted.
+ The first 18 PC eigenvalues are plotted.
  For the the dataset 
-\begin_inset Formula $2.5\delta$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ima 
+\backslash
+ 
+\end_layout
+
 \end_inset
 
  (Fig.
@@ -3329,18 +3351,44 @@ b-c) and the estimation of
 \end_layout
 
 \begin_layout Subsubsection*
-NMF updates
+Evaluation
 \end_layout
 
 \begin_layout Standard
-We used the standard NMF updates 
+The classic NMF updates 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lee2001"
 
 \end_inset
 
+ and the variational updates 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Buntine2006"
 
+\end_inset
+
+ has been used.
+ Each individual data set was evaluated three times with different random
+ initialisatins (see below) and the result with the highest likelihood 
+\begin_inset Formula 
+\begin{equation}
+\log p(D|WH,K)=\sum_{x,t}\left\{ d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}-\log d_{xt}!\right\} \label{eq:log-lik}
+\end{equation}
+
+\end_inset
+
+has been chosen.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+NMF updates
+\end_layout
+
+\begin_layout Standard
+We used the standard NMF updates 
 \begin_inset Formula 
 \begin{alignat}{1}
 w_{xk} & =\frac{w_{xk}}{\sum_{t=1}^{T}h_{kt}}\left[(D./WH)H^{\top}\right]_{xk}\nonumber \\
@@ -3378,8 +3426,8 @@ reference "eq:NMF model"
 \begin_inset Formula $h_{kt}$
 \end_inset
 
- were initialised at random from uniform ditrribution The colums of the
- matrix 
+ were initialised at random from uniform ditrribution.
+ The colums of the matrix 
 \begin_inset Formula $W$
 \end_inset
 
@@ -3422,8 +3470,8 @@ One component was added as a homegeneous, static background:
 \end_layout
 
 \begin_layout Standard
-We run each NMF evaluation with five times - after each run convergence
- we restartd the values of 
+We run each NMF evaluation with five paritial restarts - after each run
+ convergence we restarted the values of 
 \begin_inset Formula $h_{kt}$
 \end_inset
 
@@ -3441,15 +3489,14 @@ Different values of
 \begin_inset Formula $K=\{4,5,\,...\,18\}$
 \end_inset
 
- were used and the log-likelihood 
-\begin_inset Formula 
-\[
-\log p(D|WH,K)=\sum_{x,t}\left\{ d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}-\log d_{xt}!\right\} 
-\]
+ were used and the log-likelihood Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:log-lik"
 
 \end_inset
 
-has been reported (Fig.
+ has been reported (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -3509,7 +3556,7 @@ reference "eq:Correlation in residuals"
 \end_inset
 
  (
-\begin_inset Formula $\max_{ij}(r_{ij})$
+\begin_inset Formula $\max(r_{ij})$
 \end_inset
 
 ) in Fig.
@@ -3523,7 +3570,11 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
 
-g-i.
+g-i (minimum values of 
+\begin_inset Formula $\max(r_{ij})$
+\end_inset
+
+ over three evaluations with different random initializations is shown).
  There is a significant drop in the correlation values for 
 \begin_inset Formula $K=10$
 \end_inset
@@ -3540,11 +3591,7 @@ reference "fig:simulations 1 delta "
 
 \end_inset
 
- the correlations drop at about 
-\begin_inset Formula $K=8$
-\end_inset
-
- (Fig.
+ the correlations drop is less clear and becomes difficult to estimate (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -3638,7 +3685,12 @@ reference "tab:Parameters-of-the-simulation"
 \end_inset
 
 .
- 
+ Each dataset was evaluated three times with different random initialisation
+ of 
+\begin_inset Formula $n_{jk}^{(t)}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3667,7 +3719,7 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 
 \end_inset
 
-j-l there is shown the variational lower bound 
+j-l the variational lower bound 
 \begin_inset Formula $\mathcal{L}(K)$
 \end_inset
 
@@ -3686,7 +3738,7 @@ reference "sub:Variational-treatment-of"
 
 \end_inset
 
-).
+) is shown.
  For the easy (sparse) data set Fig.
 \begin_inset space ~
 \end_inset
@@ -3694,7 +3746,7 @@ reference "sub:Variational-treatment-of"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:simulations 2.5 delta "
+reference "fig:simulations 2.0 delta "
 
 \end_inset
 
@@ -3739,18 +3791,6 @@ j), however, for the more dense data
 \end_layout
 
 \begin_layout Standard
-It is probably worth emphasising that GaP model does not make any assumptions
- about the time structure of the latent variables 
-\begin_inset Formula $h_{kt}$
-\end_inset
-
-.
- This information might provide crucial evidence for the correct estimation
- of 
-\begin_inset Formula $K$
-\end_inset
-
-.
 \begin_inset Formula 
 \begin{alignat*}{1}
 \end{alignat*}
@@ -3800,7 +3840,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S275/images/pca}
+qdotspath /S301/images/pca_nc20}
 \end_layout
 
 \end_inset
@@ -3856,7 +3896,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S274/images/pca}
+qdotspath /S301/images/pca_nc15}
 \end_layout
 
 \end_inset
@@ -3912,7 +3952,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S270/images/pca}
+qdotspath /S301/images/pca_nc10}
 \end_layout
 
 \end_inset
@@ -3971,7 +4011,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S275/images/LogLikPoisson}
+qdotspath /S300/images/LogLikPoisson_nc20}
 \end_layout
 
 \end_inset
@@ -4027,7 +4067,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S274/images/LogLikPoisson}
+qdotspath /S300/images/LogLikPoisson_nc15}
 \end_layout
 
 \end_inset
@@ -4083,7 +4123,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S270/images/LogLikPoisson}
+qdotspath /S300/images/LogLikPoisson_nc10}
 \end_layout
 
 \end_inset
@@ -4156,7 +4196,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S275/images/MaxCorrInResid_min2}
+qdotspath /S301/images/MaxCorrInResid_nc20}
 \end_layout
 
 \end_inset
@@ -4212,7 +4252,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S277/images/MaxCorrInResid_min2}
+qdotspath /S301/images/MaxCorrInResid_nc15}
 \end_layout
 
 \end_inset
@@ -4268,7 +4308,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S273/images/MaxCorrInResid_min2}
+qdotspath /S301/images/MaxCorrInResid_nc10}
 \end_layout
 
 \end_inset
@@ -4327,7 +4367,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S275/images/LowerBound}
+qdotspath /S300/images/LowerBound_nc20}
 \end_layout
 
 \end_inset
@@ -4383,7 +4423,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S274/images/LowerBound}
+qdotspath /S300/images/LowerBound_nc15}
 \end_layout
 
 \end_inset
@@ -4439,7 +4479,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S270/images/LowerBound}
+qdotspath /S300/images/LowerBound_nc10}
 \end_layout
 
 \end_inset
@@ -4502,16 +4542,49 @@ Number of components
 \begin_inset Formula $K$
 \end_inset
 
- estimation for sources contained in the circular area with radius 
-\begin_inset Formula $2.5\delta$
+ estimation for sources contained in a circular area with radius 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ima 
+\backslash
+ 
+\end_layout
+
 \end_inset
 
  (left column), 
-\begin_inset Formula $1.5\delta$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imb 
+\backslash
+ 
+\end_layout
+
 \end_inset
 
  (middle column) and 
-\begin_inset Formula $\delta$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imc 
+\backslash
+ 
+\end_layout
+
 \end_inset
 
  (right column) as shown in Fig.
@@ -4531,10 +4604,170 @@ reference "fig:K estimation - Simulated-data"
 \end_inset
 
  is indicated with a red vertical line.
+ Three examples for datasets with different geometrical configurations of
+ the sources are shown in each plot.
  
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /S301/images/KestHist_maxC}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Maximum correlations in residuals
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Histogram: Maximum-correlations-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /S300/images/KestHist_lb}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Variational lower bound
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Histogram:Variational-lower-bound"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Histograms of the 
+\begin_inset Formula $K$
+\end_inset
+
+ estimations for data with three different sources density.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Histograms-of-the-K-estimation"
 
 \end_inset
 
@@ -4903,68 +5136,49 @@ end{centering}
 \end_layout
 
 \begin_layout Standard
-From the results presented above it seems that the analysis of the residual
- correlations gives the most precise 
+We estimated 
 \begin_inset Formula $K$
 \end_inset
 
- estimation for high densities of sources.
- In order to investigate what is the `resolution' of this 
-\begin_inset Formula $K$
-\end_inset
-
- estimation we simulated datasets consisitng of 
-\begin_inset Formula $K_{true}=2$
-\end_inset
-
- and 
-\begin_inset Formula $K_{true}=5$
-\end_inset
-
-.
- The sources were distributed uniformly on a circle with diameter 
-\begin_inset Formula $d$
-\end_inset
-
-.
- Each data set was simulated 
-\begin_inset Formula $10$
-\end_inset
-
- times as a different draws from a Poisson distribution (with identical
- parameters).
- Each dataset was evaluated with NMF for 
-\begin_inset Formula $K=\{K_{true}-1,\, K_{true},\, K_{true}+1\}$
-\end_inset
-
-.
- The maximum correlations coefficients in residuals 
-\begin_inset Formula $\max_{ij}(r_{ij})$
-\end_inset
-
- has been recorded.
- The mean (and standard deviation) and the minimum values over 
-\begin_inset Formula $10$
-\end_inset
-
- evaluation of the datasets for simulations with different 
-\begin_inset Formula $d$
-\end_inset
-
- are shown in Fig.
+ from the maximum of the variational lower bound Fig.
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Correlations-in-residuals."
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+j-k and from the estimated 'kink' in the maximum correlations in residuals
+ 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+g-i for the seven datasets with different geometrical configurations of
+ the sources.
+ The histograms for datasets with three different sources density is shown
+ in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Histograms-of-the-K-estimation"
 
 \end_inset
 
 .
- The maximum residual correlations of the true model (the one used for the
- generation of the data) are plotted as a baseline for comparison.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5122,6 +5336,90 @@ name "fig:Correlations-in-residuals."
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsubsection*
+Resolution limit of the residual correlations
+\end_layout
+
+\begin_layout Standard
+From the comparison in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Histograms-of-the-K-estimation"
+
+\end_inset
+
+ it seems that the analysis of the residual correlatins gives more precise
+ 
+\begin_inset Formula $K$
+\end_inset
+
+ estimation.
+ In order to investigate what is the `resolution' of this 
+\begin_inset Formula $K$
+\end_inset
+
+ estimation we simulated datasets consisitng of 
+\begin_inset Formula $K_{true}=2$
+\end_inset
+
+ and 
+\begin_inset Formula $K_{true}=5$
+\end_inset
+
+.
+ The sources were distributed uniformly on a circle with diameter 
+\begin_inset Formula $d$
+\end_inset
+
+.
+ Each data set was simulated 
+\begin_inset Formula $10$
+\end_inset
+
+ times as a different draws from a Poisson distribution (with identical
+ parameters).
+ Each dataset was evaluated with NMF for 
+\begin_inset Formula $K=\{K_{true}-1,\, K_{true},\, K_{true}+1\}$
+\end_inset
+
+.
+ The maximum correlations coefficients in residuals 
+\begin_inset Formula $\max_{ij}(r_{ij})$
+\end_inset
+
+ has been recorded.
+ The mean (and standard deviation) and the minimum values over 
+\begin_inset Formula $10$
+\end_inset
+
+ evaluation of the datasets for simulations with different 
+\begin_inset Formula $d$
+\end_inset
+
+ are shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Correlations-in-residuals."
+
+\end_inset
+
+.
+ The maximum residual correlations of the true model (the one used for the
+ generation of the data) are plotted as a baseline for comparison.
+\end_layout
+
+\begin_layout Standard
 The correlations in residuals are much higher when 
 \begin_inset Formula $K<K_{true}$
 \end_inset
@@ -5170,6 +5468,81 @@ reference "fig:Correlations-in-residuals."
 \end_inset
 
  for five sources.
+\end_layout
+
+\begin_layout Subsection
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The variational lower bound provides correct estimates only for relatively
+ easy data (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulations 2.0 delta "
+
+\end_inset
+
+).
+ 
+\begin_inset Formula $K$
+\end_inset
+
+ is severely underestimated for the data with higher densities of the sources
+ (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Histogram:Variational-lower-bound"
+
+\end_inset
+
+).
+ The more accurate estimation of 
+\begin_inset Formula $K$
+\end_inset
+
+ were achieved by analysis of the correlations in the residuals (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Histogram: Maximum-correlations-in"
+
+\end_inset
+
+), however, the 'kink' can be difficult to estimate for the dense data (Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+i) and a visual inspection of the curves is ofter required.
+ 
+\end_layout
+
+\begin_layout Standard
+It is worth emphasising that NMF nor GaP models do not make any assumptions
+ about the time structure of the (latent) variables 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+.
+ This information might provide stronger evidence for the correct 
+\begin_inset Formula $K$
+\end_inset
+
+ estimation.
 \end_layout
 
 \begin_layout Standard
@@ -7315,14 +7688,10 @@ Left: mean intensity image correspond to a standard wide-field image.
 \end_inset
 
 
-\begin_inset Newpage clearpage
-\end_inset
-
-
 \end_layout
 
-\begin_layout Section
-Conclusion and Future work 
+\begin_layout Subsection
+Conclusion
 \end_layout
 
 \begin_layout Standard
@@ -7339,31 +7708,29 @@ reference "fig:Out of focus QD - Separated-sources"
 \end_inset
 
 ).
- The estimation of 
-\begin_inset Formula $K$
-\end_inset
-
- (number of sources in data) remains a difficult task for realistic data
- sets.
- The variational lower bound (section
+ The separated sources (Fig.
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Variational-treatment-of"
+reference "fig:Out of focus QD - Separated-sources"
 
 \end_inset
 
-) provides correct estimates only for relatively easy data (Fig.
+) correspond to the real out-of-focus PSFs 
+\begin_inset Formula $ $
+\end_inset
+
+(Fig.
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:simulations 2.5 delta "
+reference "fig:Point-spread-function"
 
 \end_inset
 
@@ -7372,65 +7739,54 @@ reference "fig:simulations 2.5 delta "
 \begin_inset Formula $K$
 \end_inset
 
- is severely underestimated for the data with higher densities of the sources
- (Fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:K estimation - pca,loglik,lowerboudn,correl"
-
+ (number of sources in data) has been estimated from the analysis of the
+ residual correlations 
+\begin_inset Formula $ $
 \end_inset
 
-).
- The most accurate estimation of 
-\begin_inset Formula $K$
-\end_inset
-
- were achieved by analysis of the correlations in the residuals (Fig.
+(Fig.
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+reference "fig:Out of focus QDs - Correlations"
 
 \end_inset
 
 ).
- The `resolution' of this method for two and five sources is shown in Fig.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Correlations-in-residuals."
-
-\end_inset
-
-.
- The use of information about the time structure of the data would certainly
- help in this task.
  
 \end_layout
 
 \begin_layout Standard
-Blinking behaviour of the sources has been theoretically demonstrated to
- allow for higher localisation precision (Fig.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:variance d"
+As the NMF does not make any assumption about the shape of the sources it
+ should be capable of separationg the PSF distorted by various abberations
+ as well.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huang2008"
 
 \end_inset
 
-) especially for brighter sources.
- Further analysis is required to examine the effect of the background in
- the data to provide more realistic description of the resolution limit.
+, for example, the optical astigmatism is introduced in STORM data in order
+ the PSF changes its elliptical shape for different axial postions.
+ This allows for 3D localisation of the sources.
+ NMF might separate the overlapping abberated sources and allow this method
+ to use QDs instead of the photo-activable organic fluorophores.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Future work 
 \end_layout
 
 \begin_layout Subsection
