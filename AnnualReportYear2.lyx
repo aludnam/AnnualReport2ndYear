@@ -1370,7 +1370,7 @@ p(V,H|\alpha,\beta,W,K)=\prod_{kt}\frac{\beta_{k}^{\alpha_{k}}h_{kt}^{c_{k}^{(t)
 \begin_inset Formula $d_{xt}=\sum_{k}v_{xk}^{(t)}$
 \end_inset
 
-) so it is not expicly represented.
+) so it is not explicitly represented.
 \end_layout
 
 \begin_layout Standard
@@ -1725,17 +1725,17 @@ reference "eq:GaP likelihood of the data"
 \begin_inset Formula $W$
 \end_inset
 
- ommited for clarity.
+ omitted for clarity.
  We can consider several models with different number of components 
 \begin_inset Formula $K$
 \end_inset
 
 .
- If we assign equal prior probabilites 
+ If we assign equal prior probabilities 
 \begin_inset Formula $p(K)$
 \end_inset
 
- to each of the model, we can interprete the lower bound 
+ to each of the model, we can interpret the lower bound 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
@@ -1786,7 +1786,7 @@ page 489
 \end_layout
 
 \begin_layout Standard
-This should be contrasted with the maximul-likelihood approach (such as
+This should be contrasted with the maximum-likelihood approach (such as
  NMF) where 
 \begin_inset Formula $h_{kt}$
 \end_inset
@@ -1796,14 +1796,14 @@ This should be contrasted with the maximul-likelihood approach (such as
 \end_inset
 
 ) are treated as parameters of the model and the likelihood of the model
- is maximized with respect to these parameters.
+ is maximised with respect to these parameters.
  The more complex models with higher 
 \begin_inset Formula $K$
 \end_inset
 
  will always yield lower residual error and thus will be assign higher likelihoo
 d.
- The ML methods favaour severly overfitted models.
+ The ML methods favour severely overfited models.
  
 \end_layout
 
@@ -3371,7 +3371,8 @@ key "Buntine2006"
 
  has been used.
  Each individual data set was evaluated three times with different random
- initialisatins (see below) and the result with the highest likelihood 
+ initialisations (see below) and the result with the highest likelihood
+ 
 \begin_inset Formula 
 \begin{equation}
 \log p(D|WH,K)=\sum_{x,t}\left\{ d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}-\log d_{xt}!\right\} \label{eq:log-lik}
@@ -3426,8 +3427,8 @@ reference "eq:NMF model"
 \begin_inset Formula $h_{kt}$
 \end_inset
 
- were initialised at random from uniform ditrribution.
- The colums of the matrix 
+ were initialised at random from uniform distribution.
+ The columns of the matrix 
 \begin_inset Formula $W$
 \end_inset
 
@@ -3448,7 +3449,7 @@ reference "eq:NMF model"
 \end_layout
 
 \begin_layout Standard
-One component was added as a homegeneous, static background: 
+One component was added as a homogeneous, static background: 
 \begin_inset Formula $w_{x(K+1)}=\frac{1}{N}$
 \end_inset
 
@@ -3470,8 +3471,8 @@ One component was added as a homegeneous, static background:
 \end_layout
 
 \begin_layout Standard
-We run each NMF evaluation with five paritial restarts - after each run
- convergence we restarted the values of 
+We run each NMF evaluation with five partial restarts - after each run convergen
+ce we restarted the values of 
 \begin_inset Formula $h_{kt}$
 \end_inset
 
@@ -3480,7 +3481,7 @@ We run each NMF evaluation with five paritial restarts - after each run
 \end_inset
 
 .
- This heurestic procedure helps to reach better local minimum (discussed
+ This heuristic procedure helps to reach better local minimum (discussed
  in the first year report.)
 \end_layout
 
@@ -3574,7 +3575,7 @@ g-i (minimum values of
 \begin_inset Formula $\max(r_{ij})$
 \end_inset
 
- over three evaluations with different random initializations is shown).
+ over three evaluations with different random initialisations is shown).
  There is a significant drop in the correlation values for 
 \begin_inset Formula $K=10$
 \end_inset
@@ -3660,7 +3661,7 @@ reference "eq:GaP update rules"
 \end_inset
 
 .
- This creates a rather flat expenential ditsribution over postitive values
+ This creates a rather flat exponential distribution over positive values
  of 
 \begin_inset Formula $h_{kt}$
 \end_inset
@@ -5355,7 +5356,7 @@ reference "fig:Histograms-of-the-K-estimation"
 
 \end_inset
 
- it seems that the analysis of the residual correlatins gives more precise
+ it seems that the analysis of the residual correlations gives more precise
  
 \begin_inset Formula $K$
 \end_inset
@@ -5365,7 +5366,7 @@ reference "fig:Histograms-of-the-K-estimation"
 \begin_inset Formula $K$
 \end_inset
 
- estimation we simulated datasets consisitng of 
+ estimation we simulated datasets consisting of 
 \begin_inset Formula $K_{true}=2$
 \end_inset
 
@@ -5430,7 +5431,7 @@ The correlations in residuals are much higher when
 \end_inset
 
  the correlations drop significantly to a baseline level.
- Furher increase 
+ Further increase 
 \begin_inset Formula $K>K_{true}$
 \end_inset
 
@@ -5471,7 +5472,7 @@ reference "fig:Correlations-in-residuals."
 \end_layout
 
 \begin_layout Subsection
-Conclusion
+Conclusions
 \end_layout
 
 \begin_layout Standard
@@ -5583,7 +5584,7 @@ If
 \begin_inset Formula $\mathcal{L}(\theta)=\log p(x|\theta)$
 \end_inset
 
- is a log-likelihood fucniton for data 
+ is a log-likelihood function for data 
 \begin_inset Formula $X$
 \end_inset
 
@@ -6225,6 +6226,720 @@ For sources which are well separated
  (sum of the variances for localisation of individual sources).
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+sizeff}{.23}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+sizegg}{.2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizegg]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface3d_d5_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizegg]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface3d_d3_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizegg]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface3d_d1_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizegg]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface3d_d0_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeff]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface_d5_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeff]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface_d3_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeff]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface_d1_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=
+\backslash
+sizeff]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/LogLikelihoodSurface_d0_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Expected log-likelihood Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Expected log-likelihood"
+
+\end_inset
+
+ as a function of 
+\begin_inset Formula ${\bf c}=(c_{\text{1}},\, c_{2})$
+\end_inset
+
+ for different separation 
+\begin_inset Formula $d$
+\end_inset
+
+ between the two sources (located at 
+\begin_inset Formula ${\bf c}^{true}$
+\end_inset
+
+).
+ The true sources position is marked with black asterisk.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Expected-log-likelihood-Surface"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In order to understand the behaviour of the Fisher Information matrix we
+ visualised in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Expected-log-likelihood-Surface"
+
+\end_inset
+
+ an expected log-likelihood Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:FREM likekihood Poisson"
+
+\end_inset
+
+ as a function of the parameter 
+\begin_inset Formula ${\bf c}=(c_{1},\, c_{2})$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{equation}
+\mathbb{E}_{\text{Po}(n;\lambda^{true})}\left[\sum_{p=1}^{N}\log\text{Po}\left(n_{p};\lambda_{p}({\bf c})\right)\right]=\sum_{p=1}^{N}\lambda_{p}^{true}\log\lambda_{p}({\bf c})-\lambda_{p}({\bf c})+A,\label{eq:Expected log-likelihood}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda^{true}$
+\end_inset
+
+ is the true intensity profile sources and 
+\begin_inset Formula $A$
+\end_inset
+
+ is independent on 
+\begin_inset Formula ${\bf c}$
+\end_inset
+
+.
+ The Fisher Information matrix Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher information general"
+
+\end_inset
+
+ for 
+\begin_inset Formula ${\bf \theta}=(c_{1},\, c_{2})$
+\end_inset
+
+ is a Hessian (curvature) of this surface at 
+\begin_inset Formula $(c_{1}^{true},\, c_{2}^{true})$
+\end_inset
+
+.
+ The parameters from Tab.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parameters-of-the-simulation"
+
+\end_inset
+
+ have been used.
+ 
+\end_layout
+
+\begin_layout Standard
+We can observe that for small, non zero 
+\begin_inset Formula $d$
+\end_inset
+
+ there is a saddle point for 
+\begin_inset Formula $c_{1}=c_{2}$
+\end_inset
+
+ (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Expected-log-likelihood-Surface"
+
+\end_inset
+
+b).
+ This settle is less and less pronounces as the separation 
+\begin_inset Formula $d$
+\end_inset
+
+ gets smaller (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Expected-log-likelihood-Surface"
+
+\end_inset
+
+c) and eventually degenerates into a flat `crest' for 
+\begin_inset Formula $d=0$
+\end_inset
+
+ (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Expected-log-likelihood-Surface"
+
+\end_inset
+
+d).
+ For 
+\begin_inset Formula $d=0$
+\end_inset
+
+ 
+\begin_inset Formula $(c_{1}^{true}=c_{2}^{true})$
+\end_inset
+
+ the Hessian becomes singular as the `crest' is flat in the proximity of
+ 
+\begin_inset Formula ${\bf c}^{true}$
+\end_inset
+
+ along the diagonal direction 
+\begin_inset Formula $c_{1}=c_{2}$
+\end_inset
+
+ and the variance 
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+ diverges.
+\end_layout
+
 \begin_layout Subsection
 FREM for blinking sources
 \end_layout
@@ -6477,10 +7192,15 @@ reference "sub:Appendix Time-distribution-Integrating out"
 \noun off
 \color none
 
-\begin_inset Formula $\text{var}(d)=\frac{1}{I_{11}}+\frac{1}{I_{22}}=2\left(\frac{1}{I_{11}^{\text{static}}-\epsilon}+\frac{1}{I_{22}^{\text{static}}-\epsilon}\right)>2\text{var}(d^{\text{static}})$
+\begin_inset Formula $\text{var}(d)=\frac{1}{I_{11}}+\frac{1}{I_{22}}$
 \end_inset
 
+.
+ It is also shown that for the the limit 
+\begin_inset Formula $d\rightarrow\infty$
+\end_inset
 
+ the variance in the static case
 \family default
 \series default
 \shape default
@@ -6492,30 +7212,18 @@ reference "sub:Appendix Time-distribution-Integrating out"
 \uwave default
 \noun default
 \color inherit
- where 
-\begin_inset Formula $I^{\text{static}}$
-\end_inset
-
- and 
+ 
 \begin_inset Formula $\text{var}^{\text{static}}(d)$
 \end_inset
 
- is the Fisher information matrix and the variance, respectively, of the
- static case (section
-\begin_inset space ~
+ is a lower bound for the blinking case: 
+\begin_inset Formula $\text{var}(d)>\text{var}^{\text{static}}(d)$
 \end_inset
 
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:An-alternative-derivation-FREM"
-
-\end_inset
-
-).
- The factor 2 in the expression for the variance comes from the fact that
- the total number of photons in this model is the factor of two smaller
- then in the static case.
+.
+ This assumes that the total number of detected photons is equal for static
+ and blinking case.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -6760,15 +7468,12 @@ end{centering}
 \begin_layout Plain Layout
 Left: Fisher information matrix entries.
  Solid lines show diagonal entries, broken lines show the off-diagonal elements.
- Right: variance of the distance estimation.
- The black line show the results for the static case Eq.
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Fisher Information Static"
-
+ Right: variance of the distance estimation (the values must be scaled by
+ a factor 
+\begin_inset Formula $\alpha$
 \end_inset
 
-.
+ shown in the legend).
  Coloured lines show the blinking situation Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -6781,11 +7486,20 @@ reference "eq:Fisher Information Blinking Integrating Out"
 \end_inset
 
  of the sources.
- The values must be scaled by a factor 
+ The black dashed line shows the results for the static case Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Fisher Information Static"
+
+\end_inset
+
+.
+ As the curve for the static case does not change the shape for different
+ intensities (apart from the scaling factor 
 \begin_inset Formula $\alpha$
 \end_inset
 
- shown in the legend.
+) it can be directly compared to each curve for the blinking situation.
  The vertical broken line indicates the Rayleigh resolution limit.
  
 \begin_inset CommandInset label
@@ -6848,20 +7562,11 @@ reference "fig:Comparison Fisher-informaton and variance"
 
  suggest that the intensity blinking of the sources can increase the localisatio
 n precision for the situations when the sources are very close.
- However, for well separated sources (
+ For well separated sources (
 \begin_inset Formula $d\rightarrow\infty$
 \end_inset
 
- limit) the static situation provide upper bound for the entries of the
- Fisher information matrix of blinking model (Eq.
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:variance d static vs blinking"
-
-\end_inset
-
-).
- In this configuration the static situation allows for more precise localisation.
+ limit) the static situation provides lower bound for the localisation precision.
  The intersection points of the curves for static and blinking model depends
  on the intensity of the sources (Fig.
 \begin_inset space ~
@@ -7691,7 +8396,7 @@ Left: mean intensity image correspond to a standard wide-field image.
 \end_layout
 
 \begin_layout Subsection
-Conclusion
+Conclusions
 \end_layout
 
 \begin_layout Standard
@@ -7761,7 +8466,7 @@ reference "fig:Out of focus QDs - Correlations"
 
 \begin_layout Standard
 As the NMF does not make any assumption about the shape of the sources it
- should be capable of separationg the PSF distorted by various abberations
+ should be capable of separating the PSF distorted by various aberrations
  as well.
  In 
 \begin_inset CommandInset citation
@@ -7771,9 +8476,9 @@ key "Huang2008"
 \end_inset
 
 , for example, the optical astigmatism is introduced in STORM data in order
- the PSF changes its elliptical shape for different axial postions.
+ the PSF changes its elliptical shape for different axial positions.
  This allows for 3D localisation of the sources.
- NMF might separate the overlapping abberated sources and allow this method
+ NMF might separate the overlapping aberrated sources and allow this method
  to use QDs instead of the photo-activable organic fluorophores.
  
 \end_layout
