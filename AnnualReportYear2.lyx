@@ -20,7 +20,7 @@
 %\date{}
 
 %change if the citation brackets:
-%\bibpunct{[}{]}{;}{a}{}{,} 
+\bibpunct{[}{]}{;}{a}{}{,} 
 %\bibpunct{[}{]}{,}{a}{}{;}
 
 \hyphenation{the-o-re-ti-cal}
@@ -69,7 +69,7 @@
 \use_esint 1
 \use_mhchem 1
 \use_mathdots 1
-\cite_engine basic
+\cite_engine natbib_authoryear
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -579,8 +579,7 @@ key "Lidke2007"
 \end_layout
 
 \begin_layout Standard
-A Bayesian approach to the blinking QD data has been presented in poster
- in 2008 
+A Bayesian approach to the blinking QD data has been presented 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Harrington2008"
@@ -1691,7 +1690,7 @@ GaP model treats the intensities
 \end_inset
 
  as latent variables.
- The variational lower bound 
+ 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
@@ -1702,7 +1701,7 @@ reference "eq:GaP Lower bound"
 
 \end_inset
 
- bounds the approximation of the data log-likelihood 
+ is the lower bound for the data log-likelihood 
 \begin_inset Formula $p(D|K)$
 \end_inset
 
@@ -1735,24 +1734,28 @@ reference "eq:GaP likelihood of the data"
 \begin_inset Formula $p(K)$
 \end_inset
 
- to each of the model, we can interpret the lower bound 
+ to each of the model, then the maximisation of the lower bound 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
- as an approximation to the posterior model probability 
-\begin_inset Formula $p(K|D)$
-\end_inset
-
- as 
+ is equivalent to maximising 
 \begin_inset Formula $p(K|D)\propto p(D|K)p(K)$
 \end_inset
 
+ because 
+\begin_inset Formula $p(D|K)\geq\mathcal{L}$
+\end_inset
+
+ and 
+\begin_inset Formula $p(K)=\text{constant}$
+\end_inset
+
 .
- Then pick the model with 
+ We can then pick the model with 
 \begin_inset Formula $K$
 \end_inset
 
- giving the highest 
+ giving the highest probability 
 \begin_inset Formula $p(K|D)$
 \end_inset
 
@@ -7265,11 +7268,19 @@ reference "eq:variance d alternative"
 
 \end_inset
 
- the variance 
-\begin_inset Formula $\text{var}(d)\propto\frac{1}{\Lambda}$
+ the variance scales linearly with 
+\begin_inset Formula $1/\Lambda$
 \end_inset
 
- as each entry of the Fisher information matrix 
+ 
+\begin_inset Formula 
+\[
+\text{var}^{\text{static}}(d)\propto\frac{1}{\Lambda}
+\]
+
+\end_inset
+
+as each entry of the Fisher information matrix 
 \begin_inset Formula $I_{pq}\propto\Lambda$
 \end_inset
 
@@ -7281,12 +7292,15 @@ reference "eq:Fisher Information Static"
 \end_inset
 
 ).
- The intensity of the sources 
+ The shape of the curve remains unchanged for different 
 \begin_inset Formula $\Lambda$
 \end_inset
 
- is only a linear scaling factor.
- In the blinking case Eq.
+.
+\end_layout
+
+\begin_layout Standard
+In the blinking case Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Blinking Integrating Out"
@@ -7304,20 +7318,32 @@ reference "eq:Fisher Information Blinking Integrating Out"
 
 \end_inset
 
- cannot be easily evaluated.
- The results for different values of 
+ cannot be simplified and 
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+ depends on 
 \begin_inset Formula $\Lambda$
 \end_inset
 
- are shown in Fig.
-\begin_inset space ~
+ through the parameter 
+\begin_inset Formula $\lambda_{p}^{i}(\Lambda)$
 \end_inset
 
-
+ of the Poisson distribution in Eq.
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Comparison Fisher-informaton and variance"
+LatexCommand eqref
+reference "eq:Fisher Information Blinking Integrating Out"
 
+\end_inset
+
+.
+ This gives rise to a highly non-linear relationship between 
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+ and 
+\begin_inset Formula $\Lambda$
 \end_inset
 
 .
@@ -7522,6 +7548,316 @@ name "fig:Comparison Fisher-informaton and variance"
 \end_layout
 
 \begin_layout Standard
+The comparison of the blinking and the static case for three different values
+ of 
+\begin_inset Formula $\Lambda=10$
+\end_inset
+
+, 
+\begin_inset Formula $10^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $10^{3}$
+\end_inset
+
+ photons is shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison Fisher-informaton and variance"
+
+\end_inset
+
+.
+ The intenisty of the static sources was set to 
+\begin_inset Formula $\Lambda/2$
+\end_inset
+
+ to keep the total number of detected photons constat for the static and
+ blinking case (the blinking sources are on average `ON' only half of the
+ time and so the average intensity is 
+\begin_inset Formula $\Lambda/2$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Wrap figure
+lines 0
+placement o
+overhang 0in
+width "50col%"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.45]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/FractionStatBlink}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Ratio 
+\begin_inset Formula $\text{var}(d)/\text{var}^{\text{static}}(d)$
+\end_inset
+
+.
+ The blinking situation gives smaller variance where 
+\begin_inset Formula $\text{var}(d)/\text{var}^{\text{static}}(d)<1$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparison variances ration"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+All the curves for the blinking situation for 
+\begin_inset Formula $ $
+\end_inset
+
+different 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ are plotted as coloured lines in one graph Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison Fisher-informaton and variance"
+
+\end_inset
+
+.
+ Each coloured curve corresponds to 
+\begin_inset Formula $\Lambda=10$
+\end_inset
+
+, 
+\begin_inset Formula $10^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $10^{3}$
+\end_inset
+
+ photons and the values of the 
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+ (y-axes) must be scaled by a factor 
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+, 
+\begin_inset Formula $10^{-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $10^{-2}$
+\end_inset
+
+, respectively.
+ The curve for 
+\begin_inset Formula $\text{var}^{\text{static}}(d)$
+\end_inset
+
+ is plotted as a dashed line.
+ As the curve does not change the shape for different 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+, one curve represents all the three situations when correctly scaled by
+ a factor 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ This allows for a pairwise comparison between the static and the blinking
+ case for different 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+.
+ For example, the graph is valid for the green 
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+ and the dashed curve 
+\begin_inset Formula $\text{var}^{\text{static}}(d)$
+\end_inset
+
+, when the blue and red curves are ignored and the y-axes is scaled by 
+\begin_inset Formula $\alpha=10^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For small separation of the sources we observe that the blinking situation
+ gives smaller values of variance (coloured curve is under the dashed curve)
+ and thus blinking should allow for localisation with higher precision.
+ The intresection between the couloured and the dashed curve depends on
+ the intenisty of the sources 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+.
+ The higher the intensity 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ is the smaller the 
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+ results from the blinking situation.
+ Also the region over which the blinking is preferable is larger as we observe
+ that the intersection point between the dashed and the coloured curve shifts
+ towards larger 
+\begin_inset Formula $d$
+\end_inset
+
+ when increasing 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+.
+ For large separations the static case gives smaller variance and is the
+ lower bound on the blinking case as shown in Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix Time-distribution-Integrating out"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The ratio of the coloured (blinking) and the dashed lines (static) curves
+ from Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:variance d"
+
+\end_inset
+
+ gives the direct comparison between the blinking and the static case Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison variances ration"
+
+\end_inset
+
+.
+ In the region where the values are smaller then one the blinkig of the
+ sources gives better localisation precision.
+ For small separation (
+\begin_inset Formula $d<50\ \text{nm}$
+\end_inset
+
+ - 1 pixel corresopnds to 
+\begin_inset Formula $106\ \text{nm})$
+\end_inset
+
+ and for bright sources (
+\begin_inset Formula $\Lambda>1000\ \text{detected photons/source}$
+\end_inset
+
+ ) the blinking results in more then 4 times better variance and so more
+ then 
+\begin_inset Formula $\sqrt{4}=2$
+\end_inset
+
+ better localisation presicion (standard deviation).
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -7560,8 +7896,17 @@ reference "fig:Comparison Fisher-informaton and variance"
 
 \end_inset
 
- suggest that the intensity blinking of the sources can increase the localisatio
-n precision for the situations when the sources are very close.
+ suggest that the intensity blinking of the sources can significantly increase
+ the localisation precision compared to the static situation.
+ This effect is stronger for small separation 
+\begin_inset Formula $d<50\text{nm}$
+\end_inset
+
+ and bright sources (
+\begin_inset Formula $\Lambda>1000\ \text{photons}$
+\end_inset
+
+.
  For well separated sources (
 \begin_inset Formula $d\rightarrow\infty$
 \end_inset
@@ -9818,7 +10163,7 @@ where
 \end_layout
 
 \begin_layout Standard
-Log-Likelihood:
+Log-likelihood:
 \begin_inset Formula 
 \[
 \mathcal{L}=\sum_{k}\left(n_{k}\log\lambda_{k}-\lambda_{k}-\log n_{k}!\right)
