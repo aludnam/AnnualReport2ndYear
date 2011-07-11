@@ -390,7 +390,7 @@ ion microscopy as a single source can be localised with an uncertainty much
 
  is an emission wavelength of the source 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Rayleigh1896,Born1975principles"
 
 \end_inset
@@ -401,7 +401,7 @@ key "Rayleigh1896,Born1975principles"
  into account.
  As shown in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Thompson2002,Ram2006"
 
 \end_inset
@@ -411,7 +411,7 @@ key "Thompson2002,Ram2006"
  For sufficiently intense sources the localisation precision can significantly
  surpass the Rayleigh resolution limit 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Gordon2004,Qu2004,Lidke2005,Ober2004"
 
 \end_inset
@@ -436,14 +436,14 @@ In the real biological samples the sources are usually dense and highly
  overlapping making the localisation of the individual sources very difficult.
  PALM (Photo Activation Localisation Microscopy) 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Hess2006"
 
 \end_inset
 
  and STORM (STochastic Optical Resolution Microscopy) 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Bates2007"
 
 \end_inset
@@ -457,7 +457,7 @@ key "Bates2007"
  It can be achieved either by using photo-activable (PA) fluorophores (PALM,
  STORM) or by reversive photo - bleaching 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Baddeley2009"
 
 \end_inset
@@ -466,7 +466,7 @@ key "Baddeley2009"
  Repetition of this activation - localisation cycles can provide super-resolutio
 n images of biological samples 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Shroff2008,Huang2008"
 
 \end_inset
@@ -483,7 +483,7 @@ Quantum dots (QD) are an order of magnitude brighter and several orders
  of magnitude more photo-bleaching resistant fluorophores compared to the
  organic dyes used in LM 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Jaiswal2004,Michalet2005"
 
 \end_inset
@@ -514,7 +514,7 @@ Under a continuous excitation QDs exhibit a blinking behaviour (fluorescence
 
  
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Kuno2001,Stefani2009"
 
 \end_inset
@@ -539,7 +539,7 @@ Localisation microscopy using Quantum Dots
 In 2005 there has been published a method exploiting the fluorescence intermitte
 ncy ('blinking') of QDs under continuous excitation 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lidke2005"
 
 \end_inset
@@ -548,7 +548,7 @@ key "Lidke2005"
  A time series of the blinking QDs was recorded and analysed using Independent
  Component Analysis (ICA); FastICA algorithm 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Hyvarinen2000"
 
 \end_inset
@@ -561,7 +561,7 @@ key "Hyvarinen2000"
 
 ) has been reported 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lidke2005"
 
 \end_inset
@@ -570,7 +570,7 @@ key "Lidke2005"
  Further exploration of the technique for more than two sources and for
  different configuration of the experiment can be found in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lidke2007"
 
 \end_inset
@@ -581,7 +581,7 @@ key "Lidke2007"
 \begin_layout Standard
 A Bayesian approach to the blinking QD data has been presented 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Harrington2008"
 
 \end_inset
@@ -599,7 +599,7 @@ key "Harrington2008"
 A method using QDs for measurement of sub-resolution distances has been
  published in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lagerholm2006"
 
 \end_inset
@@ -608,7 +608,7 @@ key "Lagerholm2006"
  However, discrete ON-OFF blinking is required (only one source being ON
  and others OFF) as opposed to 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lidke2005,Harrington2008"
 
 \end_inset
@@ -682,7 +682,7 @@ with non-negativity constraints
 \begin_layout Standard
 The NMF algorithm shown in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lee2001"
 
 \end_inset
@@ -768,14 +768,14 @@ where
 ) is an image of point spread function (PSF) centred in the middle of the
  image Richardson 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Richardson1972"
 
 \end_inset
 
  and Lucy 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lucy1974"
 
 \end_inset
@@ -929,7 +929,7 @@ key "Fish:95"
 The comparison of the regularised RL versions and some other deconvolution
  techniques has been shown in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Kempen1997BA,Verveer1999"
 
 \end_inset
@@ -1100,7 +1100,7 @@ name "sub:Gamma-Poisson-(GaP)"
 \begin_layout Standard
 Gamma-Poisson (GaP) model 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Canny2004"
 
 \end_inset
@@ -1204,7 +1204,7 @@ reference "eq:GaP likelihood"
 
  
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Blei2003"
 
 \end_inset
@@ -1212,7 +1212,7 @@ key "Blei2003"
 .
  This is problematic as in the expectation maximisation (EM) algorithm 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Bishop2006"
 
 \end_inset
@@ -1228,7 +1228,7 @@ key "Bishop2006"
 .
  (In 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Canny2004"
 
 \end_inset
@@ -1254,7 +1254,7 @@ name "sub:Variational-treatment-of"
 \begin_layout Standard
 Variational treatment of the problem is proposed in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Buntine2006"
 
 \end_inset
@@ -1388,7 +1388,7 @@ p(V,H|\alpha,\beta,W,K)\approx q(V,H)=q_{V}(V)q_{H}(H),\label{eq:GaP factorised 
 
 where the optimal solution is given by 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Bishop2006"
 
 \end_inset
@@ -1435,7 +1435,7 @@ This is the problematic integral ---> this expectation value...
 
 is a variational lower bound 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Bishop2006"
 
 \end_inset
@@ -1770,7 +1770,7 @@ reference "eq:GaP likelihood of the data"
 
  selection 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Bishop2006"
 
 \end_inset
@@ -1786,6 +1786,45 @@ page 489
 \end_inset
 
 .
+ However, we assumed here that the difference between 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ and 
+\begin_inset Formula $p(D|K)$
+\end_inset
+
+ remains approximately constant over some range of 
+\begin_inset Formula $K$
+\end_inset
+
+s.
+ In reality, the 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is the lower bound of 
+\begin_inset Formula $p(D|K)$
+\end_inset
+
+ and the value of 
+\begin_inset Formula $K$
+\end_inset
+
+ which gives maximum 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ does not necessarily be the one which maximizes 
+\begin_inset Formula $p(D|K)$
+\end_inset
+
+ and in turn 
+\begin_inset Formula $p(K|D)$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3360,14 +3399,14 @@ Evaluation
 \begin_layout Standard
 The classic NMF updates 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lee2001"
 
 \end_inset
 
  and the variational updates 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Buntine2006"
 
 \end_inset
@@ -5496,8 +5535,8 @@ reference "fig:simulations 2.0 delta "
 \begin_inset Formula $K$
 \end_inset
 
- is severely underestimated for the data with higher densities of the sources
- (Fig.
+ is systematicaly underestimated for the data with higher densities of the
+ sources (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -5509,7 +5548,18 @@ reference "fig:Histogram:Variational-lower-bound"
 \end_inset
 
 ).
- The more accurate estimation of 
+ This is intuitive as several highly overlapping sources corrupted with
+ noise can be approximated with one larger source.
+ When the data do not provide enough evidence, the bayesian approach tend
+ to prefer the less complicated model (underestimation of 
+\begin_inset Formula $K$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The more accurate estimation of 
 \begin_inset Formula $K$
 \end_inset
 
@@ -5601,7 +5651,7 @@ If
 
  is bounded by 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Rao1945,Cover1991"
 
 \end_inset
@@ -5661,7 +5711,7 @@ reference "sub:PALM,-STORM"
  The Cramér–Rao bound lower for the position estimation of a single source
  detected by a CCD camera is derived in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Ram2006,Ram2006b"
 
 \end_inset
@@ -6814,7 +6864,7 @@ reference "eq:FREM likekihood Poisson"
  
 \begin_inset Formula 
 \begin{equation}
-\mathbb{E}_{\text{Po}(n;\lambda^{true})}\left[\sum_{p=1}^{N}\log\text{Po}\left(n_{p};\lambda_{p}({\bf c})\right)\right]=\sum_{p=1}^{N}\lambda_{p}^{true}\log\lambda_{p}({\bf c})-\lambda_{p}({\bf c})+A,\label{eq:Expected log-likelihood}
+\mathbb{E}_{\text{Po}(n;\lambda^{true})}\left[\sum_{p=1}^{N}\log\text{Po}\left(n_{p};\lambda_{p}({\bf c})\right)\right]=\sum_{p=1}^{N}\left(\lambda_{p}^{true}\log\lambda_{p}({\bf c})-\lambda_{p}({\bf c})\right)+A,\label{eq:Expected log-likelihood}
 \end{equation}
 
 \end_inset
@@ -7879,7 +7929,7 @@ Conclusions
 The alternative derivation of the FREM provides a correction to the formula
  published in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Ram2006"
 
 \end_inset
@@ -8295,7 +8345,7 @@ name "fig:Out of focus QDs"
 
 We used the standard NMF algorithm 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lee2001"
 
 \end_inset
@@ -8815,7 +8865,7 @@ As the NMF does not make any assumption about the shape of the sources it
  as well.
  In 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Huang2008"
 
 \end_inset
@@ -8850,7 +8900,7 @@ Time series
 \begin_layout Plain Layout
 comments on 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Molgedey1994a"
 
 \end_inset
@@ -8900,7 +8950,7 @@ However, there can be a rich information contained in the time-series nature
 \begin_layout Plain Layout
 Molgedey Schuster 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Molgedey1994a"
 
 \end_inset
@@ -8985,7 +9035,7 @@ KL(P\parallel Q)=\sum_{i}\left(Q_{i}\log\frac{Q_{i}}{P_{i}}-Q_{i}+P_{i}\right)
 
 NMF algorithm 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Lee2001"
 
 \end_inset
@@ -9094,7 +9144,7 @@ This is a copy of the DCA_BuntineJakulin.lyx document.
 
 This is a derivation of the variational approximation of the GaP model 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Buntine2006"
 
 \end_inset
@@ -9119,7 +9169,7 @@ key "Buntine2006"
 \begin_layout Standard
 Gamma-Poisson (GP) model 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Canny2004"
 
 \end_inset
@@ -9551,7 +9601,7 @@ reference "eq:likelihood l"
 .
  (In 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Canny2004"
 
 \end_inset
@@ -9592,7 +9642,7 @@ p(l,V|w,\alpha,\beta,\theta,K)\approx q(l,V)=q_{l}(l)q_{V}(V)
 
 Optimal solution 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Bishop2006"
 
 \end_inset
@@ -9613,7 +9663,7 @@ key "Bishop2006"
 \begin_layout Standard
 The lower bound is given by 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Bishop2006"
 
 \end_inset
@@ -9890,7 +9940,7 @@ If we take likelihood function over all documents (
 \begin_layout Standard
 Buntine 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Buntine2006"
 
 \end_inset
@@ -10315,7 +10365,7 @@ This is the pixelised version (detection of the photons in K detectors -
 \begin_layout Standard
 Non pixelised version 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Ram2006"
 
 \end_inset
@@ -10349,7 +10399,7 @@ name "sub:Appendix Two-sources-separated"
 \begin_layout Standard
 These are comment on Fisher Information estimation as described in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Ram2006"
 
 \end_inset
@@ -10945,7 +10995,7 @@ For non-pixelised version,
 
  
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "Zhang2007"
 
 \end_inset
