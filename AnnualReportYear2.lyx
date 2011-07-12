@@ -13,7 +13,7 @@
 \usepackage[font=small,labelfont=bf]{caption}
 
 
-%\setcounter{page}{0} 
+\setcounter{page}{0} 
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
@@ -240,7 +240,11 @@ sizeh}{.15}
 \end_layout
 
 \begin_layout Title
-Draft of the 2nd year review
+Second year review
+\end_layout
+
+\begin_layout Author
+Ondřej Mandula
 \end_layout
 
 \begin_layout Paragraph
@@ -302,7 +306,7 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Paragraph
-Outline & summary
+Outline
 \end_layout
 
 \begin_layout Standard
@@ -332,7 +336,8 @@ reference "sec:Model comparison"
 
 \end_inset
 
- refers to the problem of the model selection.
+ refers to the problem of the model selection for localisation microscopy
+ data with overlapping sources.
  Theoretical limits of the localisation microscopy are discussed in Section
 \begin_inset space ~
 \end_inset
@@ -1815,7 +1820,7 @@ s.
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
- does not necessarily be the one which maximizes 
+ does not necessarily be the one which maximises 
 \begin_inset Formula $p(D|K)$
 \end_inset
 
@@ -1828,8 +1833,8 @@ s.
 \end_layout
 
 \begin_layout Standard
-This should be contrasted with the maximum-likelihood approach (such as
- NMF) where 
+This bayesiand treatment should be contrasted with the maximum-likelihood
+ approach (such as NMF) where 
 \begin_inset Formula $h_{kt}$
 \end_inset
 
@@ -3306,7 +3311,7 @@ imc
 \begin_inset Formula $\delta$
 \end_inset
 
-.
+ (Rayleigh resolution limit).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:K estimation - Simulated-data"
@@ -3423,6 +3428,43 @@ key "Buntine2006"
 \end_inset
 
 has been chosen.
+\end_layout
+
+\begin_layout Standard
+Results were compared to the situation when we set 
+\begin_inset Formula $W=W_{true}$
+\end_inset
+
+ and 
+\begin_inset Formula $H=H_{true}$
+\end_inset
+
+, where 
+\begin_inset Formula $W_{true}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{true}$
+\end_inset
+
+ are the matrices used for data simulation.
+ Comparison to the results obtained when 
+\begin_inset Formula $W$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+ were initialised with 
+\begin_inset Formula $W_{true}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{true}$
+\end_inset
+
+ are also shown.
  
 \end_layout
 
@@ -3646,201 +3688,41 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 \end_inset
 
 i).
-\end_layout
-
-\begin_layout Subsubsection*
-Variational updates
-\end_layout
-
-\begin_layout Standard
-Algorithm
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:Algorithm-variational approximation"
-
-\end_inset
-
- was used for evaluation of data for different 
-\begin_inset Formula $K$
-\end_inset
-
- as above.
- We used an uniform initialisation of 
-\begin_inset Formula $a_{k}^{(t)}=\frac{1}{K}\left(\sum_{k}\alpha_{k}+\sum_{x}d_{xt}\right)$
-\end_inset
-
- from Eq.
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:GaP update rules"
-
-\end_inset
-
-.
- 
-\begin_inset Formula $n_{jk}^{(t)}$
-\end_inset
-
- was initialised as a uniform random and normalised 
-\begin_inset Formula $\sum_{k}n_{jk}=1$
-\end_inset
-
-.
- The parameters of the prior Gamma distribution were set to value 
-\begin_inset Formula $ $
-\end_inset
-
-
-\begin_inset Formula $\alpha_{k}=1$
+ The maximum correlations in the data when 
+\begin_inset Formula $W_{true}$
 \end_inset
 
  and 
-\begin_inset Formula $\beta_{k}=2/I_{max}$
+\begin_inset Formula $H_{true}$
 \end_inset
 
-.
- This creates a rather flat exponential distribution over positive values
- of 
-\begin_inset Formula $h_{kt}$
+ (the matrices used for data generation) were used are plotted as dotted
+ lines.
+ The results when 
+\begin_inset Formula $W$
 \end_inset
 
- with mean 
-\begin_inset Formula $\alpha/\beta=I_{max}/2$
+ and 
+\begin_inset Formula $H$
 \end_inset
 
- with 
-\begin_inset Formula $I_{max}$
+ were initialised with 
+\begin_inset Formula $W_{true}$
 \end_inset
 
- from the Table
-\begin_inset space ~
+ and 
+\begin_inset Formula $H_{true}$
 \end_inset
 
-
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "tab:Parameters-of-the-simulation"
-
-\end_inset
-
-.
- Each dataset was evaluated three times with different random initialisation
- of 
-\begin_inset Formula $n_{jk}^{(t)}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Similar to the NMF updates, one component as a static homogeneous background
- (
-\begin_inset Formula $a_{K+1}$
-\end_inset
-
-, 
-\begin_inset Formula $w_{(K+1),x}$
-\end_inset
-
-) has been added and not updated.
+ are shown as dashed lines.
+ We can observe some increase of the residual correlations after NMF updates
+ with `true' initialisation.
+ These correlations are higher then in the results evaluated with random
+ initialisation.
+ This might suggest that, for example, the highly overlapping sources can
+ be more efficiently explained by one source and the remaining components
+ used for some minor correction in the model.
  
-\end_layout
-
-\begin_layout Standard
-In Fig.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:K estimation - pca,loglik,lowerboudn,correl"
-
-\end_inset
-
-j-l the variational lower bound 
-\begin_inset Formula $\mathcal{L}(K)$
-\end_inset
-
- computed for the GaP with different values of 
-\begin_inset Formula $K$
-\end_inset
-
- (section
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sub:Variational-treatment-of"
-
-\end_inset
-
-) is shown.
- For the easy (sparse) data set Fig.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:simulations 2.0 delta "
-
-\end_inset
-
- 
-\begin_inset Formula $\mathcal{L}(K)$
-\end_inset
-
- peaks for 
-\begin_inset Formula $K=K_{true}$
-\end_inset
-
- (Fig.
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:K estimation - pca,loglik,lowerboudn,correl"
-
-\end_inset
-
-j), however, for the more dense data 
-\begin_inset Formula $\mathcal{L}(K)$
-\end_inset
-
- reaches the maximum for 
-\begin_inset Formula $K<K_{true}$
-\end_inset
-
-.
- This suggests that there is not enough evidence in the data for 
-\begin_inset Formula $K=K_{true}$
-\end_inset
-
- as the data can be sufficiently explained with less complicated model 
-\begin_inset Formula $K<K_{true}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{alignat*}{1}
-\end{alignat*}
-
-\end_inset
-
-
 \begin_inset Float figure
 placement H
 wide false
@@ -4054,7 +3936,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S300/images/LogLikPoisson_nc20}
+qdotspath /S303/images/LogLikPoisson_nc20}
 \end_layout
 
 \end_inset
@@ -4110,7 +3992,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S300/images/LogLikPoisson_nc15}
+qdotspath /S303/images/LogLikPoisson_nc15}
 \end_layout
 
 \end_inset
@@ -4166,7 +4048,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S300/images/LogLikPoisson_nc10}
+qdotspath /S303/images/LogLikPoisson_nc10}
 \end_layout
 
 \end_inset
@@ -4239,7 +4121,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S301/images/MaxCorrInResid_nc20}
+qdotspath /S303/images/MaxCorrInResid_nc20_NMF}
 \end_layout
 
 \end_inset
@@ -4295,7 +4177,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S301/images/MaxCorrInResid_nc15}
+qdotspath /S303/images/MaxCorrInResid_nc15_NMF}
 \end_layout
 
 \end_inset
@@ -4351,7 +4233,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S301/images/MaxCorrInResid_nc10}
+qdotspath /S303/images/MaxCorrInResid_nc10_NMF}
 \end_layout
 
 \end_inset
@@ -4410,7 +4292,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S300/images/LowerBound_nc20}
+qdotspath /S303/images/LowerBound_nc20}
 \end_layout
 
 \end_inset
@@ -4466,7 +4348,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S300/images/LowerBound_nc15}
+qdotspath /S303/images/LowerBound_nc15}
 \end_layout
 
 \end_inset
@@ -4522,7 +4404,7 @@ sizee]{
 \backslash
 homepath 
 \backslash
-qdotspath /S300/images/LowerBound_nc10}
+qdotspath /S303/images/LowerBound_nc10}
 \end_layout
 
 \end_inset
@@ -4581,7 +4463,6 @@ end{centering}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Number of components 
 \begin_inset Formula $K$
 \end_inset
 
@@ -4647,6 +4528,36 @@ reference "fig:K estimation - Simulated-data"
 \end_inset
 
  is indicated with a red vertical line.
+ Values for the true 
+\begin_inset Formula $W_{true}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{true}$
+\end_inset
+
+ (
+\begin_inset Formula $K=K_{true})$
+\end_inset
+
+ are plotted as horizontal dotted lines.
+ Values for 
+\begin_inset Formula $W$
+\end_inset
+
+and 
+\begin_inset Formula $H$
+\end_inset
+
+ evaluated when initialised with 
+\begin_inset Formula $W_{true}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{true}$
+\end_inset
+
+ are plotted as horizontal dashed lines.
  Three examples for datasets with different geometrical configurations of
  the sources are shown in each plot.
  
@@ -4667,6 +4578,229 @@ name "fig:K estimation - pca,loglik,lowerboudn,correl"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection*
+Variational updates
+\end_layout
+
+\begin_layout Standard
+Algorithm
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Algorithm-variational approximation"
+
+\end_inset
+
+ was used for evaluation of data for different 
+\begin_inset Formula $K$
+\end_inset
+
+ as above.
+ We used an uniform initialisation of 
+\begin_inset Formula $a_{k}^{(t)}=\frac{1}{K}\left(\sum_{k}\alpha_{k}+\sum_{x}d_{xt}\right)$
+\end_inset
+
+ from Eq.
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:GaP update rules"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula $n_{jk}^{(t)}$
+\end_inset
+
+ was initialised as a uniform random and normalised 
+\begin_inset Formula $\sum_{k}n_{jk}=1$
+\end_inset
+
+.
+ The parameters of the prior Gamma distribution were set to value 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\alpha_{k}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{k}=2/I_{max}$
+\end_inset
+
+.
+ This creates a rather flat exponential distribution over positive values
+ of 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ with mean 
+\begin_inset Formula $\alpha/\beta=I_{max}/2$
+\end_inset
+
+ with 
+\begin_inset Formula $I_{max}$
+\end_inset
+
+ from the Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "tab:Parameters-of-the-simulation"
+
+\end_inset
+
+.
+ Each dataset was evaluated three times with different random initialisation
+ of 
+\begin_inset Formula $n_{jk}^{(t)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Similar to the NMF updates, one component as a static homogeneous background
+ (
+\begin_inset Formula $a_{K+1}$
+\end_inset
+
+, 
+\begin_inset Formula $w_{(K+1),x}$
+\end_inset
+
+) has been added and not updated.
+ 
+\end_layout
+
+\begin_layout Standard
+In Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+j-l the variational lower bound 
+\begin_inset Formula $\mathcal{L}(K)$
+\end_inset
+
+ computed for the GaP with different values of 
+\begin_inset Formula $K$
+\end_inset
+
+ (section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Variational-treatment-of"
+
+\end_inset
+
+) is shown.
+ For the easy (sparse) data set Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulations 2.0 delta "
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathcal{L}(K)$
+\end_inset
+
+ peaks for 
+\begin_inset Formula $K=K_{true}$
+\end_inset
+
+ (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+j), however, for the more dense data 
+\begin_inset Formula $\mathcal{L}(K)$
+\end_inset
+
+ reaches the maximum for 
+\begin_inset Formula $K<K_{true}$
+\end_inset
+
+.
+ For data evaluated when initialised with true values 
+\begin_inset Formula $W_{true}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbb{E}\left[H\right]=H_{true}$
+\end_inset
+
+ (
+\begin_inset Formula $K=K_{true}$
+\end_inset
+
+) the lower bound is only slightly higher then for data with random initialisati
+on (dashed line in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+j-l).
+ For 
+\begin_inset Formula $\delta$
+\end_inset
+
+ and 
+\begin_inset Formula $1.5\delta$
+\end_inset
+
+ datasets this value do not exceed the values for model 
+\begin_inset Formula $K<K_{true}$
+\end_inset
+
+.
+ This suggests that there is not enough evidence in the data for 
+\begin_inset Formula $K=K_{true}$
+\end_inset
+
+ as the data can be sufficiently explained with less complicated model 
+\begin_inset Formula $K<K_{true}$
+\end_inset
+
+.
+ 
 \begin_inset Float figure
 wide false
 sideways false
@@ -4822,357 +4956,6 @@ name "fig:Histograms-of-the-K-estimation"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Itemize
-Log likelihood
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S275/images/LogLikPoisson}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S274/images/LogLikPoisson}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S270/images/LogLikPoisson}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Variational lower bound [Buntine & Jakulin, 2006]
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S275/images/LowerBound}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S274/images/LowerBound}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S270/images/LowerBound}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Correlations in residuals (data - model)
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-These are results from the nmf initialized from the var updates.
- Somehow smoother curves...
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S275/images/MaxCorrInResid_min}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S277/images/MaxCorrInResid_min}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizef]{
-\backslash
-homepath 
-\backslash
-qdotspath /S273/images/MaxCorrInResid_min}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
 \end_inset
 
 
@@ -5535,8 +5318,8 @@ reference "fig:simulations 2.0 delta "
 \begin_inset Formula $K$
 \end_inset
 
- is systematicaly underestimated for the data with higher densities of the
- sources (Fig.
+ is systematically underestimated for the data with higher densities of
+ the sources (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -5550,12 +5333,38 @@ reference "fig:Histogram:Variational-lower-bound"
 ).
  This is intuitive as several highly overlapping sources corrupted with
  noise can be approximated with one larger source.
+ Comparison to the results evaluated after initialisation with the `true'
+ values (matrices used for data simulation) suggests that the higher values
+ for 
+\begin_inset Formula $K<K_{true}$
+\end_inset
+
+ is due to the lack of evidence in the data rather then convergence to a
+ `wrong' solution (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - pca,loglik,lowerboudn,correl"
+
+\end_inset
+
+k-l).
+ The value of the lower bound for the `true' initialisation do not exceed
+ the values for the model with 
+\begin_inset Formula $K<K_{true}$
+\end_inset
+
+.
  When the data do not provide enough evidence, the bayesian approach tend
  to prefer the less complicated model (underestimation of 
 \begin_inset Formula $K$
 \end_inset
 
 ).
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5582,6 +5391,7 @@ reference "fig:K estimation - pca,loglik,lowerboudn,correl"
 \end_inset
 
 i) and a visual inspection of the curves is ofter required.
+ Some automated procedure for the `kink' detection is needed.
  
 \end_layout
 
@@ -7549,7 +7359,7 @@ Left: Fisher information matrix entries.
 \begin_inset Formula $\alpha$
 \end_inset
 
- shown in the legend).
+ for each line as shown in the legend).
  Coloured lines show the blinking situation Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -7571,11 +7381,14 @@ reference "eq:Fisher Information Static"
 
 .
  As the curve for the static case does not change the shape for different
- intensities (apart from the scaling factor 
+ intensities it is valid for all three different intensities when scaled
+ by the corresponding factor 
 \begin_inset Formula $\alpha$
 \end_inset
 
-) it can be directly compared to each curve for the blinking situation.
+.
+ This allows for a direct pairwise comparison between each coloured (blinking
+ sources) and the dashed curve (static sources).
  The vertical broken line indicates the Rayleigh resolution limit.
  
 \begin_inset CommandInset label
@@ -7623,11 +7436,11 @@ reference "fig:Comparison Fisher-informaton and variance"
 \end_inset
 
 .
- The intenisty of the static sources was set to 
+ The intensity of the static sources was set to 
 \begin_inset Formula $\Lambda/2$
 \end_inset
 
- to keep the total number of detected photons constat for the static and
+ to keep the total number of detected photons constant for the static and
  blinking case (the blinking sources are on average `ON' only half of the
  time and so the average intensity is 
 \begin_inset Formula $\Lambda/2$
@@ -7817,8 +7630,8 @@ reference "fig:Comparison Fisher-informaton and variance"
 For small separation of the sources we observe that the blinking situation
  gives smaller values of variance (coloured curve is under the dashed curve)
  and thus blinking should allow for localisation with higher precision.
- The intresection between the couloured and the dashed curve depends on
- the intenisty of the sources 
+ The intersection between the coloured and the dashed curve depends on the
+ intensity of the sources 
 \begin_inset Formula $\Lambda$
 \end_inset
 
@@ -7860,8 +7673,8 @@ reference "sub:Appendix Time-distribution-Integrating out"
 \end_layout
 
 \begin_layout Standard
-The ratio of the coloured (blinking) and the dashed lines (static) curves
- from Fig.
+The ratio of the coloured (blinking) and the dashed (static) lines for variance
+ (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -7872,7 +7685,8 @@ reference "fig:variance d"
 
 \end_inset
 
- gives the direct comparison between the blinking and the static case Fig.
+) gives direct performance comparison between the blinking and the static
+ case (Fig.
 \begin_inset space ~
 \end_inset
 
@@ -7883,14 +7697,14 @@ reference "fig:Comparison variances ration"
 
 \end_inset
 
-.
- In the region where the values are smaller then one the blinkig of the
+).
+ In the region where the values are smaller then one, the blinking of the
  sources gives better localisation precision.
  For small separation (
 \begin_inset Formula $d<50\ \text{nm}$
 \end_inset
 
- - 1 pixel corresopnds to 
+ - 1 pixel corresponds to 
 \begin_inset Formula $106\ \text{nm})$
 \end_inset
 
@@ -7903,7 +7717,7 @@ reference "fig:Comparison variances ration"
 \begin_inset Formula $\sqrt{4}=2$
 \end_inset
 
- better localisation presicion (standard deviation).
+ better localisation precision (standard deviation).
  
 \end_layout
 
@@ -7956,7 +7770,7 @@ reference "fig:Comparison Fisher-informaton and variance"
 \begin_inset Formula $\Lambda>1000\ \text{photons}$
 \end_inset
 
-.
+).
  For well separated sources (
 \begin_inset Formula $d\rightarrow\infty$
 \end_inset
@@ -7980,7 +7794,8 @@ reference "fig:variance d"
 
 \begin_layout Standard
 The results here, however, are computed for the model with no background.
- More investigation will be needed to explore the effect of the background.
+ More investigation will be needed to explore the effect of the background
+ intensity.
  
 \end_layout
 
