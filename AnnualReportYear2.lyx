@@ -11,6 +11,8 @@
 
 % This makes caption of floats small
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{multicol}
+\usepackage{graphicx}
 
 
 \setcounter{page}{0} 
@@ -481,6 +483,13 @@ key "Shroff2008,Huang2008"
 
 \begin_layout Subsection
 Quantum dots
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Quantum-dots"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7152,11 +7161,6 @@ reference "eq:Fisher Information Static"
 \end_inset
 
 ).
- The shape of the curve remains unchanged for different 
-\begin_inset Formula $\Lambda$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -7198,7 +7202,7 @@ reference "eq:Fisher Information Blinking Integrating Out"
 \end_inset
 
 .
- This gives rise to a highly non-linear relationship between 
+ This gives rise to a non-linear relationship between 
 \begin_inset Formula $\text{var}(d)$
 \end_inset
 
@@ -7207,7 +7211,6 @@ reference "eq:Fisher Information Blinking Integrating Out"
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -7250,7 +7253,7 @@ includegraphics[scale=.5]{
 \backslash
 homepath 
 \backslash
-qdotspath /T1/images/ComarisonStaticVsBlinking_FisherInfo}
+qdotspath /T1/images/ComarisonStaticVsBlinking_PSF2D_FREM_bg100_b}
 \end_layout
 
 \end_inset
@@ -7262,14 +7265,7 @@ qdotspath /T1/images/ComarisonStaticVsBlinking_FisherInfo}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Fisher Information matrix
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Fisher-Information-matrix"
-
-\end_inset
-
-
+FREM (fixed background 100 photons)
 \end_layout
 
 \end_inset
@@ -7297,7 +7293,8 @@ includegraphics[scale=.5]{
 \backslash
 homepath 
 \backslash
-qdotspath /T1/images/ComarisonStaticVsBlinking_var}
+qdotspath /T1/images/ComarisonStaticVsBlinking_PSF2D_FREM_Lambda1000_differentBg
+}
 \end_layout
 
 \end_inset
@@ -7309,17 +7306,11 @@ qdotspath /T1/images/ComarisonStaticVsBlinking_var}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-\begin_inset Formula $\text{var}(d)$
+FREM (fixed 
+\begin_inset Formula $\Lambda=10^{3}$
 \end_inset
 
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:variance d"
-
-\end_inset
-
-
+ photons)
 \end_layout
 
 \end_inset
@@ -7352,27 +7343,32 @@ end{centering}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Left: Fisher information matrix entries.
- Solid lines show diagonal entries, broken lines show the off-diagonal elements.
- Right: variance of the distance estimation (the values must be scaled by
- a factor 
-\begin_inset Formula $\alpha$
+Left: FREM (
+\begin_inset Formula $\sqrt{\text{var}(d)}$
 \end_inset
 
- for each line as shown in the legend).
- Coloured lines show the blinking situation Eq.
+) for fixed background 
+\begin_inset Formula $100$
+\end_inset
+
+ photons and different intensities 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ of the sources.
+ Right: FREM for fixed sources intensity 
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+ photons and different background levels.
+ Solid lines correspond to the blinking situation Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Blinking Integrating Out"
 
 \end_inset
 
- for different intensities 
-\begin_inset Formula $\Lambda$
-\end_inset
-
- of the sources.
- The black dashed line shows the results for the static case Eq.
+, dashed lines correspond the static situation Eq.
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Fisher Information Static"
@@ -7380,16 +7376,6 @@ reference "eq:Fisher Information Static"
 \end_inset
 
 .
- As the curve for the static case does not change the shape for different
- intensities it is valid for all three different intensities when scaled
- by the corresponding factor 
-\begin_inset Formula $\alpha$
-\end_inset
-
-.
- This allows for a direct pairwise comparison between each coloured (blinking
- sources) and the dashed curve (static sources).
- The vertical broken line indicates the Rayleigh resolution limit.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -7412,19 +7398,11 @@ name "fig:Comparison Fisher-informaton and variance"
 
 \begin_layout Standard
 The comparison of the blinking and the static case for three different values
- of 
-\begin_inset Formula $\Lambda=10$
+ of the mean source intensity 
+\begin_inset Formula $\Lambda$
 \end_inset
 
-, 
-\begin_inset Formula $10^{2}$
-\end_inset
-
- and 
-\begin_inset Formula $10^{3}$
-\end_inset
-
- photons is shown in Fig.
+ is shown in Fig.
 \begin_inset space ~
 \end_inset
 
@@ -7435,18 +7413,59 @@ reference "fig:Comparison Fisher-informaton and variance"
 
 \end_inset
 
-.
- The intensity of the static sources was set to 
-\begin_inset Formula $\Lambda/2$
+a.
+ In this figure the background intensity was fixed to 
+\begin_inset Formula $bg=100$
 \end_inset
 
- to keep the total number of detected photons constant for the static and
- blinking case (the blinking sources are on average `ON' only half of the
- time and so the average intensity is 
-\begin_inset Formula $\Lambda/2$
+
+\begin_inset space ~
+\end_inset
+
+photons.
+ The intensity of the blinking sources was set to 
+\begin_inset Formula $2\Lambda$
+\end_inset
+
+ to keep the mean number of detected photons constant for the static and
+ the blinking case (the blinking sources are on average `ON' only half of
+ the time and so the average intensity is 
+\begin_inset Formula $\Lambda$
 \end_inset
 
 ).
+ 
+\end_layout
+
+\begin_layout Standard
+Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison Fisher-informaton and variance"
+
+\end_inset
+
+b compares the blinking and the static situation for sources with 
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+photons (
+\begin_inset Formula $2\cdot10^{3}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+photons for blinking case) with three different background levels.
  
 \end_layout
 
@@ -7486,7 +7505,7 @@ includegraphics[scale=.45]{
 \backslash
 homepath 
 \backslash
-qdotspath /T1/images/FractionStatBlink}
+qdotspath /T1/images/FractionStatBlink_2DPSF_bg100}
 \end_layout
 
 \end_inset
@@ -7515,12 +7534,32 @@ end{centering}
 
 \begin_layout Plain Layout
 Ratio 
-\begin_inset Formula $\text{var}(d)/\text{var}^{\text{static}}(d)$
+\begin_inset Formula $r=\sqrt{\text{var}^{\text{static}}(d)/\text{var}(d)}$
 \end_inset
 
-.
- The blinking situation gives smaller variance where 
-\begin_inset Formula $\text{var}(d)/\text{var}^{\text{static}}(d)<1$
+ for different intensity 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ and fixed background 
+\begin_inset Formula $100$
+\end_inset
+
+ photons (as in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison Fisher-informaton and variance"
+
+\end_inset
+
+a).
+ The blinking situation gives smaller variance (higher localisation precision)
+ for region where 
+\begin_inset Formula $r>1$
 \end_inset
 
 .
@@ -7541,15 +7580,16 @@ name "fig:Comparison variances ration"
 
 \end_inset
 
-All the curves for the blinking situation for 
-\begin_inset Formula $ $
+
+\end_layout
+
+\begin_layout Standard
+Ratio of the localisation precision for the static and the blinking situation
+ 
+\begin_inset Formula $r=\sqrt{\text{var}^{\text{static}}(d)/\text{var}(d)}$
 \end_inset
 
-different 
-\begin_inset Formula $\Lambda$
-\end_inset
-
- are plotted as coloured lines in one graph Fig.
+ from Fig.
 \begin_inset space ~
 \end_inset
 
@@ -7560,133 +7600,42 @@ reference "fig:Comparison Fisher-informaton and variance"
 
 \end_inset
 
-.
- Each coloured curve corresponds to 
-\begin_inset Formula $\Lambda=10$
-\end_inset
-
-, 
-\begin_inset Formula $10^{2}$
-\end_inset
-
- and 
-\begin_inset Formula $10^{3}$
-\end_inset
-
- photons and the values of the 
-\begin_inset Formula $\text{var}(d)$
-\end_inset
-
- (y-axes) must be scaled by a factor 
-\begin_inset Formula $\alpha=1$
-\end_inset
-
-, 
-\begin_inset Formula $10^{-1}$
-\end_inset
-
- and 
-\begin_inset Formula $10^{-2}$
-\end_inset
-
-, respectively.
- The curve for 
-\begin_inset Formula $\text{var}^{\text{static}}(d)$
-\end_inset
-
- is plotted as a dashed line.
- As the curve does not change the shape for different 
-\begin_inset Formula $\Lambda$
-\end_inset
-
-, one curve represents all the three situations when correctly scaled by
- a factor 
-\begin_inset Formula $\alpha$
-\end_inset
-
-.
- This allows for a pairwise comparison between the static and the blinking
- case for different 
-\begin_inset Formula $\Lambda$
-\end_inset
-
-.
- For example, the graph is valid for the green 
-\begin_inset Formula $\text{var}(d)$
-\end_inset
-
- and the dashed curve 
-\begin_inset Formula $\text{var}^{\text{static}}(d)$
-\end_inset
-
-, when the blue and red curves are ignored and the y-axes is scaled by 
-\begin_inset Formula $\alpha=10^{-1}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-For small separation of the sources we observe that the blinking situation
- gives smaller values of variance (coloured curve is under the dashed curve)
- and thus blinking should allow for localisation with higher precision.
- The intersection between the coloured and the dashed curve depends on the
- intensity of the sources 
-\begin_inset Formula $\Lambda$
-\end_inset
-
-.
- The higher the intensity 
-\begin_inset Formula $\Lambda$
-\end_inset
-
- is the smaller the 
-\begin_inset Formula $\text{var}(d)$
-\end_inset
-
- results from the blinking situation.
- Also the region over which the blinking is preferable is larger as we observe
- that the intersection point between the dashed and the coloured curve shifts
- towards larger 
-\begin_inset Formula $d$
-\end_inset
-
- when increasing 
-\begin_inset Formula $\Lambda$
-\end_inset
-
-.
- For large separations the static case gives smaller variance and is the
- lower bound on the blinking case as shown in Appendix
+a is shown in Fig.
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Appendix Time-distribution-Integrating out"
+reference "fig:Comparison variances ration"
 
 \end_inset
 
 .
+ For closely separated sources (
+\begin_inset Formula $d<50$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+nm
+\begin_inset Formula $\ \sim\ 0.5$
+\end_inset
+
+ pixel) with high signal to noise ratio (bright sources and low background
  
-\end_layout
-
-\begin_layout Standard
-The ratio of the coloured (blinking) and the dashed (static) lines for variance
- (Fig.
-\begin_inset space ~
+\begin_inset Formula $bg<100$
 \end_inset
 
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:variance d"
-
+) the blinking allows for higher localisation precision.
+ For sources emerged in high background (
+\begin_inset Formula $bg\sim\Lambda$
 \end_inset
 
-) gives direct performance comparison between the blinking and the static
- case (Fig.
+) the static sources are preferable even for small separation (blue curve
+ in Fig.
 \begin_inset space ~
 \end_inset
 
@@ -7698,26 +7647,48 @@ reference "fig:Comparison variances ration"
 \end_inset
 
 ).
- In the region where the values are smaller then one, the blinking of the
- sources gives better localisation precision.
- For small separation (
-\begin_inset Formula $d<50\ \text{nm}$
+ However, this setting corresponds to extremely noisy data Fig.
+\begin_inset space ~
 \end_inset
 
- - 1 pixel corresponds to 
-\begin_inset Formula $106\ \text{nm})$
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:effect of the background and illustration of the noisy sources with backgroud"
+
 \end_inset
 
- and for bright sources (
-\begin_inset Formula $\Lambda>1000\ \text{detected photons/source}$
+e with very high variance of the localisation estimation (
+\begin_inset Formula $\sqrt{\text{var}(d)}\sim d$
 \end_inset
 
- ) the blinking results in more then 4 times better variance and so more
- then 
-\begin_inset Formula $\sqrt{4}=2$
+).
+ 
+\end_layout
+
+\begin_layout Standard
+The region of 
+\begin_inset Formula $d$
 \end_inset
 
- better localisation precision (standard deviation).
+ over which the blinking is preferable to the static case depends both on
+ the source intensity and the background levels.
+ The higher the signal to noise ratio the larger the region over which the
+ blinking gives higher localisation precision.
+ For large separations the static sources give smaller variance.
+ In this regime the variance for the static sources provides the lower bound
+ on the blinking case as shown in Appendix
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Appendix Time-distribution-Integrating out"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -7735,12 +7706,452 @@ make simulation when most of the time is one on and the other off - not
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.55]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/EffectOfTheBackground_int1000_d4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+ photons, 
+\begin_inset Formula $d=40$
+\end_inset
+
+ nm
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{-1.0cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{1.0cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.45]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/twoSources_Sep1_int1000_bg0_sep4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $bg=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.45]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/twoSources_Sep1_int1000_bg100_sep4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+ 
+\begin_inset Formula $bg=10^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{1.0cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.45]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/twoSources_Sep1_int1000_bg500_sep4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $bg=5\cdot10^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.45]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/twoSources_Sep1_int1000_bg1000_sep4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $bg=10^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 	
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+(a) Localisation precision for different background levels (two sources
+ separated by 40
+\begin_inset space ~
+\end_inset
+
+nm with equal intensities 
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+ photons).
+ (b-e) Simulated static sources (
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+ photons) separated by 40
+\begin_inset space ~
+\end_inset
+
+nm with background levels 
+\begin_inset Formula $0$
+\end_inset
+
+, 
+\begin_inset Formula $10^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $5\cdot10^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $10^{3}$
+\end_inset
+
+ photons, respectively.
+ Simulated images were corrupted with Poisson noise.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:effect of the background and illustration of the noisy sources with backgroud"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Localisation precision 
+\begin_inset Formula $\sqrt{\text{var}(d)}$
+\end_inset
+
+ for two sources separated by 40
+\begin_inset space ~
+\end_inset
+
+nm with equal intensities 
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+ photons for different background levels is shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:effect of the background and illustration of the noisy sources with backgroud"
+
+\end_inset
+
+a.
+ This graph correspond to two sources separated by 
+\begin_inset Formula $d=40$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+nm with 
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+photons (
+\begin_inset Formula $2\Lambda$
+\end_inset
+
+ for blinking case).
+ For lower background (
+\begin_inset Formula $bg<200$
+\end_inset
+
+) the blinking sources allow higher localisation precision (lower 
+\begin_inset Formula $\text{var}(d)$
+\end_inset
+
+).
+ Illustration of this data with different background levels is shown in
+ Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:effect of the background and illustration of the noisy sources with backgroud"
+
+\end_inset
+
+b-e.
+ 
+\end_layout
+
 \begin_layout Subsection
 Conclusions
 \end_layout
 
 \begin_layout Standard
-The alternative derivation of the FREM provides a correction to the formula
+The alternative derivation of the FREM provides correction to the formula
  published in 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -7749,7 +8160,7 @@ key "Ram2006"
 \end_inset
 
 .
- Results presented in the Fig.
+ Results presented in Fig.
 \begin_inset space ~
 \end_inset
 
@@ -7760,23 +8171,45 @@ reference "fig:Comparison Fisher-informaton and variance"
 
 \end_inset
 
- suggest that the intensity blinking of the sources can significantly increase
- the localisation precision compared to the static situation.
- This effect is stronger for small separation 
-\begin_inset Formula $d<50\text{nm}$
+ suggest that the in certain setting (bright sources low background) the
+ blinking sources can significantly increase the localisation precision
+ compared to the static situation.
+ This effect is stronger for close (
+\begin_inset Formula $d<50\ \text{nm}$
 \end_inset
 
- and bright sources (
+) and bright (
 \begin_inset Formula $\Lambda>1000\ \text{photons}$
 \end_inset
 
+) sources with lower background levels (
+\begin_inset Formula $bg<100$
+\end_inset
+
 ).
+ This corresponds to a realistic setting for QD data (simulated data shown
+ in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:effect of the background and illustration of the noisy sources with backgroud"
+
+\end_inset
+
+c).
  For well separated sources (
 \begin_inset Formula $d\rightarrow\infty$
 \end_inset
 
  limit) the static situation provides lower bound for the localisation precision.
- The intersection points of the curves for static and blinking model depends
+ 
+\end_layout
+
+\begin_layout Standard
+The regions where the blinking is preferable to the static case depends
  on the intensity of the sources (Fig.
 \begin_inset space ~
 \end_inset
@@ -7784,18 +8217,67 @@ reference "fig:Comparison Fisher-informaton and variance"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:variance d"
+reference "fig:Comparison Fisher-informaton and variance"
 
 \end_inset
 
-).
+a) as well as on the background levels (Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison Fisher-informaton and variance"
+
+\end_inset
+
+b).
+ Background have a large impact on the localisation precision as shown in
+ Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:effect of the background and illustration of the noisy sources with backgroud"
+
+\end_inset
+
+ and it is desirable to keep is as low as possible.
+ In practice a large proportion of the background intensity comes from the
+ out of focus light.
+ Typically TIRF (Total Internal Reflection Fluorescent microscopy) illumination
+ of the sources is used to reduce the out-of-focus blur.
+ However, different techniques such as local illumination of the sample
+ can be used.
  
 \end_layout
 
 \begin_layout Standard
-The results here, however, are computed for the model with no background.
- More investigation will be needed to explore the effect of the background
- intensity.
+In summary the bright sources (high signal-to-noise ratio) are desirable
+ for the LM techniques.
+ In this setting the blinking can provide higher localisation precision
+ for closely spaced sources.
+ QDs can be an order of magnitude brighter then the organic fluorescent
+ markers (section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Quantum-dots"
+
+\end_inset
+
+) and are promising candidates for LM.
+ However, the Fisher Information approach gives a lower bound for the variance.
+ The actual localisation precision for the blinking sources depend on the
+ ability to separate the individual emitters.
+ This can be challenging for closely spaced sources and the separation might
+ be the actual limiting factor for the localisation precision.
  
 \end_layout
 
@@ -8694,10 +9176,6 @@ key "Huang2008"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 \begin_inset Newpage clearpage
 \end_inset
 
@@ -8707,6 +9185,10 @@ status open
 \begin_layout Section
 Future work 
 \end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
 \begin_layout Subsection
 Time series
@@ -8724,10 +9206,6 @@ key "Molgedey1994a"
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 Standard NMF does not require any prior knowledge about the matrices 
 \begin_inset Formula $W$
 \end_inset
@@ -8738,11 +9216,11 @@ Standard NMF does not require any prior knowledge about the matrices
 
 , apart from the non-negativity constraints.
  We can use a permutation operator to the data for the indices along the
- time (
+ space (
 \begin_inset Formula $\pi_{x}(x)$
 \end_inset
 
-) or the space (
+) or the time (
 \begin_inset Formula $\pi_{t}(t)$
 \end_inset
 
@@ -8784,13 +9262,126 @@ Direction of the future work.
 
 \end_layout
 
-\begin_layout Subsection
-Future work and direction of the project
-\end_layout
-
+\begin_layout Standard
+Sections
+\begin_inset space ~
 \end_inset
 
 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Model comparison"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Theoretical-limits-of teh LM"
+
+\end_inset
+
+ can be turned into two thesis chapters and I will try to publish some of
+ the work presented in this review.
+ The appropriate journal and form of the publication should be decided.
+ Presentation of the work on conferences would also be desirable.
+ 
+\end_layout
+
+\begin_layout Standard
+The experimental work (section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Out-of-focus PSF"
+
+\end_inset
+
+) would benefit from easy access to the microscopic lab.
+ Data presented in this review were acquired during the my visit of the
+ Rainers lab in Jena in April 2011.
+ Some of the data suffered from acquisition imperfection (drift of the sample).
+ More carefully conducted experiments are therefore needed.
+  Moreover I would like get more experience in an optical lab and direct
+ the project towards experimental work.
+ We have already discussed with Rainer the possibility of an extended visit
+ (mid September - December 2011) of his lab in Jena.
+ There are several smaller projects that could be done in such a time period
+ (3-4 months).
+ Here are some of the Rainers propositions out of which I would like to
+ work on at least one: 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Using quantum dots for localisation microscopy imaging
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+Implementing of the sources separation method in QDs stained real biological
+ samples.
+ This would require determination of the suitable staining density of the
+ samples.
+ The images of real samples are desirable for publication in biologically
+ oriented journals.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Implementing holographic (Hamamatsu SLM) control for local illumination
+\emph default
+ 
+\begin_inset Newline newline
+\end_inset
+
+This allows for faster scanning of the sample and can result in high time
+ resolution images and shorter acquisition time for scanning techniques
+ (such as confocal microscopy).
+ In addition it also reduces the level of the out-of-focus background intensity.
+ As discussed in section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Theoretical-limits-of teh LM"
+
+\end_inset
+
+ this can lead to higher localisation precision for the LM techniques.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Trying EOS-FP and mIrisFP for STORM
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+EOS-FP and mIrisFP are fluorescent proteins capable of changing their emission
+ spectrum under exposure to light of a specific wavelength.
+ They can also switch between fluorescent and non-fluorescent states.
+ They have been used for the high resolution imaging of the dynamic processes
+ in the cell 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Fuchs2010"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard

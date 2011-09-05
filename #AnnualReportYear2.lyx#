@@ -8020,8 +8020,8 @@ end{multicols}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-(a) Localisation precision for different background levels (two sources
- separated by 40
+(a) Effect of the different background levels on the localisation precision
+ for two sources separated by 40
 \begin_inset space ~
 \end_inset
 
@@ -8029,12 +8029,8 @@ nm with equal intensities
 \begin_inset Formula $\Lambda=10^{3}$
 \end_inset
 
- photons).
- (b-e) Simulated static sources (
-\begin_inset Formula $\Lambda=10^{3}$
-\end_inset
-
- photons) separated by 40
+ photons.
+ (b-e) Simulated static sources separated by 40
 \begin_inset space ~
 \end_inset
 
@@ -8076,19 +8072,11 @@ name "fig:effect of the background and illustration of the noisy sources with ba
 \end_layout
 
 \begin_layout Standard
-Localisation precision 
+Effect of the background levels on localisation precision 
 \begin_inset Formula $\sqrt{\text{var}(d)}$
 \end_inset
 
- for two sources separated by 40
-\begin_inset space ~
-\end_inset
-
-nm with equal intensities 
-\begin_inset Formula $\Lambda=10^{3}$
-\end_inset
-
- photons for different background levels is shown in Fig.
+ is shown in Fig.
 \begin_inset space ~
 \end_inset
 
@@ -8205,11 +8193,7 @@ c).
 \end_inset
 
  limit) the static situation provides lower bound for the localisation precision.
- 
-\end_layout
-
-\begin_layout Standard
-The regions where the blinking is preferable to the static case depends
+ The regions where the blinking is preferable to the static case depends
  on the intensity of the sources (Fig.
 \begin_inset space ~
 \end_inset
@@ -8246,22 +8230,22 @@ reference "fig:effect of the background and illustration of the noisy sources wi
 \end_inset
 
  and it is desirable to keep is as low as possible.
- In practice a large proportion of the background intensity comes from the
+ In practice a large proportion of the backround intensity comes from the
  out of focus light.
  Typically TIRF (Total Internal Reflection Fluorescent microscopy) illumination
- of the sources is used to reduce the out-of-focus blur.
+ of the sources is used to reduce the out of focus blurr.
  However, different techniques such as local illumination of the sample
  can be used.
  
 \end_layout
 
 \begin_layout Standard
-In summary the bright sources (high signal-to-noise ratio) are desirable
+In summary the bright sources providing high signal to noise ratio are desirable
  for the LM techniques.
- In this setting the blinking can provide higher localisation precision
- for closely spaced sources.
- QDs can be an order of magnitude brighter then the organic fluorescent
- markers (section
+ In this setting the blinking of the sources can provide higher localisation
+ precision.
+ QD can be an order of magnitude brighter then the organic fluorescent marker
+ (section
 \begin_inset space ~
 \end_inset
 
@@ -8272,12 +8256,10 @@ reference "sub:Quantum-dots"
 
 \end_inset
 
-) and are promising candidates for LM.
- However, the Fisher Information approach gives a lower bound on the variance.
- The actual localisation precision for the blinking sources depend on the
- ability to separate the individual emitters.
- This can be challenging for closely spaced sources and the separation might
- be the actual limiting factor for the localisation precision.
+) and However Fisher Information approach provides a lower bound on the
+ variance.
+ The actual localisation precision for the blinking souces depend on the
+ ability to separate the individual emmiters.
  
 \end_layout
 
