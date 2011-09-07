@@ -376,20 +376,14 @@ s_{k}(x,t)=w_{k}(x)h_{k}(t)
 model of an image
 \begin_inset Formula 
 \[
-I(x,t)=\sum_{k=1}^{N}s_{k}(x,t)
+\begin{alignedat}{1}I(x,t) & =\sum_{k=1}^{N}s_{k}(x,t)\\
+ & =\sum_{k=1}^{N}w_{k}(x)h_{k}(t)
+\end{alignedat}
 \]
 
 \end_inset
 
  
-\begin_inset Formula 
-\[
-I(x,t)=\sum_{k=1}^{N}w_{k}(x)h_{k}(t)
-\]
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout BeginFrame
@@ -2136,6 +2130,49 @@ Fisher information as a curvature of the log-likelihood function
 \end_inset
 
 
+\end_layout
+
+\begin_layout BeginFrame
+Two sources
+\end_layout
+
+\begin_layout Itemize
+centers of the sources
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta=(c_{1},\, c_{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+likelihood
+\begin_inset Formula 
+\[
+l(\theta)=\prod_{p=1}^{N}\text{Po}(n_{p}|\lambda_{p}(\theta))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+mean intensity image
+\begin_inset Formula 
+\[
+\lambda(\theta)=\Lambda_{1}f_{1}(c_{1})+\Lambda_{2}f_{2}(c_{2})+b
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \]
@@ -2147,6 +2184,18 @@ Fisher information as a curvature of the log-likelihood function
 
 \begin_layout BeginFrame
 Fisher information as a cuvature of the log-likelihood
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula 
+\[
+\mathbb{E}_{true}\left[\mathcal{L}(\theta)\right]=\sum_{p=1}^{N}\left(\lambda_{p}^{true}\log\lambda_{p}(\theta)-\lambda_{p}(\theta)\right)+A
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2298,39 +2347,15 @@ qdotspath /T1/images/LogLikelihoodSurface_d0_bg100}
 \end_layout
 
 \begin_layout BeginFrame
-Two sources
+Blinking sources
 \end_layout
 
 \begin_layout Itemize
-likelihood
-\begin_inset Formula 
-\[
-l(c_{1},\, c_{2})=\prod_{p=1}^{N}\text{Po}(n_{p}|\lambda_{p}(c_{1},\, c_{2}))
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-mean intensity
-\begin_inset Formula 
-\[
-\lambda(c_{1},\, c_{2})=\Lambda_{1}f_{1}(c_{1})+\Lambda_{2}f_{2}(c_{2})+b
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-blinking situation - 
+blinking situation - intensiy 
 \begin_inset Formula $\bm{\Lambda}=(\Lambda_{1},\,\Lambda_{2})$
 \end_inset
 
- random variable distributed over four states:
+ is a random variable distributed over four states:
 \begin_inset Formula 
 \[
 \left\{ \bm{\Lambda}^{1}=(\Lambda_{1},0),\,\bm{\Lambda}^{2}=(0,\Lambda_{2}),\,\bm{\Lambda}^{3}=(\Lambda_{1},\Lambda_{2}),\,\bm{\Lambda}^{4}=(0,0)\right\} 
@@ -2338,11 +2363,39 @@ blinking situation -
 
 \end_inset
 
- 
+
+\end_layout
+
+\begin_layout Itemize
+likelihood
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\[
+l(\theta)=\prod_{p=1}^{N}p(n_{p}|\theta)=\prod_{p=1}^{N}\sum_{i=1}^{4}p(n_{p}|\theta,\bm{\Lambda}^{i})p(\bm{\Lambda}^{i})
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout BeginFrame
-Localisaton precision
+Localisaton precision - fixed background (
+\begin_inset Formula $bg=100$
+\end_inset
+
+ photons)
 \end_layout
 
 \begin_layout Standard
@@ -2397,7 +2450,74 @@ FREM (fixed background 100 photons)
 \end_layout
 
 \begin_layout BeginFrame
-Localisation precision
+Localisaton precision - fixed background (
+\begin_inset Formula $bg=100$
+\end_inset
+
+ photons)
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includegraphics[scale=.5]{
+\backslash
+homepath 
+\backslash
+qdotspath /T1/images/FractionStatBlink_2DPSF_bg100}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang british
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\lang british
+Comparison blinking vs static: 
+\begin_inset Formula $r=\sqrt{\text{var}^{\text{static}}(d)/\text{var}(d)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Localisation precision - fixed intenisty (
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+ photons)
 \end_layout
 
 \begin_layout Standard
@@ -2457,7 +2577,17 @@ FREM (fixed
 \end_layout
 
 \begin_layout BeginFrame
-Effect of the background
+Localisation precision - 
+\lang british
+(
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+ photons, 
+\begin_inset Formula $d=40$
+\end_inset
+
+ nm)
 \end_layout
 
 \begin_layout Standard
@@ -2504,6 +2634,7 @@ qdotspath /T1/images/EffectOfTheBackground_int1000_d4}
 \begin_layout Plain Layout
 
 \lang british
+Effect of the background 
 \begin_inset Formula $\Lambda=10^{3}$
 \end_inset
 
@@ -2511,7 +2642,7 @@ qdotspath /T1/images/EffectOfTheBackground_int1000_d4}
 \begin_inset Formula $d=40$
 \end_inset
 
- nm
+ nm.
 \end_layout
 
 \end_inset
@@ -2525,18 +2656,31 @@ qdotspath /T1/images/EffectOfTheBackground_int1000_d4}
 \end_layout
 
 \begin_layout BeginFrame
-Effect of the background
+Simulated data: Two points, 
+\begin_inset Formula $d=40$
+\end_inset
+
+ nm 
+\begin_inset Formula $\Lambda=10^{3}$
+\end_inset
+
+ photons
 \end_layout
 
 \begin_layout Standard
-\noindent
-\align center
 
-\lang british
-\begin_inset Float figure
-wide false
-sideways false
-status open
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
@@ -2560,32 +2704,10 @@ qdotspath /T1/images/twoSources_Sep1_int1000_bg0_sep4}
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\lang british
-\begin_inset Caption
-
-\begin_layout Plain Layout
-
-\lang british
-\begin_inset Formula $bg=0$
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
@@ -2609,15 +2731,23 @@ qdotspath /T1/images/twoSources_Sep1_int1000_bg100_sep4}
 
 \end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
 \begin_layout Plain Layout
+bg=0
+\end_layout
 
-\lang british
-\begin_inset Caption
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
-
-\lang british
- 
 \begin_inset Formula $bg=10^{2}$
 \end_inset
 
@@ -2625,17 +2755,11 @@ qdotspath /T1/images/twoSources_Sep1_int1000_bg100_sep4}
 \end_layout
 
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
@@ -2659,32 +2783,10 @@ qdotspath /T1/images/twoSources_Sep1_int1000_bg500_sep4}
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\lang british
-\begin_inset Caption
-
-\begin_layout Plain Layout
-
-\lang british
-\begin_inset Formula $bg=5\cdot10^{2}$
 \end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
@@ -2708,10 +2810,26 @@ qdotspath /T1/images/twoSources_Sep1_int1000_bg1000_sep4}
 
 \end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
 \begin_layout Plain Layout
 
 \lang british
-\begin_inset Caption
+\begin_inset Formula $bg=5\cdot10^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
 \begin_layout Plain Layout
 
@@ -2723,9 +2841,9 @@ qdotspath /T1/images/twoSources_Sep1_int1000_bg1000_sep4}
 \end_layout
 
 \end_inset
-
-
-\end_layout
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -3346,183 +3464,31 @@ end{centering}
 \end_layout
 
 \begin_layout BeginFrame
-Conclusion
+Future plans
 \end_layout
 
 \begin_layout Itemize
-NMF model for separation of individual sources (QDs)
+Write up: thesis chapters, paper (?)
 \end_layout
 
 \begin_layout Itemize
-Can be used for 3D localisation of the fluorophores
+More experimantal work (visit of the Rainer's lab)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+QD data, real sample
 \end_layout
 
 \begin_layout Itemize
-Number of sources - difficult task.
- Time series information not used.
-\end_layout
-
-\begin_layout BeginFrame
-Acknowledgement
+local illumination of the sample using spatial light modulator (SLM)
 \end_layout
 
 \begin_layout Itemize
-Rory Duncan & Colin Rickman (Herriot-Watt, Edinburgh)
+LM with photo - switchable proteins
 \end_layout
 
-\begin_layout BeginFrame
-Machine Learning meets Optical Microscopy
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{centering}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizeb]{
-\backslash
-homepath 
-\backslash
-presimgpath /hook/microscopymeetsmachinelearning3}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout BeginFrame
-Machine Learning meets Optical Microscopy
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{centering}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizeb]{
-\backslash
-homepath 
-\backslash
-presimgpath /hook/microscopymeetsmachinelearning2}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout BeginFrame
-Machine Learning meets Optical Microscopy
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{centering}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-includegraphics[scale=
-\backslash
-sizeb]{
-\backslash
-homepath 
-\backslash
-presimgpath /hook/microscopymeetsmachinelearning1}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{centering}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
+\end_deeper
 \begin_layout EndFrame
 
 \end_layout
