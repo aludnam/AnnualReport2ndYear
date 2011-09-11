@@ -1,0 +1,11 @@
+ Improving on the automation (shutters, ...)
+- Incorporating the sCMOS camera
+- Implementing holographic (Hamamatsu SLM) control for local illumination
+- Implementing near TIRF-illumination (Highly inclined illumination)
+with small activation in Big depletion beam.
+- Setting up a new superstable stage (Objective clamp)
+- Taking superfantastic data
+- Helping Ivana Sumanovac and Katrin Klees with finding optimal
+embedding conditions and switching dyes
+- Trying EOS-FP and mIrisFP for STORM
+- Using QDots for Pointillistic imaging1
