@@ -1,13 +1,28 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 1.6.10 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
 \begin_document
 \begin_header
 \textclass article
 \begin_preamble
+<<<<<<< HEAD
+% Added by lyx2lyx
+%  for proper underlining
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+\let\cite@rig\cite
+\newcommand{\b@xcite}[2][\%]{\def\def@pt{\%}\def\pas@pt{#1}
+  \mbox{\ifx\def@pt\pas@pt\cite@rig{#2}\else\cite@rig[#1]{#2}\fi}}
+\renewcommand{\underbar}[1]{{\let\cite\b@xcite\uline{#1}}}
+\usepackage{ccaption}
+\captionnamefont{\bfseries}
+\captiontitlefont{\small\sffamily\it}
+\makeatletter
+=======
 %\usepackage{ccaption}
 %\captionnamefont{\bfseries}
 %\captiontitlefont{\small\sffamily\it}
 %\makeatletter
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 % This makes caption of floats small
 \usepackage[font=small,labelfont=bf]{caption}
@@ -41,27 +56,27 @@
 \hyphenation{Har-ring-ton-at-all}
 \end_preamble
 \use_default_options true
-\maintain_unincluded_children false
 \language british
-\language_package default
 \inputencoding auto
-\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
 \font_default_family default
-\use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
+<<<<<<< HEAD
+\float_placement h
+=======
 \default_output_format default
 \output_sync 0
 \bibtex_command default
 \index_command default
 \float_placement !h
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 \paperfontsize 12
 \spacing single
 \use_hyperref false
@@ -69,18 +84,15 @@
 \use_geometry true
 \use_amsmath 1
 \use_esint 1
+<<<<<<< HEAD
+\cite_engine basic
+=======
 \use_mhchem 1
 \use_mathdots 1
 \cite_engine natbib_authoryear
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 \use_bibtopic false
-\use_indices false
 \paperorientation portrait
-\suppress_date false
-\use_refstyle 1
-\index Index
-\shortcut idx
-\color #008000
-\end_index
 \leftmargin 2cm
 \topmargin 1cm
 \rightmargin 2cm
@@ -88,16 +100,14 @@
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\paragraph_indentation default
+\defskip medskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
-\html_math_output 0
-\html_css_as_file 0
-\html_be_strict false
+\author "" 
 \end_header
 
 \begin_body
@@ -108,11 +118,24 @@ status open
 
 \begin_layout Plain Layout
 
-
+%
 \backslash
 newcommand{
 \backslash
 homepath}{/Users/ondrejmandula}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcommand{
+\backslash
+homepath}{/afs/inf.ed.ac.uk/user/s08/s0880377/DTC/AnnualReport2ndYear}
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -678,10 +701,15 @@ Non-negative matrix factorisation (NMF) seems to be a very natural model
 
  (intensities of the sources).
  
+<<<<<<< HEAD
+\begin_inset Formula \begin{equation}
+\mathbb{E}\left[D\right]=\mathbb{E}\left[d_{xt}\right]=\left(WH\right)_{xt}=\sum_{k=1}^{K}w_{xk}h_{kt}\label{eq:NMF model}\end{equation}
+=======
 \begin_inset Formula 
 \begin{equation}
 \mathbb{E}\left[\bm{D}\right]=\mathbb{E}\left[d_{xt}\right]=\left(\bm{WH}\right)_{xt}=\sum_{k=1}^{K}w_{xk}h_{kt},\label{eq:NMF model}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1134,10 +1162,15 @@ reference "eq:NMF model"
 
  (intensities of the sources) are treated as hidden variables generated
  from a Gamma distribution
+<<<<<<< HEAD
+\begin_inset Formula \[
+p(h_{kt}|\alpha_{k},\beta_{k})=\frac{h_{kt}^{\alpha-1}\beta^{\alpha}\exp(-\beta h_{kt})}{\Gamma(\alpha)}\]
+=======
 \begin_inset Formula 
 \[
 p(h_{kt}|\alpha_{k},\beta_{k})=\frac{h_{kt}^{\alpha-1}\beta^{\alpha}\exp(-\beta h_{kt})}{\Gamma(\alpha)},
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1150,10 +1183,15 @@ and the data
 \end_inset
 
  
+<<<<<<< HEAD
+\begin_inset Formula \begin{equation}
+p(d_{xt}|w_{xk},h_{kt})=\frac{\left(\sum_{k}w_{xk}h_{kt}\right)^{d_{xt}}\exp(-\sum_{k}w_{xk}h_{kt})}{d_{xt}!}\label{eq:GaP Poisson}\end{equation}
+=======
 \begin_inset Formula 
 \begin{equation}
 p(d_{xt}|w_{xk},h_{kt})=\frac{\left(\sum_{k}w_{xk}h_{kt}\right)^{d_{xt}}\exp(-\sum_{k}w_{xk}h_{kt})}{d_{xt}!},\label{eq:GaP Poisson}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1174,19 +1212,30 @@ where
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+The likelihood od the model is given by
+\begin_inset Formula \begin{equation}
+p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(d_{xt}|W,H)\label{eq:GaP likelihood}\end{equation}
+=======
 The likelihood function of this model is given by
 \begin_inset Formula 
 \begin{equation}
 p(D,H|W,K,\theta)=\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(d_{xt}|w_{xk},h_{kt}),\label{eq:GaP likelihood}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
 and the log-likelihood
+<<<<<<< HEAD
+\begin_inset Formula \[
+\log p(D,H|W,K,\theta)=\sum_{t=1}^{T}\left\{ \sum_{k=1}^{K}\log p(h_{kt}|\alpha_{k},\beta_{k})+\sum_{x=1}^{N}\log p(d_{xt}|W,H)\right\} \]
+=======
 \begin_inset Formula 
 \[
 \log p(D,H|W,K,\theta)=\sum_{t=1}^{T}\left\{ \sum_{k=1}^{K}\log p(h_{kt}|\alpha_{k},\beta_{k})+\sum_{x=1}^{N}\log p(d_{xt}|w_{xk},h_{kt})\right\} .
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1306,12 +1355,15 @@ A new latent
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
+\begin_inset Formula \[
 \begin{alignedat}{1}\sum_{x=1}^{N}v_{xk}^{(t)} & =c_{k}^{(t)}\\
+<<<<<<< HEAD
+\sum_{k=1}^{K}v_{xk}^{(t)} & =d_{xt}\end{alignedat}
+=======
 \sum_{k=1}^{K}v_{xk}^{(t)} & =d_{xt}
 \end{alignedat}
 ,
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 \]
 
 \end_inset
@@ -1341,12 +1393,10 @@ th time slice and
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{alignat*}{1}
+\begin_inset Formula \begin{alignat*}{1}
 h_{kt} & \sim\mathrm{Gamma}(h_{kt};\alpha_{k},\beta_{k})\\
 c_{k}^{(t)} & \sim\mathrm{Po}(c_{k}^{(t)};h_{kt})\\
-v_{x,k}^{(t)} & \sim\mathrm{Multinom}(v_{xk}^{(t)};w_{xk},c_{k}^{(t)})
-\end{alignat*}
+v_{x,k}^{(t)} & \sim\mathrm{Multinom}(v_{xk}^{(t)};w_{xk},c_{k}^{(t)})\end{alignat*}
 
 \end_inset
 
@@ -1355,19 +1405,22 @@ and the likelihood of the GaP model with the latent matrix
 \end_inset
 
  is then 
-\begin_inset Formula 
-\begin{alignat*}{1}
+\begin_inset Formula \begin{alignat*}{1}
 p(V,H|\alpha,\beta,W,K) & =\prod_{t=1}^{T}\prod_{k=1}^{K}p(h_{kt}|\alpha_{k},\beta_{k})\prod_{x=1}^{N}p(v_{1k}^{(t)},v_{2k}^{(t)}...v_{N,k}^{(t)}|h_{kt},w_{xk})\\
- & =\prod_{kt}\mathrm{Gamma}(h_{kt};\alpha_{k},\beta_{k})\prod_{x}\mathrm{Po}(c_{k}^{(t)};h_{kt})\times\mathrm{Multinom}(v_{xk}^{(t)};w_{xk},c_{k}^{(t)})
-\end{alignat*}
+ & =\prod_{kt}\mathrm{Gamma}(h_{kt};\alpha_{k},\beta_{k})\prod_{x}\mathrm{Po}(c_{k}^{(t)};h_{kt})\times\mathrm{Multinom}(v_{xk}^{(t)};w_{xk},c_{k}^{(t)})\end{alignat*}
 
 \end_inset
 
 explicitly 
+<<<<<<< HEAD
+\begin_inset Formula \begin{equation}
+p(V,H|\alpha,\beta,W,K)=\prod_{kt}\frac{\beta_{k}^{\alpha_{k}}h_{kt}^{c_{k}^{(t)}+\alpha_{k}-1}\exp(-(\beta_{k}+1)h_{kt})}{\Gamma(\alpha_{k})}\prod_{x}\frac{w_{xk}^{v_{xk}^{(t)}}}{v_{xk}^{(t)}!}\label{eq:GaP likelihood with latent matrix V}\end{equation}
+=======
 \begin_inset Formula 
 \begin{equation}
 p(V,H|\alpha,\beta,W,K)=\prod_{kt}\frac{\beta_{k}^{\alpha_{k}}h_{kt}^{c_{k}^{(t)}+\alpha_{k}-1}\exp(-(\beta_{k}+1)h_{kt})}{\Gamma(\alpha_{k})}\prod_{x}\frac{w_{xk}^{v_{xk}^{(t)}}}{v_{xk}^{(t)}!}.\label{eq:GaP likelihood with latent matrix V}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1393,10 +1446,15 @@ A factored posterior approximation is made for the latent variable to find
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+\begin_inset Formula \begin{equation}
+p(V,H|\alpha,\beta,W,K)\approx q(V,H)=q_{V}(V)q_{H}(H)\label{eq:GaP factorised approximation}\end{equation}
+=======
 \begin_inset Formula 
 \begin{equation}
 p(V,H|\alpha,\beta,W,K)\approx q(V,H)=q_{V}(V)q_{H}(H),\label{eq:GaP factorised approximation}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1412,19 +1470,22 @@ key "Bishop2006"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{alignat*}{1}
+\begin_inset Formula \begin{alignat*}{1}
 \log q_{H}^{*}(H) & =\mathbb{E}_{V\sim q_{V}}\left[\log p(V,H,D|W,\alpha,\beta)\right]+\mathrm{const}\\
-\log q_{V}^{*}(V) & =\mathbb{E}_{H\sim q_{H}}\left[\log p(V,H,D|W,\alpha,\beta)\right]+\mathrm{const}
-\end{alignat*}
+\log q_{V}^{*}(V) & =\mathbb{E}_{H\sim q_{H}}\left[\log p(V,H,D|W,\alpha,\beta)\right]+\mathrm{const}\end{alignat*}
 
 \end_inset
 
 The likelihood of the data is bounded by
+<<<<<<< HEAD
+\begin_inset Formula \[
+p(D|W,\alpha,\beta)\geq\mathcal{L}(q,W,\alpha,\beta)\]
+=======
 \begin_inset Formula 
 \begin{equation}
 p(D|W,\alpha,\beta,K)\geq\mathcal{L}(q,W,\alpha,\beta),\label{eq:GaP likelihood of the data}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1433,17 +1494,27 @@ where
 status open
 
 \begin_layout Plain Layout
+<<<<<<< HEAD
+This is the problematic integtal ---> this expectation value...
+ => variational approximaton....
+=======
 This is the problematic integral ---> this expectation value...
  => variational approximation....
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 \end_layout
 
 \end_inset
 
  
+<<<<<<< HEAD
+\begin_inset Formula \begin{equation}
+\mathcal{L}(q,W,\alpha,\beta)=\mathbb{E}_{V,H\sim q(V,H)}\left[\log p(H,V,D|W,\alpha,\beta,K)\right]+C\label{eq:GaP Lower bound}\end{equation}
+=======
 \begin_inset Formula 
 \begin{equation}
 \mathcal{L}(q,W,\alpha,\beta)=\mathbb{E}_{V,H\sim q(V,H)}\left[\log p(H,V,D|W,\alpha,\beta,K)\right]+C\label{eq:GaP Lower bound}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1496,11 +1567,9 @@ reference "eq:GaP likelihood with latent matrix V"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{alignat*}{1}
+\begin_inset Formula \begin{alignat*}{1}
 q_{H}(H) & =\prod_{k}\mathrm{Gamma}(h_{kt};a_{k}^{(t)},b_{k})\\
-q_{V}(V) & =\prod_{xk}\mathrm{Mutlinom}(v_{xk}^{(t)};n_{xk}^{(t)},d_{x})
-\end{alignat*}
+q_{V}(V) & =\prod_{xk}\mathrm{Mutlinom}(v_{xk}^{(t)};n_{xk}^{(t)},d_{x})\end{alignat*}
 
 \end_inset
 
@@ -1528,12 +1597,10 @@ reference "sub:Variational-Approximation"
 \end_inset
 
 )
-\begin_inset Formula 
-\begin{alignat}{1}
+\begin_inset Formula \begin{alignat}{1}
 n_{xk}^{(t)} & =\frac{1}{z_{x}}W_{xk}\exp(\psi_{0}(a_{k}^{(t)})-\log b_{k})\nonumber \\
 a_{k}^{(t)} & =\sum_{x=1}^{N}n_{xk}^{(t)}d_{xt}+\alpha_{k}\label{eq:GaP update rules}\\
-b_{k} & =1+\beta_{k}\nonumber 
-\end{alignat}
+b_{k} & =1+\beta_{k}\nonumber \end{alignat}
 
 \end_inset
 
@@ -1565,11 +1632,17 @@ reference "eq:GaP Lower bound"
 \begin_inset Formula $w_{xk}$
 \end_inset
 
+<<<<<<< HEAD
+
+\begin_inset Formula \begin{equation}
+w_{xk}=\frac{\sum_{t}n_{xk}^{(t)}d_{xt}}{\lambda_{k}}\label{eq:GaP update W}\end{equation}
+=======
  gives
 \begin_inset Formula 
 \begin{equation}
 w_{xk}=\frac{\sum_{t}n_{xk}^{(t)}d_{xt}}{\lambda_{k}},\label{eq:GaP update W}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1589,10 +1662,15 @@ reference "eq:GaP Lower bound"
 \end_inset
 
  then becomes 
+<<<<<<< HEAD
+\begin_inset Formula \begin{equation}
+\mathcal{L}=\sum_{t}\left\{ \sum_{k}\mathbb{E}_{H}\left[\log h_{kt}\right](\alpha_{k}-a_{k}^{(t)})+\sum_{k}\log\frac{\Gamma(a_{k}^{(t)})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k}^{a_{k}^{(t)}}}+\sum_{x}d_{xt}\log z_{x}-\log\prod_{x}d_{xt}!\right\} \label{eq:GaP variational lower bound}\end{equation}
+=======
 \begin_inset Formula 
 \begin{equation}
 \mathcal{L}=\sum_{t}\left\{ \sum_{k}\mathbb{E}_{H}\left[\log h_{kt}\right](\alpha_{k}-a_{k}^{(t)})+\sum_{k}\log\frac{\Gamma(a_{k}^{(t)})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k}^{a_{k}^{(t)}}}+\sum_{x}d_{xt}\log z_{x}-\log\prod_{x}d_{xt}!\right\} .\label{eq:GaP variational lower bound}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1600,6 +1678,18 @@ reference "eq:GaP Lower bound"
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+=======
 The algorithm is summarised in Algorithm
 \begin_inset space ~
 \end_inset
@@ -1616,6 +1706,7 @@ reference "alg:Algorithm-variational approximation"
 placement H
 wide false
 sideways false
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 status open
 
 \begin_layout Plain Layout
@@ -1903,11 +1994,17 @@ reference "eq:NMF model"
 \begin_inset Formula $K$
 \end_inset
 
+<<<<<<< HEAD
+ we compute a normalized residual matrix 
+\begin_inset Formula \[
+r_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sum_{k=1}^{K}w_{xk}h_{kt}}\]
+=======
 , we compute a normalised residual matrix 
 \begin_inset Formula 
 \[
 s_{xt}=\frac{d_{xt}-\sum_{k=1}^{K}w_{xk}h_{kt}}{\sqrt{\sum_{k=1}^{K}w_{xk}h_{kt}}}.
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -1926,6 +2023,10 @@ The normalisation
 \end_inset
 
  correlation matrix 
+<<<<<<< HEAD
+\begin_inset Formula \begin{equation}
+\bm{C}_{R}=\bm{RR}^{T}\label{eq:Correlation in residuals}\end{equation}
+=======
 \begin_inset Formula 
 \[
 \bm{C}_{S}=\bm{SS}^{T},
@@ -1950,6 +2051,7 @@ and the
 \begin{equation}
 r_{ij}=\frac{c_{ij}}{\sqrt{c_{ii}c_{jj}}}.\label{eq:Correlation in residuals}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -2052,6 +2154,176 @@ Value
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
+<<<<<<< HEAD
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parameters-of-the-simulation"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K_{true}=10$
+\end_inset
+
+ spatial coordianates 
+\begin_inset Formula $[x_{k},\, y_{k}]$
+\end_inset
+
+ confined to a circular region of with a radius 
+\begin_inset Formula $\delta$
+\end_inset
+
+ were generated (
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ cooridnates generated from a uniform distribution subject to a spatial
+ constraint to a ciruclar area).
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+ was equal to the Rayleigh's resolution limit.
+\end_layout
+
+\begin_layout Enumerate
+In focus PSF was cenetered at each generated coordinate (
+\begin_inset Formula $W$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:NMF model"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Intensities of the individual sources over time 
+\begin_inset Formula $h_{kt}$
+\end_inset
+
+ were generated from a uniform distribution in a region 
+\begin_inset Formula $h_{kt}=\{0,\,1,\,2\ ...\ I_{max}\}$
+\end_inset
+
+ where 
+\begin_inset Formula $I_{max}$
+\end_inset
+
+ is the maximum intensity of the 
+\begin_inset Formula $k$
+\end_inset
+
+th surce.
+\end_layout
+
+\begin_layout Enumerate
+A homogeneous background of 
+\begin_inset Formula $b$
+\end_inset
+
+ was added to each frame of the time sequence
+\end_layout
+
+\begin_layout Enumerate
+Poisson noise was added to this data
+\end_layout
+
+\begin_layout Standard
+Data with lower density of the sources were simulated in a same way.
+ However the relative distance between sources locations 
+\begin_inset Formula $[x_{k},\, y_{k}]$
+\end_inset
+
+ (generated in the step 1) were enlarged 
+\begin_inset Formula $1.5\times$
+\end_inset
+
+ and 
+\begin_inset Formula $2.5\times$
+\end_inset
+
+.
+ This way the geometrical configuration of the sources remains the same
+ for all data sets.
+ The locations of the sources are shown as blue circles in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:K estimation - Simulated-data"
+
+\end_inset
+
+ the circle with the radius 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is shown in green.
+ The mean intensity image (
+\begin_inset Formula $\frac{1}{T}\sum_{t}d_{xt}$
+\end_inset
+
+ - time sequence of QDs averaged over time) is shown in as gray scale image.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parameter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Value
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+=======
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 \begin_layout Plain Layout
 Description
 \end_layout
@@ -3425,6 +3697,11 @@ key "Buntine2006"
 
 \end_inset
 
+<<<<<<< HEAD
+\begin_inset Formula \begin{alignat}{1}
+w_{xk} & =\frac{w_{xk}}{\sum_{t=1}^{T}h_{kt}}\left[(D./WH)H^{\top}\right]_{xk}\nonumber \\
+h_{kt} & =\frac{h_{kt}}{\sum_{x=1}^{N}w_{xk}}\left[W^{\top}(D./WH)\right]_{kt}\label{eq:NMF updates Lee 2001}\end{alignat}
+=======
  has been used.
  Each individual data set was evaluated three times with different random
  initialisations (see below) and the result with the highest likelihood
@@ -3433,6 +3710,7 @@ key "Buntine2006"
 \begin{equation}
 \log p(D|WH,K)=\sum_{x,t}\left\{ d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}-\log d_{xt}!\right\} \label{eq:log-lik}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -3473,6 +3751,11 @@ Results were compared to the situation when we set
 \begin_inset Formula $H_{true}$
 \end_inset
 
+<<<<<<< HEAD
+ were used and the log-likelihood 
+\begin_inset Formula \[
+\log p(D|WH,K)=\sum_{x,t}\left\{ d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}-\log d_{xt}!\right\} \]
+=======
  are also shown.
  
 \end_layout
@@ -3488,6 +3771,7 @@ We used the standard NMF updates
 w_{xk} & =\frac{w_{xk}}{\sum_{t=1}^{T}h_{kt}}\left[(D./WH)H^{\top}\right]_{xk}\nonumber \\
 h_{kt} & =\frac{h_{kt}}{\sum_{x=1}^{N}w_{xk}}\left[W^{\top}(D./WH)\right]_{kt}\label{eq:NMF updates Lee 2001}
 \end{alignat}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -3719,8 +4003,15 @@ i).
 \begin_inset Formula $W_{true}$
 \end_inset
 
+<<<<<<< HEAD
+.
+\begin_inset Formula \begin{alignat*}{1}
+\end{alignat*}
+
+=======
  and 
 \begin_inset Formula $H_{true}$
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 \end_inset
 
  are shown as dashed lines.
@@ -5017,6 +5308,9 @@ reference "fig:Histograms-of-the-K-estimation"
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+\begin_inset Note Note
+=======
 \begin_inset Float figure
 wide false
 sideways false
@@ -5024,6 +5318,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 status open
 
 \begin_layout Plain Layout
@@ -5148,6 +5443,11 @@ end{centering}
 \begin_layout Plain Layout
 \begin_inset Caption
 
+<<<<<<< HEAD
+) dimension without changeig the permuted factorised matrices
+\begin_inset Formula \[
+V_{\pi_{x}(x)\pi_{t}(t)}=\sum_{k=1}^{K}W_{\pi_{x}(x)k}H_{k\pi_{t}(t)}\]
+=======
 \begin_layout Plain Layout
 Maximum residual correlations.
  The mean (and standard deviation) and the minimum values of 10 evaluations
@@ -5158,6 +5458,7 @@ Maximum residual correlations.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Correlations-in-residuals."
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -5264,10 +5565,16 @@ The correlations in residuals are much higher when
 \begin_inset Formula $K=K_{true}$
 \end_inset
 
+<<<<<<< HEAD
+ is defined
+\begin_inset Formula \[
+KL(P\parallel Q)=\sum_{i}\left(Q_{i}\log\frac{Q_{i}}{P_{i}}-Q_{i}+P_{i}\right)\]
+=======
  the correlations drop significantly to a baseline level.
  Further increase 
 \begin_inset Formula $K>K_{true}$
 \end_inset
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
  does not results in lower correlations.
  This can be observed only if the distance 
@@ -5322,10 +5629,16 @@ reference "fig:simulations 2.0 delta "
 
 \end_inset
 
+<<<<<<< HEAD
+)
+\begin_inset Formula \begin{equation}
+\min_{W,H\geq0}KL(D\Vert WH)=\min_{W,H\geq0}-\sum_{xt}\left(d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}\right)+C\label{eq:Appendix KL(D|WH)}\end{equation}
+=======
 ).
  
 \begin_inset Formula $K$
 \end_inset
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
  is systematically underestimated for the data with higher densities of
  the sources (Fig.
@@ -10584,6 +10897,11 @@ This is derivation of the fisher information for Poisson distributed variable
 \begin_inset Formula $\lambda$
 \end_inset
 
+<<<<<<< HEAD
+ under an assumption of Poisson noise 
+\begin_inset Formula \[
+\log p(D|W,H)=\sum_{x,t}\log\left(\frac{d_{xt}^{\sum_{k}w_{xk}h_{kt}}e^{-\sum_{k}w_{xk}h_{kt}}}{d_{xt}!}\right)=\sum_{xt}\left(d_{xt}\log\sum_{k=1}^{K}w_{xk}h_{kt}-\sum_{k=1}^{K}w_{xk}h_{kt}\right)+D\]
+=======
 .
 \end_layout
 
@@ -10592,6 +10910,7 @@ This is derivation of the fisher information for Poisson distributed variable
 \[
 X\sim\textrm{Po}(n,\lambda)=p(n|\theta)=\frac{\lambda^{n}e^{-\lambda}}{n!}
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -10677,6 +10996,28 @@ as
 
 \end_inset
 
+<<<<<<< HEAD
+:
+\begin_inset Formula \[
+\mathbb{E}_{w\sim p(w|l,\theta)}\left[w_{j}\right]=\sum_{k=1}^{K}\theta_{jk}l_{k}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ word count of 
+\begin_inset Formula $j$
+\end_inset
+
+th word in a document 
+\begin_inset Formula \[
+w_{j}\sim\mathrm{Po}(w_{j};(\mathbf{\theta l})_{j})=\frac{(\mathbf{\theta l})_{j}^{w_{j}}\exp(-(\mathbf{\theta l})_{j})}{w_{h}!}\]
+=======
 where
 \begin_inset Formula 
 \[
@@ -10690,6 +11031,7 @@ But
 \[
 \mathbb{E}_{k}\left[\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}\right]=\sum_{n_{k}}l_{k}\frac{1}{l_{k}}\frac{\partial l_{k}}{\partial\theta}=\sum_{n_{k}}\frac{\partial l_{k}}{\partial\theta}=\frac{\partial\sum_{n_{k}}l_{k}}{\partial\theta}=0
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -10715,11 +11057,17 @@ reference "eq:Likelihood of Poisson"
 
 \end_inset
 
+<<<<<<< HEAD
+) that indicate amount of the component in the document 
+\begin_inset Formula \[
+l_{k}\sim\mathrm{Gamma}(l_{k};\alpha_{k},\beta_{k})=\frac{l_{k}^{\alpha_{k}-1}\beta_{k}^{\alpha_{k}}\exp(-\beta_{k}l_{k})}{\Gamma(\alpha_{k})}\]
+=======
 : 
 \begin_inset Formula 
 \[
 \frac{\partial l_{k}}{\partial\theta}=\frac{l_{k}(n_{k}-\lambda_{k})}{\lambda_{k}}\frac{\partial\lambda_{k}}{\partial\theta}
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -10747,11 +11095,22 @@ for Poisson
 
 \end_inset
 
+<<<<<<< HEAD
+th word
+\end_layout
+
+\begin_layout Standard
+The log-likelihood of this model:
+\begin_inset Formula \begin{alignat}{1}
+\log p(\mathbf{w},l|\mathbf{\theta,}\mathrm{GP,K}) & =\sum_{k=1}^{K}\left\{ \alpha_{k}\log(\beta_{k})+(\alpha_{k}-1)\log l_{k}-\beta_{k}l_{k}-\log\Gamma(\alpha_{k})+\sum_{j=1}^{J}\left[w_{j}\log(\mathbf{\theta l})_{j}-(\mathbf{\theta l})_{j}-\log w_{j}!\right]\right\} \label{eq:likelihood l}\\
+ & =\sum_{k=1}^{K}\textrm{log likelihood of}\ l_{k}+\sum_{j=1}^{J}\textrm{log likelihood of}\ w_{j}\ \textrm{given}\ \mathbf{l}\nonumber \end{alignat}
+=======
 and 
 \begin_inset Formula 
 \begin{equation}
 I(\theta)=\sum_{k=1}^{K}\frac{1}{\lambda_{k}}\left(\frac{\partial\lambda_{k}}{\partial\theta}\right)^{2}\label{eq:Fisher Info for Poisson}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -10792,10 +11151,18 @@ Two sources separated by a distance
 \begin_inset Formula $d$
 \end_inset
 
+<<<<<<< HEAD
+).
+ 
+\begin_inset Formula \begin{alignat*}{1}
+\sum_{j=1}^{J}v_{jk} & =c_{k}\\
+\sum_{k=1}^{K}v_{jk} & =w_{j}\end{alignat*}
+=======
 
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Appendix Two-sources-separated"
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -10803,10 +11170,18 @@ name "sub:Appendix Two-sources-separated"
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+The distribution underlying the GP model now becomes 
+\begin_inset Formula \begin{alignat*}{1}
+l_{k} & \sim\mathrm{Gamma}(l_{k};\alpha_{k},\beta_{k})\\
+c_{k} & \sim\mathrm{Po}(c_{k};l_{k})\\
+v_{j,k} & \sim\mathrm{Multinom}(v_{jk};\theta_{jk},c_{k})=c_{k}!\prod_{j}\frac{\theta_{jk}^{v_{jk}}}{v_{jk}!}\end{alignat*}
+=======
 These are comment on Fisher Information estimation as described in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Ram2006"
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -10834,9 +11209,20 @@ For two sources separated by a distance
 \begin_inset Formula $\Lambda_{i}$
 \end_inset
 
+<<<<<<< HEAD
+\begin_layout Standard
+\begin_inset Formula \begin{alignat*}{2}
+p(v_{jk}|l_{k}) & =\sum_{c_{k}}p(v_{jk}|c_{k})p(c_{k}|l_{k})\\
+ & =\sum_{c_{k}=v_{jk}}^{\infty}\frac{c_{k}!}{v_{jk}!(c_{k}-v_{jk})!}\theta_{jk}^{v_{jk}}(1-\theta_{jk})^{c_{k}-v_{jk}}\times\frac{l_{k}^{c_{k}}\exp(-l_{k})}{c_{k}!}\\
+ & =\frac{\exp(-l_{k})\theta_{jk}^{v_{jk}}}{v_{jk}!}\sum_{c_{k}=v_{jk}}^{\infty}\frac{l_{k}^{c_{k}}(1-\theta_{jk})^{c_{k}-v_{jk}}}{(c_{k}-v_{jk})!} & |\alpha_{jk}=c_{k}-v_{jk}\\
+ & =\frac{\exp(-l_{k})(\theta_{jk}l_{k})^{v_{jk}}}{v_{jk}!}\sum_{\alpha_{jk}=0}^{\infty}\frac{(l_{k}-\theta_{jk}l_{k})^{\alpha_{jk}}}{(\alpha_{jk})!}\\
+ & =\frac{\exp(-l_{k})(\theta_{jk}l_{k})^{v_{jk}}}{v_{jk}!}\exp(l_{k}-\theta_{jk}l_{k})\\
+ & =\frac{(\theta_{jk}l_{k})^{v_{jk}}\exp(-\theta_{jk}l_{k})}{v_{jk}!}\end{alignat*}
+=======
  is the response function and intensity, respectively, of the source 
 \begin_inset Formula $i$
 \end_inset
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 .
  For translationally invariant PSF and in-focus sources: 
@@ -10864,11 +11250,20 @@ where
 \begin_inset Formula $C_{k}$
 \end_inset
 
+<<<<<<< HEAD
+)is Poisson distributed:
+\begin_inset Formula \begin{alignat*}{1}
+p(Z) & =\sum_{x_{1}=0}^{z}p(X_{1})p(Z-X_{1})\\
+ & =\sum_{x_{1}=0}^{z}\frac{\lambda_{1}^{x_{1}}e^{-\lambda_{1}}}{x_{1}!}\frac{\lambda_{2}^{z-x_{1}}e^{-\lambda_{2}}}{(z-x_{1})!}\\
+ & =\frac{e^{-(\lambda_{1}+\lambda_{2})}}{z!}\sum_{x_{1}=0}^{z}\frac{z!}{x_{1}!(z-x_{1})!}\lambda_{1}^{x_{1}}\lambda_{2}^{z-x_{1}}\\
+ & =\frac{(\lambda_{1}+\lambda_{2})^{z}e^{-(\lambda_{1}+\lambda_{2})}}{z!}\end{alignat*}
+=======
 )
 \begin_inset Formula 
 \[
 \lambda_{k}(d)=\Lambda_{1}\int_{C_{k}}q(x-\frac{d}{2})dx+\Lambda_{2}\int_{C_{k}}q(x+\frac{d}{2})dx
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -10879,11 +11274,17 @@ key "Ram2006"
 
 \end_inset
 
+<<<<<<< HEAD
+ is Poisson distributed:
+\begin_inset Formula \[
+w_{j}\sim\mathrm{Po}(w_{j};\sum_{k=1}^{K}\theta_{jk}l_{k})\]
+=======
 )
 \begin_inset Formula 
 \begin{equation}
 I(d)=\frac{1}{4}\sum_{k=1}^{K}\frac{\left(\Lambda_{1}\int_{C_{k}}\partial_{x}q(x-\frac{d}{2})dx-\Lambda_{2}\int_{C_{k}}\partial_{x}q(x+\frac{d}{2})dx\right)^{2}}{\Lambda_{1}\int_{C_{k}}q(x-\frac{d}{2})dx+\Lambda_{2}\int_{C_{k}}q(x+\frac{d}{2})dx}\label{eq:Fisher Info Pixelised - Ram}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -10899,8 +11300,17 @@ Limit
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+\begin_inset Formula \begin{alignat*}{2}
+p(v_{1,k},v_{2,k}...v_{J,k}|l_{k},\theta_{jk}) & =\prod_{j=1}^{J}\frac{(\theta_{jk}l_{k})^{v_{jk}}\exp(-\theta_{jk}l_{k})}{v_{jk}!}\\
+ & =e^{-l_{k}\sum_{j}\theta_{jk}}l_{k}^{\sum_{j}v_{jk}}\prod_{j}\frac{\theta{}^{v_{jk}}}{v_{jk}!} & |\sum_{j}\theta_{jk}=1,\sum_{j}v_{jk}=c_{k}\\
+ & =\frac{l_{k}^{c_{k}}e^{-l_{k}}}{c_{k}!}c_{k}!\prod_{j}\frac{\theta{}^{v_{jk}}}{v_{jk}!}\\
+ & =\mathrm{Po}(c_{k};l_{k})\times\mathrm{Multinom}(v_{jk};\theta_{jk},c_{k})\end{alignat*}
+
+=======
 If 
 \begin_inset Formula $\Lambda_{1}=\Lambda_{2}$
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 \end_inset
 
  then 
@@ -10916,9 +11326,16 @@ If
 \begin_inset Formula $\Lambda_{1}\neq\Lambda_{2}$
 \end_inset
 
+<<<<<<< HEAD
+ is then 
+\begin_inset Formula \begin{alignat*}{1}
+p(V,l|\alpha,\beta,\theta,K) & =\prod_{k}p(l_{k}|\alpha_{k},\beta_{k})\prod_{jk}p(v_{1k},v_{2k}...v_{J,k}|l_{k},\theta_{jk})\\
+ & =\prod_{k}\mathrm{Gamma}(l_{k};\alpha_{k},\beta_{k})\prod_{jk}\mathrm{Po}(c_{k};l_{k})\times\mathrm{Multinom}(v_{jk};\theta_{jk},c_{k})\end{alignat*}
+=======
 ).
  
 \end_layout
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \begin_layout Subparagraph*
 Limit 
@@ -10929,6 +11346,20 @@ Limit
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+explicitly:
+\begin_inset Formula \begin{equation}
+p(V,l|\alpha,\beta,\theta,K)=\prod_{k}\frac{\beta_{k}^{\alpha_{k}}l_{k}^{c_{k}+\alpha_{k}-1}\exp(-(\beta_{k}+1)l_{k})}{\Gamma(\alpha_{k})}\prod_{jk}\frac{\theta_{jk}^{v_{jk}}}{v_{jk}!}\label{eq:likelihood V,l}\end{equation}
+
+\end_inset
+
+ and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{multline}
+\log p(V,l|\alpha,\beta,\theta,K)=\sum_{k}\left\{ (c_{k}+\alpha_{k}-1)\log l_{k}-(\beta_{k}+1)l_{k}+\alpha_{k}\log\beta_{k}-\log\Gamma(\alpha_{k})+\sum_{j}\left[v_{jk}\log\theta_{jk}-\log v_{jk}!\right]\right\} \label{eq:log-likelihood V,l}\end{multline}
+=======
 When sources are far apart then the mixing term in nominator in 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -10939,6 +11370,7 @@ reference "eq:Fisher Info Pixelised - Ram"
  
 \begin_inset Formula $\Lambda_{1}\Lambda_{2}\partial_{x}q(x-\frac{d}{2})\partial q(d+\frac{d}{2})=0$
 \end_inset
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
  as the 
 \begin_inset Formula $\partial_{x}q(x-\frac{d}{2})$
@@ -10969,16 +11401,35 @@ reference "eq:Fisher Info Pixelised - Ram"
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+It is possible to integrate out 
+\begin_inset Formula $l$
+\end_inset
+
+ (not sure about discrete values...?):
+\begin_inset Formula \begin{alignat*}{1}
+p(V|\alpha,\beta,\theta,K) & =\int_{0}^{\infty}p(V,l|\alpha,\beta,\theta,K)dl\\
+ & =\prod_{jk}\frac{\theta_{jk}^{v_{jk}}}{v_{jk}!}\prod_{k}\frac{\beta_{k}}{\Gamma(\alpha_{k})}\int_{0}^{\infty}\left[l_{k}^{c_{k}+\alpha_{k}-1}\exp(-(\beta_{k}+1)l_{k})\right]dl_{k}\end{alignat*}
+=======
 \begin_inset Formula 
 \begin{alignat*}{1}
 I(d) & =\frac{1}{4}\sum_{k=1}^{K}\left[\frac{\left(\Lambda_{1}\int_{C_{k}}\partial_{x}q(x-\frac{d}{2})dx\right)^{2}}{\Lambda_{1}\int_{C_{k}}q(x-\frac{d}{2})dx}+\frac{\left(\Lambda_{2}\int_{C_{k}}\partial_{x}q(x+\frac{d}{2})dx\right)^{2}}{\Lambda_{2}\int_{C_{k}}q(x+\frac{d}{2})dx}\right]\\
  & =\frac{1}{4}\sum_{k=1}^{K}\frac{\left(\int_{C_{k}}\partial_{x}q(x)dx\right)^{2}}{\int_{C_{k}}q(x)dx}\left[\Lambda_{1}+\Lambda_{2}\right]
 \end{alignat*}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
 
+<<<<<<< HEAD
+\begin_layout Standard
+\begin_inset Formula \begin{alignat*}{2}
+\int_{0}^{\infty}\left[l_{k}^{c_{k}+\alpha_{k}-1}\exp(-(\beta_{k}+1)l_{k})\right]dl_{k} & =\int_{0}^{\infty}l_{k}^{z-1}\exp(-(\beta_{k}+1)l_{k})dl_{k} & |c_{k}+\alpha_{k}=z\\
+ & =\frac{1}{\left(\beta_{k}+1\right)^{z}}\int_{0}^{\infty}t^{z-1}\exp(-t)dt & |(\beta_{k}+1)l_{k}=t\\
+ & =\frac{1}{\left(\beta_{k}+1\right)^{z}}\Gamma(z)\end{alignat*}
+=======
 \end_layout
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \begin_layout Subparagraph
 Limit 
@@ -10989,9 +11440,14 @@ Limit
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+\begin_inset Formula \[
+p(V|\alpha,\beta,\theta,K)=\prod_{k}\frac{\beta_{k}}{\left(\beta_{k}+1\right)^{c_{k}+\alpha_{k}}}\frac{\Gamma(c_{k}+\alpha_{k})}{\Gamma(\alpha_{k})}\prod_{jk}\frac{\theta_{jk}^{v_{jk}}}{v_{jk}!}\]
+=======
 If 
 \begin_inset Formula $\Lambda_{1}=0$
 \end_inset
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
  or 
 \begin_inset Formula $\Lambda_{2}=0$
@@ -11127,6 +11583,11 @@ The covariance matrix
 \begin_inset Formula $\bm{Q}$
 \end_inset
 
+<<<<<<< HEAD
+\begin_layout Standard
+\begin_inset Formula \[
+p(l,V|w,\alpha,\beta,\theta,K)\approx q(l,V)=q_{l}(l)q_{V}(V)\]
+=======
  is then 
 \begin_inset Formula 
 \[
@@ -11135,6 +11596,7 @@ I_{22} & -I_{12}\\
 -I_{12} & I_{11}
 \end{array}\right)
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11142,11 +11604,19 @@ and the variance of
 \begin_inset Formula $d=c_{1}-c_{2}$
 \end_inset
 
+<<<<<<< HEAD
+ (p.466 Eq.
+ (10.9))
+\begin_inset Formula \begin{alignat}{1}
+\log q_{l}^{*}(l) & =\mathbb{E}_{V\sim q_{V}}\left[\log p(V,l,w|\theta,\alpha,\beta)\right]+\mathrm{const}\label{eq:optimal q(l)}\\
+\log q_{V}^{*}(V) & =\mathbb{E}_{l\sim q_{l}}\left[\log p(V,l,w|\theta,\alpha,\beta)\right]+\mathrm{const}\label{eq:optimal q(V)}\end{alignat}
+=======
  
 \begin_inset Formula 
 \begin{equation}
 \textrm{var}(d)=(1,-1)^{T}\cdot\bm{Q}\cdot(1,-1)=\frac{I_{11}+I_{22}+2I_{12}}{I_{11}I_{12}-I_{12}^{2}}\label{eq:variance alternative}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11178,6 +11648,17 @@ q'_{k}(c) & =\int_{C_{k}}\frac{\partial q(x-c)}{\partial x}dx & ,\ (q'_{k}(0)=q'
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+\begin_inset Formula \[
+\mathcal{L}(q,\theta)=\sum_{z}q(Z)\log\frac{p(X,Z|\theta)}{q(Z)}=\sum_{z}q(Z)\log p(X,Z|\theta)+H(q_{l})+H(q_{V})\]
+
+\end_inset
+
+where
+\begin_inset Formula \begin{alignat*}{1}
+H(q_{l}) & =-\mathbb{E}_{l\sim q_{l}}\left[\log q_{l}\right]\\
+H(q_{V}) & =-\mathbb{E}_{V\sim q_{V}}\left[\log q_{V}\right]\end{alignat*}
+=======
 \begin_inset Formula 
 \[
 I_{11}=\sum_{k=1}^{K}\frac{\left(\Lambda_{1}q'_{k}\right)^{2}}{\Lambda_{1}q_{k}+\Lambda_{2}q_{k}(-d)}
@@ -11194,6 +11675,7 @@ where
 \[
 I_{22}=\sum_{k=1}^{K}\frac{\left(\Lambda_{2}q'_{k}\right)^{2}}{\Lambda_{2}q_{k}+\Lambda_{1}q_{k}(d)}
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11201,11 +11683,17 @@ For symmetrical PSF
 \begin_inset Formula $q(x-d)=q(x+d)$
 \end_inset
 
+<<<<<<< HEAD
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+\log p(w|\theta,\alpha,\beta,K)\geq\mathbb{E}_{l,V\sim q(l,V)}\left[\log p(l,V,w|\theta,\alpha,\beta,K)\right]+C\label{eq:lower bound}\end{equation}
+=======
  we have 
 \begin_inset Formula 
 \begin{equation}
 I_{ii}=\sum_{k=1}^{K}\frac{\left(\Lambda_{i}q'_{k}\right)^{2}}{\Lambda_{i}q_{k}+\Lambda_{j}q_{k}(d)}\label{eq:Fisher Information alternative - Individual}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11233,6 +11721,11 @@ Limit
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+\begin_inset Formula \begin{alignat}{1}
+q_{l}(l) & =\prod_{k}\mathrm{Gamma}(l_{l};\alpha_{k},\beta_{k})=\prod_{k}\frac{l_{k}^{a_{k}-1}b_{k}^{a_{k}}\exp(-b_{k}l_{k})}{\Gamma(a_{k})}\label{eq:q(l)}\\
+q_{V}(V) & =\prod_{jk}\mathrm{Mutlinom}(v_{jk};n_{jk},w_{j})=\prod_{jk}\frac{w_{j}!}{v_{jk}!}n_{jk}^{v_{jk}}\label{eq:q(V)}\end{alignat}
+=======
 For 
 \begin_inset Formula $d=0$
 \end_inset
@@ -11243,6 +11736,7 @@ For
 I_{ii} & =\frac{\Lambda_{i}^{2}}{\Lambda_{i}+\Lambda_{j}}S(0)\\
 I_{ij} & =\frac{\Lambda_{i}\Lambda_{j}}{\Lambda_{i}+\Lambda_{j}}S(0)
 \end{alignat*}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11289,11 +11783,16 @@ reference "eq:variance alternative"
 
 \end_inset
 
+<<<<<<< HEAD
+\begin_inset Formula \[
+(a_{k}-1)\log l_{k}-b_{k}l_{k}+\mathrm{const}=(\sum_{j}\mathbb{E}_{V}\left[v_{jk}\right]+\alpha_{k}-1)\log l_{k}-(\beta_{k}+1)l_{k}+\mathrm{const}\]
+=======
  
 \begin_inset Formula 
 \begin{eqnarray*}
 r=\det\left[\bm{I}(\theta)\right]=I_{11}I_{22}-I_{12}^{2}=\frac{S^{2}(0)}{\left(\Lambda_{1}+\Lambda_{2}\right)^{2}}\left(\Lambda_{1}^{2}\Lambda_{2}^{2}-(\Lambda_{1}\Lambda_{2})^{2}\right) & \equiv & 0\ \text{for any }\Lambda_{i}
 \end{eqnarray*}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11336,6 +11835,18 @@ Limit
 \end_inset
 
 
+<<<<<<< HEAD
+\begin_inset Formula \[
+v_{jk}\log n_{jk}-\log v_{jk}!+\mathrm{const}=v_{jk}\mathbb{E}_{l}\left[\log l_{k}\right]+v_{jk}\log\theta_{jk}-\log v_{jk}!+\mathrm{const}\]
+
+\end_inset
+
+so the rewrite rules for the parameters:
+\begin_inset Formula \begin{alignat}{1}
+n_{jk} & =\frac{1}{z_{j}}\theta_{jk}\exp(\mathbb{E}_{l}\left[\log l_{k}\right])\nonumber \\
+a_{k} & =\sum_{j}n_{jk}w_{j}+\alpha_{k}\label{eq:rewrite rules}\\
+b_{k} & =1+\beta_{k}\nonumber \end{alignat}
+=======
 \end_layout
 
 \begin_layout Standard
@@ -11359,6 +11870,7 @@ and
 \[
 I_{ii}=\sum_{k=1}^{K}\frac{\left(\Lambda_{i}q_{k}'\right)^{2}}{\Lambda_{i}q_{k}+\Lambda_{j}q_{k}(d)}=\Lambda_{i}\sum_{k=1}^{K}\frac{\left(q_{k}'\right)^{2}}{q_{k}}=2\Lambda_{i}S(0)
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11391,9 +11903,16 @@ For non-pixelised version,
 \begin_inset Formula $\Lambda_{1}=\Lambda_{2}=\Lambda$
 \end_inset
 
+<<<<<<< HEAD
+ is digamma function (logarithmic derivation of the gamma function) and
+ so 
+\begin_inset Formula \[
+n_{jk}=\frac{1}{z_{j}}\theta_{jk}\exp(\psi_{0}(a_{k})-\log b_{k})\]
+=======
  and for Gaussian approximation of the PSF (
 \begin_inset Formula $q(x-a)\propto\exp\left(-\frac{(x-a)^{2}}{2\sigma^{2}}\right)$
 \end_inset
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
  (with 
 \begin_inset Formula $\sigma=\frac{\sqrt{2}}{2\pi}\frac{\lambda}{NA}$
@@ -11419,11 +11938,17 @@ key "Zhang2007"
 \end_inset
 
 :
+<<<<<<< HEAD
+\begin_inset Formula \begin{alignat*}{1}
+\mathcal{L}(\theta) & =\sum_{j,k}\mathbb{E}_{q_{V}(V)}\left[v_{jk}\right]\log\theta_{jk}+\mathrm{const}\\
+ & =\sum_{j,k}n_{jk}w_{j}\log\theta_{jk}+\mathrm{const}\end{alignat*}
+=======
 \begin_inset Formula 
 \begin{alignat*}{1}
 I(d\rightarrow\infty) & =\frac{\Lambda}{\sigma^{2}}\\
 \textrm{var}(d\rightarrow\infty) & =\frac{\sigma^{2}}{\Lambda}
 \end{alignat*}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11443,14 +11968,25 @@ then
 \begin_inset Formula $I_{ii}\equiv0$
 \end_inset
 
+<<<<<<< HEAD
+) 
+\begin_inset Formula \[
+0=\frac{\partial}{\partial\theta_{mn}}\left[\sum_{j,k}n_{jk}w_{j}\log\theta_{jk}+\lambda_{k}(1-\sum_{p}\theta_{pk})\right]\]
+=======
  and 
 \begin_inset Formula $I_{ij}\equiv0$
 \end_inset
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
  and so 
 \begin_inset Formula $\det(\bm{I}(\theta))\equiv0$
 \end_inset
 
+<<<<<<< HEAD
+we get 
+\begin_inset Formula \[
+\theta_{mn}=\frac{n_{mn}w_{m}}{\lambda_{n}}\]
+=======
 , and matrix is singular.
  In the limit 
 \begin_inset Formula $\Lambda_{i}\rightarrow0$
@@ -11460,6 +11996,7 @@ then
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:variance alternative"
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11487,6 +12024,11 @@ For likelihood dependent on parameter
 \begin_inset Formula $\Lambda_{t}$
 \end_inset
 
+<<<<<<< HEAD
+ then we get 
+\begin_inset Formula \begin{equation}
+\theta_{mn}=\frac{\sum_{i}n_{mn(i)}w_{m(i)}}{\lambda_{n}}\label{eq:update theta}\end{equation}
+=======
  (T different time slices)
 \end_layout
 
@@ -11495,6 +12037,7 @@ For likelihood dependent on parameter
 \[
 l_{T}(d,\Lambda)=\prod_{k=1}^{K}\prod_{t=1}^{T}p(n_{k}|d,\Lambda_{t})p(\Lambda_{t})
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11535,12 +12078,18 @@ reference "eq:Fisher Info Definition"
  the time dependence appears as
 \end_layout
 
+<<<<<<< HEAD
+\begin_inset Formula \begin{alignat*}{1}
+\mathcal{L}(\theta) & =\sum_{i,j,k}\mathbb{E}_{q_{V}(V)}\left[v_{jk(i)}\right]\log\theta_{jk}+(\gamma_{j}-1)\log\theta_{jk}+\mathrm{const}\\
+ & =(\sum_{i,j,k}n_{jk(i)}w_{j(i)}+\gamma_{j}-1)\log\theta_{jk}+\mathrm{const}\end{alignat*}
+=======
 \begin_layout Standard
 \begin_inset Formula 
 \begin{alignat*}{1}
 I_{T}(\theta) & =-\mathbb{E}_{T}\left[\sum_{t=1}^{T}\frac{\partial^{2}\mathcal{L}(d,\Lambda_{t})}{\partial d^{2}}\right]=\sum_{t=1}^{T}-\mathbb{E}_{T}\left[\frac{\partial^{2}\mathcal{L}(d,\Lambda_{t})}{\partial d^{2}}\right]=\sum_{t=1}^{T}\mathbb{E}_{T}\left[\left(\frac{\partial\mathcal{L}(d,\Lambda_{t})}{\partial d}\right)^{2}\right]\\
  & =\sum_{t=1}^{T}\int_{\Lambda_{t}}p(\Lambda_{t})I(\theta)d\Lambda_{t}=\sum_{t,k}\int_{\Lambda_{t}}p(\Lambda_{t})\frac{1}{\lambda_{k}(\Lambda_{t})}\left(\frac{\partial\lambda_{k}(\Lambda_{t})}{\partial d}\right)^{2}d\Lambda_{t}
 \end{alignat*}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11563,6 +12112,10 @@ name "sub:Appendix Time-distribution-Integrating out"
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+\begin_inset Formula \begin{equation}
+\theta_{mn}\propto\sum_{i}n_{mn(i)}w_{m(i)}+\gamma_{j}\label{eq:update theta - prior}\end{equation}
+=======
 \begin_inset Formula 
 \[
 l_{k}(d)=\int_{\Lambda}l_{k}(d,\Lambda)d\Lambda=\int_{\Lambda}p(n_{k}|d,\Lambda)p(\Lambda)d\Lambda
@@ -11591,6 +12144,7 @@ for four state model of two sources:
 \bar no
 \noun off
 \color none
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \begin_inset Formula $\lambda^{3}=+\Lambda_{1}q(x-c_{1})+\Lambda_{2}q(x-c_{2})$
 \end_inset
@@ -11616,11 +12170,20 @@ l_{k}(\theta)=\frac{1}{4}\sum_{i=1}^{4}\mathrm{Po}(\lambda_{k}^{i})
 
 \end_inset
 
+<<<<<<< HEAD
+
+\begin_inset Formula \begin{alignat*}{1}
+\mathcal{L}(\theta) & =\mathbb{E}_{l,V\sim q(l,V)}\left[\sum_{k}(c_{k}+\alpha_{k}-1)\log l_{k}-(\beta_{k}+1)l_{k}+\log\frac{\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})}+\sum_{j}\left[v_{jk}\log\theta_{jk}-\log v_{jk}!\right]\right]+C\\
+ & =\sum_{k}\mathbb{E}_{l}\left[\log l_{k}\right](\sum_{j}\mathbb{E}_{V}\left[v_{jk}\right]+\alpha_{k}-1)-(\beta_{k}+1)l_{k}+\log\frac{\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})}\\
+ & +\sum_{j}\left[\mathbb{E}_{V}\left[v_{jk}\right]\left(\log n_{jk}+\log z_{j}-\mathbb{E}_{l}\left[\log l_{k}\right]-\mathbb{E}_{V}\left[\log v_{jk}!\right]\right)\right]+C\\
+ & =\sum_{k}\mathbb{E}_{l}\left[\log l_{k}\right](\alpha_{k}-1)-(\beta_{k}+1)l_{k}+\log\frac{\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})}+\sum_{j}\left[\mathbb{E}_{V}\left[v_{jk}\right]\left(\log n_{jk}+\log z_{j}-\log v_{jk}!\right)\right]+C\end{alignat*}
+=======
 derivatives 
 \begin_inset Formula 
 \[
 \frac{\partial l_{k}}{\partial c_{p}}=\frac{1}{4}\sum_{i}\frac{\partial\mathrm{Po}(\lambda_{k}^{i})}{\partial c_{p}}=\frac{1}{4}\sum_{i}\left(\mathrm{Po}(\lambda_{k}^{i})\frac{(n_{k}-\lambda_{k}^{i})}{\lambda_{k}^{i}}\frac{\partial\lambda_{k}^{i}}{\partial c_{p}}\right)
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11656,6 +12219,18 @@ reference "eq:Fisher Info Integrated Out - diagonal entries"
 \end_inset
 
 :
+<<<<<<< HEAD
+\begin_inset Formula \begin{alignat*}{1}
+H(q_{l}) & =-\sum_{k}\left\{ (a_{k}-1)\mathbb{E}_{l}\left[\log l_{k}\right]-b_{k}\mathbb{E}_{l}\left[l_{k}\right]-\log\frac{b_{k}^{a_{k}}}{\Gamma(a_{k})}\right\} \\
+H(q_{V}) & =-\sum_{jk}\left\{ -\mathbb{E}_{V}\left[\log v_{jk}!\right]+\mathbb{E}_{V}\left[v_{jk}\right]\log n_{jk}+\log w_{j}!\right\} \end{alignat*}
+
+\end_inset
+
+Including these terms we get 
+\begin_inset Formula \begin{equation}
+\mathcal{L}=\sum_{k}\mathbb{E}_{l}\left[\log l_{k}\right](\alpha_{k}-a_{k})+\sum_{j}w_{j}\log z_{j}+\sum_{k}\log\frac{\Gamma(a_{k})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k}^{a_{k}}}-\log\prod_{j}w_{j}!\label{eq:lower bound final}\end{equation}
+
+=======
 \begin_inset Formula 
 \begin{alignat*}{1}
 I_{pp}(\theta) & =\sum_{k=1}^{N}\mathbb{E}_{k}\left[\left\{ \frac{\sum_{i=1}^{4}\left(\mathrm{Po}(n_{k};\lambda_{k}^{i})\frac{(n_{k}-\lambda_{k}^{i})}{\lambda_{k}^{i}}\frac{\partial\lambda_{k}^{i}}{\partial c_{p}}\right)}{\sum_{j=1}^{4}\textrm{Po}(n_{k};\lambda_{k}^{j})}\right\} ^{2}\right]\\
@@ -11666,6 +12241,7 @@ I_{pp}(\theta) & =\sum_{k=1}^{N}\mathbb{E}_{k}\left[\left\{ \frac{\sum_{i=1}^{4}
 
 For the four states model we have 
 \begin_inset Formula $\lambda^{3}(c_{1},c_{2})=\lambda^{1}(c_{1})+\lambda^{2}(c_{2})$
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 \end_inset
 
  and so 
@@ -11826,6 +12402,14 @@ For large
 \end_inset
 
 
+<<<<<<< HEAD
+\end_layout
+
+\begin_layout Standard
+In my notation:
+\begin_inset Formula \[
+\mathbb{E}_{v\sim p(v|w,h)}\left[v_{j}\right]=\sum_{k=1}^{K}w_{jk}h_{k}\]
+=======
 \family default
 \series default
 \shape default
@@ -11842,6 +12426,7 @@ For large
 \begin{equation}
 I_{pp}\approx\frac{1}{2}\sum_{k=1}^{N}\frac{1}{\lambda_{k}^{p}}\left(\frac{\partial\textrm{\lambda}_{k}^{p}}{\partial c_{p}}\right)^{2}\label{eq: int out - approximation d to infty}
 \end{equation}
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
@@ -11884,6 +12469,29 @@ I_{pp}=\frac{1}{2}\sum_{k=1}^{N}\frac{1}{\lambda_{k}^{p}}\left(\frac{\partial\te
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+Rewrite rules:
+\begin_inset Formula \begin{alignat*}{1}
+n_{jk(i)} & =\frac{1}{z_{j}}w_{jk}\exp(\psi_{0}(a_{k(i)})-\log b_{k(i)})\\
+a_{k(i)} & =\sum_{j}n_{jk(i)}v_{j(i)}+\alpha_{k}\\
+b_{k(i)} & =1+\beta_{k}\end{alignat*}
+
+\end_inset
+
+and 
+\begin_inset Formula \[
+w_{jk}=\frac{\sum_{i}n_{jk(i)}v_{j(i)}}{\lambda_{j}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The lower bound on the log-likelihood:
+\begin_inset Formula \[
+\mathcal{L}_{(i)}=\sum_{k}\left(\psi_{0}(a_{k(i)})-\log b_{k(i)}\right)\left(\alpha_{k}-a_{k(i)}\right)+\sum_{j}v_{j(i)}\log z_{j(i)}+\sum_{k}\log\frac{\Gamma(a_{k(i)})\beta_{k}^{\alpha_{k}}}{\Gamma(\alpha_{k})b_{k(i)}^{a_{k(i)}}}-\log\prod_{j}v_{j(i)}!\]
+=======
 The off-diagonal entries: 
 \begin_inset Formula 
 \[
@@ -11897,6 +12505,7 @@ as
 \[
 \frac{\partial\text{Po}(\lambda^{p})}{\partial c_{p}}\frac{\partial\text{Po}(\lambda^{q})}{\partial c_{q}}=0
 \]
+>>>>>>> 2e83b208dfa5db10865f171a4cebee8d43613352
 
 \end_inset
 
