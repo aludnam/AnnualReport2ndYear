@@ -3560,7 +3560,7 @@ One component was added as a homogeneous, static background:
 \end_inset
 
 , 
-\begin_inset Formula $h_{(K+1)t}=b$
+\begin_inset Formula $h_{(K+1)t}=Nb$
 \end_inset
 
 , where the background value 

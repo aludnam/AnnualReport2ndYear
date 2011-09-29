@@ -5785,7 +5785,7 @@ where
 \begin_inset Formula $\lambda_{p}$
 \end_inset
 
- is the mean value of the 
+ is the value of the 
 \begin_inset Formula $p$
 \end_inset
 
@@ -5800,7 +5800,16 @@ th pixel:
 
 \end_inset
 
-The log-likelihood function for 
+wehere 
+\begin_inset Formula $C_{p}$
+\end_inset
+
+ is the area of the 
+\begin_inset Formula $p$
+\end_inset
+
+th pixel.
+ The log-likelihood function for 
 \begin_inset Formula $N$
 \end_inset
 
